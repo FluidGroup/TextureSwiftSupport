@@ -35,44 +35,46 @@ class ViewController: UIViewController {
 
 }
 
+func makeTextNode(_ string: String) -> ASTextNode {
+  let node = ASTextNode()
+  node.attributedText = NSAttributedString(string: "hello")
+  return node
+}
+
 final class MyNode : ASDisplayNode {
   
-  private let textNode1 = ASTextNode()
-  private let textNode2 = ASTextNode()
-  private let textNode3 = ASTextNode()
+  private let textNode1 = makeTextNode("Hello")
+  private let textNode2 = makeTextNode("Hello")
+  private let textNode3 = makeTextNode("Hello")
+  private let textNode4 = makeTextNode("Hello")
+  private let textNode5 = makeTextNode("Hello")
+  private let textNode6 = makeTextNode("Hello")
+  private let textNode7 = makeTextNode("Hello")
   
   override init() {
     super.init()
-    
-    textNode1.attributedText = NSAttributedString(string: "hello")
-    textNode2.attributedText = NSAttributedString(string: "hello")
-    textNode3.attributedText = NSAttributedString(string: "hello")
     
     automaticallyManagesSubnodes = true
   }
 
   override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
     
-    ASStackLayoutSpec(
-      direction: .vertical,
-      spacing: 0,
-      justifyContent: .start,
-      alignItems: .start,
-      children: [
-        textNode1,
-        textNode2,
-        textNode3,
-      ]
-    )
-          
-//    AS.LayoutSpec {
-//      AS.VStack {
-//        textNode1
-//        textNode2
-//        textNode3
-//      }
-//    }
-    
+    AS.LayoutSpec {
+      AS.VStack {
+        AS.HStack {
+          AS.Inset(insets: .init(top: 4, left: 4, bottom: 4, right: 4)) {
+            textNode1
+          }
+          textNode2
+        }
+        textNode3
+        AS.HStack {
+          textNode4
+          textNode5
+          textNode6
+        }
+      }
+    }    
   }
   
 }
