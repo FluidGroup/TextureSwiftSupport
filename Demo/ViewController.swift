@@ -53,13 +53,25 @@ final class MyNode : ASDisplayNode {
 
   override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
     
-    AS.LayoutSpec {
-      AS.VStack {
-        textNode1
-        textNode2
-        textNode3
-      }
-    }
+    ASStackLayoutSpec(
+      direction: .vertical,
+      spacing: 0,
+      justifyContent: .start,
+      alignItems: .start,
+      children: [
+        textNode1,
+        textNode2,
+        textNode3,
+      ]
+    )
+          
+//    AS.LayoutSpec {
+//      AS.VStack {
+//        textNode1
+//        textNode2
+//        textNode3
+//      }
+//    }
     
   }
   
