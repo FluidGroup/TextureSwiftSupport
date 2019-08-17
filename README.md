@@ -1,7 +1,7 @@
 # TextureSwiftSupport
 
 TextureSwiftSupport is a support library for [Texture](http://texturegroup.org/)<br>
-It helps writing the code iin Texture with Swift's power.
+It helps writing the code in Texture with Swift's power.
 
 ## Requirements
 
