@@ -35,8 +35,8 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 
 ```swift
 override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-    AS.LayoutSpec {
-        AS.VStack {
+    LayoutSpec {
+        VStackLayout {
             textNode1
             textNode2
             textNode3
@@ -49,18 +49,18 @@ More example
 
 ```swift
 override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-    AS.LayoutSpec {
-        AS.VStack {
-            AS.HStack {
-                AS.Inset {
+    LayoutSpec {
+        VStackLayout {
+            HStackLayout {
+                InsetLayout {
                     node1
                 }
-                AS.Inset {
+                InsetLayout {
                     node2
                 }
             }
             node3
-            AS.HStack {
+            HStackLayout {
                 node4,
                 node5,
                 node6,

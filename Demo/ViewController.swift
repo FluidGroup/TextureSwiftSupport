@@ -59,16 +59,16 @@ final class MyNode : ASDisplayNode {
 
   override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
     
-    AS.LayoutSpec {
-      AS.VStack {
-        AS.HStack {
-          AS.Inset(insets: .init(top: 4, left: 4, bottom: 4, right: 4)) {
+    LayoutSpec {
+      VStackLayout {
+        HStackLayout {
+          InsetLayout(insets: .init(top: 4, left: 4, bottom: 4, right: 4)) {
             textNode1
           }
           textNode2
         }
         textNode3
-        AS.HStack {
+        HStackLayout {
           textNode4
           textNode5
           textNode6

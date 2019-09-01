@@ -17,22 +17,22 @@ enum _CompileCheck {
   func foo() {
     
     do {
-      let layout = AS.HStack {
+      let layout = HStackLayout {
         ASTextNode()
       }
     }
     
     do {
-      let layout = AS.HStack {
+      let layout = HStackLayout {
         ASTextNode()
         ASTextNode()
       }
     }
     
     do {
-      let layout = AS.HStack {
-        AS.Inset(insets: .zero) {
-          AS.HStack {
+      let layout = HStackLayout {
+        InsetLayout(insets: .zero) {
+          HStackLayout {
             ASTextNode()
             ASTextNode()
           }
@@ -41,7 +41,7 @@ enum _CompileCheck {
     }
     
     do {
-      let layout = AS.HStack {
+      let layout = HStackLayout {
         if true {
           ASTextNode()
         } else {
@@ -51,11 +51,11 @@ enum _CompileCheck {
     }
     
     do {
-      let layout = AS.HStack {
+      let layout = HStackLayout {
         ASTextNode()
         ASTextNode()
         ASButtonNode()
-        AS.VStack {
+        VStackLayout {
           ASTextNode()
         }
         if true {
