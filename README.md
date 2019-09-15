@@ -79,6 +79,8 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 * OverlayLayout
 * BackgroundLayout
 * AspectRatioLayout
+* VSpacerLayout
+* HSpacerLayout
 
 ## Author
 

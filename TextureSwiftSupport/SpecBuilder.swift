@@ -38,6 +38,12 @@ extension ASDisplayNode : _ASLayoutElementType {
   }
 }
 
+extension ASLayoutSpec : _ASLayoutElementType {
+  public func make() -> [ASLayoutElement] {
+    [self]
+  }
+}
+
 public struct ConditionalLayout<TrueContent, FalseContent> : _ASLayoutElementType where TrueContent : _ASLayoutElementType, FalseContent : _ASLayoutElementType {
   
   let content: [ASLayoutElement]
@@ -241,4 +247,44 @@ public struct AspectRatioLayout<Content> : _ASLayoutElementType where Content : 
     ]
   }
   
+}
+
+public struct HSpacerLayout : _ASLayoutElementType {
+  
+  public let minLength: CGFloat
+    
+  public init(minLength: CGFloat = 0) {
+    self.minLength = minLength
+  }
+    
+  public func make() -> [ASLayoutElement] {
+    [
+      {
+        let spec = ASLayoutSpec()
+        spec.style.flexGrow = 1
+        spec.style.minWidth = .init(unit: .points, value: minLength)
+        return spec
+      }()
+    ]
+  }
+}
+
+public struct VSpacerLayout : _ASLayoutElementType {
+  
+  public let minLength: CGFloat
+  
+  public init(minLength: CGFloat = 0) {
+    self.minLength = minLength
+  }
+  
+  public func make() -> [ASLayoutElement] {
+    [
+      {
+        let spec = ASLayoutSpec()
+        spec.style.flexGrow = 1
+        spec.style.minHeight = .init(unit: .points, value: minLength)
+        return spec
+      }()
+    ]
+  }
 }

@@ -78,6 +78,9 @@ final class MyNode : ASDisplayNode {
           textNode2
         }
         textNode3
+        
+        ASLayoutSpec()
+        
         HStackLayout {
           textNode4
           textNode5
