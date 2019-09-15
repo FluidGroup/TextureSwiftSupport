@@ -151,6 +151,24 @@ public struct HStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
   
 }
 
+public struct ZStackLayout<Content> : _ASLayoutElementType where Content : _ASLayoutElementType {
+  
+  public let childlen: Content
+  
+  public init(
+    @ASLayoutSpecBuilder content: () -> Content
+  ) {
+    self.childlen = content()
+  }
+  
+  public func make() -> [ASLayoutElement] {
+    [
+      ASWrapperLayoutSpec(layoutElements: childlen.make())
+    ]
+  }
+}
+
+
 public struct InsetLayout<Content> : _ASLayoutElementType where Content : _ASLayoutElementType {
   
   public let content: Content
@@ -202,3 +220,25 @@ public struct BackgroundLayout<BackgroundContnt, Content> : _ASLayoutElementType
   
 }
 
+public struct AspectRatioLayout<Content> : _ASLayoutElementType where Content : _ASLayoutElementType {
+  
+  public let content: Content
+  public let ratio: CGFloat
+  
+  public init(ratio: CGFloat, content: () -> Content) {
+    self.ratio = ratio
+    self.content = content()
+  }
+  
+  public init(ratio: CGSize, content: () -> Content) {
+    self.ratio = ratio.height / ratio.width
+    self.content = content()
+  }
+  
+  public func make() -> [ASLayoutElement] {
+    [
+      ASRatioLayoutSpec(ratio: ratio, child: content.make().first!)
+    ]
+  }
+  
+}

@@ -35,6 +35,12 @@ class ViewController: UIViewController {
 
 }
 
+func makeBoxNode(_ color: UIColor) -> ASDisplayNode {
+  let node = ASDisplayNode()
+  node.backgroundColor = color
+  return node
+}
+
 func makeTextNode(_ string: String) -> ASTextNode {
   let node = ASTextNode()
   node.attributedText = NSAttributedString(string: "hello")
@@ -43,6 +49,7 @@ func makeTextNode(_ string: String) -> ASTextNode {
 
 final class MyNode : ASDisplayNode {
   
+  private let boxNode = makeBoxNode(.lightGray)
   private let textNode1 = makeTextNode("Hello")
   private let textNode2 = makeTextNode("Hello")
   private let textNode3 = makeTextNode("Hello")
@@ -61,6 +68,9 @@ final class MyNode : ASDisplayNode {
     
     LayoutSpec {
       VStackLayout {
+        AspectRatioLayout(ratio: CGSize(width: 3, height: 4)) {
+          boxNode
+        }
         HStackLayout {
           InsetLayout(insets: .init(top: 4, left: 4, bottom: 4, right: 4)) {
             textNode1
