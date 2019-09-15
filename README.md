@@ -12,6 +12,13 @@ Swiift 5.1+
 Swift5.1 has FunctionBuilder(it's not officially)<br>
 With this, we can write layout spec with no more commas. (It's like SwiftUI)
 
+## About Function builders
+
+[`Function builders`](https://github.com/apple/swift-evolution/blob/9992cf3c11c2d5e0ea20bee98657d93902d5b174/proposals/XXXX-function-builders.md) is a feature in Swift Language.<br>
+For example, SwiftUI uses it.
+
+[Implementation example](https://github.com/apple/swift/blob/23f707227608d885f1f4172458abca7f63e3b2c2/test/Constraints/function_builder_diags.swift)
+
 ### Plain
 
 ```swift
