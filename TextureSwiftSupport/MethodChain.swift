@@ -27,20 +27,20 @@ public enum Edge: Int8, CaseIterable {
       self.rawValue = rawValue
     }
     
-    static let top: Set = .init(rawValue: 1 << 1)
-    static let left: Set = .init(rawValue: 1 << 2)
-    static let bottom: Set = .init(rawValue: 1 << 3)
-    static let right: Set = .init(rawValue: 1 << 4)
+    public static let top: Set = .init(rawValue: 1 << 1)
+    public static let left: Set = .init(rawValue: 1 << 2)
+    public static let bottom: Set = .init(rawValue: 1 << 3)
+    public static let right: Set = .init(rawValue: 1 << 4)
 
-    static var horizontal: Set {
+    public static var horizontal: Set {
       [.left, .right]
     }
     
-    static var vertical: Set {
+    public static var vertical: Set {
       [.top, .bottom]
     }
     
-    static var all: Set {
+    public static var all: Set {
       [.top, .bottom, .right, left]
     }
     

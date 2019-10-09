@@ -58,10 +58,15 @@ final class MyNode : ASDisplayNode {
   private let textNode6 = makeTextNode("Hello")
   private let textNode7 = makeTextNode("Hello")
   
+  private let textNode8 = makeTextNode("Hello!")
+  private let backgroundNode = ASDisplayNode()
+  
   override init() {
     super.init()
     
     automaticallyManagesSubnodes = true
+    
+    backgroundNode.backgroundColor = .orange
   }
 
   override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -86,6 +91,11 @@ final class MyNode : ASDisplayNode {
           textNode5
           textNode6
         }
+        
+        textNode8
+          .padding([.vertical], padding: 4)
+          .background(backgroundNode)
+        
       }
     }    
   }
