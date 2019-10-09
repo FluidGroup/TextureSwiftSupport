@@ -17,6 +17,7 @@
 		4B873C4C230845E3006170B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B873C49230845E3006170B1 /* ViewController.swift */; };
 		4B873C4D23084621006170B1 /* TextureSwiftSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B873C2223083FE5006170B1 /* TextureSwiftSupport.framework */; };
 		4B873C4E23084621006170B1 /* TextureSwiftSupport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B873C2223083FE5006170B1 /* TextureSwiftSupport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B8A3026234DF6AD00082092 /* MethodChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8A3025234DF6AD00082092 /* MethodChain.swift */; };
 		99A18E1BF9C46EC619085416 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEDB4E127B7A4C426A1B216 /* Pods_Demo.framework */; };
 		F3E933F1BC6075B11F4E033B /* Pods_TextureSwiftSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4403C6E378DD73AD896F3CF1 /* Pods_TextureSwiftSupport.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		4B873C47230845E3006170B1 /* CompileCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompileCheck.swift; sourceTree = "<group>"; };
 		4B873C48230845E3006170B1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B873C49230845E3006170B1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4B8A3025234DF6AD00082092 /* MethodChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodChain.swift; sourceTree = "<group>"; };
 		5DEDB4E127B7A4C426A1B216 /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8727E50E77B25BA7D77A0D27 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		E3C240A10D90D0F926A2A7EF /* Pods-TextureSwiftSupport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureSwiftSupport.release.xcconfig"; path = "Target Support Files/Pods-TextureSwiftSupport/Pods-TextureSwiftSupport.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				4B873C2D23083FF4006170B1 /* SpecBuilder.swift */,
+				4B8A3025234DF6AD00082092 /* MethodChain.swift */,
 				4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */,
 				4B873C2623083FE5006170B1 /* Info.plist */,
 			);
@@ -334,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B8A3026234DF6AD00082092 /* MethodChain.swift in Sources */,
 				4B873C2E23083FF4006170B1 /* SpecBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

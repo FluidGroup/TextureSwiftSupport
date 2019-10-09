@@ -213,9 +213,9 @@ public struct BackgroundLayout<BackgroundContnt, Content> : _ASLayoutElementType
   public let content: Content
   public let background: BackgroundContnt
   
-  public init(content: () -> Content, overlay: () -> BackgroundContnt) {
+  public init(content: () -> Content, background: () -> BackgroundContnt) {
     self.content = content()
-    self.background = overlay()
+    self.background = background()
   }
   
   public func make() -> [ASLayoutElement] {
