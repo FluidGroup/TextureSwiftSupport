@@ -12,6 +12,20 @@ Swiift 5.1+
 Swift5.1 has FunctionBuilder(it's not officially)<br>
 With this, we can write layout spec with no more commas. (It's like SwiftUI)
 
+## SwiftUI-like Method Chain API
+
+Inspiring from SwiftUI.
+
+We can build a node hierarchy with the method chain.
+
+For now, we have only a few methods. (e.g Padding, Overlay, Background)
+
+```swift
+textNode
+  .padding([.vertical], padding: 4)
+  .background(backgroundNode)
+```
+
 ## About Function builders
 
 [`Function builders`](https://github.com/apple/swift-evolution/blob/9992cf3c11c2d5e0ea20bee98657d93902d5b174/proposals/XXXX-function-builders.md) is a feature in Swift Language.<br>
@@ -79,15 +93,15 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 
 ## Layout Specs
 
-* VStackLayout
-* HStackLayout
-* ZStackLayout
-* InsetLayout
-* OverlayLayout
-* BackgroundLayout
-* AspectRatioLayout
-* VSpacerLayout
-* HSpacerLayout
+- VStackLayout
+- HStackLayout
+- ZStackLayout
+- InsetLayout
+- OverlayLayout
+- BackgroundLayout
+- AspectRatioLayout
+- VSpacerLayout
+- HSpacerLayout
 
 ## Author
 
