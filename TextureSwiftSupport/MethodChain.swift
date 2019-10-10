@@ -64,7 +64,7 @@ extension _ASLayoutElementType {
     }
   }
   
-  public func padding(_ edges: Edge.Set, padding: CGFloat) -> InsetLayout<Self> {
+  public func padding(_ edges: Edge.Set, _ padding: CGFloat) -> InsetLayout<Self> {
     
     var insets = UIEdgeInsets.zero
     
