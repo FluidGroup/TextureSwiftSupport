@@ -93,7 +93,7 @@ final class MyNode : ASDisplayNode {
         }
         
         textNode8
-          .padding([.vertical], padding: 4)
+          .padding([.vertical], 4)
           .background(backgroundNode)
         
       }
