@@ -61,6 +61,7 @@ final class MyNode : ASDisplayNode {
   private let textNode8 = makeTextNode("Hello!")
   private let backgroundNode = ASDisplayNode()
   
+  private let textNodes = [makeTextNode("Hello!"), makeTextNode("Hello")]
   override init() {
     super.init()
     
@@ -95,6 +96,8 @@ final class MyNode : ASDisplayNode {
         textNode8
           .padding([.vertical], 4)
           .background(backgroundNode)
+        
+        textNodes
         
       }
     }    

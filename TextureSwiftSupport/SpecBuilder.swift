@@ -288,3 +288,14 @@ public struct VSpacerLayout : _ASLayoutElementType {
     ]
   }
 }
+
+
+extension Array: _ASLayoutElementType where Element: _ASLayoutElementType {
+  
+  public func make() -> [ASLayoutElement] {
+    self.flatMap {
+      $0.make()
+    }
+  }
+  
+}
