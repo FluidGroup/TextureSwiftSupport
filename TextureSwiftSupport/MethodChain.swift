@@ -118,6 +118,20 @@ public struct FlexShrinkModifier: ModifierType {
   }
 }
 
+public struct PreferredSizeModifier: ModifierType {
+  
+  public var preferredSize: CGSize
+      
+  public init(preferredSize: CGSize) {
+    self.preferredSize = preferredSize
+  }
+  
+  public func modify(element: ASLayoutElement) -> ASLayoutElement {
+    element.style.preferredSize = preferredSize
+    return element
+  }
+}
+
 extension _ASLayoutElementType {
   
   public func modify(_ modify: @escaping (ASLayoutElement) -> Void) -> ModifiedContent<Self, Modifier> {
@@ -137,4 +151,8 @@ extension _ASLayoutElementType {
     modifier(FlexShrinkModifier())
   }
   
+  public func preferredSize(_ preferredSize: CGSize) -> ModifiedContent<Self, PreferredSizeModifier> {
+    modifier(PreferredSizeModifier(preferredSize: preferredSize))
+  }
+    
 }
