@@ -84,6 +84,9 @@ final class MyNode : ASDisplayNode {
           textNode2
         }
         textNode3
+          .styling { (s) in
+            s.alignSelf = .end
+        }
         
         ASLayoutSpec()
         

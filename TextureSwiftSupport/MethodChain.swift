@@ -6,8 +6,8 @@
 //  Copyright © 2019 muukii. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import AsyncDisplayKit
 
 public enum Edge: Int8, CaseIterable {
   
@@ -101,4 +101,16 @@ extension _ASLayoutElementType {
   public func overlay<Overlay: _ASLayoutElementType>(_ overlayContent: Overlay) -> OverlayLayout<Overlay, Self> {
     OverlayLayout(content: { self }, overlay: { overlayContent })
   }
+}
+
+// MARK: - Styled
+
+extension _ASLayoutElementType {
+  
+  public func styling(_ styling: @escaping (ASLayoutElementStyle) -> Void) -> StyledLayout<Self> {
+    StyledLayout(styling: styling) {
+      self
+    }
+  }
+  
 }

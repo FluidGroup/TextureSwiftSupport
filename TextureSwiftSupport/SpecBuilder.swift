@@ -289,6 +289,26 @@ public struct VSpacerLayout : _ASLayoutElementType {
   }
 }
 
+public struct StyledLayout<Content>: _ASLayoutElementType where Content : _ASLayoutElementType {
+  
+  let styling: (ASLayoutElementStyle) -> Void
+  let content: Content
+  
+  public init(styling: @escaping (ASLayoutElementStyle) -> Void, content: () -> Content) {
+    self.styling = styling
+    self.content = content()
+  }
+  
+  public func make() -> [ASLayoutElement] {
+    let elems = content.make()
+    elems.forEach { (elem) in
+      styling(elem.style)
+    }
+    return elems
+  }
+  
+}
+
 
 extension Array: _ASLayoutElementType where Element: _ASLayoutElementType {
   
