@@ -15,7 +15,7 @@ public protocol _ASLayoutElementType {
     content
   }
   
-  public static func buildBlock(_ content: _ASLayoutElementType...) -> MultiLayout {
+  public static func buildBlock(_ content: _ASLayoutElementType?...) -> MultiLayout {
     MultiLayout(content)
   }
   
