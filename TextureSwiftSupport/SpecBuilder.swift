@@ -217,6 +217,23 @@ public struct ZStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
   }
 }
 
+public struct WrapperLayout<Content> : _ASLayoutElementType where Content : _ASLayoutElementType {
+  
+  public let child: Content
+  
+  public init(
+    content: () -> Content
+  ) {
+    self.child = content()
+  }
+  
+  public func make() -> [ASLayoutElement] {
+    [
+      ASWrapperLayoutSpec(layoutElements: child.make())
+    ]
+  }
+}
+
 
 public struct InsetLayout<Content> : _ASLayoutElementType where Content : _ASLayoutElementType {
   
