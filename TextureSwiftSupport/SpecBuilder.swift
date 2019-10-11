@@ -62,6 +62,10 @@ public struct Modifier: ModifierType {
     MultiLayout(content)
   }
   
+  public static func buildBlock(_ content: _ASLayoutElementType?...) -> MultiLayout {
+    MultiLayout(content.compactMap { $0 })
+  }
+  
   public static func buildIf<Content>(_ content: Content?) -> Content? where Content : _ASLayoutElementType  {
     content
   }

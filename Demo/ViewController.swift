@@ -60,6 +60,7 @@ final class MyNode : ASDisplayNode {
   
   private let textNode8 = makeTextNode("Hello!")
   private let backgroundNode = ASDisplayNode()
+  private var optionalNode: ASDisplayNode?
   
   override init() {
     super.init()
@@ -73,6 +74,7 @@ final class MyNode : ASDisplayNode {
     
     LayoutSpec {
       VStackLayout {
+        optionalNode
         AspectRatioLayout(ratio: CGSize(width: 3, height: 4)) {
           boxNode
         }
