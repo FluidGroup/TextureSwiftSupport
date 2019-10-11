@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AsyncDisplayKit
 
 public enum Edge: Int8, CaseIterable {
   
@@ -101,4 +102,39 @@ extension _ASLayoutElementType {
   public func overlay<Overlay: _ASLayoutElementType>(_ overlayContent: Overlay) -> OverlayLayout<Overlay, Self> {
     OverlayLayout(content: { self }, overlay: { overlayContent })
   }
+}
+
+public struct FlexGlowModifier: ModifierType {
+  public func modify(element: ASLayoutElement) -> ASLayoutElement {
+    element.style.flexGrow = 1
+    return element
+  }
+}
+
+public struct FlexShrinkModifier: ModifierType {
+  public func modify(element: ASLayoutElement) -> ASLayoutElement {
+    element.style.flexShrink = 1
+    return element
+  }
+}
+
+extension _ASLayoutElementType {
+  
+  public func modify(_ modify: @escaping (ASLayoutElement) -> Void) -> ModifiedContent<Self, Modifier> {
+    modifier(
+      .init { element in
+        modify(element)
+        return element
+      }
+    )
+  }
+  
+  public func flexGrow(_ flexGlow: CGFloat) -> ModifiedContent<Self, FlexGlowModifier> {
+    modifier(FlexGlowModifier())
+  }
+  
+  public func flexShrink(_ flexGlow: CGFloat) -> ModifiedContent<Self, FlexShrinkModifier> {
+    modifier(FlexShrinkModifier())
+  }
+  
 }

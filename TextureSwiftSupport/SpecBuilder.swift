@@ -5,6 +5,49 @@ public protocol _ASLayoutElementType {
   func make() -> [ASLayoutElement]
 }
 
+extension _ASLayoutElementType {
+  public func modifier<Modifier: ModifierType>(_ modifier: Modifier) -> ModifiedContent<Self, Modifier> {
+    ModifiedContent(content: self, modifier: modifier)
+  }
+}
+
+public struct ModifiedContent<Content: _ASLayoutElementType, Modifier: ModifierType>: _ASLayoutElementType {
+  
+  let content: Content
+  let modifier: Modifier
+  
+  init(content: Content, modifier: Modifier) {
+    self.content = content
+    self.modifier = modifier
+  }
+  
+  public func make() -> [ASLayoutElement] {
+    
+    content.make().map {
+      modifier.modify(element: $0)
+    }
+        
+  }
+    
+}
+
+public protocol ModifierType {
+  func modify(element: ASLayoutElement) -> ASLayoutElement
+}
+
+public struct Modifier: ModifierType {
+    
+  private let _modify: (ASLayoutElement) -> ASLayoutElement
+  
+  public init(_ modify: @escaping (ASLayoutElement) -> ASLayoutElement) {
+    self._modify = modify
+  }
+  
+  public func modify(element: ASLayoutElement) -> ASLayoutElement {
+    _modify(element)
+  }
+}
+
 @_functionBuilder public struct ASLayoutSpecBuilder {
   
   public static func buildBlock() -> EmptyLayout {

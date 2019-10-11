@@ -95,6 +95,7 @@ final class MyNode : ASDisplayNode {
         textNode8
           .padding([.vertical], 4)
           .background(backgroundNode)
+          .flexGrow(1)
         
       }
     }    
