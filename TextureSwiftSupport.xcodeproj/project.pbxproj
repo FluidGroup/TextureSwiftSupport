@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B5CEFC8235264CA00607980 /* TextureSwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5CEFC7235264CA00607980 /* TextureSwiftSupport.swift */; };
 		4B873C2723083FE5006170B1 /* TextureSwiftSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B873C2E23083FF4006170B1 /* SpecBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B873C2D23083FF4006170B1 /* SpecBuilder.swift */; };
 		4B873C3D23084045006170B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B873C3B23084045006170B1 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		4403C6E378DD73AD896F3CF1 /* Pods_TextureSwiftSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextureSwiftSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		473CCC32D6395F69538CB001 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		4B3ED5FA232E1CE600D68739 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4B5CEFC7235264CA00607980 /* TextureSwiftSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureSwiftSupport.swift; sourceTree = "<group>"; };
 		4B873C2223083FE5006170B1 /* TextureSwiftSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TextureSwiftSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureSwiftSupport.h; sourceTree = "<group>"; };
 		4B873C2623083FE5006170B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		4B873C2423083FE5006170B1 /* TextureSwiftSupport */ = {
 			isa = PBXGroup;
 			children = (
+				4B5CEFC7235264CA00607980 /* TextureSwiftSupport.swift */,
 				4B873C2D23083FF4006170B1 /* SpecBuilder.swift */,
 				4B8A3025234DF6AD00082092 /* MethodChain.swift */,
 				4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */,
@@ -338,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B8A3026234DF6AD00082092 /* MethodChain.swift in Sources */,
+				4B5CEFC8235264CA00607980 /* TextureSwiftSupport.swift in Sources */,
 				4B873C2E23083FF4006170B1 /* SpecBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
