@@ -7,12 +7,26 @@ It helps writing the code in Texture with Swift's power.
 
 Swiift 5.1+
 
-## LayoutSpecBuilder (Using \_functionBuidler)
+## Features
+
+### LayoutSpecBuilder (Using \_functionBuidler)
 
 Swift5.1 has FunctionBuilder(it's not officially)<br>
 With this, we can write layout spec with no more commas. (It's like SwiftUI)
 
-## SwiftUI-like Method Chain API
+```swift
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+  LayoutSpec {
+    VStackLayout {
+      textNode1
+      textNode2
+      textNode3
+    }
+  }
+}
+```
+
+### SwiftUI-like Method Chain API
 
 Inspiring from SwiftUI.
 
@@ -24,6 +38,28 @@ For now, we have only a few methods. (e.g Padding, Overlay, Background)
 textNode
   .padding([.vertical], padding: 4)
   .background(backgroundNode)
+```
+
+### PropertyWrapper that calls setNeedsLayout() automatically when wrappedValue changed. (⚠️ Experimental Feature)
+
+- `@_NodeLayout`
+
+If we set any node to bodyNode, MyNode will relayout automatically.
+
+```swift
+final class MyNode: ASDisplayNode {
+
+  @_NodeLayout bodyNode: ASDisplayNode?
+
+  override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+    LayoutSpec {
+      VStackLayout {
+        bodyNode
+        ...
+      }
+    }
+  }
+}
 ```
 
 ## About Function builders
