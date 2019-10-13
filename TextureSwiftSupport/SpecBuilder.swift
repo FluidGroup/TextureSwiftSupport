@@ -11,6 +11,16 @@ extension _ASLayoutElementType {
   }
 }
 
+extension Array: _ASLayoutElementType where Element: _ASLayoutElementType {
+  
+  public func make() -> [ASLayoutElement] {
+    self.flatMap {
+      $0.make()
+    }
+  }
+  
+}
+
 public struct ModifiedContent<Content: _ASLayoutElementType, Modifier: ModifierType>: _ASLayoutElementType {
   
   let content: Content
@@ -58,6 +68,11 @@ public struct Modifier: ModifierType {
     content
   }
   
+  public static func buildBlock<Content>(_ content: Content?) -> _ASLayoutElementType where Content : _ASLayoutElementType {
+    guard let content = content else { return EmptyLayout() }
+    return content
+  }
+  
   public static func buildBlock(_ content: _ASLayoutElementType...) -> MultiLayout {
     MultiLayout(content)
   }
@@ -66,6 +81,14 @@ public struct Modifier: ModifierType {
     MultiLayout(content.compactMap { $0 })
   }
   
+  public static func buildBlock<C: Collection>(_ contents: C) -> MultiLayout where C.Element : _ASLayoutElementType {
+    MultiLayout(Array(contents))
+  }
+  
+  public static func buildIf<Content>(_ content: Content) -> Content where Content : _ASLayoutElementType  {
+    content
+  }
+    
   public static func buildIf<Content>(_ content: Content?) -> Content? where Content : _ASLayoutElementType  {
     content
   }

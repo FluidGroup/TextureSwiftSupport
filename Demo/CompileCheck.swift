@@ -67,11 +67,13 @@ enum _CompileCheck {
     }
     
     do {
-      //      let layout = ASHStack {
-      //        if true {
-      //          ASTextNode()
-      //        }
-      //      }
+      
+      let nodes = [ASDisplayNode(), ASDisplayNode()]
+      
+      _ = VStackLayout {
+        nodes
+      }
+          
     }
     
 //    if #available(iOS 13.0, *) {
