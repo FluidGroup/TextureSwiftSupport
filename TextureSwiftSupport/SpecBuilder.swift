@@ -153,6 +153,10 @@ public struct MultiLayout : _ASLayoutElementType {
 
 public struct EmptyLayout : _ASLayoutElementType {
   
+  public init() {
+    
+  }
+  
   public func make() -> [ASLayoutElement] {
     [ASLayoutSpec()]
   }
