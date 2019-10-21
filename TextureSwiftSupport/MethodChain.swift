@@ -102,6 +102,22 @@ extension _ASLayoutElementType {
   public func overlay<Overlay: _ASLayoutElementType>(_ overlayContent: Overlay) -> OverlayLayout<Overlay, Self> {
     OverlayLayout(content: { self }, overlay: { overlayContent })
   }
+  
+  /// Make aspectRatio
+  ///
+  /// - Parameters:
+  ///   - aspectRatio: The ratio of width to height to use for the resulting view
+  public func aspectRatio(_ aspectRatio: CGFloat) -> AspectRatioLayout<Self> {
+    AspectRatioLayout(ratio: aspectRatio, content: { self })
+  }
+  
+  /// Make aspectRatio
+  ///
+  /// - Parameters:
+  ///   - aspectRatio: The ratio of CGSize to use for the resulting view
+  public func aspectRatio(_ aspectRatio: CGSize) -> AspectRatioLayout<Self> {
+    AspectRatioLayout(ratio: aspectRatio, content: { self })
+  }
 }
 
 public struct FlexGlowModifier: ModifierType {

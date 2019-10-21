@@ -265,6 +265,32 @@ public struct WrapperLayout<Content> : _ASLayoutElementType where Content : _ASL
   }
 }
 
+public struct CenterLayout<Content> : _ASLayoutElementType where Content : _ASLayoutElementType {
+  
+  public let content: Content
+  public let centeringOptions: ASCenterLayoutSpecCenteringOptions
+  public let sizingOptions: ASCenterLayoutSpecSizingOptions
+  
+  public init(
+    centeringOptions: ASCenterLayoutSpecCenteringOptions = .XY,
+    sizingOptions: ASCenterLayoutSpecSizingOptions = .minimumXY,
+    content: () -> Content
+  ) {
+    self.content = content()
+    self.centeringOptions = centeringOptions
+    self.sizingOptions = sizingOptions
+  }
+  
+  public func make() -> [ASLayoutElement] {
+    content.make().map {
+      ASCenterLayoutSpec(
+        centeringOptions: centeringOptions,
+        sizingOptions: sizingOptions,
+        child: $0
+      )
+    }
+  }
+}
 
 public struct InsetLayout<Content> : _ASLayoutElementType where Content : _ASLayoutElementType {
   
