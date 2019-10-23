@@ -148,6 +148,20 @@ public struct PreferredSizeModifier: ModifierType {
   }
 }
 
+public struct AlignSelfModifier: ModifierType {
+  
+  public var alignSelf: ASStackLayoutAlignSelf
+  
+  public init(alignSelf: ASStackLayoutAlignSelf) {
+    self.alignSelf = alignSelf
+  }
+  
+  public func modify(element: ASLayoutElement) -> ASLayoutElement {
+    element.style.alignSelf = alignSelf
+    return element
+  }
+}
+
 extension _ASLayoutElementType {
   
   public func modify(_ modify: @escaping (ASLayoutElement) -> Void) -> ModifiedContent<Self, Modifier> {
@@ -169,6 +183,10 @@ extension _ASLayoutElementType {
   
   public func preferredSize(_ preferredSize: CGSize) -> ModifiedContent<Self, PreferredSizeModifier> {
     modifier(PreferredSizeModifier(preferredSize: preferredSize))
+  }
+  
+  public func alignSelf(_ alignSelf: ASStackLayoutAlignSelf) -> ModifiedContent<Self, AlignSelfModifier> {
+    modifier(AlignSelfModifier(alignSelf: alignSelf))
   }
     
 }
