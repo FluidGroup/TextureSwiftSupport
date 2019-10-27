@@ -49,12 +49,47 @@ public enum Edge: Int8, CaseIterable {
   
 }
 
+@inline(__always)
+fileprivate func makeInsets(_ padding: CGFloat) -> UIEdgeInsets {
+  .init(top: padding, left: padding, bottom: padding, right: padding)
+}
+
+@inline(__always)
+fileprivate func makeInsets(_ edges: Edge.Set, _ padding: CGFloat) -> UIEdgeInsets {
+  var insets = UIEdgeInsets.zero
+  
+  if edges.contains(.top) {
+    insets.top = padding
+  }
+  
+  if edges.contains(.left) {
+    insets.left = padding
+  }
+  
+  if edges.contains(.bottom) {
+    insets.bottom = padding
+  }
+  
+  if edges.contains(.right) {
+    insets.right = padding
+  }
+  return insets
+}
+
+fileprivate func combineInsets(_ lhs: UIEdgeInsets, rhs: UIEdgeInsets) -> UIEdgeInsets {
+  var base = lhs
+  base.top += rhs.top
+  base.right += rhs.right
+  base.left += rhs.left
+  base.bottom += rhs.bottom
+  return base
+}
 
 // MARK: - Padding
 extension _ASLayoutElementType {
   
   public func padding(_ padding: CGFloat) -> InsetLayout<Self> {
-    InsetLayout(insets: .init(top: padding, left: padding, bottom: padding, right: padding)) {
+    InsetLayout(insets: makeInsets(padding)) {
       self
     }
   }
@@ -66,29 +101,34 @@ extension _ASLayoutElementType {
   }
   
   public func padding(_ edges: Edge.Set, _ padding: CGFloat) -> InsetLayout<Self> {
-    
-    var insets = UIEdgeInsets.zero
-    
-    if edges.contains(.top) {
-      insets.top = padding
-    }
-    
-    if edges.contains(.left) {
-      insets.left = padding
-    }
-    
-    if edges.contains(.bottom) {
-      insets.bottom = padding
-    }
-    
-    if edges.contains(.right) {
-      insets.right = padding
-    }
-    
-    return InsetLayout(insets: insets) {
+            
+    return InsetLayout(insets: makeInsets(edges, padding)) {
       self
     }
   }
+  
+}
+
+extension InsetLayout {
+  
+  public func padding(_ padding: CGFloat) -> Self {
+    var _self = self
+    _self.insets = combineInsets(_self.insets, rhs: makeInsets(padding))
+    return _self
+  }
+  
+  public func padding(_ edgeInsets: UIEdgeInsets) -> Self {
+    var _self = self
+    _self.insets = combineInsets(_self.insets, rhs: edgeInsets)
+    return _self
+  }
+  
+  public func padding(_ edges: Edge.Set, _ padding: CGFloat) -> Self {
+    var _self = self
+    _self.insets = combineInsets(_self.insets, rhs: makeInsets(edges, padding))
+    return _self
+  }
+  
 }
 
 // MARK: - Background
