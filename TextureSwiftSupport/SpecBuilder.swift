@@ -295,7 +295,7 @@ public struct CenterLayout<Content> : _ASLayoutElementType where Content : _ASLa
 public struct InsetLayout<Content> : _ASLayoutElementType where Content : _ASLayoutElementType {
   
   public let content: Content
-  public let insets: UIEdgeInsets
+  public var insets: UIEdgeInsets
   
   public init(insets: UIEdgeInsets, content: () -> Content) {
     self.content = content()

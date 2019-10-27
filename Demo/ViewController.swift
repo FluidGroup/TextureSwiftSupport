@@ -62,6 +62,9 @@ final class MyNode : ASDisplayNode {
   private let backgroundNode = ASDisplayNode()
   private var optionalNode: ASDisplayNode?
   
+  private let baseBoxNode = makeBoxNode(.red)
+  private let overlayBoxNode = makeBoxNode(.blue)
+  
   override init() {
     super.init()
     
@@ -98,6 +101,18 @@ final class MyNode : ASDisplayNode {
           .padding([.vertical], 4)
           .background(backgroundNode)
           .flexGrow(1)
+        
+        VStackLayout {
+          baseBoxNode
+            .preferredSize(.init(width: 100, height: 100))
+        }
+        .overlay(
+          overlayBoxNode
+            .preferredSize(.init(width: 20, height: 20))
+            .padding(.top, 8)
+            .padding(UIEdgeInsets(top: 0, left: 0, bottom: .infinity, right: .infinity))
+        )
+        
         
       }
     }    
