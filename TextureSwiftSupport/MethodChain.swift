@@ -162,6 +162,58 @@ public struct AlignSelfModifier: ModifierType {
   }
 }
 
+public struct MinSizeModifier: ModifierType {
+  
+  public var minWidth: ASDimension?
+  public var minHeight: ASDimension?
+  
+  public init(minSize: CGSize) {
+    self.minWidth = .init(unit: .points, value: minSize.width)
+    self.minHeight = .init(unit: .points, value: minSize.height)
+  }
+  
+  public init(minWidth: ASDimension?, minHeight: ASDimension?) {
+    self.minWidth = minWidth
+    self.minHeight = minHeight
+  }
+  
+  public func modify(element: ASLayoutElement) -> ASLayoutElement {
+    minWidth.map {
+      element.style.minWidth = $0
+    }
+    minHeight.map {
+      element.style.minHeight = $0
+    }
+    return element
+  }
+}
+
+public struct MaxSizeModifier: ModifierType {
+  
+  public var maxWidth: ASDimension?
+  public var maxHeight: ASDimension?
+  
+  public init(maxSize: CGSize) {
+    self.maxWidth = .init(unit: .points, value: maxSize.width)
+    self.maxHeight = .init(unit: .points, value: maxSize.height)
+  }
+  
+  public init(maxWidth: ASDimension?, maxHeight: ASDimension?) {
+    self.maxWidth = maxWidth
+    self.maxHeight = maxHeight
+  }
+  
+  public func modify(element: ASLayoutElement) -> ASLayoutElement {
+    maxWidth.map {
+      element.style.maxWidth = $0
+    }
+    maxHeight.map {
+      element.style.maxHeight = $0
+    }
+    return element
+  }
+}
+
 extension _ASLayoutElementType {
   
   public func modify(_ modify: @escaping (ASLayoutElement) -> Void) -> ModifiedContent<Self, Modifier> {
@@ -188,5 +240,73 @@ extension _ASLayoutElementType {
   public func alignSelf(_ alignSelf: ASStackLayoutAlignSelf) -> ModifiedContent<Self, AlignSelfModifier> {
     modifier(AlignSelfModifier(alignSelf: alignSelf))
   }
-    
+  
+  public func minWidth(_ width: CGFloat) -> ModifiedContent<Self, MinSizeModifier> {
+    modifier(MinSizeModifier(minWidth: .init(unit: .points, value: width), minHeight: nil))
+  }
+  
+  public func minHeight(_ height: CGFloat) -> ModifiedContent<Self, MinSizeModifier> {
+    modifier(MinSizeModifier(minWidth: nil, minHeight: .init(unit: .points, value: height)))
+  }
+  
+  public func minSize(_ size: CGSize) -> ModifiedContent<Self, MinSizeModifier> {
+    modifier(MinSizeModifier(minSize: size))
+  }
+  
+  public func maxWidth(_ width: CGFloat) -> ModifiedContent<Self, MaxSizeModifier> {
+    modifier(MaxSizeModifier(maxWidth: .init(unit: .points, value: width), maxHeight: nil))
+  }
+  
+  public func maxHeight(_ height: CGFloat) -> ModifiedContent<Self, MaxSizeModifier> {
+    modifier(MaxSizeModifier(maxWidth: nil, maxHeight: .init(unit: .points, value: height)))
+  }
+  
+  public func maxSize(_ size: CGSize) -> ModifiedContent<Self, MaxSizeModifier> {
+    modifier(MaxSizeModifier(maxSize: size))
+  }
+  
+}
+
+extension ModifiedContent where Modifier == MinSizeModifier {
+  
+  public func minWidth(_ width: CGFloat) -> Self {
+    var _self = self
+    _self.modifier.minWidth = .init(unit: .points, value: width)
+    return _self
+  }
+  
+  public func minHeight(_ height: CGFloat) -> Self {
+    var _self = self
+    _self.modifier.minWidth = .init(unit: .points, value: height)
+    return _self
+  }
+  
+  public func minSize(_ size: CGSize) -> Self {
+    var _self = self
+    _self.modifier = MinSizeModifier(minSize: size)
+    return _self
+  }
+  
+}
+
+extension ModifiedContent where Modifier == MaxSizeModifier {
+  
+  public func maxWidth(_ width: CGFloat) -> Self {
+    var _self = self
+    _self.modifier.maxWidth = .init(unit: .points, value: width)
+    return _self
+  }
+  
+  public func maxHeight(_ height: CGFloat) -> Self {
+    var _self = self
+    _self.modifier.maxWidth = .init(unit: .points, value: height)
+    return _self
+  }
+  
+  public func maxSize(_ size: CGSize) -> Self {
+    var _self = self
+    _self.modifier = MaxSizeModifier(maxSize: size)
+    return _self
+  }
+  
 }

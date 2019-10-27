@@ -24,7 +24,7 @@ extension Array: _ASLayoutElementType where Element: _ASLayoutElementType {
 public struct ModifiedContent<Content: _ASLayoutElementType, Modifier: ModifierType>: _ASLayoutElementType {
   
   let content: Content
-  let modifier: Modifier
+  var modifier: Modifier
   
   init(content: Content, modifier: Modifier) {
     self.content = content
