@@ -254,6 +254,20 @@ public struct MaxSizeModifier: ModifierType {
   }
 }
 
+public struct FlexBasisModifieer: ModifierType {
+  
+  public let flexBasis: ASDimension
+  
+  public init(flexBasis: ASDimension) {
+    self.flexBasis = flexBasis
+  }
+  
+  public func modify(element: ASLayoutElement) -> ASLayoutElement {
+    element.style.flexBasis = flexBasis
+    return element
+  }
+}
+
 extension _ASLayoutElementType {
   
   public func modify(_ modify: @escaping (ASLayoutElement) -> Void) -> ModifiedContent<Self, Modifier> {
@@ -271,6 +285,10 @@ extension _ASLayoutElementType {
   
   public func flexShrink(_ flexGlow: CGFloat) -> ModifiedContent<Self, FlexShrinkModifier> {
     modifier(FlexShrinkModifier())
+  }
+  
+  public func flexBasis(fraction: CGFloat) -> ModifiedContent<Self, FlexBasisModifieer> {
+    modifier(FlexBasisModifieer(flexBasis: .init(unit: .fraction, value: fraction)))
   }
   
   public func preferredSize(_ preferredSize: CGSize) -> ModifiedContent<Self, PreferredSizeModifier> {
