@@ -205,10 +205,10 @@ public struct SizeModifier: ModifierType {
   
   public func modify(element: ASLayoutElement) -> ASLayoutElement {
     width.map {
-      element.style.minWidth = $0
+      element.style.width = $0
     }
     height.map {
-      element.style.minHeight = $0
+      element.style.height = $0
     }
     return element
   }
@@ -231,10 +231,10 @@ public struct MinSizeModifier: ModifierType {
   
   public func modify(element: ASLayoutElement) -> ASLayoutElement {
     minWidth.map {
-      element.style.minWidth = $0
+      element.style.width = $0
     }
     minHeight.map {
-      element.style.minHeight = $0
+      element.style.height = $0
     }
     return element
   }
