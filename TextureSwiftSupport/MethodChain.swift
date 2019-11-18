@@ -174,20 +174,6 @@ public struct FlexShrinkModifier: ModifierType {
   }
 }
 
-public struct PreferredSizeModifier: ModifierType {
-  
-  public var preferredSize: CGSize
-      
-  public init(preferredSize: CGSize) {
-    self.preferredSize = preferredSize
-  }
-  
-  public func modify(element: ASLayoutElement) -> ASLayoutElement {
-    element.style.preferredSize = preferredSize
-    return element
-  }
-}
-
 public struct AlignSelfModifier: ModifierType {
   
   public var alignSelf: ASStackLayoutAlignSelf
@@ -198,6 +184,32 @@ public struct AlignSelfModifier: ModifierType {
   
   public func modify(element: ASLayoutElement) -> ASLayoutElement {
     element.style.alignSelf = alignSelf
+    return element
+  }
+}
+
+public struct SizeModifier: ModifierType {
+  
+  public var width: ASDimension?
+  public var height: ASDimension?
+  
+  public init(size: CGSize) {
+    self.width = .init(unit: .points, value: size.width)
+    self.height = .init(unit: .points, value: size.height)
+  }
+  
+  public init(width: ASDimension?, height: ASDimension?) {
+    self.width = width
+    self.height = height
+  }
+  
+  public func modify(element: ASLayoutElement) -> ASLayoutElement {
+    width.map {
+      element.style.minWidth = $0
+    }
+    height.map {
+      element.style.minHeight = $0
+    }
     return element
   }
 }
@@ -291,8 +303,8 @@ extension _ASLayoutElementType {
     modifier(FlexBasisModifieer(flexBasis: .init(unit: .fraction, value: fraction)))
   }
   
-  public func preferredSize(_ preferredSize: CGSize) -> ModifiedContent<Self, PreferredSizeModifier> {
-    modifier(PreferredSizeModifier(preferredSize: preferredSize))
+  public func preferredSize(_ preferredSize: CGSize) -> ModifiedContent<Self, SizeModifier> {
+    modifier(SizeModifier(size: preferredSize))
   }
   
   public func alignSelf(_ alignSelf: ASStackLayoutAlignSelf) -> ModifiedContent<Self, AlignSelfModifier> {
@@ -307,6 +319,14 @@ extension _ASLayoutElementType {
     modifier(MinSizeModifier(minWidth: nil, minHeight: .init(unit: .points, value: height)))
   }
   
+  public func width(_ width: CGFloat) -> ModifiedContent<Self, SizeModifier> {
+    modifier(SizeModifier(width: .init(unit: .points, value: width), height: nil))
+  }
+  
+  public func height(_ height: CGFloat) -> ModifiedContent<Self, SizeModifier> {
+    modifier(SizeModifier(width: nil, height: .init(unit: .points, value: height)))
+  }
+    
   public func minSize(_ size: CGSize) -> ModifiedContent<Self, MinSizeModifier> {
     modifier(MinSizeModifier(minSize: size))
   }
