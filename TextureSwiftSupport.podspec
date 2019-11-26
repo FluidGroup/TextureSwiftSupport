@@ -17,6 +17,6 @@ Pod::Spec.new do |spec|
   spec.source_files  = "TextureSwiftSupport", "TextureSwiftSupport/**/*.swift"
 
   spec.swift_versions = ['5.1']
-  spec.dependency "Texture/Core", "~> 2.8.0"
+  spec.dependency "Texture/Core", "~> 2.8"
 
 end
