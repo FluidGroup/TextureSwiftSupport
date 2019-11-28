@@ -102,7 +102,9 @@
 				C5EEA1EC56FCE6519A68BCC9 /* Pods */,
 				B57981E2F77853ACC5D4B99D /* Frameworks */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		4B873C2323083FE5006170B1 /* Products */ = {
 			isa = PBXGroup;
