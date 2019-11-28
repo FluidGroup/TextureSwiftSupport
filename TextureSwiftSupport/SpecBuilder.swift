@@ -167,19 +167,19 @@ public struct VStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
   public let spacing: CGFloat
   public let justifyContent: ASStackLayoutJustifyContent
   public let alignItems: ASStackLayoutAlignItems
-  public let childlen: Content
+  public let children: Content
   
   public init(
     spacing: CGFloat = 0,
     justifyContent: ASStackLayoutJustifyContent = .start,
-    alignItems: ASStackLayoutAlignItems = .start,
+    alignItems: ASStackLayoutAlignItems = .stretch,
     @ASLayoutSpecBuilder content: () -> Content
   ) {
     
     self.spacing = spacing
     self.justifyContent = justifyContent
     self.alignItems = alignItems
-    self.childlen = content()
+    self.children = content()
     
   }
   
@@ -190,7 +190,7 @@ public struct VStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
         spacing: spacing,
         justifyContent: justifyContent,
         alignItems: alignItems,
-        children: childlen.make()
+        children: children.make()
       )
     ]
   }
@@ -201,19 +201,19 @@ public struct HStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
   public let spacing: CGFloat
   public let justifyContent: ASStackLayoutJustifyContent
   public let alignItems: ASStackLayoutAlignItems
-  public let childlen: Content
+  public let children: Content
   
   public init(
     spacing: CGFloat = 0,
     justifyContent: ASStackLayoutJustifyContent = .start,
-    alignItems: ASStackLayoutAlignItems = .start,
+    alignItems: ASStackLayoutAlignItems = .stretch,
     @ASLayoutSpecBuilder content: () -> Content
   ) {
     
     self.spacing = spacing
     self.justifyContent = justifyContent
     self.alignItems = alignItems
-    self.childlen = content()
+    self.children = content()
     
   }
   
@@ -224,7 +224,7 @@ public struct HStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
         spacing: spacing,
         justifyContent: justifyContent,
         alignItems: alignItems,
-        children: childlen.make()
+        children: children.make()
       )
     ]
   }
@@ -233,17 +233,17 @@ public struct HStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
 
 public struct ZStackLayout<Content> : _ASLayoutElementType where Content : _ASLayoutElementType {
   
-  public let childlen: Content
+  public let children: Content
   
   public init(
     @ASLayoutSpecBuilder content: () -> Content
   ) {
-    self.childlen = content()
+    self.children = content()
   }
   
   public func make() -> [ASLayoutElement] {
     [
-      ASWrapperLayoutSpec(layoutElements: childlen.make())
+      ASWrapperLayoutSpec(layoutElements: children.make())
     ]
   }
 }
@@ -286,6 +286,37 @@ public struct CenterLayout<Content> : _ASLayoutElementType where Content : _ASLa
       ASCenterLayoutSpec(
         centeringOptions: centeringOptions,
         sizingOptions: sizingOptions,
+        child: $0
+      )
+    }
+  }
+}
+
+public struct RelativeLayout<Content>: _ASLayoutElementType where Content: _ASLayoutElementType {
+
+  public let content: Content
+  public let horizontalPosition: ASRelativeLayoutSpecPosition
+  public let verticalPosition: ASRelativeLayoutSpecPosition
+  public let sizingOption: ASRelativeLayoutSpecSizingOption
+
+  public init(
+    horizontalPosition: ASRelativeLayoutSpecPosition = .start,
+    verticalPosition: ASRelativeLayoutSpecPosition = .start,
+    sizingOption: ASRelativeLayoutSpecSizingOption = .minimumSize,
+    content: () -> Content
+  ) {
+    self.content = content()
+    self.horizontalPosition = horizontalPosition
+    self.verticalPosition = verticalPosition
+    self.sizingOption = sizingOption
+  }
+
+  public func make() -> [ASLayoutElement] {
+    content.make().map {
+      ASRelativeLayoutSpec(
+        horizontalPosition: horizontalPosition,
+        verticalPosition: verticalPosition,
+        sizingOption: sizingOption,
         child: $0
       )
     }
