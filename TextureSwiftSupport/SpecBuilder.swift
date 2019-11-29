@@ -151,6 +151,19 @@ public struct MultiLayout : _ASLayoutElementType {
   }
 }
 
+public struct AnyLayout : _ASLayoutElementType {
+  
+  public let content: _ASLayoutElementType
+  
+  public init(_ content: () -> _ASLayoutElementType) {
+    self.content = content()
+  }
+  
+  public func make() -> [ASLayoutElement] {
+    content.make()
+  }
+}
+
 public struct EmptyLayout : _ASLayoutElementType {
   
   public init() {
