@@ -158,6 +158,7 @@ extension _ASLayoutElementType {
   public func aspectRatio(_ aspectRatio: CGSize) -> AspectRatioLayout<Self> {
     AspectRatioLayout(ratio: aspectRatio, content: { self })
   }
+    
 }
 
 public struct FlexGlowModifier: ModifierType {
@@ -170,6 +171,22 @@ public struct FlexGlowModifier: ModifierType {
 public struct FlexShrinkModifier: ModifierType {
   public func modify(element: ASLayoutElement) -> ASLayoutElement {
     element.style.flexShrink = 1
+    return element
+  }
+}
+
+public struct SpacingModifier: ModifierType {
+  
+  public let after: CGFloat?
+  public let before: CGFloat?
+
+  public func modify(element: ASLayoutElement) -> ASLayoutElement {
+    after.map {
+      element.style.spacingAfter = $0
+    }
+    before.map {
+      element.style.spacingBefore = $0
+    }
     return element
   }
 }
@@ -343,6 +360,13 @@ extension _ASLayoutElementType {
     modifier(MaxSizeModifier(maxSize: size))
   }
   
+  public func spacingAfter(_ spacing: CGFloat) -> ModifiedContent<Self, SpacingModifier> {
+    modifier(SpacingModifier(after: spacing, before: nil))
+  }
+  
+  public func spacingBefore(_ spacing: CGFloat) -> ModifiedContent<Self, SpacingModifier> {
+    modifier(SpacingModifier(after: nil, before: spacing))
+  }
 }
 
 extension ModifiedContent where Modifier == MinSizeModifier {
