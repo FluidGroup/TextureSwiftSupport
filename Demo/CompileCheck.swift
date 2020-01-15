@@ -41,6 +41,38 @@ enum _CompileCheck {
     }
     
     do {
+      
+      let nodes = [
+        ASTextNode(),
+        ASTextNode(),
+      ]
+      
+      let layout = HStackLayout {
+        InsetLayout(insets: .zero) {
+          HStackLayout {
+            nodes
+          }
+        }
+      }
+    }
+    
+    do {
+      
+      let nodes: [AnyLayout] = [
+        .init { ASTextNode() },
+        .init { ASTextNode() },
+      ]
+      
+      let layout = HStackLayout {
+        InsetLayout(insets: .zero) {
+          HStackLayout {
+            nodes
+          }
+        }
+      }
+    }
+          
+    do {
       let layout = HStackLayout {
         if true {
           ASTextNode()
