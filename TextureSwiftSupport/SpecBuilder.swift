@@ -155,7 +155,7 @@ public struct AnyLayout : _ASLayoutElementType {
   
   public let content: _ASLayoutElementType
   
-  public init(_ content: () -> _ASLayoutElementType) {
+  public init(@ASLayoutSpecBuilder _ content: () -> _ASLayoutElementType) {
     self.content = content()
   }
   
