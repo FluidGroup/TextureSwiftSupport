@@ -2,7 +2,7 @@ import AsyncDisplayKit
 
 public protocol _ASLayoutElementType {
   
-  func make() -> [ASLayoutElement]
+  func make() -> AnyCollection<ASLayoutElement>
 }
 
 extension _ASLayoutElementType {
@@ -13,10 +13,12 @@ extension _ASLayoutElementType {
 
 extension Array: _ASLayoutElementType where Element: _ASLayoutElementType {
   
-  public func make() -> [ASLayoutElement] {
-    self.flatMap {
-      $0.make()
-    }
+  public func make() -> AnyCollection<ASLayoutElement> {
+    .init(
+      flatMap {
+        $0.make()
+      }
+    )
   }
   
 }
@@ -31,12 +33,13 @@ public struct ModifiedContent<Content: _ASLayoutElementType, Modifier: ModifierT
     self.modifier = modifier
   }
   
-  public func make() -> [ASLayoutElement] {
+  public func make() -> AnyCollection<ASLayoutElement> {
+    .init(
+      content.make().map {
+        modifier.modify(element: $0)
+      }
+    )
     
-    content.make().map {
-      modifier.modify(element: $0)
-    }
-        
   }
     
 }
@@ -103,20 +106,20 @@ public struct Modifier: ModifierType {
 }
 
 extension ASDisplayNode : _ASLayoutElementType {
-  public func make() -> [ASLayoutElement] {
-    [self]
+  public func make() -> AnyCollection<ASLayoutElement> {
+    .init(CollectionOfOne(self as ASLayoutElement))
   }
 }
 
 extension ASLayoutSpec : _ASLayoutElementType {
-  public func make() -> [ASLayoutElement] {
-    [self]
+  public func make() -> AnyCollection<ASLayoutElement> {
+    .init(CollectionOfOne(self as ASLayoutElement))
   }
 }
 
 public struct ConditionalLayout<TrueContent, FalseContent> : _ASLayoutElementType where TrueContent : _ASLayoutElementType, FalseContent : _ASLayoutElementType {
   
-  let content: [ASLayoutElement]
+  let content: AnyCollection<ASLayoutElement>
   
   init(trueContent: TrueContent) {
     self.content = trueContent.make()
@@ -126,7 +129,7 @@ public struct ConditionalLayout<TrueContent, FalseContent> : _ASLayoutElementTyp
     self.content = falseContent.make()
   }
   
-  public func make() -> [ASLayoutElement] {
+  public func make() -> AnyCollection<ASLayoutElement> {
     content
   }
 }
@@ -134,7 +137,7 @@ public struct ConditionalLayout<TrueContent, FalseContent> : _ASLayoutElementTyp
 public final class LayoutSpec<Content> : ASWrapperLayoutSpec where Content : _ASLayoutElementType {
   
   public init(@ASLayoutSpecBuilder _ content: () -> Content) {
-    super.init(layoutElements: content().make())
+    super.init(layoutElements: Array(content().make()))
   }
 }
 
@@ -146,8 +149,8 @@ public struct MultiLayout : _ASLayoutElementType {
     self.elements = elements
   }
   
-  public func make() -> [ASLayoutElement] {
-    elements.compactMap { $0 }.flatMap { $0.make() }
+  public func make() -> AnyCollection<ASLayoutElement> {
+    .init(elements.compactMap { $0 }.flatMap { $0.make() })
   }
 }
 
@@ -159,7 +162,7 @@ public struct AnyLayout : _ASLayoutElementType {
     self.content = content()
   }
   
-  public func make() -> [ASLayoutElement] {
+  public func make() -> AnyCollection<ASLayoutElement> {
     content.make()
   }
 }
@@ -170,8 +173,8 @@ public struct EmptyLayout : _ASLayoutElementType {
     
   }
   
-  public func make() -> [ASLayoutElement] {
-    [ASLayoutSpec()]
+  public func make() -> AnyCollection<ASLayoutElement> {
+    .init(CollectionOfOne(ASLayoutSpec() as ASLayoutElement))
   }
 }
 
@@ -204,14 +207,14 @@ public struct VStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
     
   }
   
-  public func make() -> [ASLayoutElement] {
+  public func make() -> AnyCollection<ASLayoutElement> {
     
     let spec = ASStackLayoutSpec(
       direction: .vertical,
       spacing: spacing,
       justifyContent: justifyContent,
       alignItems: alignItems,
-      children: children.make()
+      children: Array(children.make())
     )
        
     switch flexWrap {
@@ -223,9 +226,7 @@ public struct VStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
       spec.alignContent = alignContent
     }
     
-    return [
-      spec
-    ]
+    return .init(CollectionOfOne(spec as ASLayoutElement))
   }
 }
 
@@ -253,14 +254,14 @@ public struct HStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
     
   }
   
-  public func make() -> [ASLayoutElement] {
+  public func make() -> AnyCollection<ASLayoutElement> {
     
     let spec = ASStackLayoutSpec(
       direction: .horizontal,
       spacing: spacing,
       justifyContent: justifyContent,
       alignItems: alignItems,
-      children: children.make()
+      children: Array(children.make())
     )
     
     switch flexWrap {
@@ -272,9 +273,7 @@ public struct HStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
       spec.alignContent = alignContent
     }
             
-    return [
-      spec
-    ]
+    return .init(CollectionOfOne(spec as ASLayoutElement))
   }
   
 }
@@ -289,10 +288,14 @@ public struct ZStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
     self.children = content()
   }
   
-  public func make() -> [ASLayoutElement] {
-    [
-      ASWrapperLayoutSpec(layoutElements: children.make())
-    ]
+  public func make() -> AnyCollection<ASLayoutElement> {
+    .init(
+      CollectionOfOne(
+        ASWrapperLayoutSpec(
+          layoutElements: Array(children.make())
+        ) as ASLayoutElement
+      )
+    )
   }
 }
 
@@ -306,10 +309,14 @@ public struct WrapperLayout<Content> : _ASLayoutElementType where Content : _ASL
     self.child = content()
   }
   
-  public func make() -> [ASLayoutElement] {
-    [
-      ASWrapperLayoutSpec(layoutElements: child.make())
-    ]
+  public func make() -> AnyCollection<ASLayoutElement> {
+    .init(
+      CollectionOfOne(
+        ASWrapperLayoutSpec(
+          layoutElements: Array(child.make())
+          ) as ASLayoutElement
+      )
+    )
   }
 }
 
@@ -329,14 +336,16 @@ public struct CenterLayout<Content> : _ASLayoutElementType where Content : _ASLa
     self.sizingOptions = sizingOptions
   }
   
-  public func make() -> [ASLayoutElement] {
-    content.make().map {
-      ASCenterLayoutSpec(
-        centeringOptions: centeringOptions,
-        sizingOptions: sizingOptions,
-        child: $0
-      )
-    }
+  public func make() -> AnyCollection<ASLayoutElement> {
+    .init(
+      content.make().map {
+        ASCenterLayoutSpec(
+          centeringOptions: centeringOptions,
+          sizingOptions: sizingOptions,
+          child: $0
+        )
+      }
+    )
   }
 }
 
@@ -358,16 +367,18 @@ public struct RelativeLayout<Content>: _ASLayoutElementType where Content: _ASLa
     self.verticalPosition = verticalPosition
     self.sizingOption = sizingOption
   }
-
-  public func make() -> [ASLayoutElement] {
-    content.make().map {
-      ASRelativeLayoutSpec(
-        horizontalPosition: horizontalPosition,
-        verticalPosition: verticalPosition,
-        sizingOption: sizingOption,
-        child: $0
-      )
-    }
+  
+  public func make() -> AnyCollection<ASLayoutElement> {
+    .init(
+      content.make().map {
+        ASRelativeLayoutSpec(
+          horizontalPosition: horizontalPosition,
+          verticalPosition: verticalPosition,
+          sizingOption: sizingOption,
+          child: $0
+        )
+      }
+    )
   }
 }
 
@@ -381,8 +392,8 @@ public struct InsetLayout<Content> : _ASLayoutElementType where Content : _ASLay
     self.insets = insets
   }
   
-  public func make() -> [ASLayoutElement] {
-    content.make().map { ASInsetLayoutSpec(insets: insets, child: $0) }
+  public func make() -> AnyCollection<ASLayoutElement> {
+    .init(content.make().map { ASInsetLayoutSpec(insets: insets, child: $0) })
   }
 }
 
@@ -396,10 +407,15 @@ public struct OverlayLayout<OverlayContnt, Content> : _ASLayoutElementType where
     self.overlay = overlay()
   }
   
-  public func make() -> [ASLayoutElement] {
-    [
-      ASOverlayLayoutSpec(child: content.make().first!, overlay: overlay.make().first!)
-    ]
+  public func make() -> AnyCollection<ASLayoutElement> {
+    .init(
+      CollectionOfOne(
+        ASOverlayLayoutSpec(
+          child: content.make().first!,
+          overlay: overlay.make().first!
+        ) as ASLayoutElement
+      )
+    )
   }
   
 }
@@ -414,10 +430,15 @@ public struct BackgroundLayout<BackgroundContnt, Content> : _ASLayoutElementType
     self.background = background()
   }
   
-  public func make() -> [ASLayoutElement] {
-    [
-      ASBackgroundLayoutSpec(child: content.make().first!, background: background.make().first!)
-    ]
+  public func make() -> AnyCollection<ASLayoutElement> {
+    .init(
+      CollectionOfOne(
+        ASBackgroundLayoutSpec(
+          child: content.make().first!,
+          background: background.make().first!
+          ) as ASLayoutElement
+      )
+    )
   }
   
 }
@@ -437,10 +458,15 @@ public struct AspectRatioLayout<Content> : _ASLayoutElementType where Content : 
     self.content = content()
   }
   
-  public func make() -> [ASLayoutElement] {
-    [
-      ASRatioLayoutSpec(ratio: ratio, child: content.make().first!)
-    ]
+  public func make() -> AnyCollection<ASLayoutElement> {
+    .init(
+      CollectionOfOne(
+        ASRatioLayoutSpec(
+          ratio: ratio,
+          child: content.make().first!
+          ) as ASLayoutElement
+      )
+    )
   }
   
 }
@@ -453,15 +479,17 @@ public struct HSpacerLayout : _ASLayoutElementType {
     self.minLength = minLength
   }
     
-  public func make() -> [ASLayoutElement] {
-    [
-      {
-        let spec = ASLayoutSpec()
-        spec.style.flexGrow = 1
-        spec.style.minWidth = .init(unit: .points, value: minLength)
-        return spec
-      }()
-    ]
+  public func make() -> AnyCollection<ASLayoutElement> {
+    .init(
+      CollectionOfOne(
+        {
+          let spec = ASLayoutSpec()
+          spec.style.flexGrow = 1
+          spec.style.minWidth = .init(unit: .points, value: minLength)
+          return spec
+        }()
+      )
+    )
   }
 }
 
@@ -473,14 +501,16 @@ public struct VSpacerLayout : _ASLayoutElementType {
     self.minLength = minLength
   }
   
-  public func make() -> [ASLayoutElement] {
-    [
-      {
-        let spec = ASLayoutSpec()
-        spec.style.flexGrow = 1
-        spec.style.minHeight = .init(unit: .points, value: minLength)
-        return spec
-      }()
-    ]
+  public func make() -> AnyCollection<ASLayoutElement> {
+    .init(
+      CollectionOfOne(
+        {
+          let spec = ASLayoutSpec()
+          spec.style.flexGrow = 1
+          spec.style.minHeight = .init(unit: .points, value: minLength)
+          return spec
+        }()
+      )
+    )
   }
 }
