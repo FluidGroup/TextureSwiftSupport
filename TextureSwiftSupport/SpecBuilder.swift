@@ -175,36 +175,56 @@ public struct EmptyLayout : _ASLayoutElementType {
   }
 }
 
+public enum FlexWrap {
+  case wrap(lineSpacing: CGFloat = 0, alignContent: ASStackLayoutAlignContent = .start)
+  case noWrap
+}
+
 public struct VStackLayout<Content> : _ASLayoutElementType where Content : _ASLayoutElementType {
   
   public let spacing: CGFloat
   public let justifyContent: ASStackLayoutJustifyContent
   public let alignItems: ASStackLayoutAlignItems
   public let children: Content
+  public let flexWrap: FlexWrap
   
   public init(
     spacing: CGFloat = 0,
     justifyContent: ASStackLayoutJustifyContent = .start,
     alignItems: ASStackLayoutAlignItems = .stretch,
+    flexWrap: FlexWrap = .noWrap,
     @ASLayoutSpecBuilder content: () -> Content
   ) {
     
     self.spacing = spacing
     self.justifyContent = justifyContent
     self.alignItems = alignItems
+    self.flexWrap = flexWrap
     self.children = content()
     
   }
   
   public func make() -> [ASLayoutElement] {
-    [
-      ASStackLayoutSpec(
-        direction: .vertical,
-        spacing: spacing,
-        justifyContent: justifyContent,
-        alignItems: alignItems,
-        children: children.make()
-      )
+    
+    let spec = ASStackLayoutSpec(
+      direction: .vertical,
+      spacing: spacing,
+      justifyContent: justifyContent,
+      alignItems: alignItems,
+      children: children.make()
+    )
+       
+    switch flexWrap {
+    case .noWrap:
+      spec.flexWrap = .noWrap
+    case .wrap(let lineSpacing, let alignContent):
+      spec.flexWrap = .wrap
+      spec.lineSpacing = lineSpacing
+      spec.alignContent = alignContent
+    }
+    
+    return [
+      spec
     ]
   }
 }
@@ -215,30 +235,45 @@ public struct HStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
   public let justifyContent: ASStackLayoutJustifyContent
   public let alignItems: ASStackLayoutAlignItems
   public let children: Content
+  public let flexWrap: FlexWrap
   
   public init(
     spacing: CGFloat = 0,
     justifyContent: ASStackLayoutJustifyContent = .start,
     alignItems: ASStackLayoutAlignItems = .stretch,
+    flexWrap: FlexWrap = .noWrap,
     @ASLayoutSpecBuilder content: () -> Content
   ) {
     
     self.spacing = spacing
     self.justifyContent = justifyContent
     self.alignItems = alignItems
+    self.flexWrap = flexWrap
     self.children = content()
     
   }
   
   public func make() -> [ASLayoutElement] {
-    [
-      ASStackLayoutSpec(
-        direction: .horizontal,
-        spacing: spacing,
-        justifyContent: justifyContent,
-        alignItems: alignItems,
-        children: children.make()
-      )
+    
+    let spec = ASStackLayoutSpec(
+      direction: .horizontal,
+      spacing: spacing,
+      justifyContent: justifyContent,
+      alignItems: alignItems,
+      children: children.make()
+    )
+    
+    switch flexWrap {
+    case .noWrap:
+      spec.flexWrap = .noWrap
+    case .wrap(let lineSpacing, let alignContent):
+      spec.flexWrap = .wrap
+      spec.lineSpacing = lineSpacing
+      spec.alignContent = alignContent
+    }
+            
+    return [
+      spec
     ]
   }
   
