@@ -7,6 +7,12 @@ It helps writing the code in Texture with Swift's power.
 
 Swiift 5.1+
 
+## The cases of usage in Production
+
+- the products of [eureka, Inc](https://eure.jp)
+  - [Pairs for Japan](https://apps.apple.com/jp/app/id583376064)
+  - [Pairs for Global](https://apps.apple.com/tw/app/id825433065)
+
 ## Features
 
 ### LayoutSpecBuilder (Using \_functionBuidler)
