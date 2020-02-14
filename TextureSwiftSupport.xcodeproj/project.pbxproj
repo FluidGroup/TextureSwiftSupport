@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B5CEFC8235264CA00607980 /* TextureSwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5CEFC7235264CA00607980 /* TextureSwiftSupport.swift */; };
+		4B5CEFC8235264CA00607980 /* _NodeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5CEFC7235264CA00607980 /* _NodeLayout.swift */; };
 		4B873C2723083FE5006170B1 /* TextureSwiftSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B873C2E23083FF4006170B1 /* SpecBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B873C2D23083FF4006170B1 /* SpecBuilder.swift */; };
 		4B873C3D23084045006170B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B873C3B23084045006170B1 /* Main.storyboard */; };
@@ -19,6 +19,9 @@
 		4B873C4D23084621006170B1 /* TextureSwiftSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B873C2223083FE5006170B1 /* TextureSwiftSupport.framework */; };
 		4B873C4E23084621006170B1 /* TextureSwiftSupport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B873C2223083FE5006170B1 /* TextureSwiftSupport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B8A3026234DF6AD00082092 /* MethodChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8A3025234DF6AD00082092 /* MethodChain.swift */; };
+		4BC70EC723F74D3A00197B7B /* DisplayNodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70EC623F74D3A00197B7B /* DisplayNodeViewController.swift */; };
+		4BC70EC923F74E8C00197B7B /* NamedDisplayNodeBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70EC823F74E8C00197B7B /* NamedDisplayNodeBase.swift */; };
+		4BC70ECB23F74EAB00197B7B /* SafeAreaDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */; };
 		99A18E1BF9C46EC619085416 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEDB4E127B7A4C426A1B216 /* Pods_Demo.framework */; };
 		F3E933F1BC6075B11F4E033B /* Pods_TextureSwiftSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4403C6E378DD73AD896F3CF1 /* Pods_TextureSwiftSupport.framework */; };
 /* End PBXBuildFile section */
@@ -51,7 +54,7 @@
 		4403C6E378DD73AD896F3CF1 /* Pods_TextureSwiftSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextureSwiftSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		473CCC32D6395F69538CB001 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		4B3ED5FA232E1CE600D68739 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		4B5CEFC7235264CA00607980 /* TextureSwiftSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureSwiftSupport.swift; sourceTree = "<group>"; };
+		4B5CEFC7235264CA00607980 /* _NodeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _NodeLayout.swift; sourceTree = "<group>"; };
 		4B873C2223083FE5006170B1 /* TextureSwiftSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TextureSwiftSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureSwiftSupport.h; sourceTree = "<group>"; };
 		4B873C2623083FE5006170B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,6 +68,9 @@
 		4B873C48230845E3006170B1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B873C49230845E3006170B1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4B8A3025234DF6AD00082092 /* MethodChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodChain.swift; sourceTree = "<group>"; };
+		4BC70EC623F74D3A00197B7B /* DisplayNodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayNodeViewController.swift; sourceTree = "<group>"; };
+		4BC70EC823F74E8C00197B7B /* NamedDisplayNodeBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedDisplayNodeBase.swift; sourceTree = "<group>"; };
+		4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaDisplayNode.swift; sourceTree = "<group>"; };
 		5DEDB4E127B7A4C426A1B216 /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8727E50E77B25BA7D77A0D27 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		E3C240A10D90D0F926A2A7EF /* Pods-TextureSwiftSupport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureSwiftSupport.release.xcconfig"; path = "Target Support Files/Pods-TextureSwiftSupport/Pods-TextureSwiftSupport.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,9 +124,9 @@
 		4B873C2423083FE5006170B1 /* TextureSwiftSupport */ = {
 			isa = PBXGroup;
 			children = (
-				4B5CEFC7235264CA00607980 /* TextureSwiftSupport.swift */,
-				4B873C2D23083FF4006170B1 /* SpecBuilder.swift */,
-				4B8A3025234DF6AD00082092 /* MethodChain.swift */,
+				4BC70EC523F74D1D00197B7B /* Tools */,
+				4BC70EC423F74D1000197B7B /* SpecBuilder */,
+				4BC70EC323F74CFA00197B7B /* Experimental */,
 				4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */,
 				4B873C2623083FE5006170B1 /* Info.plist */,
 			);
@@ -139,6 +145,33 @@
 				4B873C4323084047006170B1 /* Info.plist */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		4BC70EC323F74CFA00197B7B /* Experimental */ = {
+			isa = PBXGroup;
+			children = (
+				4B5CEFC7235264CA00607980 /* _NodeLayout.swift */,
+			);
+			path = Experimental;
+			sourceTree = "<group>";
+		};
+		4BC70EC423F74D1000197B7B /* SpecBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				4B873C2D23083FF4006170B1 /* SpecBuilder.swift */,
+				4B8A3025234DF6AD00082092 /* MethodChain.swift */,
+			);
+			path = SpecBuilder;
+			sourceTree = "<group>";
+		};
+		4BC70EC523F74D1D00197B7B /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				4BC70EC623F74D3A00197B7B /* DisplayNodeViewController.swift */,
+				4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */,
+				4BC70EC823F74E8C00197B7B /* NamedDisplayNodeBase.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		B57981E2F77853ACC5D4B99D /* Frameworks */ = {
@@ -343,7 +376,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B8A3026234DF6AD00082092 /* MethodChain.swift in Sources */,
-				4B5CEFC8235264CA00607980 /* TextureSwiftSupport.swift in Sources */,
+				4BC70EC923F74E8C00197B7B /* NamedDisplayNodeBase.swift in Sources */,
+				4BC70EC723F74D3A00197B7B /* DisplayNodeViewController.swift in Sources */,
+				4B5CEFC8235264CA00607980 /* _NodeLayout.swift in Sources */,
+				4BC70ECB23F74EAB00197B7B /* SafeAreaDisplayNode.swift in Sources */,
 				4B873C2E23083FF4006170B1 /* SpecBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
