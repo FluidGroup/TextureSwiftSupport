@@ -68,11 +68,6 @@ public struct Modifier: ModifierType {
     content
   }
   
-  public static func buildBlock<Content>(_ content: Content?) -> _ASLayoutElementType where Content : _ASLayoutElementType {
-    guard let content = content else { return EmptyLayout() }
-    return content
-  }
-  
   public static func buildBlock(_ content: _ASLayoutElementType...) -> MultiLayout {
     MultiLayout(content)
   }
@@ -172,6 +167,19 @@ public struct EmptyLayout : _ASLayoutElementType {
   
   public func make() -> [ASLayoutElement] {
     [ASLayoutSpec()]
+  }
+}
+
+public struct OptionalLayout<Content: _ASLayoutElementType> : _ASLayoutElementType {
+  
+  private let content: Content?
+  
+  public init(content: () -> Content?) {
+    self.content = content()
+  }
+  
+  public func make() -> [ASLayoutElement] {
+    content?.make() ?? []
   }
 }
 
