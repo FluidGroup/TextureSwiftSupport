@@ -312,7 +312,7 @@ extension _ASLayoutElementType {
     modifier(FlexGlowModifier())
   }
   
-  public func flexShrink(_ flexGlow: CGFloat) -> ModifiedContent<Self, FlexShrinkModifier> {
+  public func flexShrink(_ flexShrink: CGFloat) -> ModifiedContent<Self, FlexShrinkModifier> {
     modifier(FlexShrinkModifier())
   }
   
