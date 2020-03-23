@@ -108,6 +108,16 @@ enum _CompileCheck {
           
     }
     
+    do {
+      
+      let nullNode: ASDisplayNode? = nil
+      
+      let layout = ZStackLayout {
+        OptionalLayout { nullNode }
+      }
+      
+    }
+    
 //    if #available(iOS 13.0, *) {
 //      let ha = VStack {
 //        Text("")
