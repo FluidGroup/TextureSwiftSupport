@@ -162,15 +162,29 @@ extension _ASLayoutElementType {
 }
 
 public struct FlexGlowModifier: ModifierType {
+  
+  private let flexGrow: CGFloat
+  
+  init(flexGrow: CGFloat) {
+    self.flexGrow = flexGrow
+  }
+  
   public func modify(element: ASLayoutElement) -> ASLayoutElement {
-    element.style.flexGrow = 1
+    element.style.flexGrow = flexGrow
     return element
   }
 }
 
 public struct FlexShrinkModifier: ModifierType {
+  
+  private let flexShrink: CGFloat
+  
+  init(flexShrink: CGFloat) {
+    self.flexShrink = flexShrink
+  }
+  
   public func modify(element: ASLayoutElement) -> ASLayoutElement {
-    element.style.flexShrink = 1
+    element.style.flexShrink = flexShrink
     return element
   }
 }
@@ -309,11 +323,11 @@ extension _ASLayoutElementType {
   }
   
   public func flexGrow(_ flexGlow: CGFloat) -> ModifiedContent<Self, FlexGlowModifier> {
-    modifier(FlexGlowModifier())
+    modifier(FlexGlowModifier(flexGrow: flexGlow))
   }
   
   public func flexShrink(_ flexShrink: CGFloat) -> ModifiedContent<Self, FlexShrinkModifier> {
-    modifier(FlexShrinkModifier())
+    modifier(FlexShrinkModifier(flexShrink: flexShrink))
   }
   
   public func flexBasis(fraction: CGFloat) -> ModifiedContent<Self, FlexBasisModifieer> {
