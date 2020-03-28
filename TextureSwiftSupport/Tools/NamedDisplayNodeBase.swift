@@ -26,6 +26,8 @@ import AsyncDisplayKit
 /// This object sets name of object for accessibilityIdentifier
 /// The accessibilityIdentifier will be displayed on Reveal's view-tree.
 /// It helps to find source code from Reveal.
+///
+/// - Author: TetureSwiftSupport
 open class NamedDisplayNodeBase: ASDisplayNode {
   
   open override func didLoad() {

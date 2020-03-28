@@ -21,27 +21,42 @@
 
 import AsyncDisplayKit
 
-/**
- An ASDisplayNode object that supports safe-area.
- It provides `capturedSafeAreaInsets` with thread-safety.
- It can be used on layoutSpecThatFits.
- 
- - Author: TetureSwiftSupport
- */
-open class SafeAreaDisplayNode: NamedDisplayNodeBase {
+extension ASSizeRange {
   
-  // Thread safe
-  public private(set) var capturedSafeAreaInsets: UIEdgeInsets = .zero
-  
-  public override init() {
-    super.init()
-    automaticallyRelayoutOnSafeAreaChanges = true
-    automaticallyRelayoutOnLayoutMarginsChanges = true
+  ///
+  /// - Author: TetureSwiftSupport
+  public init(width: ClosedRange<CGFloat>, height: ClosedRange<CGFloat>) {
+    self.init(
+      min: CGSize(width: width.lowerBound, height: height.lowerBound),
+      max: CGSize(width: width.upperBound, height: height.upperBound)
+    )
+  }
+    
+  ///
+  /// - Author: TetureSwiftSupport
+  public init(width: CGFloat, height: ClosedRange<CGFloat>) {
+    self.init(
+      min: CGSize(width: width, height: height.lowerBound),
+      max: CGSize(width: width, height: height.upperBound)
+    )
   }
   
-  open override func safeAreaInsetsDidChange() {
-    super.safeAreaInsetsDidChange()
-    capturedSafeAreaInsets = safeAreaInsets
-    setNeedsLayout()
+  ///
+  /// - Author: TetureSwiftSupport
+  public init(width: ClosedRange<CGFloat>, height: CGFloat) {
+    self.init(
+      min: CGSize(width: width.lowerBound, height: height),
+      max: CGSize(width: width.upperBound, height: height)
+    )
+  }
+  
+  ///
+  /// - Author: TetureSwiftSupport
+  public init(width: CGFloat, height: CGFloat) {
+    let size = CGSize(width: width, height: height)
+    self.init(
+      min: size,
+      max: size
+    )
   }
 }

@@ -21,6 +21,8 @@ extension Array: _ASLayoutElementType where Element: _ASLayoutElementType {
   
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct ModifiedContent<Content: _ASLayoutElementType, Modifier: ModifierType>: _ASLayoutElementType {
   
   let content: Content
@@ -41,10 +43,14 @@ public struct ModifiedContent<Content: _ASLayoutElementType, Modifier: ModifierT
     
 }
 
+///
+/// - Author: TetureSwiftSupport
 public protocol ModifierType {
   func modify(element: ASLayoutElement) -> ASLayoutElement
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct Modifier: ModifierType {
     
   private let _modify: (ASLayoutElement) -> ASLayoutElement
@@ -58,6 +64,8 @@ public struct Modifier: ModifierType {
   }
 }
 
+///
+/// - Author: TetureSwiftSupport
 @_functionBuilder public struct ASLayoutSpecBuilder {
   
   public static func buildBlock() -> EmptyLayout {
@@ -98,17 +106,23 @@ public struct Modifier: ModifierType {
 }
 
 extension ASDisplayNode : _ASLayoutElementType {
+  ///
+  /// - Author: TetureSwiftSupport
   public func make() -> [ASLayoutElement] {
     [self]
   }
 }
 
 extension ASLayoutSpec : _ASLayoutElementType {
+  ///
+  /// - Author: TetureSwiftSupport
   public func make() -> [ASLayoutElement] {
     [self]
   }
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct ConditionalLayout<TrueContent, FalseContent> : _ASLayoutElementType where TrueContent : _ASLayoutElementType, FalseContent : _ASLayoutElementType {
   
   let content: [ASLayoutElement]
@@ -126,6 +140,8 @@ public struct ConditionalLayout<TrueContent, FalseContent> : _ASLayoutElementTyp
   }
 }
 
+///
+/// - Author: TetureSwiftSupport
 public final class LayoutSpec<Content> : ASWrapperLayoutSpec where Content : _ASLayoutElementType {
   
   public init(@ASLayoutSpecBuilder _ content: () -> Content) {
@@ -133,6 +149,8 @@ public final class LayoutSpec<Content> : ASWrapperLayoutSpec where Content : _AS
   }
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct MultiLayout : _ASLayoutElementType {
   
   public let elements: [_ASLayoutElementType?]
@@ -146,6 +164,8 @@ public struct MultiLayout : _ASLayoutElementType {
   }
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct AnyLayout : _ASLayoutElementType {
   
   public let content: _ASLayoutElementType
@@ -159,6 +179,8 @@ public struct AnyLayout : _ASLayoutElementType {
   }
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct EmptyLayout : _ASLayoutElementType {
   
   public init() {
@@ -183,11 +205,15 @@ public struct OptionalLayout<Content: _ASLayoutElementType> : _ASLayoutElementTy
   }
 }
 
+///
+/// - Author: TetureSwiftSupport
 public enum FlexWrap {
   case wrap(lineSpacing: CGFloat = 0, alignContent: ASStackLayoutAlignContent = .start)
   case noWrap
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct VStackLayout<Content> : _ASLayoutElementType where Content : _ASLayoutElementType {
   
   public let spacing: CGFloat
@@ -237,6 +263,8 @@ public struct VStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
   }
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct HStackLayout<Content> : _ASLayoutElementType where Content : _ASLayoutElementType {
   
   public let spacing: CGFloat
@@ -287,6 +315,8 @@ public struct HStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
   
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct ZStackLayout<Content> : _ASLayoutElementType where Content : _ASLayoutElementType {
   
   public let children: Content
@@ -304,6 +334,8 @@ public struct ZStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
   }
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct WrapperLayout<Content> : _ASLayoutElementType where Content : _ASLayoutElementType {
   
   public let child: Content
@@ -321,6 +353,8 @@ public struct WrapperLayout<Content> : _ASLayoutElementType where Content : _ASL
   }
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct CenterLayout<Content> : _ASLayoutElementType where Content : _ASLayoutElementType {
   
   public let content: Content
@@ -348,6 +382,8 @@ public struct CenterLayout<Content> : _ASLayoutElementType where Content : _ASLa
   }
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct RelativeLayout<Content>: _ASLayoutElementType where Content: _ASLayoutElementType {
 
   public let content: Content
@@ -379,6 +415,8 @@ public struct RelativeLayout<Content>: _ASLayoutElementType where Content: _ASLa
   }
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct InsetLayout<Content> : _ASLayoutElementType where Content : _ASLayoutElementType {
   
   public let content: Content
@@ -394,6 +432,8 @@ public struct InsetLayout<Content> : _ASLayoutElementType where Content : _ASLay
   }
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct OverlayLayout<OverlayContnt, Content> : _ASLayoutElementType where OverlayContnt : _ASLayoutElementType, Content : _ASLayoutElementType {
   
   public let content: Content
@@ -412,6 +452,8 @@ public struct OverlayLayout<OverlayContnt, Content> : _ASLayoutElementType where
   
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct BackgroundLayout<BackgroundContnt, Content> : _ASLayoutElementType where BackgroundContnt : _ASLayoutElementType, Content : _ASLayoutElementType {
   
   public let content: Content
@@ -430,6 +472,8 @@ public struct BackgroundLayout<BackgroundContnt, Content> : _ASLayoutElementType
   
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct AspectRatioLayout<Content> : _ASLayoutElementType where Content : _ASLayoutElementType {
   
   public let content: Content
@@ -453,6 +497,8 @@ public struct AspectRatioLayout<Content> : _ASLayoutElementType where Content : 
   
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct HSpacerLayout : _ASLayoutElementType {
   
   public let minLength: CGFloat
@@ -473,6 +519,8 @@ public struct HSpacerLayout : _ASLayoutElementType {
   }
 }
 
+///
+/// - Author: TetureSwiftSupport
 public struct VSpacerLayout : _ASLayoutElementType {
   
   public let minLength: CGFloat
