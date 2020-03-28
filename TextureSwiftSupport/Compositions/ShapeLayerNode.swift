@@ -39,7 +39,7 @@ public final class ShapeLayerNode : ASDisplayNode, ShapeDisplaying {
     return false
   }
   
-  var shapeLayer: CAShapeLayer {
+  public var shapeLayer: CAShapeLayer {
     backingNode.layer
   }
   

@@ -25,7 +25,7 @@ import AsyncDisplayKit
 
 public final class ShapeRenderingNode: ASDisplayNode, ShapeDisplaying {
     
-  struct Backing: Hashable {
+  private struct Backing: Hashable {
     var shapeFillColor: UIColor? = .black
     var shapePath: UIBezierPath?
     var shapeLineWidth: CGFloat = 0
