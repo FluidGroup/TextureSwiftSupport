@@ -25,6 +25,8 @@ import AsyncDisplayKit
  An ASDisplayNode object that supports safe-area.
  It provides `capturedSafeAreaInsets` with thread-safety.
  It can be used on layoutSpecThatFits.
+ 
+ - Author: TetureSwiftSupport
  */
 open class SafeAreaDisplayNode: NamedDisplayNodeBase {
   

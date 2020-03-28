@@ -23,11 +23,40 @@ import AsyncDisplayKit
 
 extension ASSizeRange {
   
-  public init(widthRange: ClosedRange<CGFloat>, heightRange: ClosedRange<CGFloat>) {
-    
+  ///
+  /// - Author: TetureSwiftSupport
+  public init(width: ClosedRange<CGFloat>, height: ClosedRange<CGFloat>) {
     self.init(
-      min: CGSize(width: widthRange.lowerBound, height: heightRange.lowerBound),
-      max: CGSize(width: widthRange.upperBound, height: heightRange.upperBound)
+      min: CGSize(width: width.lowerBound, height: height.lowerBound),
+      max: CGSize(width: width.upperBound, height: height.upperBound)
+    )
+  }
+    
+  ///
+  /// - Author: TetureSwiftSupport
+  public init(width: CGFloat, height: ClosedRange<CGFloat>) {
+    self.init(
+      min: CGSize(width: width, height: height.lowerBound),
+      max: CGSize(width: width, height: height.upperBound)
+    )
+  }
+  
+  ///
+  /// - Author: TetureSwiftSupport
+  public init(width: ClosedRange<CGFloat>, height: CGFloat) {
+    self.init(
+      min: CGSize(width: width.lowerBound, height: height),
+      max: CGSize(width: width.upperBound, height: height)
+    )
+  }
+  
+  ///
+  /// - Author: TetureSwiftSupport
+  public init(width: CGFloat, height: CGFloat) {
+    let size = CGSize(width: width, height: height)
+    self.init(
+      min: size,
+      max: size
     )
   }
 }

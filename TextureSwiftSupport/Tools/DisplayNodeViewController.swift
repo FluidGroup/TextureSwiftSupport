@@ -24,6 +24,8 @@ import AsyncDisplayKit
 /**
  Texture based ViewController
  This uses ASDisplayNode on the root view.
+
+ - Author: TetureSwiftSupport
  */
 open class DisplayNodeViewController: ASViewController<SafeAreaDisplayNode> {
   
