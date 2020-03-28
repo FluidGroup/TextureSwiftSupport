@@ -43,8 +43,10 @@ open class PaddingNode<Content: ASDisplayNode>: ASDisplayNode {
   }
   
   public final override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        
     return ASInsetLayoutSpec(insets: padding, child: content)
   }
+  
 }
 
 open class AnyPaddingNode: PaddingNode<ASDisplayNode> {
