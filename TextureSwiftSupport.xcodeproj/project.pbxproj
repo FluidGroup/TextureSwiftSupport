@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B19E610244DD9F0009FD799 /* FunctionalDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B19E60F244DD9F0009FD799 /* FunctionalDisplayNode.swift */; };
 		4B56350524188930000A37AC /* ASSizeRange+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B56350424188930000A37AC /* ASSizeRange+.swift */; };
 		4B5C387C242F0EEF005D9722 /* PaddingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C3877242F0EEF005D9722 /* PaddingNode.swift */; };
 		4B5C387D242F0EEF005D9722 /* BackgroundNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C3878242F0EEF005D9722 /* BackgroundNode.swift */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		4403C6E378DD73AD896F3CF1 /* Pods_TextureSwiftSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextureSwiftSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		473CCC32D6395F69538CB001 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		4B19E60F244DD9F0009FD799 /* FunctionalDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalDisplayNode.swift; sourceTree = "<group>"; };
 		4B3ED5FA232E1CE600D68739 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4B56350424188930000A37AC /* ASSizeRange+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASSizeRange+.swift"; sourceTree = "<group>"; };
 		4B5C3877242F0EEF005D9722 /* PaddingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingNode.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				4B5C3885242F1118005D9722 /* ShapeDisplaying.swift */,
 				4B5C3881242F10E3005D9722 /* ShapeLayerNode.swift */,
 				4B5C3882242F10E3005D9722 /* ShapeRenderingNode.swift */,
+				4B19E60F244DD9F0009FD799 /* FunctionalDisplayNode.swift */,
 			);
 			path = Compositions;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				4B5C387E242F0EEF005D9722 /* WrapperCellNode.swift in Sources */,
 				4BC70ECD23F7557E00197B7B /* NamedDisplayCellNodeBase.swift in Sources */,
 				4B873C2E23083FF4006170B1 /* SpecBuilder.swift in Sources */,
+				4B19E610244DD9F0009FD799 /* FunctionalDisplayNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
