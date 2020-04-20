@@ -1,16 +1,20 @@
 PODS:
+  - Reveal-SDK (24)
   - Texture/Core (2.8.1)
 
 DEPENDENCIES:
+  - Reveal-SDK
   - Texture/Core
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
+    - Reveal-SDK
     - Texture
 
 SPEC CHECKSUMS:
+  Reveal-SDK: 5d7e56b8f018c0a88b3a2c10bf68d598bbd3b071
   Texture: 8ecf6984065a1e54f06bf97b349ecca28582acd7
 
-PODFILE CHECKSUM: 9329fd55fd88f0732f85229db2c91a5503cd0674
+PODFILE CHECKSUM: 74a4813f243837c7474b03251047cb705fd2506d
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.8.4

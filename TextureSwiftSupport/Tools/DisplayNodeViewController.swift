@@ -60,3 +60,53 @@ open class DisplayNodeViewController: ASViewController<SafeAreaDisplayNode> {
     return ASWrapperLayoutSpec(layoutElements: [])
   }
 }
+
+open class PlainDisplayNodeViewController: UIViewController {
+  
+  public var capturedSafeAreaInsets: UIEdgeInsets {
+    node.capturedSafeAreaInsets
+  }
+  
+  private let node: SafeAreaDisplayNode = .init()
+  
+  public init() {
+    
+    node.automaticallyManagesSubnodes = true
+    
+    super.init(nibName: nil, bundle: nil)
+    
+    node.layoutSpecBlock = { [weak self] node, constrainedSize in
+      guard let self = self else {
+        return ASWrapperLayoutSpec(layoutElements: [])
+      }
+      return self.layoutSpecThatFits(constrainedSize)
+    }
+    
+  }
+  
+  open override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    view.addSubview(node.view)
+    node.view.frame = view.bounds
+    node.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+  }
+  
+  public override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+  }
+  
+  @available(*, unavailable)
+  public required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  /// Return a layout spec that describes the layout of the receiver and its children.
+  /// - Parameter constrainedSize: The minimum and maximum sizes the receiver should fit in.
+  open func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+    return ASWrapperLayoutSpec(layoutElements: [])
+  }
+
+  
+}

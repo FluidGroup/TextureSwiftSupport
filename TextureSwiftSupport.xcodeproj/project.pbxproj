@@ -29,6 +29,9 @@
 		4B873C4D23084621006170B1 /* TextureSwiftSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B873C2223083FE5006170B1 /* TextureSwiftSupport.framework */; };
 		4B873C4E23084621006170B1 /* TextureSwiftSupport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B873C2223083FE5006170B1 /* TextureSwiftSupport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B8A3026234DF6AD00082092 /* MethodChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8A3025234DF6AD00082092 /* MethodChain.swift */; };
+		4BB21B3A244E06E6008CA2A4 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB21B39244E06E6008CA2A4 /* Mocks.swift */; };
+		4BB21B3C244E0974008CA2A4 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB21B3B244E0974008CA2A4 /* MenuViewController.swift */; };
+		4BB21B3E244E0E68008CA2A4 /* InstagramPostCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB21B3D244E0E68008CA2A4 /* InstagramPostCellViewController.swift */; };
 		4BC70EC723F74D3A00197B7B /* DisplayNodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70EC623F74D3A00197B7B /* DisplayNodeViewController.swift */; };
 		4BC70EC923F74E8C00197B7B /* NamedDisplayNodeBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70EC823F74E8C00197B7B /* NamedDisplayNodeBase.swift */; };
 		4BC70ECB23F74EAB00197B7B /* SafeAreaDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */; };
@@ -89,6 +92,9 @@
 		4B873C48230845E3006170B1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B873C49230845E3006170B1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4B8A3025234DF6AD00082092 /* MethodChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodChain.swift; sourceTree = "<group>"; };
+		4BB21B39244E06E6008CA2A4 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
+		4BB21B3B244E0974008CA2A4 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		4BB21B3D244E0E68008CA2A4 /* InstagramPostCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramPostCellViewController.swift; sourceTree = "<group>"; };
 		4BC70EC623F74D3A00197B7B /* DisplayNodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayNodeViewController.swift; sourceTree = "<group>"; };
 		4BC70EC823F74E8C00197B7B /* NamedDisplayNodeBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedDisplayNodeBase.swift; sourceTree = "<group>"; };
 		4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaDisplayNode.swift; sourceTree = "<group>"; };
@@ -184,15 +190,26 @@
 		4B873C3423084045006170B1 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				4BB21B38244E06CB008CA2A4 /* Components */,
 				4B873C48230845E3006170B1 /* AppDelegate.swift */,
 				4B873C47230845E3006170B1 /* CompileCheck.swift */,
 				4B873C49230845E3006170B1 /* ViewController.swift */,
+				4BB21B3B244E0974008CA2A4 /* MenuViewController.swift */,
+				4BB21B3D244E0E68008CA2A4 /* InstagramPostCellViewController.swift */,
 				4B873C3B23084045006170B1 /* Main.storyboard */,
 				4B873C3E23084047006170B1 /* Assets.xcassets */,
 				4B873C4023084047006170B1 /* LaunchScreen.storyboard */,
 				4B873C4323084047006170B1 /* Info.plist */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		4BB21B38244E06CB008CA2A4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4BB21B39244E06E6008CA2A4 /* Mocks.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		4BC70EC323F74CFA00197B7B /* Experimental */ = {
@@ -449,6 +466,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B873C4C230845E3006170B1 /* ViewController.swift in Sources */,
+				4BB21B3C244E0974008CA2A4 /* MenuViewController.swift in Sources */,
+				4BB21B3A244E06E6008CA2A4 /* Mocks.swift in Sources */,
+				4BB21B3E244E0E68008CA2A4 /* InstagramPostCellViewController.swift in Sources */,
 				4B873C4B230845E3006170B1 /* AppDelegate.swift in Sources */,
 				4B873C4A230845E3006170B1 /* CompileCheck.swift in Sources */,
 			);

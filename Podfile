@@ -14,4 +14,5 @@ end
 target 'Demo' do
 
   pod 'Texture/Core'
+  pod 'Reveal-SDK'
 end
