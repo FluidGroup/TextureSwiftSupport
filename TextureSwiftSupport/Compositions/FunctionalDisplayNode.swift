@@ -33,7 +33,7 @@ import AsyncDisplayKit
  */
 public class FunctionalDisplayNode: SafeAreaDisplayNode {
   
-  private let retainItems: [AnyObject]
+  private let retainItems: [Any]
   
   private let hook: Hook = .init()
   
@@ -42,7 +42,7 @@ public class FunctionalDisplayNode: SafeAreaDisplayNode {
     _ file: StaticString = #file,
     _ function: StaticString = #function,
     _ line: UInt = #line,
-    retainsUntilDeinitItems: [AnyObject] = [],
+    retainsUntilDeinitItems: [Any] = [],
     layoutSpecBlock: @escaping (FunctionalDisplayNode, ASSizeRange) -> ASLayoutSpec
   ) {
     
