@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B19E610244DD9F0009FD799 /* FunctionalDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B19E60F244DD9F0009FD799 /* FunctionalDisplayNode.swift */; };
+		4B22761B2454A9E500F39A16 /* GradientNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B22761A2454A9AF00F39A16 /* GradientNode.swift */; };
 		4B56350524188930000A37AC /* ASSizeRange+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B56350424188930000A37AC /* ASSizeRange+.swift */; };
 		4B5C387C242F0EEF005D9722 /* PaddingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C3877242F0EEF005D9722 /* PaddingNode.swift */; };
 		4B5C387D242F0EEF005D9722 /* BackgroundNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C3878242F0EEF005D9722 /* BackgroundNode.swift */; };
@@ -68,6 +69,7 @@
 		4403C6E378DD73AD896F3CF1 /* Pods_TextureSwiftSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextureSwiftSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		473CCC32D6395F69538CB001 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		4B19E60F244DD9F0009FD799 /* FunctionalDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalDisplayNode.swift; sourceTree = "<group>"; };
+		4B22761A2454A9AF00F39A16 /* GradientNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNode.swift; sourceTree = "<group>"; };
 		4B3ED5FA232E1CE600D68739 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4B56350424188930000A37AC /* ASSizeRange+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASSizeRange+.swift"; sourceTree = "<group>"; };
 		4B5C3877242F0EEF005D9722 /* PaddingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingNode.swift; sourceTree = "<group>"; };
@@ -126,6 +128,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B2276182454A97E00F39A16 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4B2276192454A99800F39A16 /* Elements */,
+				4B5C3876242F0E59005D9722 /* Compositions */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4B2276192454A99800F39A16 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				4B22761A2454A9AF00F39A16 /* GradientNode.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
 		4B5635032418891C000A37AC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,8 +195,8 @@
 		4B873C2423083FE5006170B1 /* TextureSwiftSupport */ = {
 			isa = PBXGroup;
 			children = (
+				4B2276182454A97E00F39A16 /* Components */,
 				4B5635032418891C000A37AC /* Extensions */,
-				4B5C3876242F0E59005D9722 /* Compositions */,
 				4BC70EC523F74D1D00197B7B /* Tools */,
 				4BC70EC423F74D1000197B7B /* SpecBuilder */,
 				4BC70EC323F74CFA00197B7B /* Experimental */,
@@ -456,6 +475,7 @@
 				4B5C387F242F0EEF005D9722 /* WrapperNode.swift in Sources */,
 				4B5C387E242F0EEF005D9722 /* WrapperCellNode.swift in Sources */,
 				4BC70ECD23F7557E00197B7B /* NamedDisplayCellNodeBase.swift in Sources */,
+				4B22761B2454A9E500F39A16 /* GradientNode.swift in Sources */,
 				4B873C2E23083FF4006170B1 /* SpecBuilder.swift in Sources */,
 				4B19E610244DD9F0009FD799 /* FunctionalDisplayNode.swift in Sources */,
 			);
