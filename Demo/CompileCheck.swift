@@ -125,7 +125,7 @@ enum _CompileCheck {
 //          Text("")
 //        }
 //      }
-//      
+//
 //      let list = VStack {
 //        ForEach([0]) { a in
 //          Text("a")
@@ -134,6 +134,85 @@ enum _CompileCheck {
 //    } else {
 //      
 //    }
+  }
+  
+  final class MyNode: ASDisplayNode {
+    
+    private let nameNode = ASTextNode()
+    private let ageNode = ASTextNode()
+    private let gradientBackgroundNode = GradientNode()
+    
+    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+      LayoutSpec {
+        HStackLayout {
+          nameNode
+          ageNode
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 16)
+        .background(gradientBackgroundNode)
+      }
+    }
+  }
+  
+  final class MyNode2: ASDisplayNode {
+    
+    private let nameNode = ASTextNode()
+    private let ageNode = ASTextNode()
+    private let gradientBackgroundNode = GradientNode()
+    
+    private var isNameNodeHidden: Bool = false {
+      didSet {
+        setNeedsLayout()
+      }
+    }
+    
+    override init() {
+      super.init()
+      automaticallyManagesSubnodes = true
+    }
+    
+    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+      LayoutSpec {
+        HStackLayout {
+          if !isNameNodeHidden {
+            nameNode
+          }
+          ageNode
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 16)
+        .background(gradientBackgroundNode)
+      }
+    }
+  }
+  
+  final class MyNodePlain: ASDisplayNode {
+    
+    private let nameNode = ASTextNode()
+    private let ageNode = ASTextNode()
+    private let gradientBackgroundNode = GradientNode()
+    
+    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+                       
+      return ASBackgroundLayoutSpec(
+        child:  ASInsetLayoutSpec(
+          insets: .init(top: 16, left: 20, bottom: 16, right: 20),
+          child: ASStackLayoutSpec(
+            direction: .horizontal,
+            spacing: 0,
+            justifyContent: .start,
+            alignItems: .stretch,
+            children: [
+              nameNode,
+              ageNode
+            ]
+          )
+        ),
+        background: gradientBackgroundNode
+      )
+    }
+    
   }
     
 }
