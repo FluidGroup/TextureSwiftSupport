@@ -59,8 +59,6 @@ final class _CaseLayoutSpec: ASLayoutSpec {
     relativeToParentSize parentSize: CGSize
   ) -> ASLayout {
     
-    print(constrainedSize, parentSize)
-
     guard condition.matches(trait: .init(constraintSize: constrainedSize)) else {
       return emptyLayout.calculateLayoutThatFits(constrainedSize, restrictedTo: size, relativeToParentSize: parentSize)
     }
