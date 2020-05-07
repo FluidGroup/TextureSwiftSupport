@@ -33,8 +33,8 @@ open class DisplayNodeViewController: ASViewController<SafeAreaDisplayNode> {
     node.capturedSafeAreaInsets
   }
   
-  public init() {
-    
+  #if ASVIEWCONTROLLER_OVERRIDE_INIT
+  public override init() {
     let rootNode = SafeAreaDisplayNode()
     rootNode.automaticallyManagesSubnodes = true
     
@@ -48,6 +48,22 @@ open class DisplayNodeViewController: ASViewController<SafeAreaDisplayNode> {
     }
     
   }
+  #else
+  public init() {
+    let rootNode = SafeAreaDisplayNode()
+    rootNode.automaticallyManagesSubnodes = true
+    
+    super.init(node: rootNode)
+    
+    rootNode.layoutSpecBlock = { [weak self] node, constrainedSize in
+      guard let self = self else {
+        return ASWrapperLayoutSpec(layoutElements: [])
+      }
+      return self.layoutSpecThatFits(constrainedSize)
+    }
+    
+  }
+  #endif
   
   @available(*, unavailable)
   public required init?(coder aDecoder: NSCoder) {
