@@ -221,12 +221,14 @@ public struct VStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
   public let alignItems: ASStackLayoutAlignItems
   public let children: Content
   public let flexWrap: FlexWrap
+  public let isConcurrent: Bool
   
   public init(
     spacing: CGFloat = 0,
     justifyContent: ASStackLayoutJustifyContent = .start,
     alignItems: ASStackLayoutAlignItems = .stretch,
     flexWrap: FlexWrap = .noWrap,
+    isConcurrent: Bool = false,
     @ASLayoutSpecBuilder content: () -> Content
   ) {
     
@@ -234,6 +236,7 @@ public struct VStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
     self.justifyContent = justifyContent
     self.alignItems = alignItems
     self.flexWrap = flexWrap
+    self.isConcurrent = isConcurrent
     self.children = content()
     
   }
@@ -247,6 +250,8 @@ public struct VStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
       alignItems: alignItems,
       children: children.make()
     )
+    
+    spec.isConcurrent = isConcurrent
        
     switch flexWrap {
     case .noWrap:
@@ -272,12 +277,14 @@ public struct HStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
   public let alignItems: ASStackLayoutAlignItems
   public let children: Content
   public let flexWrap: FlexWrap
+  public let isConcurrent: Bool
   
   public init(
     spacing: CGFloat = 0,
     justifyContent: ASStackLayoutJustifyContent = .start,
     alignItems: ASStackLayoutAlignItems = .stretch,
     flexWrap: FlexWrap = .noWrap,
+    isConcurrent: Bool = false,
     @ASLayoutSpecBuilder content: () -> Content
   ) {
     
@@ -285,6 +292,7 @@ public struct HStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
     self.justifyContent = justifyContent
     self.alignItems = alignItems
     self.flexWrap = flexWrap
+    self.isConcurrent = isConcurrent
     self.children = content()
     
   }
@@ -298,6 +306,8 @@ public struct HStackLayout<Content> : _ASLayoutElementType where Content : _ASLa
       alignItems: alignItems,
       children: children.make()
     )
+    
+    spec.isConcurrent = isConcurrent
     
     switch flexWrap {
     case .noWrap:
