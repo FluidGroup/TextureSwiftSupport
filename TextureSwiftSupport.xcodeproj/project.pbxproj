@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4B086A44246443130024F5A1 /* AdaptiveLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B086A43246443130024F5A1 /* AdaptiveLayoutViewController.swift */; };
 		4B086A462464434C0024F5A1 /* TextureSwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */; };
+		4B086A48246465D10024F5A1 /* LayoutCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B086A47246465D10024F5A1 /* LayoutCondition.swift */; };
 		4B19E610244DD9F0009FD799 /* FunctionalDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B19E60F244DD9F0009FD799 /* FunctionalDisplayNode.swift */; };
 		4B22761B2454A9E500F39A16 /* GradientNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B22761A2454A9AF00F39A16 /* GradientNode.swift */; };
 		4B56350524188930000A37AC /* ASSizeRange+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B56350424188930000A37AC /* ASSizeRange+.swift */; };
@@ -21,7 +22,7 @@
 		4B5C3884242F10E3005D9722 /* ShapeRenderingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C3882242F10E3005D9722 /* ShapeRenderingNode.swift */; };
 		4B5C3886242F1118005D9722 /* ShapeDisplaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C3885242F1118005D9722 /* ShapeDisplaying.swift */; };
 		4B5CEFC8235264CA00607980 /* _NodeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5CEFC7235264CA00607980 /* _NodeLayout.swift */; };
-		4B7B1A08246408C500F36CF7 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B1A07246408C500F36CF7 /* Condition.swift */; };
+		4B7B1A08246408C500F36CF7 /* SwitchCaseLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B1A07246408C500F36CF7 /* SwitchCaseLayout.swift */; };
 		4B873C2723083FE5006170B1 /* TextureSwiftSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B873C2E23083FF4006170B1 /* SpecBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B873C2D23083FF4006170B1 /* SpecBuilder.swift */; };
 		4B873C3D23084045006170B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B873C3B23084045006170B1 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		473CCC32D6395F69538CB001 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		4B086A43246443130024F5A1 /* AdaptiveLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveLayoutViewController.swift; sourceTree = "<group>"; };
 		4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureSwiftSupport.swift; sourceTree = "<group>"; };
+		4B086A47246465D10024F5A1 /* LayoutCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutCondition.swift; sourceTree = "<group>"; };
 		4B19E60F244DD9F0009FD799 /* FunctionalDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalDisplayNode.swift; sourceTree = "<group>"; };
 		4B22761A2454A9AF00F39A16 /* GradientNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNode.swift; sourceTree = "<group>"; };
 		4B3ED5FA232E1CE600D68739 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -60,7 +62,7 @@
 		4B5C3882242F10E3005D9722 /* ShapeRenderingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeRenderingNode.swift; sourceTree = "<group>"; };
 		4B5C3885242F1118005D9722 /* ShapeDisplaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeDisplaying.swift; sourceTree = "<group>"; };
 		4B5CEFC7235264CA00607980 /* _NodeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _NodeLayout.swift; sourceTree = "<group>"; };
-		4B7B1A07246408C500F36CF7 /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
+		4B7B1A07246408C500F36CF7 /* SwitchCaseLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCaseLayout.swift; sourceTree = "<group>"; };
 		4B873C2223083FE5006170B1 /* TextureSwiftSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TextureSwiftSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureSwiftSupport.h; sourceTree = "<group>"; };
 		4B873C2623083FE5006170B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -225,7 +227,8 @@
 			children = (
 				4B873C2D23083FF4006170B1 /* SpecBuilder.swift */,
 				4B8A3025234DF6AD00082092 /* MethodChain.swift */,
-				4B7B1A07246408C500F36CF7 /* Condition.swift */,
+				4B7B1A07246408C500F36CF7 /* SwitchCaseLayout.swift */,
+				4B086A47246465D10024F5A1 /* LayoutCondition.swift */,
 			);
 			path = SpecBuilder;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 			files = (
 				4B5C3883242F10E3005D9722 /* ShapeLayerNode.swift in Sources */,
 				4B5C387D242F0EEF005D9722 /* BackgroundNode.swift in Sources */,
+				4B086A48246465D10024F5A1 /* LayoutCondition.swift in Sources */,
 				4B8A3026234DF6AD00082092 /* MethodChain.swift in Sources */,
 				4B5C387C242F0EEF005D9722 /* PaddingNode.swift in Sources */,
 				4BC70EC923F74E8C00197B7B /* NamedDisplayNodeBase.swift in Sources */,
@@ -456,7 +460,7 @@
 				4B5C387E242F0EEF005D9722 /* WrapperCellNode.swift in Sources */,
 				4BC70ECD23F7557E00197B7B /* NamedDisplayCellNodeBase.swift in Sources */,
 				4B086A462464434C0024F5A1 /* TextureSwiftSupport.swift in Sources */,
-				4B7B1A08246408C500F36CF7 /* Condition.swift in Sources */,
+				4B7B1A08246408C500F36CF7 /* SwitchCaseLayout.swift in Sources */,
 				4B22761B2454A9E500F39A16 /* GradientNode.swift in Sources */,
 				4B873C2E23083FF4006170B1 /* SpecBuilder.swift in Sources */,
 				4B19E610244DD9F0009FD799 /* FunctionalDisplayNode.swift in Sources */,

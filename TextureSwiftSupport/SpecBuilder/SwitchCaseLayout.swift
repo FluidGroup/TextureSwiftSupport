@@ -1,37 +1,26 @@
 //
-//  Condition.swift
-//  TextureSwiftSupport
+// Copyright (c) 2020 Hiroshi Kimura(Muukii) <muuki.app@gmail.com>
 //
-//  Created by muukii on 2020/05/07.
-//  Copyright © 2020 muukii. All rights reserved.
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
 import Foundation
 import AsyncDisplayKit
-
-public final class LayoutTrait {
-   
-  public let constraintSize: ASSizeRange
-
-  internal init(constraintSize: ASSizeRange) {
-    self.constraintSize = constraintSize
-  }
-}
-
-/// A condition to lay children out
-public struct LayoutCondition {
-  
-  private let closure: (LayoutTrait) -> Bool
-    
-  /// - Parameter closure: Make sure a operation can perform thread-safety due to closure runs in any thread.
-  public init(_ closure: @escaping (LayoutTrait) -> Bool) {
-    self.closure = closure
-  }
-  
-  public func matches(trait: LayoutTrait) -> Bool {
-    closure(trait)
-  }
-}
 
 fileprivate let emptyLayout = ASLayoutSpec()
 
@@ -59,7 +48,13 @@ final class _CaseLayoutSpec: ASLayoutSpec {
     relativeToParentSize parentSize: CGSize
   ) -> ASLayout {
     
-    guard condition.matches(trait: .init(constraintSize: constrainedSize)) else {
+    let context = LayoutContext(
+      constraintSize: constrainedSize,
+      parentSize: parentSize,
+      trait: asyncTraitCollection()
+    )
+    
+    guard condition.matches(context: context) else {
       return emptyLayout.calculateLayoutThatFits(constrainedSize, restrictedTo: size, relativeToParentSize: parentSize)
     }
     
@@ -83,10 +78,14 @@ final class _SwitchLayoutSpec: ASLayoutSpec {
     relativeToParentSize parentSize: CGSize
   ) -> ASLayout {
         
-    let trait = LayoutTrait(constraintSize: constrainedSize)
+    let context = LayoutContext(
+      constraintSize: constrainedSize,
+      parentSize: parentSize,
+      trait: asyncTraitCollection()
+    )
     
     for _case in cases {
-      if _case.condition.matches(trait: trait) {
+      if _case.condition.matches(context: context) {
         return _case.calculateLayoutThatFits(constrainedSize, restrictedTo: size, relativeToParentSize: parentSize)
       }
     }
