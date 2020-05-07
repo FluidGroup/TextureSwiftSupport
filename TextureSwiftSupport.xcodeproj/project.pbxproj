@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B086A44246443130024F5A1 /* AdaptiveLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B086A43246443130024F5A1 /* AdaptiveLayoutViewController.swift */; };
 		4B086A462464434C0024F5A1 /* TextureSwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */; };
 		4B086A48246465D10024F5A1 /* LayoutCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B086A47246465D10024F5A1 /* LayoutCondition.swift */; };
 		4B19E610244DD9F0009FD799 /* FunctionalDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B19E60F244DD9F0009FD799 /* FunctionalDisplayNode.swift */; };
@@ -46,7 +45,6 @@
 /* Begin PBXFileReference section */
 		4403C6E378DD73AD896F3CF1 /* Pods_TextureSwiftSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextureSwiftSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		473CCC32D6395F69538CB001 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
-		4B086A43246443130024F5A1 /* AdaptiveLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveLayoutViewController.swift; sourceTree = "<group>"; };
 		4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureSwiftSupport.swift; sourceTree = "<group>"; };
 		4B086A47246465D10024F5A1 /* LayoutCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutCondition.swift; sourceTree = "<group>"; };
 		4B19E60F244DD9F0009FD799 /* FunctionalDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalDisplayNode.swift; sourceTree = "<group>"; };
@@ -197,7 +195,6 @@
 				4B873C49230845E3006170B1 /* ViewController.swift */,
 				4BB21B3B244E0974008CA2A4 /* MenuViewController.swift */,
 				4BB21B3D244E0E68008CA2A4 /* InstagramPostCellViewController.swift */,
-				4B086A43246443130024F5A1 /* AdaptiveLayoutViewController.swift */,
 				4B873C3B23084045006170B1 /* Main.storyboard */,
 				4B873C3E23084047006170B1 /* Assets.xcassets */,
 				4B873C4023084047006170B1 /* LaunchScreen.storyboard */,
@@ -475,7 +472,6 @@
 				4BB21B3C244E0974008CA2A4 /* MenuViewController.swift in Sources */,
 				4BB21B3A244E06E6008CA2A4 /* Mocks.swift in Sources */,
 				4BB21B3E244E0E68008CA2A4 /* InstagramPostCellViewController.swift in Sources */,
-				4B086A44246443130024F5A1 /* AdaptiveLayoutViewController.swift in Sources */,
 				4B873C4B230845E3006170B1 /* AppDelegate.swift in Sources */,
 				4B873C4A230845E3006170B1 /* CompileCheck.swift in Sources */,
 			);

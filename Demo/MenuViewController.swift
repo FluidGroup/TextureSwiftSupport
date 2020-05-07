@@ -18,7 +18,6 @@ fileprivate let descriptor = GlossButtonDescriptor(bodyStyle: .init(layout: .hor
 final class MenuViewController: PlainDisplayNodeViewController {
   
   private let openSampleButtonNode = GlossButtonNode()
-  private let openAdaptiveButtonNode = GlossButtonNode()
   private let topLabelNode = ASTextNode()
   
   override init() {
@@ -34,11 +33,6 @@ final class MenuViewController: PlainDisplayNodeViewController {
       self?.navigationController?.pushViewController(controller, animated: true)
     }
 
-    openAdaptiveButtonNode.setDescriptor(descriptor.title("OpenAdaptive".styled { $0 }), for: .normal)
-    openAdaptiveButtonNode.onTap = { [weak self] in
-      let controller = AdaptiveLayoutViewController()
-      self?.navigationController?.pushViewController(controller, animated: true)
-    }
   }
     
   override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -52,7 +46,6 @@ final class MenuViewController: PlainDisplayNodeViewController {
         CenterLayout {
           VStackLayout {
             openSampleButtonNode
-            openAdaptiveButtonNode
           }
         }
         
