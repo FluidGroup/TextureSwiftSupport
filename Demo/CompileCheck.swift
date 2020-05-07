@@ -117,7 +117,89 @@ enum _CompileCheck {
       }
       
     }
+    
+    do {
+               
+      /// In Swith, `Case` only can declare.
+      /// A node in first matched case will display.
+      _ = LayoutSpec {
+        Switch {
+          Case(.containerSize(.width, >=300)) {
+            MyNode()
+          }
+          Case(.containerSize(.width, <=300)) {
+            MyNode()
+          }
+        }
+      }
+      
+      /// it can declare `Case` isolated, like using if-else control flow.
+      ///
+      _ = LayoutSpec {
+        Case(.containerSize(.height, >=300)) {
+          MyNode()
+        }
+        Case(.maxConstraintSize(.height, >=300)) {
+          MyNode()
+        }
+        Case(.parentSize(.height, >=300)) {
+          MyNode()
+        }
+        VStackLayout {
+          MyNode()
+        }
+      }
+     
+      /// Creating custom condition
+      _ = LayoutSpec {
+        Case(.init { context in
+          let _: ASSizeRange = context.constraintSize
+          let _: CGSize = context.parentSize
+          let _: ASTraitCollection = context.trait
+          return false
+        }) {
+          MyNode()
+        }
+      }
+      
+      /// use combined condition
+      _ = LayoutSpec {
+        Case(.parentSize(.height, >=300) && .parentSize(.width, <=100)) {
+          MyNode()
+        }
         
+        Case(.parentSize(.height, >=300) || .parentSize(.width, <=100)) {
+          MyNode()
+        }
+      }
+      
+      /// Nesting
+      _ = LayoutSpec {
+        Case(.parentSize(.height, >=300)) {
+          Switch {
+            Case(.parentSize(.height, >=300)) {
+              MyNode()
+            }
+            Case(.parentSize(.height, >=300)) {
+              Case(.parentSize(.height, >=300)) {
+                Switch {
+                  Case(.parentSize(.height, >=300)) {
+                    MyNode()
+                  }
+                  
+                  Case(.parentSize(.height, >=300)) {
+                    MyNode()
+                  }
+                }
+              }
+            }
+          }
+        }
+             
+      }
+      
+    }
+    
 //    if #available(iOS 13.0, *) {
 //      let ha = VStack {
 //        Text("")

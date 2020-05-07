@@ -36,6 +36,9 @@
 		4BC70EC923F74E8C00197B7B /* NamedDisplayNodeBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70EC823F74E8C00197B7B /* NamedDisplayNodeBase.swift */; };
 		4BC70ECB23F74EAB00197B7B /* SafeAreaDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */; };
 		4BC70ECD23F7557E00197B7B /* NamedDisplayCellNodeBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70ECC23F7557E00197B7B /* NamedDisplayCellNodeBase.swift */; };
+		4BE65277246481D8004346D6 /* AdaptiveLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE65276246481D8004346D6 /* AdaptiveLayoutViewController.swift */; };
+		4BE6527A246481DE004346D6 /* SwitchCaseLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE65278246481DE004346D6 /* SwitchCaseLayout.swift */; };
+		4BE6527B246481DE004346D6 /* LayoutCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE65279246481DE004346D6 /* LayoutCondition.swift */; };
 		99A18E1BF9C46EC619085416 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEDB4E127B7A4C426A1B216 /* Pods_Demo.framework */; };
 		F3E933F1BC6075B11F4E033B /* Pods_TextureSwiftSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4403C6E378DD73AD896F3CF1 /* Pods_TextureSwiftSupport.framework */; };
 /* End PBXBuildFile section */
@@ -77,6 +80,9 @@
 		4BC70EC823F74E8C00197B7B /* NamedDisplayNodeBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedDisplayNodeBase.swift; sourceTree = "<group>"; };
 		4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaDisplayNode.swift; sourceTree = "<group>"; };
 		4BC70ECC23F7557E00197B7B /* NamedDisplayCellNodeBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedDisplayCellNodeBase.swift; sourceTree = "<group>"; };
+		4BE65276246481D8004346D6 /* AdaptiveLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveLayoutViewController.swift; sourceTree = "<group>"; };
+		4BE65278246481DE004346D6 /* SwitchCaseLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCaseLayout.swift; sourceTree = "<group>"; };
+		4BE65279246481DE004346D6 /* LayoutCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutCondition.swift; sourceTree = "<group>"; };
 		5DEDB4E127B7A4C426A1B216 /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8727E50E77B25BA7D77A0D27 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		E3C240A10D90D0F926A2A7EF /* Pods-TextureSwiftSupport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureSwiftSupport.release.xcconfig"; path = "Target Support Files/Pods-TextureSwiftSupport/Pods-TextureSwiftSupport.release.xcconfig"; sourceTree = "<group>"; };
@@ -191,6 +197,7 @@
 				4B873C49230845E3006170B1 /* ViewController.swift */,
 				4BB21B3B244E0974008CA2A4 /* MenuViewController.swift */,
 				4BB21B3D244E0E68008CA2A4 /* InstagramPostCellViewController.swift */,
+				4BE65276246481D8004346D6 /* AdaptiveLayoutViewController.swift */,
 				4B873C3B23084045006170B1 /* Main.storyboard */,
 				4B873C3E23084047006170B1 /* Assets.xcassets */,
 				4B873C4023084047006170B1 /* LaunchScreen.storyboard */,
@@ -220,6 +227,8 @@
 			children = (
 				4B873C2D23083FF4006170B1 /* SpecBuilder.swift */,
 				4B8A3025234DF6AD00082092 /* MethodChain.swift */,
+				4BE65279246481DE004346D6 /* LayoutCondition.swift */,
+				4BE65278246481DE004346D6 /* SwitchCaseLayout.swift */,
 			);
 			path = SpecBuilder;
 			sourceTree = "<group>";
@@ -436,6 +445,7 @@
 			files = (
 				4B5C3883242F10E3005D9722 /* ShapeLayerNode.swift in Sources */,
 				4B5C387D242F0EEF005D9722 /* BackgroundNode.swift in Sources */,
+				4BE6527B246481DE004346D6 /* LayoutCondition.swift in Sources */,
 				4B8A3026234DF6AD00082092 /* MethodChain.swift in Sources */,
 				4B5C387C242F0EEF005D9722 /* PaddingNode.swift in Sources */,
 				4BC70EC923F74E8C00197B7B /* NamedDisplayNodeBase.swift in Sources */,
@@ -443,6 +453,7 @@
 				4B5C3884242F10E3005D9722 /* ShapeRenderingNode.swift in Sources */,
 				4BC70EC723F74D3A00197B7B /* DisplayNodeViewController.swift in Sources */,
 				4B5C3886242F1118005D9722 /* ShapeDisplaying.swift in Sources */,
+				4BE6527A246481DE004346D6 /* SwitchCaseLayout.swift in Sources */,
 				4B5CEFC8235264CA00607980 /* _NodeLayout.swift in Sources */,
 				4B56350524188930000A37AC /* ASSizeRange+.swift in Sources */,
 				4BC70ECB23F74EAB00197B7B /* SafeAreaDisplayNode.swift in Sources */,
@@ -464,6 +475,7 @@
 				4BB21B3C244E0974008CA2A4 /* MenuViewController.swift in Sources */,
 				4BB21B3A244E06E6008CA2A4 /* Mocks.swift in Sources */,
 				4BB21B3E244E0E68008CA2A4 /* InstagramPostCellViewController.swift in Sources */,
+				4BE65277246481D8004346D6 /* AdaptiveLayoutViewController.swift in Sources */,
 				4B873C4B230845E3006170B1 /* AppDelegate.swift in Sources */,
 				4B873C4A230845E3006170B1 /* CompileCheck.swift in Sources */,
 			);
