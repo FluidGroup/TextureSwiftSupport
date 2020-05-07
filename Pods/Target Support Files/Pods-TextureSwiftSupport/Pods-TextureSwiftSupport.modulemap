@@ -1,6 +1,0 @@
-framework module Pods_TextureSwiftSupport {
-  umbrella header "Pods-TextureSwiftSupport-umbrella.h"
-
-  export *
-  module * { export * }
-}

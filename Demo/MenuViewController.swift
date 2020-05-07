@@ -10,10 +10,15 @@ import Foundation
 
 import AsyncDisplayKit
 import TextureSwiftSupport
+import GlossButtonNode
+import TypedTextAttributes
+
+fileprivate let descriptor = GlossButtonDescriptor(bodyStyle: .init(layout: .horizontal()), surfaceStyle: .bodyOnly)
 
 final class MenuViewController: PlainDisplayNodeViewController {
   
-  private let openSampleButtonNode = ASButtonNode()
+  private let openSampleButtonNode = GlossButtonNode()
+  private let openAdaptiveButtonNode = GlossButtonNode()
   private let topLabelNode = ASTextNode()
   
   override init() {
@@ -22,16 +27,20 @@ final class MenuViewController: PlainDisplayNodeViewController {
     view.backgroundColor = .white
     
     topLabelNode.attributedText = .init(string: "Attatched on safe-area")
-    openSampleButtonNode.setTitle("OpenSample", with: nil, with: .systemBlue, for: .normal)
-    openSampleButtonNode.addTarget(self, action: #selector(tapOpenSampleButton), forControlEvents: .touchUpInside)
+        
+    openSampleButtonNode.setDescriptor(descriptor.title("OpenSample".styled { $0 }), for: .normal)
+    openSampleButtonNode.onTap = { [weak self] in
+      let controller = InstagramPostCellViewController()
+      self?.navigationController?.pushViewController(controller, animated: true)
+    }
+
+    openAdaptiveButtonNode.setDescriptor(descriptor.title("OpenAdaptive".styled { $0 }), for: .normal)
+    openAdaptiveButtonNode.onTap = { [weak self] in
+      let controller = AdaptiveLayoutViewController()
+      self?.navigationController?.pushViewController(controller, animated: true)
+    }
   }
-  
-  @objc
-  private func tapOpenSampleButton() {
-    let controller = InstagramPostCellViewController()
-    navigationController?.pushViewController(controller, animated: true)
-  }
-  
+    
   override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
     LayoutSpec {
       
@@ -41,7 +50,10 @@ final class MenuViewController: PlainDisplayNodeViewController {
           .padding(UIEdgeInsets(top: 0, left: 0, bottom: .infinity, right: .infinity))
         
         CenterLayout {
-          openSampleButtonNode
+          VStackLayout {
+            openSampleButtonNode
+            openAdaptiveButtonNode
+          }
         }
         
       }

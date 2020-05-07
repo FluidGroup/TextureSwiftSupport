@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B086A44246443130024F5A1 /* AdaptiveLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B086A43246443130024F5A1 /* AdaptiveLayoutViewController.swift */; };
+		4B086A462464434C0024F5A1 /* TextureSwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */; };
 		4B19E610244DD9F0009FD799 /* FunctionalDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B19E60F244DD9F0009FD799 /* FunctionalDisplayNode.swift */; };
 		4B22761B2454A9E500F39A16 /* GradientNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B22761A2454A9AF00F39A16 /* GradientNode.swift */; };
 		4B56350524188930000A37AC /* ASSizeRange+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B56350424188930000A37AC /* ASSizeRange+.swift */; };
@@ -19,6 +21,7 @@
 		4B5C3884242F10E3005D9722 /* ShapeRenderingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C3882242F10E3005D9722 /* ShapeRenderingNode.swift */; };
 		4B5C3886242F1118005D9722 /* ShapeDisplaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C3885242F1118005D9722 /* ShapeDisplaying.swift */; };
 		4B5CEFC8235264CA00607980 /* _NodeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5CEFC7235264CA00607980 /* _NodeLayout.swift */; };
+		4B7B1A08246408C500F36CF7 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7B1A07246408C500F36CF7 /* Condition.swift */; };
 		4B873C2723083FE5006170B1 /* TextureSwiftSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B873C2E23083FF4006170B1 /* SpecBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B873C2D23083FF4006170B1 /* SpecBuilder.swift */; };
 		4B873C3D23084045006170B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B873C3B23084045006170B1 /* Main.storyboard */; };
@@ -27,8 +30,6 @@
 		4B873C4A230845E3006170B1 /* CompileCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B873C47230845E3006170B1 /* CompileCheck.swift */; };
 		4B873C4B230845E3006170B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B873C48230845E3006170B1 /* AppDelegate.swift */; };
 		4B873C4C230845E3006170B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B873C49230845E3006170B1 /* ViewController.swift */; };
-		4B873C4D23084621006170B1 /* TextureSwiftSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B873C2223083FE5006170B1 /* TextureSwiftSupport.framework */; };
-		4B873C4E23084621006170B1 /* TextureSwiftSupport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B873C2223083FE5006170B1 /* TextureSwiftSupport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B8A3026234DF6AD00082092 /* MethodChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8A3025234DF6AD00082092 /* MethodChain.swift */; };
 		4BB21B3A244E06E6008CA2A4 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB21B39244E06E6008CA2A4 /* Mocks.swift */; };
 		4BB21B3C244E0974008CA2A4 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB21B3B244E0974008CA2A4 /* MenuViewController.swift */; };
@@ -41,33 +42,11 @@
 		F3E933F1BC6075B11F4E033B /* Pods_TextureSwiftSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4403C6E378DD73AD896F3CF1 /* Pods_TextureSwiftSupport.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		4B873C4F23084621006170B1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4B873C1923083FE5006170B1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4B873C2123083FE5006170B1;
-			remoteInfo = TextureSwiftSupport;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		4B873C5123084621006170B1 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				4B873C4E23084621006170B1 /* TextureSwiftSupport.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		4403C6E378DD73AD896F3CF1 /* Pods_TextureSwiftSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextureSwiftSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		473CCC32D6395F69538CB001 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		4B086A43246443130024F5A1 /* AdaptiveLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveLayoutViewController.swift; sourceTree = "<group>"; };
+		4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureSwiftSupport.swift; sourceTree = "<group>"; };
 		4B19E60F244DD9F0009FD799 /* FunctionalDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalDisplayNode.swift; sourceTree = "<group>"; };
 		4B22761A2454A9AF00F39A16 /* GradientNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNode.swift; sourceTree = "<group>"; };
 		4B3ED5FA232E1CE600D68739 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -81,6 +60,7 @@
 		4B5C3882242F10E3005D9722 /* ShapeRenderingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeRenderingNode.swift; sourceTree = "<group>"; };
 		4B5C3885242F1118005D9722 /* ShapeDisplaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeDisplaying.swift; sourceTree = "<group>"; };
 		4B5CEFC7235264CA00607980 /* _NodeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _NodeLayout.swift; sourceTree = "<group>"; };
+		4B7B1A07246408C500F36CF7 /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
 		4B873C2223083FE5006170B1 /* TextureSwiftSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TextureSwiftSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureSwiftSupport.h; sourceTree = "<group>"; };
 		4B873C2623083FE5006170B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,7 +100,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B873C4D23084621006170B1 /* TextureSwiftSupport.framework in Frameworks */,
 				99A18E1BF9C46EC619085416 /* Pods_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,6 +174,7 @@
 		4B873C2423083FE5006170B1 /* TextureSwiftSupport */ = {
 			isa = PBXGroup;
 			children = (
+				4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */,
 				4B2276182454A97E00F39A16 /* Components */,
 				4B5635032418891C000A37AC /* Extensions */,
 				4BC70EC523F74D1D00197B7B /* Tools */,
@@ -215,6 +195,7 @@
 				4B873C49230845E3006170B1 /* ViewController.swift */,
 				4BB21B3B244E0974008CA2A4 /* MenuViewController.swift */,
 				4BB21B3D244E0E68008CA2A4 /* InstagramPostCellViewController.swift */,
+				4B086A43246443130024F5A1 /* AdaptiveLayoutViewController.swift */,
 				4B873C3B23084045006170B1 /* Main.storyboard */,
 				4B873C3E23084047006170B1 /* Assets.xcassets */,
 				4B873C4023084047006170B1 /* LaunchScreen.storyboard */,
@@ -244,6 +225,7 @@
 			children = (
 				4B873C2D23083FF4006170B1 /* SpecBuilder.swift */,
 				4B8A3025234DF6AD00082092 /* MethodChain.swift */,
+				4B7B1A07246408C500F36CF7 /* Condition.swift */,
 			);
 			path = SpecBuilder;
 			sourceTree = "<group>";
@@ -321,12 +303,10 @@
 				4B873C3023084045006170B1 /* Frameworks */,
 				4B873C3123084045006170B1 /* Resources */,
 				A4B9C8CB6B50B5ACABB53E7C /* [CP] Embed Pods Frameworks */,
-				4B873C5123084621006170B1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4B873C5023084621006170B1 /* PBXTargetDependency */,
 			);
 			name = Demo;
 			productName = Demo;
@@ -475,6 +455,8 @@
 				4B5C387F242F0EEF005D9722 /* WrapperNode.swift in Sources */,
 				4B5C387E242F0EEF005D9722 /* WrapperCellNode.swift in Sources */,
 				4BC70ECD23F7557E00197B7B /* NamedDisplayCellNodeBase.swift in Sources */,
+				4B086A462464434C0024F5A1 /* TextureSwiftSupport.swift in Sources */,
+				4B7B1A08246408C500F36CF7 /* Condition.swift in Sources */,
 				4B22761B2454A9E500F39A16 /* GradientNode.swift in Sources */,
 				4B873C2E23083FF4006170B1 /* SpecBuilder.swift in Sources */,
 				4B19E610244DD9F0009FD799 /* FunctionalDisplayNode.swift in Sources */,
@@ -489,20 +471,13 @@
 				4BB21B3C244E0974008CA2A4 /* MenuViewController.swift in Sources */,
 				4BB21B3A244E06E6008CA2A4 /* Mocks.swift in Sources */,
 				4BB21B3E244E0E68008CA2A4 /* InstagramPostCellViewController.swift in Sources */,
+				4B086A44246443130024F5A1 /* AdaptiveLayoutViewController.swift in Sources */,
 				4B873C4B230845E3006170B1 /* AppDelegate.swift in Sources */,
 				4B873C4A230845E3006170B1 /* CompileCheck.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		4B873C5023084621006170B1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4B873C2123083FE5006170B1 /* TextureSwiftSupport */;
-			targetProxy = 4B873C4F23084621006170B1 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4B873C3B23084045006170B1 /* Main.storyboard */ = {
