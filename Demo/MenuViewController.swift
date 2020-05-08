@@ -18,6 +18,7 @@ fileprivate let descriptor = GlossButtonDescriptor(bodyStyle: .init(layout: .hor
 final class MenuViewController: PlainDisplayNodeViewController {
   
   private let openSampleButtonNode = GlossButtonNode()
+  private let openAdaptiveButtonNode = GlossButtonNode()
   private let topLabelNode = ASTextNode()
   
   override init() {
@@ -27,9 +28,15 @@ final class MenuViewController: PlainDisplayNodeViewController {
     
     topLabelNode.attributedText = .init(string: "Attatched on safe-area")
         
-    openSampleButtonNode.setDescriptor(descriptor.title("OpenSample".styled { $0 }), for: .normal)
+    openSampleButtonNode.setDescriptor(descriptor.title("OpenSample".styled { $0.font(.boldSystemFont(ofSize: 18)).foregroundColor(.systemBlue) }), for: .normal)
     openSampleButtonNode.onTap = { [weak self] in
       let controller = InstagramPostCellViewController()
+      self?.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    openAdaptiveButtonNode.setDescriptor(descriptor.title("OpenAdaptive".styled { $0.font(.boldSystemFont(ofSize: 18)).foregroundColor(.systemBlue) }), for: .normal)
+    openAdaptiveButtonNode.onTap = { [weak self] in
+      let controller = AdaptiveLayoutViewController()
       self?.navigationController?.pushViewController(controller, animated: true)
     }
 
@@ -46,6 +53,7 @@ final class MenuViewController: PlainDisplayNodeViewController {
         CenterLayout {
           VStackLayout {
             openSampleButtonNode
+            openAdaptiveButtonNode
           }
         }
         
