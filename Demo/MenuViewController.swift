@@ -19,6 +19,7 @@ final class MenuViewController: PlainDisplayNodeViewController {
   
   private let openSampleButtonNode = GlossButtonNode()
   private let openAdaptiveButtonNode = GlossButtonNode()
+  private let openCompositionCatalogButtonNode = GlossButtonNode()
   private let topLabelNode = ASTextNode()
   
   override init() {
@@ -39,6 +40,12 @@ final class MenuViewController: PlainDisplayNodeViewController {
       let controller = AdaptiveLayoutViewController()
       self?.navigationController?.pushViewController(controller, animated: true)
     }
+    
+    openCompositionCatalogButtonNode.setDescriptor(descriptor.title("Open Composition".styled { $0.font(.boldSystemFont(ofSize: 18)).foregroundColor(.systemBlue) }), for: .normal)
+    openCompositionCatalogButtonNode.onTap = { [weak self] in
+      let controller = CompositionCatalogViewController()
+      self?.navigationController?.pushViewController(controller, animated: true)
+    }
 
   }
     
@@ -54,6 +61,7 @@ final class MenuViewController: PlainDisplayNodeViewController {
           VStackLayout {
             openSampleButtonNode
             openAdaptiveButtonNode
+            openCompositionCatalogButtonNode
           }
         }
         
