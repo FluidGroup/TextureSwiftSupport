@@ -21,8 +21,15 @@
 
 import AsyncDisplayKit
 
+@available(*, deprecated, renamed: "AnyDisplayNode")
+public typealias FunctionalDisplayNode = AnyDisplayNode
+
 /**
- Creating a new symbol cause increase app binary size.
+ A type-erasing display node that supports to composite other nodes and lay them out.
+
+ It helps to avoid creating a new symbol when you need to composite nodes from elements.
+
+ - Attention: Creating a new symbol cause increase app binary size.
  In iOS apps, almost of symbols are UI components.
  Especially, it's getting much more symbols with Component oriented programming.
  In the basic implementation approach, creates symbols for each component. However, there are several components that no need to be symbol.
@@ -30,8 +37,11 @@ import AsyncDisplayKit
  In this case, we can use an anonymous UI component class as a base.
  
  https://github.com/muukii/Swift-binary-size
+
+ If you need to inject specific props into AnyDisplayNode, you can use `AnyPropsDisplayNode`.
+ However, this does not affect increasing binary size effectively because it emits symbols of each generic parameter.
  */
-public class FunctionalDisplayNode: SafeAreaDisplayNode {
+public class AnyDisplayNode: SafeAreaDisplayNode {
   
   private let retainItems: [Any]
   
@@ -87,8 +97,10 @@ public class FunctionalDisplayNode: SafeAreaDisplayNode {
      
 }
 
+public typealias PropsFunctionalDisplayNode = AnyPropsDisplayNode
+
 /// It's not so effective in reducing binary-size.
-public final class PropsFunctionalDisplayNode<Props>: FunctionalDisplayNode {
+public final class AnyPropsDisplayNode<Props>: FunctionalDisplayNode {
   
   private var _onUpdatedProps: (Props) -> Void = { _ in }
   
