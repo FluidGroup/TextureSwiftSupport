@@ -80,13 +80,13 @@ extension InstagramPostCellNode {
     profileImage: UIImage,
     name: String,
     onTapMenu: @escaping () -> Void
-  ) -> FunctionalDisplayNode {
+  ) -> AnyDisplayNode {
     
     let imageNode = Mocks.CircularImageNode()
     let nameNode = Mocks.SingleLineTextNode()
     let menuNode = Mocks.ThumbNode()
     
-    return FunctionalDisplayNode { _, _ in
+    return AnyDisplayNode { _, _ in
       LayoutSpec {
         HStackLayout(alignItems: .center) {
           imageNode
@@ -109,7 +109,7 @@ extension InstagramPostCellNode {
     
     let imageNode = Mocks.ImageNode()
     
-    return FunctionalDisplayNode { _, _ in
+    return AnyDisplayNode { _, _ in
       LayoutSpec {
         imageNode
           .aspectRatio(1)
@@ -123,7 +123,7 @@ extension InstagramPostCellNode {
     onTapCommentButton: @escaping () -> Void,
     onTapShareButton: @escaping () -> Void,
     onTapSaveButton: @escaping () -> Void
-  ) -> FunctionalDisplayNode {
+  ) -> AnyDisplayNode {
     
     let likeButtonNode = Mocks.ButtonNode()
     let commentButtonNode = Mocks.ButtonNode()
@@ -135,7 +135,7 @@ extension InstagramPostCellNode {
     shareButtonNode.onTap = onTapShareButton
     saveButtonNode.onTap = onTapSaveButton
     
-    return FunctionalDisplayNode { _, _ in
+    return AnyDisplayNode { _, _ in
       LayoutSpec {
         HStackLayout(alignItems: .center) {
           likeButtonNode

@@ -36,7 +36,7 @@ final class AdaptiveLayoutViewController: DisplayNodeViewController {
 
 extension AdaptiveLayoutViewController {
   
-  static func makeAdaptiveNode() -> FunctionalDisplayNode {
+  static func makeAdaptiveNode() -> AnyDisplayNode {
     
     let boxes = [
       Mocks.ButtonNode(),
@@ -44,7 +44,7 @@ extension AdaptiveLayoutViewController {
       Mocks.ButtonNode(),
     ]
     
-    return FunctionalDisplayNode { _, _ in
+    return AnyDisplayNode { _, _ in
       LayoutSpec {
         VStackLayout {
           Case(.init { _ in true }) {

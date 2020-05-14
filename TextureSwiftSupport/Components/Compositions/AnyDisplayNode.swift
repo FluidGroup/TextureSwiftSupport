@@ -21,8 +21,15 @@
 
 import AsyncDisplayKit
 
+@available(*, deprecated, renamed: "AnyDisplayNode")
+public typealias FunctionalDisplayNode = AnyDisplayNode
+
 /**
- Creating a new symbol cause increase app binary size.
+ A type-erasing display node that supports to composite other nodes and lay them out.
+
+ It helps to avoid creating a new symbol when you need to composite nodes from elements.
+
+ - Attention: Creating a new symbol cause increase app binary size.
  In iOS apps, almost of symbols are UI components.
  Especially, it's getting much more symbols with Component oriented programming.
  In the basic implementation approach, creates symbols for each component. However, there are several components that no need to be symbol.
@@ -30,8 +37,11 @@ import AsyncDisplayKit
  In this case, we can use an anonymous UI component class as a base.
  
  https://github.com/muukii/Swift-binary-size
+
+ If you need to inject specific props into AnyDisplayNode, you can use `AnyPropsDisplayNode`.
+ However, this does not affect increasing binary size effectively because it emits symbols of each generic parameter.
  */
-public class FunctionalDisplayNode: SafeAreaDisplayNode {
+public class AnyDisplayNode: SafeAreaDisplayNode {
   
   private let retainItems: [Any]
   
@@ -43,7 +53,7 @@ public class FunctionalDisplayNode: SafeAreaDisplayNode {
     _ function: StaticString = #function,
     _ line: UInt = #line,
     retainsUntilDeinitItems: [Any] = [],
-    layoutSpecBlock: @escaping (FunctionalDisplayNode, ASSizeRange) -> ASLayoutSpec
+    layoutSpecBlock: @escaping (AnyDisplayNode, ASSizeRange) -> ASLayoutSpec
   ) {
     
     let file = URL(string: file.description)?.deletingPathExtension().lastPathComponent ?? "unknown"
@@ -51,7 +61,7 @@ public class FunctionalDisplayNode: SafeAreaDisplayNode {
     self.retainItems = retainsUntilDeinitItems
     super.init()
     self.layoutSpecBlock = { node, constrainedSize in
-      layoutSpecBlock(node as! FunctionalDisplayNode, constrainedSize)
+      layoutSpecBlock(node as! AnyDisplayNode, constrainedSize)
     }
     self.automaticallyRelayoutOnSafeAreaChanges = true
     self.automaticallyRelayoutOnLayoutMarginsChanges = true
@@ -75,20 +85,22 @@ public class FunctionalDisplayNode: SafeAreaDisplayNode {
     hook.onLayout(self)
   }
   
-  public func onDidLoad(_ onDidLoad: @escaping (FunctionalDisplayNode) -> Void) -> Self {
+  public func onDidLoad(_ onDidLoad: @escaping (AnyDisplayNode) -> Void) -> Self {
     hook.onDidload = onDidLoad
     return self
   }
   
-  public func onLayout(_ onLaoyout: @escaping (FunctionalDisplayNode) -> Void) -> Self {
+  public func onLayout(_ onLaoyout: @escaping (AnyDisplayNode) -> Void) -> Self {
     hook.onLayout = onLaoyout
     return self
   }
      
 }
 
+public typealias PropsFunctionalDisplayNode = AnyPropsDisplayNode
+
 /// It's not so effective in reducing binary-size.
-public final class PropsFunctionalDisplayNode<Props>: FunctionalDisplayNode {
+public final class AnyPropsDisplayNode<Props>: AnyDisplayNode {
   
   private var _onUpdatedProps: (Props) -> Void = { _ in }
   
@@ -103,12 +115,12 @@ public final class PropsFunctionalDisplayNode<Props>: FunctionalDisplayNode {
   
 }
 
-extension FunctionalDisplayNode {
+extension AnyDisplayNode {
   
   public final class Hook {
     
-    var onDidload: (FunctionalDisplayNode) -> Void = { _ in }
-    var onLayout: (FunctionalDisplayNode) -> Void = { _ in }
+    var onDidload: (AnyDisplayNode) -> Void = { _ in }
+    var onLayout: (AnyDisplayNode) -> Void = { _ in }
     
     init() {}
     
