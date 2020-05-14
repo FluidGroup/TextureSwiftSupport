@@ -27,6 +27,11 @@ import AsyncDisplayKit
 ///
 /// It considers the intrinsic content size from Mask parameter node.
 open class MaskingNode<MaskedContent: ASDisplayNode, Mask: ASDisplayNode>: NamedDisplayNodeBase {
+
+  public enum Sizing {
+    case maskedContent
+    case maskContent
+  }
   
   open override var supportsLayerBacking: Bool {
     false
@@ -34,10 +39,16 @@ open class MaskingNode<MaskedContent: ASDisplayNode, Mask: ASDisplayNode>: Named
   
   public let maskedNode: MaskedContent
   public let maskNode: Mask
+  public let sizing: Sizing
   
-  public init(maskedContent: () -> MaskedContent, mask: () -> Mask) {
+  public init(
+    sizing: Sizing = .maskContent,
+    maskedContent: () -> MaskedContent,
+    mask: () -> Mask
+  ) {
     self.maskedNode = maskedContent()
     self.maskNode = mask()
+    self.sizing = sizing
     super.init()
     addSubnode(self.maskedNode)
     addSubnode(self.maskNode)
@@ -49,6 +60,11 @@ open class MaskingNode<MaskedContent: ASDisplayNode, Mask: ASDisplayNode>: Named
   }
   
   public final override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-    ASBackgroundLayoutSpec(child: maskNode, background: maskedNode)
+    switch sizing {
+    case .maskContent:
+      return ASBackgroundLayoutSpec(child: maskNode, background: maskedNode)
+    case .maskedContent:
+      return ASOverlayLayoutSpec(child: maskedNode, overlay: maskNode)
+    }
   }
 }
