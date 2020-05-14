@@ -53,7 +53,7 @@ public class AnyDisplayNode: SafeAreaDisplayNode {
     _ function: StaticString = #function,
     _ line: UInt = #line,
     retainsUntilDeinitItems: [Any] = [],
-    layoutSpecBlock: @escaping (FunctionalDisplayNode, ASSizeRange) -> ASLayoutSpec
+    layoutSpecBlock: @escaping (AnyDisplayNode, ASSizeRange) -> ASLayoutSpec
   ) {
     
     let file = URL(string: file.description)?.deletingPathExtension().lastPathComponent ?? "unknown"
@@ -61,7 +61,7 @@ public class AnyDisplayNode: SafeAreaDisplayNode {
     self.retainItems = retainsUntilDeinitItems
     super.init()
     self.layoutSpecBlock = { node, constrainedSize in
-      layoutSpecBlock(node as! FunctionalDisplayNode, constrainedSize)
+      layoutSpecBlock(node as! AnyDisplayNode, constrainedSize)
     }
     self.automaticallyRelayoutOnSafeAreaChanges = true
     self.automaticallyRelayoutOnLayoutMarginsChanges = true
@@ -85,12 +85,12 @@ public class AnyDisplayNode: SafeAreaDisplayNode {
     hook.onLayout(self)
   }
   
-  public func onDidLoad(_ onDidLoad: @escaping (FunctionalDisplayNode) -> Void) -> Self {
+  public func onDidLoad(_ onDidLoad: @escaping (AnyDisplayNode) -> Void) -> Self {
     hook.onDidload = onDidLoad
     return self
   }
   
-  public func onLayout(_ onLaoyout: @escaping (FunctionalDisplayNode) -> Void) -> Self {
+  public func onLayout(_ onLaoyout: @escaping (AnyDisplayNode) -> Void) -> Self {
     hook.onLayout = onLaoyout
     return self
   }
@@ -100,7 +100,7 @@ public class AnyDisplayNode: SafeAreaDisplayNode {
 public typealias PropsFunctionalDisplayNode = AnyPropsDisplayNode
 
 /// It's not so effective in reducing binary-size.
-public final class AnyPropsDisplayNode<Props>: FunctionalDisplayNode {
+public final class AnyPropsDisplayNode<Props>: AnyDisplayNode {
   
   private var _onUpdatedProps: (Props) -> Void = { _ in }
   
@@ -115,12 +115,12 @@ public final class AnyPropsDisplayNode<Props>: FunctionalDisplayNode {
   
 }
 
-extension FunctionalDisplayNode {
+extension AnyDisplayNode {
   
   public final class Hook {
     
-    var onDidload: (FunctionalDisplayNode) -> Void = { _ in }
-    var onLayout: (FunctionalDisplayNode) -> Void = { _ in }
+    var onDidload: (AnyDisplayNode) -> Void = { _ in }
+    var onLayout: (AnyDisplayNode) -> Void = { _ in }
     
     init() {}
     

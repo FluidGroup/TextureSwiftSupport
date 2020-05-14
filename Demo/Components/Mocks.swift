@@ -58,7 +58,7 @@ enum Mocks {
     
   }
   
-  final class SingleLineTextNode: WrapperNode<FunctionalDisplayNode> {
+  final class SingleLineTextNode: WrapperNode<AnyDisplayNode> {
     
     init() {
       
@@ -66,7 +66,7 @@ enum Mocks {
       shape.shapeFillColor = fillColor
       
       super.init {
-        FunctionalDisplayNode { _, _ in
+        AnyDisplayNode { _, _ in
           LayoutSpec {
             shape
               .height(16)
@@ -78,7 +78,7 @@ enum Mocks {
     }
   }
   
-  final class ThumbNode: WrapperNode<FunctionalDisplayNode> {
+  final class ThumbNode: WrapperNode<AnyDisplayNode> {
     
     init() {
       
@@ -86,7 +86,7 @@ enum Mocks {
       shape.shapeFillColor = fillColor
       
       super.init {
-        FunctionalDisplayNode { _, _ in
+        AnyDisplayNode { _, _ in
           LayoutSpec {
             shape
               .height(6)
@@ -98,7 +98,7 @@ enum Mocks {
     }
   }
   
-  final class ButtonNode: WrapperNode<FunctionalDisplayNode> {
+  final class ButtonNode: WrapperNode<AnyDisplayNode> {
     
     var onTap: () -> Void = {}
     
@@ -108,7 +108,7 @@ enum Mocks {
       shape.shapeFillColor = fillColor
       
       super.init {
-        FunctionalDisplayNode { _, _ in
+        AnyDisplayNode { _, _ in
           LayoutSpec {
             shape
               .width(28)
@@ -121,7 +121,7 @@ enum Mocks {
   }
   
   
-  final class MultipleLineTextNode: WrapperNode<FunctionalDisplayNode> {
+  final class MultipleLineTextNode: WrapperNode<AnyDisplayNode> {
     
     init(lines: Int) {
       
@@ -132,7 +132,7 @@ enum Mocks {
       }
       
       super.init {
-        FunctionalDisplayNode { _, _ in
+        AnyDisplayNode { _, _ in
           LayoutSpec {
             VStackLayout(spacing: 2) {
               shapes

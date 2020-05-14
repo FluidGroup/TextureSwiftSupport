@@ -52,7 +52,7 @@ extension CompositionCatalogViewController {
   
   private static func makeFrameNode(_ body: ASDisplayNode) -> ASDisplayNode {
      
-    return FunctionalDisplayNode { _ , _ in
+    return AnyDisplayNode { _ , _ in
       LayoutSpec {
         body
           .padding(20)
@@ -84,7 +84,7 @@ extension CompositionCatalogViewController {
       shape.shapeStrokeColor = .black
       shape.shapeLineWidth = 3
       
-      return FunctionalDisplayNode { _, _ in
+      return AnyDisplayNode { _, _ in
         LayoutSpec {
           text
             .padding(10)
