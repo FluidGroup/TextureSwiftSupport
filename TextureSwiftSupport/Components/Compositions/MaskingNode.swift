@@ -41,9 +41,7 @@ open class MaskingNode<MaskedContent: ASDisplayNode, Mask: ASDisplayNode>: Named
   public let maskNode: Mask
   public let sizing: Sizing
 
-  #if DEBUG
   private let debug: Bool
-  #endif
   
   public init(
     debug: Bool = false,
