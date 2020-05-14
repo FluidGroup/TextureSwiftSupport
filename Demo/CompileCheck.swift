@@ -117,6 +117,29 @@ enum _CompileCheck {
       }
       
     }
+
+    do {
+
+      var element1: ASLayoutElement?
+      var element2: ASLayoutElement?
+
+      _ = ZStackLayout {
+        AnyLayout { element1 }
+      }
+
+      _ = ZStackLayout {
+        AnyLayout { element1 }
+        AnyLayout { element2 }
+      }
+
+      _ = AnyLayout {
+        ZStackLayout {
+          AnyLayout { element1 }
+          AnyLayout { element2 }
+        }
+      }
+
+    }
     
     do {
                
