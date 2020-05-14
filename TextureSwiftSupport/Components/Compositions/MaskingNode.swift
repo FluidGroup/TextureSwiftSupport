@@ -40,12 +40,18 @@ open class MaskingNode<MaskedContent: ASDisplayNode, Mask: ASDisplayNode>: Named
   public let maskedNode: MaskedContent
   public let maskNode: Mask
   public let sizing: Sizing
+
+  #if DEBUG
+  private let debug: Bool
+  #endif
   
   public init(
+    debug: Bool = false,
     sizing: Sizing = .maskContent,
     maskedContent: () -> MaskedContent,
     mask: () -> Mask
   ) {
+    self.debug = debug
     self.maskedNode = maskedContent()
     self.maskNode = mask()
     self.sizing = sizing
@@ -56,7 +62,13 @@ open class MaskingNode<MaskedContent: ASDisplayNode, Mask: ASDisplayNode>: Named
   
   open override func layoutDidFinish() {
     super.layoutDidFinish()
+    #if DEBUG
+    if !debug {
+      self.layer.mask = maskNode.layer
+    }
+    #else
     self.layer.mask = maskNode.layer
+    #endif
   }
   
   public final override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
