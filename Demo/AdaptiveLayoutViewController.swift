@@ -38,11 +38,14 @@ extension AdaptiveLayoutViewController {
   
   static func makeAdaptiveNode() -> AnyDisplayNode {
     
-    let boxes = [
+    let boxes: [ASDisplayNode] = [
       Mocks.ButtonNode(),
       Mocks.ButtonNode(),
       Mocks.ButtonNode(),
     ]
+
+    let boxA = Mocks.ButtonNode()
+    let boxB = Mocks.ButtonNode()
     
     return AnyDisplayNode { _, _ in
       LayoutSpec {
@@ -52,7 +55,13 @@ extension AdaptiveLayoutViewController {
               boxes
             }
           }
+          HStackLayout {
+            boxA
+            SpacerLayout(minLength: 10)
+            boxB
+          }
         }
+
       }
     }
     

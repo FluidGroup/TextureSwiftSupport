@@ -521,6 +521,28 @@ public struct AspectRatioLayout<Content> : _ASLayoutElementType where Content : 
 
 ///
 /// - Author: TetureSwiftSupport
+public struct SpacerLayout : _ASLayoutElementType {
+
+  public let minLength: CGFloat
+
+  public init(minLength: CGFloat = 0) {
+    self.minLength = minLength
+  }
+
+  public func make() -> [ASLayoutElement] {
+    [
+      {
+        let spec = ASLayoutSpec()
+        spec.style.spacingBefore = minLength
+        spec.style.flexGrow = 1
+        return spec
+      }()
+    ]
+  }
+}
+
+///
+/// - Author: TetureSwiftSupport
 public struct HSpacerLayout : _ASLayoutElementType {
   
   public let minLength: CGFloat
