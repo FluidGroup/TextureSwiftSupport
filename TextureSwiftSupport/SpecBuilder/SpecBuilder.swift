@@ -524,9 +524,11 @@ public struct AspectRatioLayout<Content> : _ASLayoutElementType where Content : 
 public struct SpacerLayout : _ASLayoutElementType {
 
   public let minLength: CGFloat
+  public let flexGrow: CGFloat
 
-  public init(minLength: CGFloat = 0) {
+  public init(minLength: CGFloat = 0, flexGrow: CGFloat = 1) {
     self.minLength = minLength
+    self.flexGrow = flexGrow
   }
 
   public func make() -> [ASLayoutElement] {
@@ -534,7 +536,7 @@ public struct SpacerLayout : _ASLayoutElementType {
       {
         let spec = ASLayoutSpec()
         spec.style.spacingBefore = minLength
-        spec.style.flexGrow = 1
+        spec.style.flexGrow = flexGrow
         return spec
       }()
     ]
