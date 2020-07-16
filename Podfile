@@ -4,7 +4,7 @@
 use_frameworks!
 
 def texture
-  pod 'Texture/Core' #, git: 'git@github.com:TextureGroup/Texture.git', branch: 'master'
+  pod 'Texture/Core', '~> 3' #, git: 'git@github.com:TextureGroup/Texture.git', branch: 'master'
 end
 
 target 'TextureSwiftSupport' do
@@ -18,7 +18,7 @@ target 'Demo' do
 
   texture
   pod 'Reveal-SDK'
-  pod 'GlossButtonNode'
+#  pod 'GlossButtonNode'
   pod 'TextureSwiftSupport', path: './'
   pod 'TypedTextAttributes'
 end
