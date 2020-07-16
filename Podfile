@@ -18,7 +18,7 @@ target 'Demo' do
 
   texture
   pod 'Reveal-SDK'
-#  pod 'GlossButtonNode'
+  pod 'GlossButtonNode'
   pod 'TextureSwiftSupport', path: './'
   pod 'TypedTextAttributes'
 end
