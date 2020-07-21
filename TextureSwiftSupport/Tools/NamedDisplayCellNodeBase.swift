@@ -21,6 +21,8 @@
 
 import AsyncDisplayKit
 
+fileprivate let queue = DispatchQueue.global()
+
 /// An object from Abstract base class
 ///
 /// This object sets name of object for accessibilityIdentifier
@@ -32,6 +34,15 @@ open class NamedDisplayCellNodeBase: ASCellNode {
   
   open override func didLoad() {
     super.didLoad()
-    accessibilityIdentifier = String(reflecting: type(of: self))
+    #if DEBUG
+    queue.async { [weak self] in
+      guard let self = self else { return }
+      let typeName = _typeName(type(of: self))
+      DispatchQueue.main.async {
+        guard self.accessibilityIdentifier == nil else { return }
+        self.accessibilityIdentifier = typeName
+      }
+    }
+    #endif
   }
 }

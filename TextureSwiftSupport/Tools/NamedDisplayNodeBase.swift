@@ -21,6 +21,8 @@
 
 import AsyncDisplayKit
 
+fileprivate let queue = DispatchQueue.global()
+
 /// An object from Abstract base class
 ///
 /// This object sets name of object for accessibilityIdentifier
@@ -29,9 +31,42 @@ import AsyncDisplayKit
 ///
 /// - Author: TetureSwiftSupport
 open class NamedDisplayNodeBase: ASDisplayNode {
-  
+
   open override func didLoad() {
     super.didLoad()
-    accessibilityIdentifier = String(reflecting: type(of: self))
+    #if DEBUG
+    queue.async { [weak self] in
+      guard let self = self else { return }
+      let typeName = _typeName(type(of: self))
+      DispatchQueue.main.async {
+        guard self.accessibilityIdentifier == nil else { return }
+        self.accessibilityIdentifier = typeName
+      }
+    }
+    #endif
+  }
+}
+
+/// An object from Abstract base class
+///
+/// This object sets name of object for accessibilityIdentifier
+/// The accessibilityIdentifier will be displayed on Reveal's view-tree.
+/// It helps to find source code from Reveal.
+///
+/// - Author: TetureSwiftSupport
+open class NamedDisplayControlNodeBase: ASControlNode {
+
+  open override func didLoad() {
+    super.didLoad()
+    #if DEBUG
+    queue.async { [weak self] in
+      guard let self = self else { return }
+      let typeName = _typeName(type(of: self))
+      DispatchQueue.main.async {
+        guard self.accessibilityIdentifier == nil else { return }
+        self.accessibilityIdentifier = typeName
+      }
+    }
+    #endif
   }
 }
