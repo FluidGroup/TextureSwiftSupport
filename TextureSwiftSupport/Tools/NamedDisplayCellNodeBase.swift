@@ -38,7 +38,10 @@ open class NamedDisplayCellNodeBase: ASCellNode {
     queue.async { [weak self] in
       guard let self = self else { return }
       guard self.accessibilityIdentifier == nil else { return }
-      self.accessibilityIdentifier = _typeName(type(of: self))
+      let typeName = _typeName(type(of: self))
+      DispatchQueue.main.async {
+        self.accessibilityIdentifier = typeName
+      }
     }
     #endif
   }
