@@ -32,6 +32,10 @@ open class NamedDisplayCellNodeBase: ASCellNode {
   
   open override func didLoad() {
     super.didLoad()
-    accessibilityIdentifier = String(reflecting: type(of: self))
+    #if DEBUG
+    DispatchQueue.global().async { [weak self] in
+      self?.accessibilityIdentifier = _typeName(type(of: self))
+    }
+    #endif
   }
 }
