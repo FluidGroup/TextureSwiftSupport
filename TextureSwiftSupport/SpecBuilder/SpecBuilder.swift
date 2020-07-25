@@ -76,26 +76,16 @@ public struct Modifier: ModifierType {
     content
   }
 
-  public static func buildBlock(_ content: ASLayoutElement) -> AnyLayout {
-    AnyLayout { content }
-  }
-  
-  public static func buildBlock(_ content: _ASLayoutElementType...) -> MultiLayout {
-    MultiLayout(content)
-  }
-  
+  @_disfavoredOverload
   public static func buildBlock(_ content: _ASLayoutElementType?...) -> MultiLayout {
     MultiLayout(content.compactMap { $0 })
   }
-  
+
+  @_disfavoredOverload
   public static func buildBlock<C: Collection>(_ contents: C) -> MultiLayout where C.Element : _ASLayoutElementType {
     MultiLayout(Array(contents))
   }
-  
-  public static func buildIf<Content>(_ content: Content) -> Content where Content : _ASLayoutElementType  {
-    content
-  }
-    
+
   public static func buildIf<Content>(_ content: Content?) -> Content? where Content : _ASLayoutElementType  {
     content
   }
@@ -122,6 +112,13 @@ extension ASLayoutSpec : _ASLayoutElementType {
   /// - Author: TetureSwiftSupport
   public func make() -> [ASLayoutElement] {
     [self]
+  }
+}
+
+extension Optional: _ASLayoutElementType where Wrapped : _ASLayoutElementType {
+
+  public func make() -> [ASLayoutElement] {
+    map { $0.make() } ?? []
   }
 }
 
@@ -172,8 +169,9 @@ public struct MultiLayout : _ASLayoutElementType {
 /// - Author: TetureSwiftSupport
 public struct AnyLayout : _ASLayoutElementType {
   
-  public let content: _ASLayoutElementType
+  public let content: _ASLayoutElementType?
 
+  @available(*, deprecated, message: "Use init(_: ASLayoutElement?)")
   public init(_ element: () -> ASLayoutElement?) {
     if let element = element() {
       self.content = ASWrapperLayoutSpec(layoutElement: element)
@@ -181,13 +179,26 @@ public struct AnyLayout : _ASLayoutElementType {
       self.content = ASLayoutSpec()
     }
   }
-  
-  public init(@ASLayoutSpecBuilder _ content: () -> _ASLayoutElementType) {
+
+  @available(*, deprecated, message: "Use init(_: _ASLayoutElementType)")
+  public init(_ content: () -> _ASLayoutElementType) {
     self.content = content()
+  }
+
+  public init(_ element: ASLayoutElement?) {
+    if let element = element {
+      self.content = ASWrapperLayoutSpec(layoutElement: element)
+    } else {
+      self.content = ASLayoutSpec()
+    }
+  }
+
+  public init(_ content: _ASLayoutElementType?) {
+    self.content = content
   }
   
   public func make() -> [ASLayoutElement] {
-    content.make()
+    content?.make() ?? []
   }
 }
 

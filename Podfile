@@ -12,6 +12,10 @@ target 'TextureSwiftSupport' do
 
   texture
 
+  target 'TextureSwiftSupportTests' do
+    inherit! :search_paths
+  end
+
 end
 
 target 'Demo' do

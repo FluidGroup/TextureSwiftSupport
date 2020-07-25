@@ -1,10 +1,3 @@
-//
-//  CompileCheck.swift
-//  SpecBuilder_Example
-//
-//  Created by muukii on 2019/06/16.
-//  Copyright © 2019 CocoaPods. All rights reserved.
-//
 
 import Foundation
 
@@ -12,25 +5,29 @@ import AsyncDisplayKit
 import TextureSwiftSupport
 //import SwiftUI
 
+fileprivate func supressWarn<T>(_ variable: T) {}
+
 enum _CompileCheck {
   
   func foo() {
     
     do {
-      let layout = HStackLayout {
+      let layout: HStackLayout<ASTextNode> = HStackLayout {
         ASTextNode()
       }
+      supressWarn(layout)
     }
     
     do {
-      let layout = HStackLayout {
+      let layout: HStackLayout<MultiLayout> = HStackLayout {
         ASTextNode()
         ASTextNode()
       }
+      supressWarn(layout)
     }
     
     do {
-      let layout = HStackLayout {
+      let layout: HStackLayout<InsetLayout<HStackLayout<MultiLayout>>> = HStackLayout {
         InsetLayout(insets: .zero) {
           HStackLayout {
             ASTextNode()
@@ -38,6 +35,7 @@ enum _CompileCheck {
           }
         }
       }
+      supressWarn(layout)
     }
     
     do {
@@ -47,13 +45,14 @@ enum _CompileCheck {
         ASTextNode(),
       ]
       
-      let layout = HStackLayout {
+      let layout: HStackLayout<InsetLayout<HStackLayout<[ASTextNode]>>> = HStackLayout {
         InsetLayout(insets: .zero) {
           HStackLayout {
             nodes
           }
         }
       }
+      supressWarn(layout)
     }
     
     do {
@@ -70,20 +69,42 @@ enum _CompileCheck {
           }
         }
       }
+      supressWarn(layout)
     }
           
     do {
-      let layout = HStackLayout {
+      let layout: HStackLayout<ConditionalLayout<ASTextNode, ASButtonNode>> = HStackLayout {
         if true {
           ASTextNode()
         } else {
           ASButtonNode()
         }
       }
+      supressWarn(layout)
+    }
+
+    do {
+      let flag = false
+      let layout: LayoutSpec<ASTextNode?> = LayoutSpec {
+        if flag {
+          ASTextNode()
+        }
+      }
+      supressWarn(layout)
+    }
+
+    do {
+      let flag = false
+      let layout: HStackLayout<ASTextNode?> = HStackLayout {
+        if flag {
+          ASTextNode()
+        }
+      }
+      supressWarn(layout)
     }
     
     do {
-      let layout = HStackLayout {
+      let layout: HStackLayout<MultiLayout> = HStackLayout {
         ASTextNode()
         ASTextNode()
         ASButtonNode()
@@ -96,6 +117,8 @@ enum _CompileCheck {
           ASButtonNode()
         }
       }
+
+      supressWarn(layout)
     }
     
     do {
@@ -115,7 +138,8 @@ enum _CompileCheck {
       let layout = ZStackLayout {
         OptionalLayout { nullNode }
       }
-      
+
+      supressWarn(layout)
     }
 
     do {
@@ -123,23 +147,76 @@ enum _CompileCheck {
       var element1: ASLayoutElement?
       var element2: ASLayoutElement?
 
-      _ = ZStackLayout {
-        AnyLayout { element1 }
+      do {
+        let layout = ZStackLayout {
+          AnyLayout { element1 }
+        }
+        supressWarn(layout)
       }
 
-      _ = ZStackLayout {
-        AnyLayout { element1 }
-        AnyLayout { element2 }
-      }
-
-      _ = AnyLayout {
-        ZStackLayout {
+      do {
+        let layout = ZStackLayout {
           AnyLayout { element1 }
           AnyLayout { element2 }
+        }
+        supressWarn(layout)
+      }
+
+      do {
+        let layout = AnyLayout {
+          ZStackLayout {
+            AnyLayout { element1 }
+            AnyLayout { element2 }
+          }
+        }
+        supressWarn(layout)
+      }
+
+    }
+
+    #if swift(>=5.3)
+    do {
+
+      let value: String? = nil
+
+      let view = VStackLayout {
+        if let v = value {
+          ASTextNode()
+        } else {
+          ASButtonNode()
         }
       }
 
     }
+
+    do {
+
+      let value: String? = nil
+
+      let view = VStackLayout {
+        if let v = value {
+          ASTextNode()
+        }
+      }
+
+    }
+
+    do {
+
+      let number = 1
+      let layout: HStackLayout<ConditionalLayout<ConditionalLayout<ASTextNode, ASScrollNode>, ASTextNode2>> = HStackLayout {
+        switch number {
+        case 1:
+          ASTextNode()
+        case 2:
+          ASScrollNode()
+        default:
+          ASTextNode2()
+        }
+      }
+
+    }
+    #endif
     
     do {
                
