@@ -172,6 +172,7 @@ public struct AnyLayout : _ASLayoutElementType {
   public let content: _ASLayoutElementType?
 
   @available(*, deprecated, message: "Use init(_: ASLayoutElement?)")
+  @_disfavoredOverload
   public init(_ element: () -> ASLayoutElement?) {
     if let element = element() {
       self.content = ASWrapperLayoutSpec(layoutElement: element)
@@ -185,6 +186,7 @@ public struct AnyLayout : _ASLayoutElementType {
     self.content = content()
   }
 
+  @_disfavoredOverload
   public init(_ element: ASLayoutElement?) {
     if let element = element {
       self.content = ASWrapperLayoutSpec(layoutElement: element)
