@@ -169,8 +169,9 @@ public struct MultiLayout : _ASLayoutElementType {
 /// - Author: TetureSwiftSupport
 public struct AnyLayout : _ASLayoutElementType {
   
-  public let content: _ASLayoutElementType
+  public let content: _ASLayoutElementType?
 
+  @available(*, deprecated, message: "Use init(_: ASLayoutElement?)")
   public init(_ element: () -> ASLayoutElement?) {
     if let element = element() {
       self.content = ASWrapperLayoutSpec(layoutElement: element)
@@ -178,13 +179,26 @@ public struct AnyLayout : _ASLayoutElementType {
       self.content = ASLayoutSpec()
     }
   }
-  
-  public init(@ASLayoutSpecBuilder _ content: () -> _ASLayoutElementType) {
+
+  @available(*, deprecated, message: "Use init(_: _ASLayoutElementType)")
+  public init(_ content: () -> _ASLayoutElementType) {
     self.content = content()
+  }
+
+  public init(_ element: ASLayoutElement?) {
+    if let element = element {
+      self.content = ASWrapperLayoutSpec(layoutElement: element)
+    } else {
+      self.content = ASLayoutSpec()
+    }
+  }
+
+  public init(_ content: _ASLayoutElementType?) {
+    self.content = content
   }
   
   public func make() -> [ASLayoutElement] {
-    content.make()
+    content?.make() ?? []
   }
 }
 

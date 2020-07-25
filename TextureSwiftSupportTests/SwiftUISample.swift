@@ -21,6 +21,40 @@ enum _SwiftUICompileCheck {
       }
     }
 
+    #if swift(>=5.3)
+    do {
+
+      let number = 1
+
+      let view: VStack<_ConditionalContent<_ConditionalContent<Text, Text>, Text>> = VStack {
+        switch number {
+        case 1:
+          Text("")
+        case 2:
+          Text("")
+        default:
+          Text("")
+        }
+      }
+
+      _ = view
+
+    }
+
+    do {
+
+      let value: String? = nil
+
+      let view = VStack {
+        if let v = value {
+          Text("\(v)")
+        } else {
+          Text("")
+        }
+      }
+
+    }
+    #endif
   }
 }
 

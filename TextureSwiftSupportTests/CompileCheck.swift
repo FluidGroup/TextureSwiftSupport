@@ -173,6 +173,50 @@ enum _CompileCheck {
       }
 
     }
+
+    #if swift(>=5.3)
+    do {
+
+      let value: String? = nil
+
+      let view = VStackLayout {
+        if let v = value {
+          ASTextNode()
+        } else {
+          ASButtonNode()
+        }
+      }
+
+    }
+
+    do {
+
+      let value: String? = nil
+
+      let view = VStackLayout {
+        if let v = value {
+          ASTextNode()
+        }
+      }
+
+    }
+
+    do {
+
+      let number = 1
+      let layout: HStackLayout<ConditionalLayout<ConditionalLayout<ASTextNode, ASScrollNode>, ASTextNode2>> = HStackLayout {
+        switch number {
+        case 1:
+          ASTextNode()
+        case 2:
+          ASScrollNode()
+        default:
+          ASTextNode2()
+        }
+      }
+
+    }
+    #endif
     
     do {
                
