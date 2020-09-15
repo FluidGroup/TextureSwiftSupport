@@ -141,13 +141,25 @@ public struct ConditionalLayout<TrueContent, FalseContent> : _ASLayoutElementTyp
   }
 }
 
+/// A layout spec that is entry point to describe layout DSL
 ///
 /// - Author: TetureSwiftSupport
-public final class LayoutSpec<Content> : ASWrapperLayoutSpec where Content : _ASLayoutElementType {
+public class LayoutSpec<Content>: ASWrapperLayoutSpec where Content : _ASLayoutElementType {
   
   public init(@ASLayoutSpecBuilder _ content: () -> Content) {
     super.init(layoutElements: content().make())
   }
+}
+
+/// A layout spec that is entry point to describe layout DSL
+///
+/// - Author: TetureSwiftSupport
+public final class AnyLayoutSpec: ASWrapperLayoutSpec {
+
+  public init<Content: _ASLayoutElementType>(@ASLayoutSpecBuilder _ content: () -> Content) {
+    super.init(layoutElements: content().make())
+  }
+
 }
 
 ///
