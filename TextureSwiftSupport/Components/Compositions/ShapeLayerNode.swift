@@ -35,6 +35,12 @@ public final class ShapeLayerNode : ASDisplayNode, ShapeDisplaying {
 
   private let updateClosure: Update
 
+  public var usesInnerBorder: Bool = true {
+    didSet {
+      setNeedsLayout()
+    }
+  }
+
   public override var supportsLayerBacking: Bool {
     return true
   }
@@ -86,7 +92,9 @@ public final class ShapeLayerNode : ASDisplayNode, ShapeDisplaying {
     }
   }
 
-  public init(update: @escaping Update) {
+  public init(
+    update: @escaping Update
+  ) {
     self.updateClosure = update
     super.init()
     backgroundColor = .clear
@@ -97,18 +105,22 @@ public final class ShapeLayerNode : ASDisplayNode, ShapeDisplaying {
   }
 
   public override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-    
-    ASWrapperLayoutSpec(
-      layoutElement: ASInsetLayoutSpec(
-        insets: .init(
-          top: shapeLineWidth / 2,
-          left: shapeLineWidth / 2,
-          bottom: shapeLineWidth / 2,
-          right: shapeLineWidth / 2
-        ),
-        child: backingNode
+
+    if usesInnerBorder {
+      return ASWrapperLayoutSpec(
+        layoutElement: ASInsetLayoutSpec(
+          insets: .init(
+            top: shapeLineWidth / 2,
+            left: shapeLineWidth / 2,
+            bottom: shapeLineWidth / 2,
+            right: shapeLineWidth / 2
+          ),
+          child: backingNode
+        )
       )
-    )
+    } else {
+      return ASWrapperLayoutSpec(layoutElement: backingNode)
+    }
     
   }
 
