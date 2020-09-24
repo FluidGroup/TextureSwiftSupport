@@ -36,7 +36,7 @@ public final class ShapeLayerNode : ASDisplayNode, ShapeDisplaying {
   private let updateClosure: Update
 
   public override var supportsLayerBacking: Bool {
-    return false
+    return true
   }
   
   public var shapeLayer: CAShapeLayer {
