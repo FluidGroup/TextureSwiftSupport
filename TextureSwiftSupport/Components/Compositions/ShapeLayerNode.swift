@@ -74,6 +74,11 @@ public final class ShapeLayerNode : ASDisplayNode, ShapeDisplaying {
     }
     set {
       ASPerformBlockOnMainThread {
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        defer {
+          CATransaction.commit()
+        }
         self.backingNode.layer.fillColor = newValue?.cgColor
       }
     }
@@ -102,6 +107,10 @@ public final class ShapeLayerNode : ASDisplayNode, ShapeDisplaying {
     shapeFillColor = .clear
     backingNode.isLayerBacked = true
     automaticallyManagesSubnodes = true
+  }
+
+  public override func didLoad() {
+    backingNode.layer.fillColor = UIColor.clear.cgColor
   }
 
   public override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
