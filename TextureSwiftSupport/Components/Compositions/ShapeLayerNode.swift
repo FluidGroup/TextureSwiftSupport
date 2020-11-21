@@ -63,6 +63,11 @@ public final class ShapeLayerNode : ASDisplayNode, ShapeDisplaying {
     }
     set {
       ASPerformBlockOnMainThread {
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        defer {
+          CATransaction.commit()
+        }
         self.backingNode.layer.strokeColor = newValue?.cgColor
       }
     }
@@ -86,12 +91,22 @@ public final class ShapeLayerNode : ASDisplayNode, ShapeDisplaying {
   
   public override func layout() {
     super.layout()
+    CATransaction.begin()
+    CATransaction.setDisableActions(true)
+    defer {
+      CATransaction.commit()
+    }
     backingNode.layer.path = updateClosure(backingNode.bounds).cgPath
   }
   
   public override var frame: CGRect {
     didSet {
       ASPerformBlockOnMainThread {
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        defer {
+          CATransaction.commit()
+        }
         self.backingNode.layer.path = self.updateClosure(self.backingNode.bounds).cgPath
       }
     }
