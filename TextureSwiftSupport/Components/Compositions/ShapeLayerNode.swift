@@ -23,7 +23,10 @@ fileprivate final class BackingShapeLayerNode : ASDisplayNode {
   public override init() {
     super.init()
     setLayerBlock {
-      CAShapeLayer()
+      let shape = CAShapeLayer()
+      shape.fillColor = UIColor.clear.cgColor
+      shape.strokeColor = UIColor.clear.cgColor
+      return shape
     }
   }
 }
@@ -119,13 +122,8 @@ public final class ShapeLayerNode : ASDisplayNode, ShapeDisplaying {
     super.init()
     backgroundColor = .clear
     backingNode.backgroundColor = .clear
-    shapeFillColor = .clear
     backingNode.isLayerBacked = true
     automaticallyManagesSubnodes = true
-  }
-
-  public override func didLoad() {
-    backingNode.layer.fillColor = UIColor.clear.cgColor
   }
 
   public override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
