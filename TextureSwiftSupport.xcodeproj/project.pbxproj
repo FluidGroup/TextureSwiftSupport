@@ -10,6 +10,7 @@
 		4B086A462464434C0024F5A1 /* TextureSwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */; };
 		4B19E610244DD9F0009FD799 /* AnyDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */; };
 		4B22761B2454A9E500F39A16 /* GradientNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B22761A2454A9AF00F39A16 /* GradientNode.swift */; };
+		4B2A018325B6E76E00D7C188 /* RecursiveLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A018225B6E76E00D7C188 /* RecursiveLayoutViewController.swift */; };
 		4B56350524188930000A37AC /* ASSizeRange+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B56350424188930000A37AC /* ASSizeRange+.swift */; };
 		4B5C387C242F0EEF005D9722 /* PaddingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C3877242F0EEF005D9722 /* PaddingNode.swift */; };
 		4B5C387D242F0EEF005D9722 /* BackgroundNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C3878242F0EEF005D9722 /* BackgroundNode.swift */; };
@@ -66,6 +67,7 @@
 		4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureSwiftSupport.swift; sourceTree = "<group>"; };
 		4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDisplayNode.swift; sourceTree = "<group>"; };
 		4B22761A2454A9AF00F39A16 /* GradientNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNode.swift; sourceTree = "<group>"; };
+		4B2A018225B6E76E00D7C188 /* RecursiveLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecursiveLayoutViewController.swift; sourceTree = "<group>"; };
 		4B3ED5FA232E1CE600D68739 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4B56350424188930000A37AC /* ASSizeRange+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASSizeRange+.swift"; sourceTree = "<group>"; };
 		4B5C3877242F0EEF005D9722 /* PaddingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingNode.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				4BB21B3D244E0E68008CA2A4 /* InstagramPostCellViewController.swift */,
 				4BE65276246481D8004346D6 /* AdaptiveLayoutViewController.swift */,
 				4B6FA03A2468B6C900C21A53 /* CompositionCatalogViewController.swift */,
+				4B2A018225B6E76E00D7C188 /* RecursiveLayoutViewController.swift */,
 				4B873C3B23084045006170B1 /* Main.storyboard */,
 				4B873C3E23084047006170B1 /* Assets.xcassets */,
 				4B873C4023084047006170B1 /* LaunchScreen.storyboard */,
@@ -578,6 +581,7 @@
 				4B873C4C230845E3006170B1 /* ViewController.swift in Sources */,
 				4BB21B3C244E0974008CA2A4 /* MenuViewController.swift in Sources */,
 				4BB21B3A244E06E6008CA2A4 /* Mocks.swift in Sources */,
+				4B2A018325B6E76E00D7C188 /* RecursiveLayoutViewController.swift in Sources */,
 				4BB21B3E244E0E68008CA2A4 /* InstagramPostCellViewController.swift in Sources */,
 				4BE65277246481D8004346D6 /* AdaptiveLayoutViewController.swift in Sources */,
 				4B873C4B230845E3006170B1 /* AppDelegate.swift in Sources */,

@@ -20,6 +20,7 @@ final class MenuViewController: PlainDisplayNodeViewController {
   private let openSampleButtonNode = GlossButtonNode()
   private let openAdaptiveButtonNode = GlossButtonNode()
   private let openCompositionCatalogButtonNode = GlossButtonNode()
+  private let openRecursiveLayoutCatalogButtonNode = GlossButtonNode()
   private let topLabelNode = ASTextNode()
   
   override init() {
@@ -46,6 +47,12 @@ final class MenuViewController: PlainDisplayNodeViewController {
       let controller = CompositionCatalogViewController()
       self?.navigationController?.pushViewController(controller, animated: true)
     }
+    
+    openRecursiveLayoutCatalogButtonNode.setDescriptor(descriptor.title("Open Recursive".styled { $0.font(.boldSystemFont(ofSize: 18)).foregroundColor(.systemBlue) }), for: .normal)
+    openRecursiveLayoutCatalogButtonNode.onTap = { [weak self] in
+      let controller = RecursiveLayoutViewController()
+      self?.navigationController?.pushViewController(controller, animated: true)
+    }
 
   }
     
@@ -62,6 +69,7 @@ final class MenuViewController: PlainDisplayNodeViewController {
             openSampleButtonNode
             openAdaptiveButtonNode
             openCompositionCatalogButtonNode
+            openRecursiveLayoutCatalogButtonNode
           }
         }
         
