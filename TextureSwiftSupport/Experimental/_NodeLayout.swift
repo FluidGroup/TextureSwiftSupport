@@ -53,3 +53,18 @@ public struct _NodeLayout<T> {
   }
   
 }
+
+@propertyWrapper
+public struct LayerBacked<Node: ASDisplayNode> {
+
+  public var wrappedValue: Node {
+    didSet {
+      wrappedValue.isLayerBacked = true
+    }
+  }
+
+  public init(wrappedValue: Node) {
+    self.wrappedValue = wrappedValue
+    wrappedValue.isLayerBacked = true
+  }
+}

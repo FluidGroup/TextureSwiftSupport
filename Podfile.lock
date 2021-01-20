@@ -1,16 +1,38 @@
 PODS:
-  - Texture/Core (2.8.1)
+  - GlossButtonNode (2.1.0):
+    - Texture/Core (~> 3)
+    - TextureSwiftSupport
+  - Reveal-SDK (27)
+  - Texture/Core (3.0.0)
+  - TextureSwiftSupport (3.2.0):
+    - Texture/Core (~> 3)
+  - TypedTextAttributes (1.1.0)
 
 DEPENDENCIES:
-  - Texture/Core
+  - GlossButtonNode
+  - Reveal-SDK
+  - Texture/Core (~> 3)
+  - TextureSwiftSupport (from `./`)
+  - TypedTextAttributes
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
+    - GlossButtonNode
+    - Reveal-SDK
     - Texture
+    - TypedTextAttributes
+
+EXTERNAL SOURCES:
+  TextureSwiftSupport:
+    :path: "./"
 
 SPEC CHECKSUMS:
-  Texture: 8ecf6984065a1e54f06bf97b349ecca28582acd7
+  GlossButtonNode: 0b1471447cb4cebc8a959bbca574247ff6b0592b
+  Reveal-SDK: 306e2880395ee396f5a8b4c485c3a86dd19866c7
+  Texture: 2f109e937850d94d1d07232041c9c7313ccddb81
+  TextureSwiftSupport: 2dfc0320e954f549d941f630843b097ab2abdec2
+  TypedTextAttributes: fc3a5a8c4a7a28304446f8c5e8af146d11c2163a
 
-PODFILE CHECKSUM: 9329fd55fd88f0732f85229db2c91a5503cd0674
+PODFILE CHECKSUM: d0d5117b212f7b612e1da01319d0d50e755c823a
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.10.1

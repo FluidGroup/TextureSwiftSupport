@@ -3,15 +3,26 @@
 
 use_frameworks!
 
+def texture
+  pod 'Texture/Core', '~> 3' #, git: 'git@github.com:TextureGroup/Texture.git', branch: 'master'
+end
+
 target 'TextureSwiftSupport' do
   # Comment the next line if you don't want to use dynamic frameworks
 
-  pod 'Texture/Core'
-  # Pods for TextureSwiftSupport
+  texture
+
+  target 'TextureSwiftSupportTests' do
+    inherit! :search_paths
+  end
 
 end
 
 target 'Demo' do
 
-  pod 'Texture/Core'
+  texture
+  pod 'Reveal-SDK'
+  pod 'GlossButtonNode'
+  pod 'TextureSwiftSupport', path: './'
+  pod 'TypedTextAttributes'
 end

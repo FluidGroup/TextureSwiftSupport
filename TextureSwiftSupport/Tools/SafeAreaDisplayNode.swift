@@ -25,8 +25,12 @@ import AsyncDisplayKit
  An ASDisplayNode object that supports safe-area.
  It provides `capturedSafeAreaInsets` with thread-safety.
  It can be used on layoutSpecThatFits.
+ 
+ - Author: TetureSwiftSupport
  */
 open class SafeAreaDisplayNode: NamedDisplayNodeBase {
+  
+  public var throughsTouches: Bool = false
   
   // Thread safe
   public private(set) var capturedSafeAreaInsets: UIEdgeInsets = .zero
@@ -41,5 +45,14 @@ open class SafeAreaDisplayNode: NamedDisplayNodeBase {
     super.safeAreaInsetsDidChange()
     capturedSafeAreaInsets = safeAreaInsets
     setNeedsLayout()
+  }
+  
+  open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+    if throughsTouches {
+      let view = super.hitTest(point, with: event)
+      return view == self.view ? nil : view
+    } else {
+      return super.hitTest(point, with: event)
+    }
   }
 }

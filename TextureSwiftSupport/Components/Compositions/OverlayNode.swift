@@ -19,30 +19,32 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+import Foundation
+
 import AsyncDisplayKit
 
-fileprivate let queue = DispatchQueue.global()
-
-/// An object from Abstract base class
-///
-/// This object sets name of object for accessibilityIdentifier
-/// The accessibilityIdentifier will be displayed on Reveal's view-tree.
-/// It helps to find source code from Reveal.
-///
-/// - Author: TetureSwiftSupport
-open class NamedDisplayCellNodeBase: ASCellNode {
+open class OverlayNode<Content: ASDisplayNode, Overlay: ASDisplayNode>: NamedDisplayNodeBase {
   
-  open override func didLoad() {
-    super.didLoad()
-    #if DEBUG
-    queue.async { [weak self] in
-      guard let self = self else { return }
-      let typeName = _typeName(type(of: self))
-      DispatchQueue.main.async {
-        guard self.accessibilityIdentifier == nil else { return }
-        self.accessibilityIdentifier = typeName
-      }
-    }
-    #endif
+  open override var supportsLayerBacking: Bool {
+    false
   }
+  
+  public let content: Content
+  public let overlay: Overlay
+  
+  public init(child content: () -> Content, overlay: () -> Overlay) {
+    self.content = content()
+    self.overlay = overlay()
+    super.init()
+    addSubnode(self.content)
+    addSubnode(self.overlay)
+  }
+  
+  public final override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+    ASOverlayLayoutSpec(child: content, overlay: overlay)
+  }
+}
+
+open class AnyOverlayNode: OverlayNode<ASDisplayNode, ASDisplayNode> {
+  
 }

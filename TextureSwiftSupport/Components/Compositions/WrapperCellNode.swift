@@ -19,30 +19,31 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+import Foundation
+
 import AsyncDisplayKit
 
-fileprivate let queue = DispatchQueue.global()
-
-/// An object from Abstract base class
-///
-/// This object sets name of object for accessibilityIdentifier
-/// The accessibilityIdentifier will be displayed on Reveal's view-tree.
-/// It helps to find source code from Reveal.
-///
-/// - Author: TetureSwiftSupport
-open class NamedDisplayCellNodeBase: ASCellNode {
+open class WrapperCellNode<Content : ASDisplayNode> : NamedDisplayCellNodeBase {
   
-  open override func didLoad() {
-    super.didLoad()
-    #if DEBUG
-    queue.async { [weak self] in
-      guard let self = self else { return }
-      let typeName = _typeName(type(of: self))
-      DispatchQueue.main.async {
-        guard self.accessibilityIdentifier == nil else { return }
-        self.accessibilityIdentifier = typeName
-      }
-    }
-    #endif
+  open override var supportsLayerBacking: Bool {
+    false
   }
+  
+  public let content: Content
+  
+  public init(child: () -> Content) {
+    let content = child()
+    self.content = content
+    super.init()
+    clipsToBounds = false
+    addSubnode(content)
+  }
+  
+  public final override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+    return ASWrapperLayoutSpec(layoutElement: content)
+  }
+}
+
+open class AnyWrapperCellNode : WrapperCellNode<ASDisplayNode> {
+
 }

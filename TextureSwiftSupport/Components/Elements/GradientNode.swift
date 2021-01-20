@@ -21,28 +21,31 @@
 
 import AsyncDisplayKit
 
-fileprivate let queue = DispatchQueue.global()
-
-/// An object from Abstract base class
-///
-/// This object sets name of object for accessibilityIdentifier
-/// The accessibilityIdentifier will be displayed on Reveal's view-tree.
-/// It helps to find source code from Reveal.
-///
-/// - Author: TetureSwiftSupport
-open class NamedDisplayCellNodeBase: ASCellNode {
-  
-  open override func didLoad() {
-    super.didLoad()
-    #if DEBUG
-    queue.async { [weak self] in
-      guard let self = self else { return }
-      let typeName = _typeName(type(of: self))
-      DispatchQueue.main.async {
-        guard self.accessibilityIdentifier == nil else { return }
-        self.accessibilityIdentifier = typeName
-      }
-    }
-    #endif
+fileprivate final class GradientLayerView: UIView {
+  override class var layerClass: AnyClass {
+    CAGradientLayer.self
   }
 }
+
+open class GradientNode : ASDisplayNode {
+  
+  open override var supportsLayerBacking: Bool {
+    return false
+  }
+  
+  public var gradientLayer: CAGradientLayer {
+    view.layer as! CAGradientLayer
+  }
+  
+  public override init() {
+    super.init()
+    shouldAnimateSizeChanges = false
+    setViewBlock {
+      GradientLayerView()
+    }
+    
+    backgroundColor = .clear
+  }
+  
+}
+

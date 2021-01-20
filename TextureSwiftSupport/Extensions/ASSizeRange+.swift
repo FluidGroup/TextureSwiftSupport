@@ -21,28 +21,42 @@
 
 import AsyncDisplayKit
 
-fileprivate let queue = DispatchQueue.global()
-
-/// An object from Abstract base class
-///
-/// This object sets name of object for accessibilityIdentifier
-/// The accessibilityIdentifier will be displayed on Reveal's view-tree.
-/// It helps to find source code from Reveal.
-///
-/// - Author: TetureSwiftSupport
-open class NamedDisplayCellNodeBase: ASCellNode {
+extension ASSizeRange {
   
-  open override func didLoad() {
-    super.didLoad()
-    #if DEBUG
-    queue.async { [weak self] in
-      guard let self = self else { return }
-      let typeName = _typeName(type(of: self))
-      DispatchQueue.main.async {
-        guard self.accessibilityIdentifier == nil else { return }
-        self.accessibilityIdentifier = typeName
-      }
-    }
-    #endif
+  ///
+  /// - Author: TetureSwiftSupport
+  public init(width: ClosedRange<CGFloat>, height: ClosedRange<CGFloat>) {
+    self.init(
+      min: CGSize(width: width.lowerBound, height: height.lowerBound),
+      max: CGSize(width: width.upperBound, height: height.upperBound)
+    )
+  }
+    
+  ///
+  /// - Author: TetureSwiftSupport
+  public init(width: CGFloat, height: ClosedRange<CGFloat>) {
+    self.init(
+      min: CGSize(width: width, height: height.lowerBound),
+      max: CGSize(width: width, height: height.upperBound)
+    )
+  }
+  
+  ///
+  /// - Author: TetureSwiftSupport
+  public init(width: ClosedRange<CGFloat>, height: CGFloat) {
+    self.init(
+      min: CGSize(width: width.lowerBound, height: height),
+      max: CGSize(width: width.upperBound, height: height)
+    )
+  }
+  
+  ///
+  /// - Author: TetureSwiftSupport
+  public init(width: CGFloat, height: CGFloat) {
+    let size = CGSize(width: width, height: height)
+    self.init(
+      min: size,
+      max: size
+    )
   }
 }

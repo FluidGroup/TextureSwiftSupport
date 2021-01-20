@@ -19,30 +19,36 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+
+import Foundation
+
 import AsyncDisplayKit
 
-fileprivate let queue = DispatchQueue.global()
-
-/// An object from Abstract base class
-///
-/// This object sets name of object for accessibilityIdentifier
-/// The accessibilityIdentifier will be displayed on Reveal's view-tree.
-/// It helps to find source code from Reveal.
-///
-/// - Author: TetureSwiftSupport
-open class NamedDisplayCellNodeBase: ASCellNode {
+/// A container node that apply padding to the body node with Composition
+open class PaddingNode<Content: ASDisplayNode>: ASDisplayNode {
   
-  open override func didLoad() {
-    super.didLoad()
-    #if DEBUG
-    queue.async { [weak self] in
-      guard let self = self else { return }
-      let typeName = _typeName(type(of: self))
-      DispatchQueue.main.async {
-        guard self.accessibilityIdentifier == nil else { return }
-        self.accessibilityIdentifier = typeName
-      }
-    }
-    #endif
+  open override var supportsLayerBacking: Bool {
+    false
   }
+  
+  public let content: Content
+  public let padding: UIEdgeInsets
+  
+  public init(padding: UIEdgeInsets, child: () -> Content) {
+    let content = child()
+    self.content = content
+    self.padding = padding
+    super.init()
+    addSubnode(content)
+  }
+  
+  public final override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        
+    return ASInsetLayoutSpec(insets: padding, child: content)
+  }
+  
+}
+
+open class AnyPaddingNode: PaddingNode<ASDisplayNode> {
+
 }
