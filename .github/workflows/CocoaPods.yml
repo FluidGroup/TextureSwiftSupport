@@ -12,5 +12,5 @@ jobs:
       run: sudo xcode-select -switch /Applications/Xcode_11.4.app
     - uses: actions/checkout@v2
     - name: Lint Cocoapods
-      run: pod lib lint
+      run: pod lib lint --allow-warnings
 
