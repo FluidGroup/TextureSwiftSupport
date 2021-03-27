@@ -36,13 +36,7 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
     return false
   }
 
-  public var tap: ControlEvent<Void> {
-    return .init(events: _tapRelay)
-  }
-
   public var longPressGestureRecognizer: UILongPressGestureRecognizer?
-
-  private let _tapRelay = PublishRelay<Void>()
 
   public var handlers = Handlers()
 
@@ -124,7 +118,6 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
   }
 
   @objc private func _touchUpInside(_ gesture: UITapGestureRecognizer) {
-    _tapRelay.accept(())
     handlers.onTap()
   }
 

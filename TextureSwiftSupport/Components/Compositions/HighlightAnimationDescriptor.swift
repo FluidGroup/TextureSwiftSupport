@@ -28,8 +28,8 @@ public struct HighlightAnimationDescriptor {
     _ bodyNode: ASDisplayNode
   ) -> Void
 
-  fileprivate let animation: Block
-  fileprivate let overlayNode: ASDisplayNode?
+  let animation: Block
+  let overlayNode: ASDisplayNode?
 
   public init(
     overlayNode: () -> ASDisplayNode? = { nil },
@@ -60,11 +60,7 @@ extension HighlightAnimationDescriptor {
           initialSpringVelocity: 0,
           options: [.beginFromCurrentState, .allowUserInteraction],
           animations: {
-            body.transform = .init(
-              scaleX: shrinkingScale,
-              y: shrinkingScale,
-              z: 1
-            )
+            body.transform = CATransform3DMakeScale(shrinkingScale, shrinkingScale, 1)            
           },
           completion: nil
         )
@@ -76,7 +72,7 @@ extension HighlightAnimationDescriptor {
           initialSpringVelocity: 0,
           options: [.beginFromCurrentState, .allowUserInteraction],
           animations: {
-            body.transform = .identity
+            body.transform = CATransform3DIdentity
           },
           completion: nil
         )
@@ -156,7 +152,7 @@ extension HighlightAnimationDescriptor {
           ],
           animations: {
             containerNode.layer.opacity = 0.98
-            containerNode.transform = .init(scaleX: 0.98, y: 0.98, z: 1)
+            containerNode.transform = CATransform3DMakeScale(0.98, 0.98, 1)
             body.view.transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
           },
           completion: nil
@@ -172,7 +168,7 @@ extension HighlightAnimationDescriptor {
           ],
           animations: {
             containerNode.layer.opacity = 0
-            containerNode.transform = .identity
+            containerNode.transform = CATransform3DIdentity
             body.view.transform = .identity
           },
           completion: nil
