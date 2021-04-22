@@ -62,12 +62,12 @@ extension RecursiveLayoutViewController {
         guard let self = self else { return }
 
         self.flag.toggle()
-        #if false
+        #if true
         UIViewPropertyAnimator(duration: 0.3, dampingRatio: 1) {
           self.setNeedsLayout()
           self.layoutIfNeeded()
-          self.supernode?.view.window?.setNeedsLayout()
-          self.supernode?.view.window?.layoutIfNeeded()
+//          self.supernode?.view.window?.setNeedsLayout()
+//          self.supernode?.view.window?.layoutIfNeeded()
         }
         .startAnimation()
 
