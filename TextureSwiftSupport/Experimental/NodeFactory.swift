@@ -19,13 +19,13 @@ extension ASDisplayNode {
 
   /// Experimental
   public func _makeNode(
-    file: #file,
-    line: #line,
-    column: #column,
+    file: StaticString = #file,
+    line: UInt = #line,
+    column: UInt = #column,
     _ make: () -> ASDisplayNode
   ) -> ASDisplayNode {
 
-    assertionFailure(automaticallyManagesSubnodes, "Use _makeNode, must to use `automaticallyManagesSubnodes`.")
+    assert(automaticallyManagesSubnodes, "Use _makeNode, must to use `automaticallyManagesSubnodes`.")
 
     let key = "\(file),\(line),\(column)" as NSString
 
