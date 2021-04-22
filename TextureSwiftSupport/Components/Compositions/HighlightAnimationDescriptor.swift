@@ -28,8 +28,8 @@ public struct HighlightAnimationDescriptor {
     _ bodyNode: ASDisplayNode
   ) -> Void
 
-  let animation: Block
-  let overlayNode: ASDisplayNode?
+  public let animation: Block
+  public let overlayNode: ASDisplayNode?
 
   public init(
     overlayNode: () -> ASDisplayNode? = { nil },
