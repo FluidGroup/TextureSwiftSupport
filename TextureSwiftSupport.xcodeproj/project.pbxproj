@@ -40,6 +40,7 @@
 		4BBF60FC24CC2FFA000E0E74 /* TextureSwiftSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B873C2223083FE5006170B1 /* TextureSwiftSupport.framework */; };
 		4BBF610224CC3016000E0E74 /* CompileCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B873C47230845E3006170B1 /* CompileCheck.swift */; };
 		4BBF610424CC3472000E0E74 /* SwiftUISample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBF610324CC3472000E0E74 /* SwiftUISample.swift */; };
+		4BC02A322631530F006E3AB3 /* NodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC02A312631530F006E3AB3 /* NodeFactory.swift */; };
 		4BC70EC723F74D3A00197B7B /* DisplayNodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70EC623F74D3A00197B7B /* DisplayNodeViewController.swift */; };
 		4BC70EC923F74E8C00197B7B /* NamedDisplayNodeBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70EC823F74E8C00197B7B /* NamedDisplayNodeBase.swift */; };
 		4BC70ECB23F74EAB00197B7B /* SafeAreaDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */; };
@@ -105,6 +106,7 @@
 		4BBF60F924CC2FFA000E0E74 /* TextureSwiftSupportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureSwiftSupportTests.swift; sourceTree = "<group>"; };
 		4BBF60FB24CC2FFA000E0E74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BBF610324CC3472000E0E74 /* SwiftUISample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUISample.swift; sourceTree = "<group>"; };
+		4BC02A312631530F006E3AB3 /* NodeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeFactory.swift; sourceTree = "<group>"; };
 		4BC70EC623F74D3A00197B7B /* DisplayNodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayNodeViewController.swift; sourceTree = "<group>"; };
 		4BC70EC823F74E8C00197B7B /* NamedDisplayNodeBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedDisplayNodeBase.swift; sourceTree = "<group>"; };
 		4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaDisplayNode.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				4B5CEFC7235264CA00607980 /* _NodeLayout.swift */,
+				4BC02A312631530F006E3AB3 /* NodeFactory.swift */,
 			);
 			path = Experimental;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				4BE6527B246481DE004346D6 /* LayoutCondition.swift in Sources */,
 				4B8A3026234DF6AD00082092 /* MethodChain.swift in Sources */,
 				4B5C387C242F0EEF005D9722 /* PaddingNode.swift in Sources */,
+				4BC02A322631530F006E3AB3 /* NodeFactory.swift in Sources */,
 				4B58E850260F0797004A834F /* InteractiveNode.swift in Sources */,
 				4BC70EC923F74E8C00197B7B /* NamedDisplayNodeBase.swift in Sources */,
 				4B6FA0392468B5EC00C21A53 /* MaskingNode.swift in Sources */,
