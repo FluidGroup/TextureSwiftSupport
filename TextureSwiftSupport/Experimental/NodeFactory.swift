@@ -17,7 +17,11 @@ extension ASDisplayNode {
     }
   }
 
-  /// Experimental
+  /**
+   [Still experimental]
+   Creates an instance of node at once, and it will be associated with the receiver node.
+   It requires to enable `automaticallyManagesSubnodes`.
+   */
   public func _makeNode(
     file: StaticString = #file,
     line: UInt = #line,
@@ -38,4 +42,5 @@ extension ASDisplayNode {
     }
 
   }
+
 }
