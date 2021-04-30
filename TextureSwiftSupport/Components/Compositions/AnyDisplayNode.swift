@@ -102,15 +102,15 @@ public typealias PropsFunctionalDisplayNode = AnyPropsDisplayNode
 /// It's not so effective in reducing binary-size.
 public final class AnyPropsDisplayNode<Props>: AnyDisplayNode {
   
-  private var _onUpdatedProps: (Props) -> Void = { _ in }
+  private var _onUpdatedProps: (ASDisplayNode, Props) -> Void = { _, _ in }
   
-  public func onUpdatedProps(_ onUpdatedProps: @escaping (Props) -> Void) -> Self {
+  public func onUpdatedProps(_ onUpdatedProps: @escaping (ASDisplayNode, Props) -> Void) -> Self {
     self._onUpdatedProps = onUpdatedProps
     return self
   }
   
   public func update(props: Props) {
-    _onUpdatedProps(props)
+    _onUpdatedProps(self, props)
   }
   
 }
