@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "TextureSwiftSupport"
-  spec.version      = "3.5.0"
+  spec.version      = "3.5.1"
   spec.summary      = "Integrations Texture with Swift"
   spec.description  = <<-DESC
   TextureSwiftSupport helps developers with Swift language's features.
