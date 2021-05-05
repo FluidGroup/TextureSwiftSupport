@@ -20,6 +20,20 @@
                ReferencedContainer = "container:TextureSwiftSupport.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4BBF60F624CC2FFA000E0E74"
+               BuildableName = "TextureSwiftSupportTests.xctest"
+               BlueprintName = "TextureSwiftSupportTests"
+               ReferencedContainer = "container:TextureSwiftSupport.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
