@@ -109,12 +109,12 @@ public struct Case: _ASLayoutElementType {
     self.condition = condition
     
     self.makeContent = {
-      content().make()
+      content().tss_make()
     }
     
   }
   
-  public func make() -> [ASLayoutElement] {
+  public func tss_make() -> [ASLayoutElement] {
     [_CaseLayoutSpec(condition: condition, makeContent: makeContent)]
   }
   
@@ -168,7 +168,7 @@ public struct Switch: _ASLayoutElementType {
     self.cases = [content()]
   }
   
-  public func make() -> [ASLayoutElement] {
+  public func tss_make() -> [ASLayoutElement] {
     [_SwitchLayoutSpec(cases: cases.map { $0.makeConditionalLayoutSpec() })]
   }
   

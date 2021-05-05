@@ -4,25 +4,39 @@
 use_frameworks!
 
 def texture
-  pod 'Texture/Core', '~> 3' #, git: 'git@github.com:TextureGroup/Texture.git', branch: 'master'
+  pod "Texture/Core", "~> 3" #, git: 'git@github.com:TextureGroup/Texture.git', branch: 'master'
 end
 
-target 'TextureSwiftSupport' do
+target "TextureSwiftSupport" do
   # Comment the next line if you don't want to use dynamic frameworks
 
   texture
 
-  target 'TextureSwiftSupportTests' do
+  target "TextureSwiftSupportTests" do
     inherit! :search_paths
   end
-
 end
 
-target 'Demo' do
-
+target "Demo" do
   texture
-  pod 'Reveal-SDK'
-  pod 'GlossButtonNode'
-  pod 'TextureSwiftSupport', path: './'
-  pod 'TypedTextAttributes'
+  pod "TypedTextAttributes"
+  pod "GlossButtonNode"
+  pod "TextureSwiftSupport", path: "./"
+end
+
+pre_install do |installer|
+  installer.aggregate_targets.each { |target|
+    puts "📦 #{target.name}"
+
+    def print_pods(pod, depth)
+      puts "#{depth} -> #{pod.name}"
+      pod.dependent_targets.each { |d|
+        print_pods d, depth + "  "
+      }
+    end
+
+    target.pod_targets.each { |t|
+      print_pods t, ""
+    }
+  }
 end
