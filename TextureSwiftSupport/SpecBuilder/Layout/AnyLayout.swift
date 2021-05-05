@@ -23,37 +23,37 @@
 /// - Author: TetureSwiftSupport
 public struct AnyLayout : _ASLayoutElementType {
 
-  public let content: _ASLayoutElementType?
+  public let contents: [ASLayoutElement]
 
   @available(*, deprecated, message: "Use init(_: ASLayoutElement?)")
   @_disfavoredOverload
   public init(_ element: () -> ASLayoutElement?) {
     if let element = element() {
-      self.content = ASWrapperLayoutSpec(layoutElement: element)
+      self.contents = [ASWrapperLayoutSpec(layoutElement: element)]
     } else {
-      self.content = ASLayoutSpec()
+      self.contents = [ASLayoutSpec()]
     }
   }
 
   @available(*, deprecated, message: "Use init(_: _ASLayoutElementType)")
   public init(_ content: () -> _ASLayoutElementType) {
-    self.content = content()
+    self.contents = content().tss_make()
   }
 
   @_disfavoredOverload
   public init(_ element: ASLayoutElement?) {
     if let element = element {
-      self.content = ASWrapperLayoutSpec(layoutElement: element)
+      self.contents = [ASWrapperLayoutSpec(layoutElement: element)]
     } else {
-      self.content = ASLayoutSpec()
+      self.contents = [ASLayoutSpec()]
     }
   }
 
   public init(_ content: _ASLayoutElementType?) {
-    self.content = content
+    self.contents = content?.tss_make() ?? []
   }
 
   public func tss_make() -> [ASLayoutElement] {
-    content?.tss_make() ?? []
+    contents
   }
 }
