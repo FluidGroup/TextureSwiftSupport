@@ -5,7 +5,7 @@ It helps writing the code in Texture with Swift's power.
 
 ## Requirements
 
-Swiift 5.1+
+Swiift 5.3+
 
 ## The cases of usage in Production
 
