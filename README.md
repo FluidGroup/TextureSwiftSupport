@@ -5,7 +5,7 @@ This is a library to gain **[Texture](http://texturegroup.org/)** more power in 
 * Readable Layout DSL
 * Composable components
 
-And you might need to use `[TextureBridging](https://github.com/TextureCommunity/TextureBridging)` to integrate with AutoLayout world in your applications.
+And you might need to use [`TextureBridging`](https://github.com/TextureCommunity/TextureBridging) to integrate with AutoLayout world in your applications.
 
 ## Requirements
 
