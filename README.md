@@ -1,4 +1,4 @@
-# TextureSwiftSupport
+# TextureSwiftSupport - Gains up your productiviy
 
 This is a library to gain **[Texture](http://texturegroup.org/)** more power in Swift.
 
