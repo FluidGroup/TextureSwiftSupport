@@ -128,6 +128,16 @@ But most of the cases, that won't be matters.
 * AnyDisplayNode
 * GradientNode
 
+## Installation
+
+### CocoaPods
+
+```ruby
+pod 'TextureSwiftSupport'
+```
+
+> ☝️ Technically, podspec describes multiple subspecs, you can install a part of this library what you want.
+
 ## Author
 
 Muukii <muukii.app@gmail.com>
