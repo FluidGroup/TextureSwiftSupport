@@ -196,8 +196,8 @@
 		4B2276182454A97E00F39A16 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				4B2276192454A99800F39A16 /* Elements */,
 				4B5C3876242F0E59005D9722 /* Compositions */,
+				4B2276192454A99800F39A16 /* Elements */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -276,14 +276,14 @@
 		4B873C2423083FE5006170B1 /* TextureSwiftSupport */ = {
 			isa = PBXGroup;
 			children = (
-				4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */,
-				4B2276182454A97E00F39A16 /* Components */,
-				4B5635032418891C000A37AC /* Extensions */,
-				4BC70EC523F74D1D00197B7B /* Tools */,
-				4BC70EC423F74D1000197B7B /* SpecBuilder */,
-				4BC70EC323F74CFA00197B7B /* Experimental */,
 				4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */,
 				4B873C2623083FE5006170B1 /* Info.plist */,
+				4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */,
+				4B2276182454A97E00F39A16 /* Components */,
+				4BC70EC323F74CFA00197B7B /* Experimental */,
+				4B5635032418891C000A37AC /* Extensions */,
+				4BC70EC423F74D1000197B7B /* SpecBuilder */,
+				4BC70EC523F74D1D00197B7B /* Tools */,
 			);
 			path = TextureSwiftSupport;
 			sourceTree = "<group>";
@@ -370,11 +370,11 @@
 		4BC70EC423F74D1000197B7B /* SpecBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				4BC22FA4264276B700D1C43B /* Deprecates.swift */,
+				4B8A3025234DF6AD00082092 /* MethodChain.swift */,
+				4B873C2D23083FF4006170B1 /* SpecBuilder.swift */,
 				4BC22F86264272B200D1C43B /* Layout */,
 				4BC22F83264272A100D1C43B /* Options */,
-				4B873C2D23083FF4006170B1 /* SpecBuilder.swift */,
-				4B8A3025234DF6AD00082092 /* MethodChain.swift */,
-				4BC22FA4264276B700D1C43B /* Deprecates.swift */,
 			);
 			path = SpecBuilder;
 			sourceTree = "<group>";
@@ -382,11 +382,11 @@
 		4BC70EC523F74D1D00197B7B /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				4BC70EC623F74D3A00197B7B /* DisplayNodeViewController.swift */,
-				4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */,
-				4BC70EC823F74E8C00197B7B /* NamedDisplayNodeBase.swift */,
-				4BC70ECC23F7557E00197B7B /* NamedDisplayCellNodeBase.swift */,
 				4B38124F2647CFC300EB64E5 /* _ArrayBuilder.swift */,
+				4BC70EC623F74D3A00197B7B /* DisplayNodeViewController.swift */,
+				4BC70ECC23F7557E00197B7B /* NamedDisplayCellNodeBase.swift */,
+				4BC70EC823F74E8C00197B7B /* NamedDisplayNodeBase.swift */,
+				4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
