@@ -4,7 +4,20 @@ PODS:
     - TextureSwiftSupport
   - Texture/Core (3.0.0)
   - TextureSwiftSupport (3.5.1):
-    - Texture/Core (~> 3)
+    - Texture/Core (>= 3)
+    - TextureSwiftSupport/Components (= 3.5.1)
+    - TextureSwiftSupport/Experiments (= 3.5.1)
+    - TextureSwiftSupport/Extensions (= 3.5.1)
+    - TextureSwiftSupport/LayoutSpecBuilders (= 3.5.1)
+  - TextureSwiftSupport/Components (3.5.1):
+    - Texture/Core (>= 3)
+    - TextureSwiftSupport/LayoutSpecBuilders
+  - TextureSwiftSupport/Experiments (3.5.1):
+    - Texture/Core (>= 3)
+  - TextureSwiftSupport/Extensions (3.5.1):
+    - Texture/Core (>= 3)
+  - TextureSwiftSupport/LayoutSpecBuilders (3.5.1):
+    - Texture/Core (>= 3)
   - TypedTextAttributes (1.1.0)
 
 DEPENDENCIES:
@@ -26,7 +39,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   GlossButtonNode: 0b1471447cb4cebc8a959bbca574247ff6b0592b
   Texture: 2f109e937850d94d1d07232041c9c7313ccddb81
-  TextureSwiftSupport: 7463da36a66b64d3bff8c2f95b28237d3740ab8a
+  TextureSwiftSupport: 27f1d1a8790dd07aaea121e3634cd133c0315938
   TypedTextAttributes: fc3a5a8c4a7a28304446f8c5e8af146d11c2163a
 
 PODFILE CHECKSUM: a5dcf5e69df3302e6ae96980d69e2a39f0b077ed
