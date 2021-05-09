@@ -34,7 +34,7 @@
 		4B873C4223084047006170B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B873C4023084047006170B1 /* LaunchScreen.storyboard */; };
 		4B873C4B230845E3006170B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B873C48230845E3006170B1 /* AppDelegate.swift */; };
 		4B873C4C230845E3006170B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B873C49230845E3006170B1 /* ViewController.swift */; };
-		4B8A3026234DF6AD00082092 /* MethodChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8A3025234DF6AD00082092 /* MethodChain.swift */; };
+		4B8A3026234DF6AD00082092 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8A3025234DF6AD00082092 /* Modifiers.swift */; };
 		4BB21B3A244E06E6008CA2A4 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB21B39244E06E6008CA2A4 /* Mocks.swift */; };
 		4BB21B3C244E0974008CA2A4 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB21B3B244E0974008CA2A4 /* MenuViewController.swift */; };
 		4BB21B3E244E0E68008CA2A4 /* InstagramPostCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB21B3D244E0E68008CA2A4 /* InstagramPostCellViewController.swift */; };
@@ -123,7 +123,7 @@
 		4B873C47230845E3006170B1 /* CompileCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompileCheck.swift; sourceTree = "<group>"; };
 		4B873C48230845E3006170B1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B873C49230845E3006170B1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4B8A3025234DF6AD00082092 /* MethodChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodChain.swift; sourceTree = "<group>"; };
+		4B8A3025234DF6AD00082092 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		4BB21B39244E06E6008CA2A4 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		4BB21B3B244E0974008CA2A4 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4BB21B3D244E0E68008CA2A4 /* InstagramPostCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramPostCellViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +196,7 @@
 		4B2276182454A97E00F39A16 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				4BC70EC523F74D1D00197B7B /* Tools */,
 				4B5C3876242F0E59005D9722 /* Compositions */,
 				4B2276192454A99800F39A16 /* Elements */,
 			);
@@ -252,7 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				4B3ED5FA232E1CE600D68739 /* README.md */,
-				4B873C2423083FE5006170B1 /* TextureSwiftSupport */,
+				4B873C2423083FE5006170B1 /* Sources */,
 				4B873C3423084045006170B1 /* Demo */,
 				4BBF60F824CC2FFA000E0E74 /* TextureSwiftSupportTests */,
 				4B873C2323083FE5006170B1 /* Products */,
@@ -273,19 +274,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4B873C2423083FE5006170B1 /* TextureSwiftSupport */ = {
+		4B873C2423083FE5006170B1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */,
 				4B873C2623083FE5006170B1 /* Info.plist */,
-				4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */,
 				4B2276182454A97E00F39A16 /* Components */,
-				4BC70EC323F74CFA00197B7B /* Experimental */,
+				4BC70EC323F74CFA00197B7B /* Experiments */,
 				4B5635032418891C000A37AC /* Extensions */,
-				4BC70EC423F74D1000197B7B /* SpecBuilder */,
-				4BC70EC523F74D1D00197B7B /* Tools */,
+				4BC70EC423F74D1000197B7B /* LayoutSpecBuilders */,
 			);
-			path = TextureSwiftSupport;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		4B873C3423084045006170B1 /* Demo */ = {
@@ -358,31 +357,32 @@
 			path = Layout;
 			sourceTree = "<group>";
 		};
-		4BC70EC323F74CFA00197B7B /* Experimental */ = {
+		4BC70EC323F74CFA00197B7B /* Experiments */ = {
 			isa = PBXGroup;
 			children = (
 				4B5CEFC7235264CA00607980 /* _NodeLayout.swift */,
 				4BC02A312631530F006E3AB3 /* NodeFactory.swift */,
 			);
-			path = Experimental;
+			path = Experiments;
 			sourceTree = "<group>";
 		};
-		4BC70EC423F74D1000197B7B /* SpecBuilder */ = {
+		4BC70EC423F74D1000197B7B /* LayoutSpecBuilders */ = {
 			isa = PBXGroup;
 			children = (
+				4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */,
+				4B38124F2647CFC300EB64E5 /* _ArrayBuilder.swift */,
 				4BC22FA4264276B700D1C43B /* Deprecates.swift */,
-				4B8A3025234DF6AD00082092 /* MethodChain.swift */,
+				4B8A3025234DF6AD00082092 /* Modifiers.swift */,
 				4B873C2D23083FF4006170B1 /* SpecBuilder.swift */,
 				4BC22F86264272B200D1C43B /* Layout */,
 				4BC22F83264272A100D1C43B /* Options */,
 			);
-			path = SpecBuilder;
+			path = LayoutSpecBuilders;
 			sourceTree = "<group>";
 		};
 		4BC70EC523F74D1D00197B7B /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				4B38124F2647CFC300EB64E5 /* _ArrayBuilder.swift */,
 				4BC70EC623F74D3A00197B7B /* DisplayNodeViewController.swift */,
 				4BC70ECC23F7557E00197B7B /* NamedDisplayCellNodeBase.swift */,
 				4BC70EC823F74E8C00197B7B /* NamedDisplayNodeBase.swift */,
@@ -649,7 +649,7 @@
 				4B5C387D242F0EEF005D9722 /* BackgroundNode.swift in Sources */,
 				4BC22F7E2642723300D1C43B /* AnyLayout.swift in Sources */,
 				4BE6527B246481DE004346D6 /* LayoutCondition.swift in Sources */,
-				4B8A3026234DF6AD00082092 /* MethodChain.swift in Sources */,
+				4B8A3026234DF6AD00082092 /* Modifiers.swift in Sources */,
 				4B5C387C242F0EEF005D9722 /* PaddingNode.swift in Sources */,
 				4BC22F822642726400D1C43B /* OptionalLayout.swift in Sources */,
 				4BC22F952642763100D1C43B /* AbsoluteLayout.swift in Sources */,
