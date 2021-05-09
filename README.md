@@ -1,6 +1,6 @@
 # TextureSwiftSupport - Gains up your productivity
 
-This is a library to gain **[Texture](http://texturegroup.org/)** more power in Swift.
+This is a library to gain **[Texture(AsyncDisplayKit)](http://texturegroup.org/)** more power in Swift.
 
 * Readable Layout DSL
 * Composable components
