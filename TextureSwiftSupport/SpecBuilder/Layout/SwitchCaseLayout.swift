@@ -22,148 +22,113 @@
 import Foundation
 import AsyncDisplayKit
 
-fileprivate let emptyLayout = ASLayoutSpec()
+/**
+ To control the layout or nodes with hiding or display by some conditions.
+ It will be helpful to support:
+ - multiple screen sizes
+ - screen direction
+ - universal application
+ - layout fitting on between iPhone SE and iPhone 11 Pro max...
 
-final class _CaseLayoutSpec: ASLayoutSpec {
-  
-  let condition: LayoutCondition
-  
-  private let makeContent: () -> [ASLayoutElement]
-  private lazy var content: ASWrapperLayoutSpec = {
-    ASWrapperLayoutSpec(layoutElements: makeContent())
-  }()
-  
-  init(
-    condition: LayoutCondition,
-    makeContent: @escaping () -> [ASLayoutElement]
-  ) {
-    self.condition = condition
-    self.makeContent = makeContent
-    super.init()
-  }
-  
-  override func calculateLayoutThatFits(
-    _ constrainedSize: ASSizeRange,
-    restrictedTo size: ASLayoutElementSize,
-    relativeToParentSize parentSize: CGSize
-  ) -> ASLayout {
-    
-    let context = LayoutContext(
-      constraintSize: constrainedSize,
-      parentSize: parentSize,
-      trait: asyncTraitCollection()
-    )
-    
-    guard condition.matches(context: context) else {
-      return emptyLayout.calculateLayoutThatFits(constrainedSize, restrictedTo: size, relativeToParentSize: parentSize)
-    }
-    
-    return content.calculateLayoutThatFits(constrainedSize)
-  }
-   
-}
 
-final class _SwitchLayoutSpec: ASLayoutSpec {
-  
-  private let cases: [_CaseLayoutSpec]
-  
-  init(cases: [_CaseLayoutSpec]) {
-    self.cases = cases
-    super.init()
-  }
-  
-  override func calculateLayoutThatFits(
-    _ constrainedSize: ASSizeRange,
-    restrictedTo size: ASLayoutElementSize,
-    relativeToParentSize parentSize: CGSize
-  ) -> ASLayout {
-        
-    let context = LayoutContext(
-      constraintSize: constrainedSize,
-      parentSize: parentSize,
-      trait: asyncTraitCollection()
-    )
-    
-    for _case in cases {
-      if _case.condition.matches(context: context) {
-        return _case.calculateLayoutThatFits(constrainedSize, restrictedTo: size, relativeToParentSize: parentSize)
-      }
-    }
-    
-    return emptyLayout.calculateLayoutThatFits(constrainedSize, restrictedTo: size, relativeToParentSize: parentSize)
-        
-  }
-  
-}
+ In Swith, `Case` only can declare.
+ A node in first matched case will display.
+ ```swift
+ LayoutSpec {
+   Switch {
+     Case(.containerSize(.width, >=300)) {
+       MyNode()
+     }
+     Case(.containerSize(.width, <=300)) {
+       MyNode()
+     }
+   }
+ }
+ ```
 
-public struct Case: _ASLayoutElementType {
-    
-  private let makeContent: () -> [ASLayoutElement]
-  public let condition: LayoutCondition
-  
-  public init<Content: _ASLayoutElementType>(
-    _ condition: LayoutCondition,
-    _ content: @escaping () -> Content
-  ) {
-    
-    self.condition = condition
-    
-    self.makeContent = {
-      content().tss_make()
-    }
-    
-  }
-  
-  public func tss_make() -> [ASLayoutElement] {
-    [_CaseLayoutSpec(condition: condition, makeContent: makeContent)]
-  }
-  
-  func makeConditionalLayoutSpec() -> _CaseLayoutSpec {
-    _CaseLayoutSpec(condition: condition, makeContent: makeContent)
-  }
-}
+ **it can declare `Case` isolated, like using if-else control flow.**
+ ```
+ LayoutSpec {
+   Case(.containerSize(.height, >=300)) {
+     MyNode()
+   }
+   Case(.maxConstraintSize(.height, >=300)) {
+     MyNode()
+   }
+   Case(.parentSize(.height, >=300)) {
+     MyNode()
+   }
+   VStackLayout {
+     MyNode()
+   }
+ }
+ ```
 
-@_functionBuilder public struct ArrayBuilder<Element> {
-  
-  public static func buildBlock() -> [Element] {
-    []
-  }
-  
-  public static func buildBlock(_ content: Element) -> [Element] {
-    [content]
-  }
-  
-  public static func buildBlock(_ contents: Element...) -> [Element] {
-    contents
-  }
-  
-  public static func buildBlock(_ contents: [Element]) -> [Element] {
-    contents
-  }
-  
-  public static func buildBlock(_ contents: Element?...) -> [Element] {
-    contents.compactMap { $0 }
-  }
-  
-  public static func buildBlock(_ contents: [Element?]) -> [Element] {
-    contents.compactMap { $0 }
-  }
-  
-}
+ **Creating custom condition**
+ ```
+ LayoutSpec {
+   Case(.init { context in
+     let _: ASSizeRange = context.constraintSize
+     let _: CGSize = context.parentSize
+     let _: ASTraitCollection = context.trait
+     return false
+   }) {
+     MyNode()
+   }
+ }
+ ```
 
+ **Use combined condition*
+ ```
+ LayoutSpec {
+   Case(.parentSize(.height, >=300) && .parentSize(.width, <=100)) {
+     MyNode()
+   }
+
+   Case(.parentSize(.height, >=300) || .parentSize(.width, <=100)) {
+     MyNode()
+   }
+ }
+ ```
+
+ **Nesting**
+ ```
+ LayoutSpec {
+   Case(.parentSize(.height, >=300)) {
+     Switch {
+       Case(.parentSize(.height, >=300)) {
+         MyNode()
+       }
+       Case(.parentSize(.height, >=300)) {
+         Case(.parentSize(.height, >=300)) {
+           Switch {
+             Case(.parentSize(.height, >=300)) {
+               MyNode()
+             }
+              Case(.parentSize(.height, >=300)) {
+               MyNode()
+             }
+           }
+         }
+       }
+     }
+   }
+ }
+ ```
+ */
 public struct Switch: _ASLayoutElementType {
   
   private let cases: [Case]
   
   public init(
-    @ArrayBuilder<Case> _ content: @escaping () -> [Case]
+    @_ArrayBuilder<Case> _ content: @escaping () -> [Case]
   ) {
     self.cases = content()
   }
   
   @_disfavoredOverload
   public init(
-    @ArrayBuilder<Case> _ content: @escaping () -> Case
+    @_ArrayBuilder<Case> _ content: @escaping () -> Case
   ) {
     self.cases = [content()]
   }
@@ -172,4 +137,105 @@ public struct Switch: _ASLayoutElementType {
     [_SwitchLayoutSpec(cases: cases.map { $0.makeConditionalLayoutSpec() })]
   }
   
+}
+
+public struct Case: _ASLayoutElementType {
+
+  private let makeContent: () -> [ASLayoutElement]
+  public let condition: LayoutCondition
+
+  public init<Content: _ASLayoutElementType>(
+    _ condition: LayoutCondition,
+    _ content: @escaping () -> Content
+  ) {
+
+    self.condition = condition
+
+    self.makeContent = {
+      content().tss_make()
+    }
+
+  }
+
+  public func tss_make() -> [ASLayoutElement] {
+    [_CaseLayoutSpec(condition: condition, makeContent: makeContent)]
+  }
+
+  func makeConditionalLayoutSpec() -> _CaseLayoutSpec {
+    _CaseLayoutSpec(condition: condition, makeContent: makeContent)
+  }
+}
+
+fileprivate let emptyLayout = ASLayoutSpec()
+
+final class _CaseLayoutSpec: ASLayoutSpec {
+
+  let condition: LayoutCondition
+
+  private let makeContent: () -> [ASLayoutElement]
+  private lazy var content: ASWrapperLayoutSpec = {
+    ASWrapperLayoutSpec(layoutElements: makeContent())
+  }()
+
+  init(
+    condition: LayoutCondition,
+    makeContent: @escaping () -> [ASLayoutElement]
+  ) {
+    self.condition = condition
+    self.makeContent = makeContent
+    super.init()
+  }
+
+  override func calculateLayoutThatFits(
+    _ constrainedSize: ASSizeRange,
+    restrictedTo size: ASLayoutElementSize,
+    relativeToParentSize parentSize: CGSize
+  ) -> ASLayout {
+
+    let context = LayoutContext(
+      constraintSize: constrainedSize,
+      parentSize: parentSize,
+      trait: asyncTraitCollection()
+    )
+
+    guard condition.matches(context: context) else {
+      return emptyLayout.calculateLayoutThatFits(constrainedSize, restrictedTo: size, relativeToParentSize: parentSize)
+    }
+
+    return content.calculateLayoutThatFits(constrainedSize)
+  }
+
+}
+
+final class _SwitchLayoutSpec: ASLayoutSpec {
+
+  private let cases: [_CaseLayoutSpec]
+
+  init(cases: [_CaseLayoutSpec]) {
+    self.cases = cases
+    super.init()
+  }
+
+  override func calculateLayoutThatFits(
+    _ constrainedSize: ASSizeRange,
+    restrictedTo size: ASLayoutElementSize,
+    relativeToParentSize parentSize: CGSize
+  ) -> ASLayout {
+
+    let context = LayoutContext(
+      constraintSize: constrainedSize,
+      parentSize: parentSize,
+      trait: asyncTraitCollection()
+    )
+
+    for _case in cases {
+      if _case.condition.matches(context: context) {
+        return _case.calculateLayoutThatFits(constrainedSize, restrictedTo: size, relativeToParentSize: parentSize)
+      }
+    }
+
+    return emptyLayout.calculateLayoutThatFits(constrainedSize, restrictedTo: size, relativeToParentSize: parentSize)
+
+  }
+
 }

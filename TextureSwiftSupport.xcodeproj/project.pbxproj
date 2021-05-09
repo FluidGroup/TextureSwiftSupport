@@ -11,6 +11,7 @@
 		4B19E610244DD9F0009FD799 /* AnyDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */; };
 		4B22761B2454A9E500F39A16 /* GradientNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B22761A2454A9AF00F39A16 /* GradientNode.swift */; };
 		4B2A018325B6E76E00D7C188 /* RecursiveLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A018225B6E76E00D7C188 /* RecursiveLayoutViewController.swift */; };
+		4B3812502647CFC300EB64E5 /* _ArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B38124F2647CFC300EB64E5 /* _ArrayBuilder.swift */; };
 		4B56350524188930000A37AC /* ASSizeRange+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B56350424188930000A37AC /* ASSizeRange+.swift */; };
 		4B58E850260F0797004A834F /* InteractiveNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B58E84F260F0797004A834F /* InteractiveNode.swift */; };
 		4B58E855260F07D9004A834F /* HighlightAnimationDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B58E854260F07D9004A834F /* HighlightAnimationDescriptor.swift */; };
@@ -93,6 +94,7 @@
 		4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDisplayNode.swift; sourceTree = "<group>"; };
 		4B22761A2454A9AF00F39A16 /* GradientNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNode.swift; sourceTree = "<group>"; };
 		4B2A018225B6E76E00D7C188 /* RecursiveLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecursiveLayoutViewController.swift; sourceTree = "<group>"; };
+		4B38124F2647CFC300EB64E5 /* _ArrayBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _ArrayBuilder.swift; sourceTree = "<group>"; };
 		4B3ED5FA232E1CE600D68739 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4B56350424188930000A37AC /* ASSizeRange+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASSizeRange+.swift"; sourceTree = "<group>"; };
 		4B58E84F260F0797004A834F /* InteractiveNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveNode.swift; sourceTree = "<group>"; };
@@ -206,6 +208,17 @@
 				4B22761A2454A9AF00F39A16 /* GradientNode.swift */,
 			);
 			path = Elements;
+			sourceTree = "<group>";
+		};
+		4B38124E2647CDAE00EB64E5 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				4BC22F812642726400D1C43B /* OptionalLayout.swift */,
+				4BC22F7F2642724900D1C43B /* EmptyLayout.swift */,
+				4BC22F79264271F400D1C43B /* ConditionalLayout.swift */,
+				4BC22F7B2642722200D1C43B /* MultiLayout.swift */,
+			);
+			path = Internal;
 			sourceTree = "<group>";
 		};
 		4B5635032418891C000A37AC /* Extensions */ = {
@@ -325,11 +338,8 @@
 		4BC22F86264272B200D1C43B /* Layout */ = {
 			isa = PBXGroup;
 			children = (
-				4BC22F812642726400D1C43B /* OptionalLayout.swift */,
-				4BC22F7F2642724900D1C43B /* EmptyLayout.swift */,
+				4B38124E2647CDAE00EB64E5 /* Internal */,
 				4BC22F7D2642723300D1C43B /* AnyLayout.swift */,
-				4BC22F79264271F400D1C43B /* ConditionalLayout.swift */,
-				4BC22F7B2642722200D1C43B /* MultiLayout.swift */,
 				4B8666FD26412BDD00A81E53 /* VGridLayout.swift */,
 				4BE65278246481DE004346D6 /* SwitchCaseLayout.swift */,
 				4BC22F8C264275ED00D1C43B /* VStackLayout.swift */,
@@ -376,6 +386,7 @@
 				4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */,
 				4BC70EC823F74E8C00197B7B /* NamedDisplayNodeBase.swift */,
 				4BC70ECC23F7557E00197B7B /* NamedDisplayCellNodeBase.swift */,
+				4B38124F2647CFC300EB64E5 /* _ArrayBuilder.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -659,6 +670,7 @@
 				4B5C3884242F10E3005D9722 /* ShapeRenderingNode.swift in Sources */,
 				4BC70EC723F74D3A00197B7B /* DisplayNodeViewController.swift in Sources */,
 				4B5C3886242F1118005D9722 /* ShapeDisplaying.swift in Sources */,
+				4B3812502647CFC300EB64E5 /* _ArrayBuilder.swift in Sources */,
 				4B58E855260F07D9004A834F /* HighlightAnimationDescriptor.swift in Sources */,
 				4BC22F85264272A800D1C43B /* FlexWrap.swift in Sources */,
 				4BE6527A246481DE004346D6 /* SwitchCaseLayout.swift in Sources */,
