@@ -63,7 +63,7 @@ extension CompositionCatalogViewController {
   
   static func makeMasking() -> ASDisplayNode {
     
-    let background = GradientNode()
+    let background = GradientLayerNode()
       
     background.gradientLayer.colors = [
       #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1).cgColor,
