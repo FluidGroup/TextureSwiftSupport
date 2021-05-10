@@ -322,7 +322,7 @@ enum _CompileCheck {
     
     private let nameNode = ASTextNode()
     private let ageNode = ASTextNode()
-    private let gradientBackgroundNode = GradientNode()
+    private let gradientBackgroundNode = GradientLayerNode()
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
       LayoutSpec {
@@ -341,7 +341,7 @@ enum _CompileCheck {
     
     private let nameNode = ASTextNode()
     private let ageNode = ASTextNode()
-    private let gradientBackgroundNode = GradientNode()
+    private let gradientBackgroundNode = GradientLayerNode()
     
     private var isNameNodeHidden: Bool = false {
       didSet {
@@ -373,7 +373,7 @@ enum _CompileCheck {
     
     private let nameNode = ASTextNode()
     private let ageNode = ASTextNode()
-    private let gradientBackgroundNode = GradientNode()
+    private let gradientBackgroundNode = GradientLayerNode()
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
                        

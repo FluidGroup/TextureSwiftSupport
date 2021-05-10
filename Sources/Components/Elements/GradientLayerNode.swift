@@ -27,7 +27,10 @@ fileprivate final class GradientLayerView: UIView {
   }
 }
 
-open class GradientNode : ASDisplayNode {
+@available(*, deprecated, renamed: "GradientLayerNode")
+public typealias GradientNode = GradientLayerNode
+
+open class GradientLayerNode : ASDisplayNode {
   
   open override var supportsLayerBacking: Bool {
     return false

@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		4B086A462464434C0024F5A1 /* TextureSwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */; };
 		4B19E610244DD9F0009FD799 /* AnyDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */; };
-		4B22761B2454A9E500F39A16 /* GradientNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B22761A2454A9AF00F39A16 /* GradientNode.swift */; };
+		4B22761B2454A9E500F39A16 /* GradientLayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B22761A2454A9AF00F39A16 /* GradientLayerNode.swift */; };
+		4B2497DD264964520013340B /* LinearGradientDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2497DC264964520013340B /* LinearGradientDrawer.swift */; };
+		4B2497DE264964520013340B /* LinearGradientDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2497DB264964520013340B /* LinearGradientDescriptor.swift */; };
+		4B2497E02649646A0013340B /* GradientDrawingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2497DF2649646A0013340B /* GradientDrawingNode.swift */; };
 		4B2A018325B6E76E00D7C188 /* RecursiveLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A018225B6E76E00D7C188 /* RecursiveLayoutViewController.swift */; };
 		4B3812502647CFC300EB64E5 /* _ArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B38124F2647CFC300EB64E5 /* _ArrayBuilder.swift */; };
 		4B56350524188930000A37AC /* ASSizeRange+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B56350424188930000A37AC /* ASSizeRange+.swift */; };
@@ -92,7 +95,10 @@
 		36BB5D9261CA6C5AFDF8EB59 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureSwiftSupport.swift; sourceTree = "<group>"; };
 		4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDisplayNode.swift; sourceTree = "<group>"; };
-		4B22761A2454A9AF00F39A16 /* GradientNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNode.swift; sourceTree = "<group>"; };
+		4B22761A2454A9AF00F39A16 /* GradientLayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLayerNode.swift; sourceTree = "<group>"; };
+		4B2497DB264964520013340B /* LinearGradientDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGradientDescriptor.swift; sourceTree = "<group>"; };
+		4B2497DC264964520013340B /* LinearGradientDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGradientDrawer.swift; sourceTree = "<group>"; };
+		4B2497DF2649646A0013340B /* GradientDrawingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientDrawingNode.swift; sourceTree = "<group>"; };
 		4B2A018225B6E76E00D7C188 /* RecursiveLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecursiveLayoutViewController.swift; sourceTree = "<group>"; };
 		4B38124F2647CFC300EB64E5 /* _ArrayBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _ArrayBuilder.swift; sourceTree = "<group>"; };
 		4B3ED5FA232E1CE600D68739 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -206,7 +212,10 @@
 		4B2276192454A99800F39A16 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
-				4B22761A2454A9AF00F39A16 /* GradientNode.swift */,
+				4B2497DB264964520013340B /* LinearGradientDescriptor.swift */,
+				4B2497DC264964520013340B /* LinearGradientDrawer.swift */,
+				4B2497DF2649646A0013340B /* GradientDrawingNode.swift */,
+				4B22761A2454A9AF00F39A16 /* GradientLayerNode.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -662,6 +671,7 @@
 				4BC22F8F2642760200D1C43B /* HStackLayout.swift in Sources */,
 				4BC22FA12642769200D1C43B /* AspectRatioLayout.swift in Sources */,
 				4BC22F912642761200D1C43B /* ZStackLayout.swift in Sources */,
+				4B2497DE264964520013340B /* LinearGradientDescriptor.swift in Sources */,
 				4BC22F9D2642766B00D1C43B /* OverlayLayout.swift in Sources */,
 				4BC70EC923F74E8C00197B7B /* NamedDisplayNodeBase.swift in Sources */,
 				4B6FA0392468B5EC00C21A53 /* MaskingNode.swift in Sources */,
@@ -676,18 +686,20 @@
 				4BE6527A246481DE004346D6 /* SwitchCaseLayout.swift in Sources */,
 				4B5CEFC8235264CA00607980 /* _NodeLayout.swift in Sources */,
 				4B56350524188930000A37AC /* ASSizeRange+.swift in Sources */,
+				4B2497DD264964520013340B /* LinearGradientDrawer.swift in Sources */,
 				4BC70ECB23F74EAB00197B7B /* SafeAreaDisplayNode.swift in Sources */,
 				4B5C387F242F0EEF005D9722 /* WrapperNode.swift in Sources */,
 				4BC22F9F2642767C00D1C43B /* BackgroundLayout.swift in Sources */,
 				4BC22F7A264271F400D1C43B /* ConditionalLayout.swift in Sources */,
 				4B5C387E242F0EEF005D9722 /* WrapperCellNode.swift in Sources */,
+				4B2497E02649646A0013340B /* GradientDrawingNode.swift in Sources */,
 				4BC22F932642762300D1C43B /* WrapperLayout.swift in Sources */,
 				4B8666FE26412BDD00A81E53 /* VGridLayout.swift in Sources */,
 				4BC22FA3264276A500D1C43B /* SpacerLayout.swift in Sources */,
 				4BC70ECD23F7557E00197B7B /* NamedDisplayCellNodeBase.swift in Sources */,
 				4B086A462464434C0024F5A1 /* TextureSwiftSupport.swift in Sources */,
 				4BC22F972642763F00D1C43B /* CenterLayout.swift in Sources */,
-				4B22761B2454A9E500F39A16 /* GradientNode.swift in Sources */,
+				4B22761B2454A9E500F39A16 /* GradientLayerNode.swift in Sources */,
 				4BC22FA5264276B700D1C43B /* Deprecates.swift in Sources */,
 				4B873C2E23083FF4006170B1 /* SpecBuilder.swift in Sources */,
 				4B19E610244DD9F0009FD799 /* AnyDisplayNode.swift in Sources */,
