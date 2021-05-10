@@ -21,7 +21,7 @@
 		4B5C387F242F0EEF005D9722 /* WrapperNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C387A242F0EEF005D9722 /* WrapperNode.swift */; };
 		4B5C3880242F0EEF005D9722 /* OverlayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C387B242F0EEF005D9722 /* OverlayNode.swift */; };
 		4B5C3883242F10E3005D9722 /* ShapeLayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C3881242F10E3005D9722 /* ShapeLayerNode.swift */; };
-		4B5C3884242F10E3005D9722 /* ShapeRenderingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C3882242F10E3005D9722 /* ShapeRenderingNode.swift */; };
+		4B5C3884242F10E3005D9722 /* ShapeDrawingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C3882242F10E3005D9722 /* ShapeDrawingNode.swift */; };
 		4B5C3886242F1118005D9722 /* ShapeDisplaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C3885242F1118005D9722 /* ShapeDisplaying.swift */; };
 		4B5CEFC8235264CA00607980 /* _NodeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5CEFC7235264CA00607980 /* _NodeLayout.swift */; };
 		4B6FA0392468B5EC00C21A53 /* MaskingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0382468B5EC00C21A53 /* MaskingNode.swift */; };
@@ -105,7 +105,7 @@
 		4B5C387A242F0EEF005D9722 /* WrapperNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapperNode.swift; sourceTree = "<group>"; };
 		4B5C387B242F0EEF005D9722 /* OverlayNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayNode.swift; sourceTree = "<group>"; };
 		4B5C3881242F10E3005D9722 /* ShapeLayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeLayerNode.swift; sourceTree = "<group>"; };
-		4B5C3882242F10E3005D9722 /* ShapeRenderingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeRenderingNode.swift; sourceTree = "<group>"; };
+		4B5C3882242F10E3005D9722 /* ShapeDrawingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeDrawingNode.swift; sourceTree = "<group>"; };
 		4B5C3885242F1118005D9722 /* ShapeDisplaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeDisplaying.swift; sourceTree = "<group>"; };
 		4B5CEFC7235264CA00607980 /* _NodeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _NodeLayout.swift; sourceTree = "<group>"; };
 		4B6FA0382468B5EC00C21A53 /* MaskingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskingNode.swift; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 				4B5C387A242F0EEF005D9722 /* WrapperNode.swift */,
 				4B5C3885242F1118005D9722 /* ShapeDisplaying.swift */,
 				4B5C3881242F10E3005D9722 /* ShapeLayerNode.swift */,
-				4B5C3882242F10E3005D9722 /* ShapeRenderingNode.swift */,
+				4B5C3882242F10E3005D9722 /* ShapeDrawingNode.swift */,
 				4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */,
 				4B58E84F260F0797004A834F /* InteractiveNode.swift */,
 				4B58E854260F07D9004A834F /* HighlightAnimationDescriptor.swift */,
@@ -667,7 +667,7 @@
 				4B6FA0392468B5EC00C21A53 /* MaskingNode.swift in Sources */,
 				4BC22F7C2642722200D1C43B /* MultiLayout.swift in Sources */,
 				4B5C3880242F0EEF005D9722 /* OverlayNode.swift in Sources */,
-				4B5C3884242F10E3005D9722 /* ShapeRenderingNode.swift in Sources */,
+				4B5C3884242F10E3005D9722 /* ShapeDrawingNode.swift in Sources */,
 				4BC70EC723F74D3A00197B7B /* DisplayNodeViewController.swift in Sources */,
 				4B5C3886242F1118005D9722 /* ShapeDisplaying.swift in Sources */,
 				4B3812502647CFC300EB64E5 /* _ArrayBuilder.swift in Sources */,
