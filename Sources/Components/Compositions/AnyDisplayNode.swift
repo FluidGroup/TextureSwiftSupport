@@ -40,10 +40,26 @@ public typealias FunctionalDisplayNode = AnyDisplayNode
 
  If you need to inject specific props into AnyDisplayNode, you can use `AnyPropsDisplayNode`.
  However, this does not affect increasing binary size effectively because it emits symbols of each generic parameter.
+
+
+ ```swift
+ func myNode() -> AnyDisplayNode {
+
+   let label = ASTextNode()
+
+   return AnyDisplayNode { _, _ in
+     LayoutSpec {
+       VStackLayout {
+         label
+       }
+     }
+   }
+ }
+ ```
  */
 open class AnyDisplayNode: SafeAreaDisplayNode {
   
-  private let retainItems: [Any]
+  private var retainItems: [Any]
   
   private let hook: Hook = .init()
   
@@ -84,14 +100,33 @@ open class AnyDisplayNode: SafeAreaDisplayNode {
     super.layout()
     hook.onLayout(self)
   }
-  
+
+  @available(*, unavailable)
+  open override func onDidLoad(_ body: @escaping ASDisplayNodeDidLoadBlock) {
+    super.onDidLoad(body)
+  }
+
+  @discardableResult
   public final func onDidLoad(_ onDidLoad: @escaping (AnyDisplayNode) -> Void) -> Self {
     hook.onDidload = onDidLoad
     return self
   }
-  
+
+  @discardableResult
   public final func onLayout(_ onLaoyout: @escaping (AnyDisplayNode) -> Void) -> Self {
     hook.onLayout = onLaoyout
+    return self
+  }
+
+  @discardableResult
+  public final func associate(_ object: Any) -> Self {
+    retainItems.append(object)
+    return self
+  }
+
+  @discardableResult
+  public final func setBackgroundColor(_ color: UIColor) -> Self {
+    backgroundColor = color
     return self
   }
      
