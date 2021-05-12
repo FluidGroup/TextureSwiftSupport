@@ -10,7 +10,7 @@ import Foundation
 
 import UIKit
 
-public protocol ShapeDisplaying {
+public protocol ShapeDisplaying: AnyObject {
   
   typealias Update = (CGRect) -> UIBezierPath
   
@@ -29,7 +29,7 @@ public enum CupsuleShapeDirection {
 }
 
 extension ShapeDisplaying {
-  
+
   /// Returns an instance that displays capsule shape
   ///
   /// - Parameters:
@@ -61,4 +61,14 @@ extension ShapeDisplaying {
     }
   }
   
+}
+
+extension ShapeDisplaying {
+
+  @discardableResult
+  public func setShapeFillColor(_ color: UIColor) -> Self {
+    self.shapeFillColor = color
+    return self
+  }
+
 }
