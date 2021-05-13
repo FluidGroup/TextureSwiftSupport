@@ -161,6 +161,21 @@ extension _ASLayoutElementType {
     
 }
 
+// MARK: - Relative
+
+extension _ASLayoutElementType {
+
+  /// Make it relative layout
+  public func relativePosition(
+    horizontal: ASRelativeLayoutSpecPosition,
+    vertical: ASRelativeLayoutSpecPosition,
+    sizingOption: ASRelativeLayoutSpecSizingOption = .minimumSize
+  ) -> RelativeLayout<Self> {
+
+    RelativeLayout(horizontalPosition: horizontal, verticalPosition: vertical, sizingOption: sizingOption, content: { self })
+  }
+}
+
 public struct FlexGlowModifier: ModifierType {
   
   private let flexGrow: CGFloat
@@ -381,6 +396,7 @@ extension _ASLayoutElementType {
   public func spacingBefore(_ spacing: CGFloat) -> ModifiedContent<Self, SpacingModifier> {
     modifier(SpacingModifier(after: nil, before: spacing))
   }
+
 }
 
 extension ModifiedContent where Modifier == MinSizeModifier {
