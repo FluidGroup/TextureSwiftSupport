@@ -70,6 +70,7 @@
 		4BC70ECB23F74EAB00197B7B /* SafeAreaDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */; };
 		4BC70ECD23F7557E00197B7B /* NamedDisplayCellNodeBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70ECC23F7557E00197B7B /* NamedDisplayCellNodeBase.swift */; };
 		4BDD078A264D008F0077590E /* StyledEdgeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD0789264D008F0077590E /* StyledEdgeNode.swift */; };
+		4BDD078D264D01AC0077590E /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD078C264D01AC0077590E /* Temp.swift */; };
 		4BE65277246481D8004346D6 /* AdaptiveLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE65276246481D8004346D6 /* AdaptiveLayoutViewController.swift */; };
 		4BE6527A246481DE004346D6 /* SwitchCaseLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE65278246481DE004346D6 /* SwitchCaseLayout.swift */; };
 		4BE6527B246481DE004346D6 /* LayoutCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE65279246481DE004346D6 /* LayoutCondition.swift */; };
@@ -163,6 +164,7 @@
 		4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaDisplayNode.swift; sourceTree = "<group>"; };
 		4BC70ECC23F7557E00197B7B /* NamedDisplayCellNodeBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedDisplayCellNodeBase.swift; sourceTree = "<group>"; };
 		4BDD0789264D008F0077590E /* StyledEdgeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledEdgeNode.swift; sourceTree = "<group>"; };
+		4BDD078C264D01AC0077590E /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		4BE65276246481D8004346D6 /* AdaptiveLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveLayoutViewController.swift; sourceTree = "<group>"; };
 		4BE65278246481DE004346D6 /* SwitchCaseLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCaseLayout.swift; sourceTree = "<group>"; };
 		4BE65279246481DE004346D6 /* LayoutCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutCondition.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 		4B873C2423083FE5006170B1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				4BDD078B264D019E0077590E /* VergeComponents */,
 				4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */,
 				4B873C2623083FE5006170B1 /* Info.plist */,
 				4B2276182454A97E00F39A16 /* Components */,
@@ -401,6 +404,14 @@
 				4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		4BDD078B264D019E0077590E /* VergeComponents */ = {
+			isa = PBXGroup;
+			children = (
+				4BDD078C264D01AC0077590E /* Temp.swift */,
+			);
+			path = VergeComponents;
 			sourceTree = "<group>";
 		};
 		8FA7A1AA96A76AF24D34BF5F /* Frameworks */ = {
@@ -689,6 +700,7 @@
 				4BC22F85264272A800D1C43B /* FlexWrap.swift in Sources */,
 				4BE6527A246481DE004346D6 /* SwitchCaseLayout.swift in Sources */,
 				4B5CEFC8235264CA00607980 /* _NodeLayout.swift in Sources */,
+				4BDD078D264D01AC0077590E /* Temp.swift in Sources */,
 				4B56350524188930000A37AC /* ASSizeRange+.swift in Sources */,
 				4B2497DD264964520013340B /* LinearGradientDrawer.swift in Sources */,
 				4BC70ECB23F74EAB00197B7B /* SafeAreaDisplayNode.swift in Sources */,
