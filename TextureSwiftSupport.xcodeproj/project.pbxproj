@@ -69,6 +69,7 @@
 		4BC70EC923F74E8C00197B7B /* NamedDisplayNodeBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70EC823F74E8C00197B7B /* NamedDisplayNodeBase.swift */; };
 		4BC70ECB23F74EAB00197B7B /* SafeAreaDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */; };
 		4BC70ECD23F7557E00197B7B /* NamedDisplayCellNodeBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70ECC23F7557E00197B7B /* NamedDisplayCellNodeBase.swift */; };
+		4BDD078A264D008F0077590E /* StyledEdgeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD0789264D008F0077590E /* StyledEdgeNode.swift */; };
 		4BE65277246481D8004346D6 /* AdaptiveLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE65276246481D8004346D6 /* AdaptiveLayoutViewController.swift */; };
 		4BE6527A246481DE004346D6 /* SwitchCaseLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE65278246481DE004346D6 /* SwitchCaseLayout.swift */; };
 		4BE6527B246481DE004346D6 /* LayoutCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE65279246481DE004346D6 /* LayoutCondition.swift */; };
@@ -161,6 +162,7 @@
 		4BC70EC823F74E8C00197B7B /* NamedDisplayNodeBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedDisplayNodeBase.swift; sourceTree = "<group>"; };
 		4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaDisplayNode.swift; sourceTree = "<group>"; };
 		4BC70ECC23F7557E00197B7B /* NamedDisplayCellNodeBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedDisplayCellNodeBase.swift; sourceTree = "<group>"; };
+		4BDD0789264D008F0077590E /* StyledEdgeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledEdgeNode.swift; sourceTree = "<group>"; };
 		4BE65276246481D8004346D6 /* AdaptiveLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveLayoutViewController.swift; sourceTree = "<group>"; };
 		4BE65278246481DE004346D6 /* SwitchCaseLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCaseLayout.swift; sourceTree = "<group>"; };
 		4BE65279246481DE004346D6 /* LayoutCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutCondition.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */,
 				4B58E84F260F0797004A834F /* InteractiveNode.swift */,
 				4B58E854260F07D9004A834F /* HighlightAnimationDescriptor.swift */,
+				4BDD0789264D008F0077590E /* StyledEdgeNode.swift */,
 			);
 			path = Compositions;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				4BC02A322631530F006E3AB3 /* NodeFactory.swift in Sources */,
 				4BC22F802642724900D1C43B /* EmptyLayout.swift in Sources */,
 				4B58E850260F0797004A834F /* InteractiveNode.swift in Sources */,
+				4BDD078A264D008F0077590E /* StyledEdgeNode.swift in Sources */,
 				4BC22F992642764F00D1C43B /* RelativeLayout.swift in Sources */,
 				4BC22F8D264275ED00D1C43B /* VStackLayout.swift in Sources */,
 				4BC22F9B2642765D00D1C43B /* InsetLayout.swift in Sources */,
