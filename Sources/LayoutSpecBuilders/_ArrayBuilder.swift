@@ -19,7 +19,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-@resultBuilder public struct _ArrayBuilder<Element> {
+@_functionBuilder public struct _ArrayBuilder<Element> {
 
   public static func buildBlock() -> [Element] {
     []
