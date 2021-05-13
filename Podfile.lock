@@ -3,34 +3,39 @@ PODS:
     - Texture/Core (~> 3)
     - TextureSwiftSupport
   - Texture/Core (3.0.0)
-  - TextureSwiftSupport (3.6.0):
+  - TextureSwiftSupport (3.8.0):
     - Texture/Core (>= 3)
-    - TextureSwiftSupport/Components (= 3.6.0)
-    - TextureSwiftSupport/Experiments (= 3.6.0)
-    - TextureSwiftSupport/Extensions (= 3.6.0)
-    - TextureSwiftSupport/LayoutSpecBuilders (= 3.6.0)
-  - TextureSwiftSupport/Components (3.6.0):
+    - TextureSwiftSupport/Components (= 3.8.0)
+    - TextureSwiftSupport/Experiments (= 3.8.0)
+    - TextureSwiftSupport/Extensions (= 3.8.0)
+    - TextureSwiftSupport/LayoutSpecBuilders (= 3.8.0)
+  - TextureSwiftSupport/Components (3.8.0):
     - Texture/Core (>= 3)
     - TextureSwiftSupport/LayoutSpecBuilders
-  - TextureSwiftSupport/Experiments (3.6.0):
+  - TextureSwiftSupport/Experiments (3.8.0):
     - Texture/Core (>= 3)
-  - TextureSwiftSupport/Extensions (3.6.0):
+  - TextureSwiftSupport/Extensions (3.8.0):
     - Texture/Core (>= 3)
-  - TextureSwiftSupport/LayoutSpecBuilders (3.6.0):
+  - TextureSwiftSupport/LayoutSpecBuilders (3.8.0):
     - Texture/Core (>= 3)
   - TypedTextAttributes (1.1.0)
+  - Verge/ObjcBridge (8.12.0)
+  - Verge/Store (8.12.0):
+    - Verge/ObjcBridge
 
 DEPENDENCIES:
   - GlossButtonNode
   - Texture/Core (~> 3)
   - TextureSwiftSupport (from `./`)
   - TypedTextAttributes
+  - Verge/Store
 
 SPEC REPOS:
   trunk:
     - GlossButtonNode
     - Texture
     - TypedTextAttributes
+    - Verge
 
 EXTERNAL SOURCES:
   TextureSwiftSupport:
@@ -39,9 +44,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   GlossButtonNode: 0b1471447cb4cebc8a959bbca574247ff6b0592b
   Texture: 2f109e937850d94d1d07232041c9c7313ccddb81
-  TextureSwiftSupport: 657e3139f9a59c2f59323746431677cd127aaf42
+  TextureSwiftSupport: 8d2d59a68bcad5119b779a1c83bba366b68743b2
   TypedTextAttributes: fc3a5a8c4a7a28304446f8c5e8af146d11c2163a
+  Verge: cd1548865edbf2ad01a75f8028885cf1035f24e5
 
-PODFILE CHECKSUM: a5dcf5e69df3302e6ae96980d69e2a39f0b077ed
+PODFILE CHECKSUM: 8da874abefb76e3f647df6581ec30f4b9881c15e
 
 COCOAPODS: 1.10.1

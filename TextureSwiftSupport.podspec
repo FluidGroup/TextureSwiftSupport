@@ -27,6 +27,13 @@ Pod::Spec.new do |spec|
     ss.dependency "TextureSwiftSupport/LayoutSpecBuilders"
   end
 
+  spec.subspec "VergeComponents" do |ss|
+    ss.source_files = "Sources/VergeComponents/**/*.swift"
+    ss.dependency "TextureSwiftSupport/Components"
+    ss.dependency "TextureSwiftSupport/LayoutSpecBuilders"
+    ss.dependency "Verge/Store"
+  end
+
   spec.subspec "Extensions" do |ss|
     ss.source_files = "Sources/Extensions/**/*.swift"
   end
