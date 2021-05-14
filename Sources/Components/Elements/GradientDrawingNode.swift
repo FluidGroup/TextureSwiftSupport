@@ -5,8 +5,9 @@ import AsyncDisplayKit
 
 /**
  A display node that displays the gradient with CoreGraphics based drawing.
+ Compared with GradientLayerNode, the gradient would be more smooth.
  */
-public final class GradientDrawingNode: NamedDisplayNodeBase {
+open class GradientDrawingNode: NamedDisplayNodeBase {
 
   public override var supportsLayerBacking: Bool {
     true
@@ -17,6 +18,11 @@ public final class GradientDrawingNode: NamedDisplayNodeBase {
   public override init() {
     super.init()
     isOpaque = false
+  }
+
+  public convenience init(descriptor: LinearGradientDescriptor) {
+    self.init()
+    self.drawer = LinearGradientDrawer(descriptor: descriptor)
   }
 
   public func setDescriptor(descriptor: LinearGradientDescriptor) {
