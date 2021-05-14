@@ -31,7 +31,7 @@ fileprivate final class GradientLayerView: UIView {
 public typealias GradientNode = GradientLayerNode
 
 open class GradientLayerNode : ASDisplayNode {
-  
+    
   open override var supportsLayerBacking: Bool {
     return false
   }
