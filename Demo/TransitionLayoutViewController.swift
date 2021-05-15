@@ -12,36 +12,6 @@ import TextureSwiftSupport
 import GlossButtonNode
 import TypedTextAttributes
 
-private final class AnimatableNode<Content: ASDisplayNode>: WrapperNode<Content> {
-
-  private var isEnabledLayout: Bool = false
-
-  override var frame: CGRect {
-    get {
-      super.frame
-    }
-    set {
-      guard isEnabledLayout else {
-        return
-      }
-      super.frame = newValue
-    }
-  }
-
-  func disableLayout() {
-    isEnabledLayout = false
-  }
-
-  func enableLayout() {
-    isEnabledLayout = true
-  }
-
-  func relayout() {
-    supernode?.setNeedsLayout()
-    supernode?.layoutIfNeeded()
-  }
-}
-
 /**
  Does not work
  https://github.com/TextureGroup/Texture/issues/1995
@@ -79,7 +49,7 @@ final class TransitionLayoutViewController: DisplayNodeViewController {
       case small
     }
 
-    private let imageNode = AnimatableNode { Mocks.ImageNode() }
+    private let imageNode = Mocks.ImageNode()
 
     struct SmallComponents {
       let titleNode = ASTextNode()
@@ -96,6 +66,8 @@ final class TransitionLayoutViewController: DisplayNodeViewController {
 
     private var layoutMode: LayoutMode = .large
 
+    private var animateBlock: () -> Void = {}
+
     override init() {
       super.init()
 
@@ -105,6 +77,8 @@ final class TransitionLayoutViewController: DisplayNodeViewController {
 
       addSubnode(largeComponents.titleNode)
       addSubnode(largeComponents.artistNameNode)
+
+//      automaticallyManagesSubnodes = true
 
       smallComponents.titleNode.attributedText = "Mosaik".styled {
         $0.font(.preferredFont(forTextStyle: .headline))
@@ -163,17 +137,9 @@ final class TransitionLayoutViewController: DisplayNodeViewController {
 
     func large() {
       layoutMode = .large
-
-      let oldImageNodeFrame = imageNode.frame
-
-      self.setNeedsLayout()
-      self.layoutIfNeeded()
-
-      let newImageNodeFrame = imageNode.frame
-      imageNode.view.frame = oldImageNodeFrame
-
       UIViewPropertyAnimator(duration: 2, dampingRatio: 0.9) {
-        self.imageNode.view.frame = newImageNodeFrame
+        self.setNeedsLayout()
+        self.layoutIfNeeded()
       }
       .startAnimation()
 
@@ -182,35 +148,19 @@ final class TransitionLayoutViewController: DisplayNodeViewController {
     func small() {
       layoutMode = .small
 
-      let oldImageNodeFrame = imageNode.frame
-
-      self.setNeedsLayout()
-      self.layoutIfNeeded()
-
-      let newImageNodeFrame = imageNode.frame
-
-      imageNode.disableLayout()
-
-      imageNode.view.frame = oldImageNodeFrame
-      imageNode.view.subviews.forEach {
-        $0.frame = oldImageNodeFrame
+      UIViewPropertyAnimator(duration: 2, dampingRatio: 0.9) {
+        self.setNeedsLayout()
+        self.layoutIfNeeded()
       }
-
-      let animator = UIViewPropertyAnimator(duration: 2, dampingRatio: 0.9) { [self] in
-        imageNode.view.frame = newImageNodeFrame
-        imageNode.view.subviews.forEach {
-          $0.frame = newImageNodeFrame
-        }
-
-      }
-      animator.addCompletion { _ in
-        self.imageNode.enableLayout()
-      }
-
-      animator
-        .startAnimation()
+      .startAnimation()
 
     }
+
+//    override func animateLayoutTransition(_ context: ASContextTransitioning) {
+//      print("xxx", context)
+//      animateBlock()
+//      animateBlock = {}
+//    }
   }
 
 }
