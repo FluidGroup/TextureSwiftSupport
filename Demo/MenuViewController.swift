@@ -12,70 +12,63 @@ import AsyncDisplayKit
 import TextureSwiftSupport
 import GlossButtonNode
 import TypedTextAttributes
+import FluidPresentation
 
 fileprivate let descriptor = GlossButtonDescriptor(bodyStyle: .init(layout: .horizontal()), surfaceStyle: .bodyOnly)
 
-final class MenuViewController: PlainDisplayNodeViewController {
-  
-  private let openSampleButtonNode = GlossButtonNode()
-  private let openAdaptiveButtonNode = GlossButtonNode()
-  private let openCompositionCatalogButtonNode = GlossButtonNode()
-  private let openRecursiveLayoutCatalogButtonNode = GlossButtonNode()
-  private let topLabelNode = ASTextNode()
-  
+final class MenuViewController: DisplayNodeViewController {
+
+  private let stackScrollNode = StackScrollNode()
+
   override init() {
     
     super.init()
     view.backgroundColor = .white
-    
-    topLabelNode.attributedText = .init(string: "Attatched on safe-area")
-        
-    openSampleButtonNode.setDescriptor(descriptor.title("OpenSample".styled { $0.font(.boldSystemFont(ofSize: 18)).foregroundColor(.systemBlue) }), for: .normal)
-    openSampleButtonNode.onTap = { [weak self] in
-      let controller = InstagramPostCellViewController()
-      self?.navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    openAdaptiveButtonNode.setDescriptor(descriptor.title("OpenAdaptive".styled { $0.font(.boldSystemFont(ofSize: 18)).foregroundColor(.systemBlue) }), for: .normal)
-    openAdaptiveButtonNode.onTap = { [weak self] in
-      let controller = AdaptiveLayoutViewController()
-      self?.navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    openCompositionCatalogButtonNode.setDescriptor(descriptor.title("Open Composition".styled { $0.font(.boldSystemFont(ofSize: 18)).foregroundColor(.systemBlue) }), for: .normal)
-    openCompositionCatalogButtonNode.onTap = { [weak self] in
-      let controller = CompositionCatalogViewController()
-      self?.navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    openRecursiveLayoutCatalogButtonNode.setDescriptor(descriptor.title("Open Recursive".styled { $0.font(.boldSystemFont(ofSize: 18)).foregroundColor(.systemBlue) }), for: .normal)
-    openRecursiveLayoutCatalogButtonNode.onTap = { [weak self] in
-      let controller = RecursiveLayoutViewController()
-      self?.navigationController?.pushViewController(controller, animated: true)
-    }
+    title = "TextureSwiftSupport"
+
+    stackScrollNode.append(nodes: [
+      Components.makeSelectionCell(title: "Instagram post", onTap: { [unowned self] in
+        let controller = NavigatedFluidViewController(
+          idiom: .navigationPush(isScreenGestureEnabled: false),
+          bodyViewController: InstagramPostCellViewController()
+        )
+        present(controller, animated: true, completion: nil)
+      }),
+
+      Components.makeSelectionCell(title: "Adaptive layout", onTap: { [unowned self] in
+
+        let controller = NavigatedFluidViewController(
+          idiom: .navigationPush(isScreenGestureEnabled: false),
+          bodyViewController: AdaptiveLayoutViewController()
+        )
+        present(controller, animated: true, completion: nil)
+      }),
+
+      Components.makeSelectionCell(title: "Composition", onTap: { [unowned self] in
+
+        let controller = NavigatedFluidViewController(
+          idiom: .navigationPush(isScreenGestureEnabled: false),
+          bodyViewController: CompositionCatalogViewController()
+        )
+        present(controller, animated: true, completion: nil)
+      }),
+
+      Components.makeSelectionCell(title: "Test recursive layout", onTap: { [unowned self] in
+     
+        let controller = NavigatedFluidViewController(
+          idiom: .navigationPush(isScreenGestureEnabled: false),
+          bodyViewController: RecursiveLayoutViewController()
+        )
+        present(controller, animated: true, completion: nil)
+      })
+
+    ])
 
   }
     
   override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
     LayoutSpec {
-      
-      ZStackLayout {
-        
-        topLabelNode
-          .padding(UIEdgeInsets(top: 0, left: 0, bottom: .infinity, right: .infinity))
-        
-        CenterLayout {
-          VStackLayout {
-            openSampleButtonNode
-            openAdaptiveButtonNode
-            openCompositionCatalogButtonNode
-            openRecursiveLayoutCatalogButtonNode
-          }
-        }
-        
-      }
-      .padding(capturedSafeAreaInsets)
-      
+      stackScrollNode
     }
   }
 }
