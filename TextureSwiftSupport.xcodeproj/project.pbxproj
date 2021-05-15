@@ -116,6 +116,7 @@
 		4B5C3882242F10E3005D9722 /* ShapeDrawingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeDrawingNode.swift; sourceTree = "<group>"; };
 		4B5C3885242F1118005D9722 /* ShapeDisplaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeDisplaying.swift; sourceTree = "<group>"; };
 		4B5CEFC7235264CA00607980 /* _NodeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _NodeLayout.swift; sourceTree = "<group>"; };
+		4B62614E264FD90A00540F0B /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4B6FA0382468B5EC00C21A53 /* MaskingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskingNode.swift; sourceTree = "<group>"; };
 		4B6FA03A2468B6C900C21A53 /* CompositionCatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionCatalogViewController.swift; sourceTree = "<group>"; };
 		4B8666FD26412BDD00A81E53 /* VGridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGridLayout.swift; sourceTree = "<group>"; };
@@ -266,6 +267,7 @@
 		4B873C1823083FE5006170B1 = {
 			isa = PBXGroup;
 			children = (
+				4B62614E264FD90A00540F0B /* Playground.playground */,
 				4B3ED5FA232E1CE600D68739 /* README.md */,
 				4B873C2423083FE5006170B1 /* Sources */,
 				4B873C3423084045006170B1 /* Demo */,
