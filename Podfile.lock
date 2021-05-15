@@ -44,7 +44,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   GlossButtonNode: 0b1471447cb4cebc8a959bbca574247ff6b0592b
   Texture: 2f109e937850d94d1d07232041c9c7313ccddb81
-  TextureSwiftSupport: 8d2d59a68bcad5119b779a1c83bba366b68743b2
+  TextureSwiftSupport: a2b7e4a3620ec5ff90fe0a9700f01672f87485ee
   TypedTextAttributes: fc3a5a8c4a7a28304446f8c5e8af146d11c2163a
   Verge: cd1548865edbf2ad01a75f8028885cf1035f24e5
 
