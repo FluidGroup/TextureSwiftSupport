@@ -27,6 +27,15 @@ final class MenuViewController: DisplayNodeViewController {
     title = "TextureSwiftSupport"
 
     stackScrollNode.append(nodes: [
+
+      Components.makeSelectionCell(title: "Transition", onTap: { [unowned self] in
+        let controller = NavigatedFluidViewController(
+          idiom: .navigationPush(isScreenGestureEnabled: false),
+          bodyViewController: TransitionLayoutViewController()
+        )
+        present(controller, animated: true, completion: nil)
+      }),
+
       Components.makeSelectionCell(title: "Instagram post", onTap: { [unowned self] in
         let controller = NavigatedFluidViewController(
           idiom: .navigationPush(isScreenGestureEnabled: false),
@@ -54,7 +63,7 @@ final class MenuViewController: DisplayNodeViewController {
       }),
 
       Components.makeSelectionCell(title: "Test recursive layout", onTap: { [unowned self] in
-     
+
         let controller = NavigatedFluidViewController(
           idiom: .navigationPush(isScreenGestureEnabled: false),
           bodyViewController: RecursiveLayoutViewController()

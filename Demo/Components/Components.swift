@@ -1,5 +1,7 @@
 import AsyncDisplayKit
+import GlossButtonNode
 import TextureSwiftSupport
+import TypedTextAttributes
 import UIKit
 
 enum Components {
@@ -64,5 +66,39 @@ enum Components {
 
   static func makeWrapper(_ node: ASDisplayNode) -> ASCellNode {
     WrapperCellNode { node }
+  }
+}
+
+extension GlossButtonNode {
+
+  static func simpleButton(title: String, onTap: @escaping () -> Void) -> GlossButtonNode {
+
+    let button = GlossButtonNode()
+    button.onTap = onTap
+    button.setDescriptor(
+      .init(
+        title: title.attributed {
+          TextAttributes()
+            .font(.preferredFont(forTextStyle: .headline))
+            .foregroundColor(.black)
+        },
+        image: nil,
+        bodyStyle: .init(
+          layout: .horizontal(
+            imageEdgeInsets: .init(top: 0, left: 0, bottom: 0, right: 4)
+          ),
+          highlightAnimation: .basic
+        ),
+        surfaceStyle: .fill(
+          .init(cornerRound: nil, backgroundColor: nil, dropShadow: nil)
+        ),
+        bodyOpacity: 1,
+        insets: .init(top: 10, left: 16, bottom: 10, right: 16),
+        indicatorViewStyle: .gray
+      ),
+      for: .normal
+    )
+    return button
+
   }
 }

@@ -13,6 +13,7 @@
 		4B2497DD264964520013340B /* LinearGradientDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2497DC264964520013340B /* LinearGradientDrawer.swift */; };
 		4B2497DE264964520013340B /* LinearGradientDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2497DB264964520013340B /* LinearGradientDescriptor.swift */; };
 		4B2497E02649646A0013340B /* GradientDrawingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2497DF2649646A0013340B /* GradientDrawingNode.swift */; };
+		4B28C83E264FEDF900C1ABA3 /* TransitionLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B28C83D264FEDF900C1ABA3 /* TransitionLayoutViewController.swift */; };
 		4B2A018325B6E76E00D7C188 /* RecursiveLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A018225B6E76E00D7C188 /* RecursiveLayoutViewController.swift */; };
 		4B3812502647CFC300EB64E5 /* _ArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B38124F2647CFC300EB64E5 /* _ArrayBuilder.swift */; };
 		4B56350524188930000A37AC /* ASSizeRange+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B56350424188930000A37AC /* ASSizeRange+.swift */; };
@@ -102,6 +103,7 @@
 		4B2497DB264964520013340B /* LinearGradientDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGradientDescriptor.swift; sourceTree = "<group>"; };
 		4B2497DC264964520013340B /* LinearGradientDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGradientDrawer.swift; sourceTree = "<group>"; };
 		4B2497DF2649646A0013340B /* GradientDrawingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientDrawingNode.swift; sourceTree = "<group>"; };
+		4B28C83D264FEDF900C1ABA3 /* TransitionLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionLayoutViewController.swift; sourceTree = "<group>"; };
 		4B2A018225B6E76E00D7C188 /* RecursiveLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecursiveLayoutViewController.swift; sourceTree = "<group>"; };
 		4B38124F2647CFC300EB64E5 /* _ArrayBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _ArrayBuilder.swift; sourceTree = "<group>"; };
 		4B3ED5FA232E1CE600D68739 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				4BE65276246481D8004346D6 /* AdaptiveLayoutViewController.swift */,
 				4B6FA03A2468B6C900C21A53 /* CompositionCatalogViewController.swift */,
 				4B2A018225B6E76E00D7C188 /* RecursiveLayoutViewController.swift */,
+				4B28C83D264FEDF900C1ABA3 /* TransitionLayoutViewController.swift */,
 				4B873C3E23084047006170B1 /* Assets.xcassets */,
 				4B873C4023084047006170B1 /* LaunchScreen.storyboard */,
 				4B873C4323084047006170B1 /* Info.plist */,
@@ -740,6 +743,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B873C4C230845E3006170B1 /* ViewController.swift in Sources */,
+				4B28C83E264FEDF900C1ABA3 /* TransitionLayoutViewController.swift in Sources */,
 				4BB21B3C244E0974008CA2A4 /* MenuViewController.swift in Sources */,
 				4BB21B3A244E06E6008CA2A4 /* Mocks.swift in Sources */,
 				4B2A018325B6E76E00D7C188 /* RecursiveLayoutViewController.swift in Sources */,
