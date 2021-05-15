@@ -28,12 +28,12 @@
 		4B5C3886242F1118005D9722 /* ShapeDisplaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C3885242F1118005D9722 /* ShapeDisplaying.swift */; };
 		4B5CEFC8235264CA00607980 /* _NodeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5CEFC7235264CA00607980 /* _NodeLayout.swift */; };
 		4B6262E9264FDD1600540F0B /* StackScrollNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6262E8264FDD1600540F0B /* StackScrollNode.swift */; };
+		4B6262EB264FDE6C00540F0B /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6262EA264FDE6C00540F0B /* Components.swift */; };
 		4B6FA0392468B5EC00C21A53 /* MaskingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0382468B5EC00C21A53 /* MaskingNode.swift */; };
 		4B6FA03B2468B6C900C21A53 /* CompositionCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA03A2468B6C900C21A53 /* CompositionCatalogViewController.swift */; };
 		4B8666FE26412BDD00A81E53 /* VGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8666FD26412BDD00A81E53 /* VGridLayout.swift */; };
 		4B873C2723083FE5006170B1 /* TextureSwiftSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B873C2E23083FF4006170B1 /* SpecBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B873C2D23083FF4006170B1 /* SpecBuilder.swift */; };
-		4B873C3D23084045006170B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B873C3B23084045006170B1 /* Main.storyboard */; };
 		4B873C3F23084047006170B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B873C3E23084047006170B1 /* Assets.xcassets */; };
 		4B873C4223084047006170B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B873C4023084047006170B1 /* LaunchScreen.storyboard */; };
 		4B873C4B230845E3006170B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B873C48230845E3006170B1 /* AppDelegate.swift */; };
@@ -119,6 +119,7 @@
 		4B5CEFC7235264CA00607980 /* _NodeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _NodeLayout.swift; sourceTree = "<group>"; };
 		4B62614E264FD90A00540F0B /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4B6262E8264FDD1600540F0B /* StackScrollNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackScrollNode.swift; sourceTree = "<group>"; };
+		4B6262EA264FDE6C00540F0B /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		4B6FA0382468B5EC00C21A53 /* MaskingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskingNode.swift; sourceTree = "<group>"; };
 		4B6FA03A2468B6C900C21A53 /* CompositionCatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionCatalogViewController.swift; sourceTree = "<group>"; };
 		4B8666FD26412BDD00A81E53 /* VGridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGridLayout.swift; sourceTree = "<group>"; };
@@ -127,7 +128,6 @@
 		4B873C2623083FE5006170B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B873C2D23083FF4006170B1 /* SpecBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecBuilder.swift; sourceTree = "<group>"; };
 		4B873C3323084045006170B1 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B873C3C23084045006170B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B873C3E23084047006170B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B873C4123084047006170B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B873C4323084047006170B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -326,7 +326,6 @@
 				4BE65276246481D8004346D6 /* AdaptiveLayoutViewController.swift */,
 				4B6FA03A2468B6C900C21A53 /* CompositionCatalogViewController.swift */,
 				4B2A018225B6E76E00D7C188 /* RecursiveLayoutViewController.swift */,
-				4B873C3B23084045006170B1 /* Main.storyboard */,
 				4B873C3E23084047006170B1 /* Assets.xcassets */,
 				4B873C4023084047006170B1 /* LaunchScreen.storyboard */,
 				4B873C4323084047006170B1 /* Info.plist */,
@@ -338,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				4BB21B39244E06E6008CA2A4 /* Mocks.swift */,
+				4B6262EA264FDE6C00540F0B /* Components.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -577,7 +577,6 @@
 			files = (
 				4B873C4223084047006170B1 /* LaunchScreen.storyboard in Resources */,
 				4B873C3F23084047006170B1 /* Assets.xcassets in Resources */,
-				4B873C3D23084045006170B1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,6 +746,7 @@
 				4BB21B3E244E0E68008CA2A4 /* InstagramPostCellViewController.swift in Sources */,
 				4BE65277246481D8004346D6 /* AdaptiveLayoutViewController.swift in Sources */,
 				4B873C4B230845E3006170B1 /* AppDelegate.swift in Sources */,
+				4B6262EB264FDE6C00540F0B /* Components.swift in Sources */,
 				4B6FA03B2468B6C900C21A53 /* CompositionCatalogViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -772,14 +772,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4B873C3B23084045006170B1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4B873C3C23084045006170B1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4B873C4023084047006170B1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -969,7 +961,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -990,7 +982,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

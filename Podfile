@@ -19,10 +19,13 @@ target "TextureSwiftSupport" do
 end
 
 target "Demo" do
+  platform :ios, '12.1'
   texture
   pod "TypedTextAttributes"
   pod "GlossButtonNode"
   pod "TextureSwiftSupport", path: "./"
+  pod "FluidPresentation", git: "git@github.com:muukii/FluidPresentation.git", branch: "main"
+  pod "Reveal-SDK"
 end
 
 pre_install do |installer|
