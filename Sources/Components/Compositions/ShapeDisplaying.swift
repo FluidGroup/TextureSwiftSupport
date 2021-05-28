@@ -6,7 +6,7 @@ import AsyncDisplayKit
 
 import UIKit
 
-public protocol ShapeDisplaying: ASDisplayNode {
+public protocol ShapeDisplaying: AnyObject {
   
   typealias Update = (CGRect) -> UIBezierPath
   
