@@ -1,16 +1,12 @@
 //
 //  ShapeDisplaying.swift
-//  TextureSwiftSupport
-//
-//  Created by muukii on 2020/03/28.
-//  Copyright © 2020 muukii. All rights reserved.
-//
 
 import Foundation
+import AsyncDisplayKit
 
 import UIKit
 
-public protocol ShapeDisplaying {
+public protocol ShapeDisplaying: ASDisplayNode {
   
   typealias Update = (CGRect) -> UIBezierPath
   
@@ -21,6 +17,28 @@ public protocol ShapeDisplaying {
   var shapeLineWidth: CGFloat { get set }
   
   var shapeStrokeColor: UIColor? { get set }
+}
+
+extension ShapeDisplaying {
+
+  @discardableResult
+  public func setShapeFillColor(_ color: UIColor) -> Self {
+    self.shapeFillColor = color
+    return self
+  }
+
+  @discardableResult
+  public func setShapeLineWidth(_ width: CGFloat) -> Self {
+    self.shapeLineWidth = width
+    return self
+  }
+
+  @discardableResult
+  public func setStrokeColor(_ color: UIColor) -> Self {
+    self.shapeStrokeColor = color
+    return self
+  }
+
 }
 
 public enum CupsuleShapeDirection {
