@@ -4,6 +4,9 @@ PODS:
     - Texture/Core (~> 3)
     - TextureSwiftSupport
   - Reveal-SDK (28)
+  - StorybookKit (1.2.0)
+  - StorybookUI (1.2.0):
+    - StorybookKit
   - Texture/Core (3.0.0)
   - TextureSwiftSupport (3.8.0):
     - Texture/Core (>= 3)
@@ -29,6 +32,8 @@ DEPENDENCIES:
   - "FluidPresentation (from `git@github.com:muukii/FluidPresentation.git`, branch `main`)"
   - GlossButtonNode
   - Reveal-SDK
+  - StorybookKit
+  - StorybookUI
   - Texture/Core (~> 3)
   - TextureSwiftSupport (from `./`)
   - TypedTextAttributes
@@ -38,6 +43,8 @@ SPEC REPOS:
   trunk:
     - GlossButtonNode
     - Reveal-SDK
+    - StorybookKit
+    - StorybookUI
     - Texture
     - TypedTextAttributes
     - Verge
@@ -58,11 +65,13 @@ SPEC CHECKSUMS:
   FluidPresentation: 4e1e212a6ed2d68db341c8a167b982c6c93859a5
   GlossButtonNode: 0b1471447cb4cebc8a959bbca574247ff6b0592b
   Reveal-SDK: 1a2a678648fc4d277bad71c86d15530424324288
+  StorybookKit: 3d642942a977a7acac8fdea934796f7e9c354683
+  StorybookUI: c308e1fdcdb250271ab2eb4c84e0f06be7b42fcc
   Texture: 2f109e937850d94d1d07232041c9c7313ccddb81
   TextureSwiftSupport: a2b7e4a3620ec5ff90fe0a9700f01672f87485ee
   TypedTextAttributes: fc3a5a8c4a7a28304446f8c5e8af146d11c2163a
   Verge: cd1548865edbf2ad01a75f8028885cf1035f24e5
 
-PODFILE CHECKSUM: 75aefbabe477328b9d77d41a368b7cbeaea6db4a
+PODFILE CHECKSUM: 5333959b4d7394cc9344f303301d1c8221a5e214
 
 COCOAPODS: 1.10.1

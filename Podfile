@@ -26,6 +26,8 @@ target "Demo" do
   pod "TextureSwiftSupport", path: "./"
   pod "FluidPresentation", git: "git@github.com:muukii/FluidPresentation.git", branch: "main"
   pod "Reveal-SDK"
+  pod "StorybookKit"
+  pod "StorybookUI"
 end
 
 pre_install do |installer|
