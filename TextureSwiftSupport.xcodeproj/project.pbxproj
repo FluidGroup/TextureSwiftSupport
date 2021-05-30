@@ -76,6 +76,8 @@
 		4BE6527B246481DE004346D6 /* LayoutCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE65279246481DE004346D6 /* LayoutCondition.swift */; };
 		4BFE5FE12663DE9400C5C032 /* RootContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE5FE02663DE9400C5C032 /* RootContainerViewController.swift */; };
 		4BFE5FE32663DEA900C5C032 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE5FE22663DEA900C5C032 /* Book.swift */; };
+		4BFE61882663E53900C5C032 /* HapticsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE61872663E53900C5C032 /* HapticsDescriptor.swift */; };
+		4BFE618A2663E8BF00C5C032 /* Book.InteractiveNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE61892663E8BF00C5C032 /* Book.InteractiveNode.swift */; };
 		56A6ADA25627986882E7CCBA /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CBB799BE4A5C4275F536A6 /* Pods_Demo.framework */; };
 		5E1466C33BD464A174155DF9 /* Pods_TextureSwiftSupportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E55AE74C9FB7B22C94CCC1A1 /* Pods_TextureSwiftSupportTests.framework */; };
 		F7C9D342E080CFF7361B81C2 /* Pods_TextureSwiftSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E24A3D7641080B18EE97C1D /* Pods_TextureSwiftSupport.framework */; };
@@ -173,6 +175,8 @@
 		4BE65279246481DE004346D6 /* LayoutCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutCondition.swift; sourceTree = "<group>"; };
 		4BFE5FE02663DE9400C5C032 /* RootContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContainerViewController.swift; sourceTree = "<group>"; };
 		4BFE5FE22663DEA900C5C032 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		4BFE61872663E53900C5C032 /* HapticsDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsDescriptor.swift; sourceTree = "<group>"; };
+		4BFE61892663E8BF00C5C032 /* Book.InteractiveNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.InteractiveNode.swift; sourceTree = "<group>"; };
 		5E24A3D7641080B18EE97C1D /* Pods_TextureSwiftSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextureSwiftSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71CBB799BE4A5C4275F536A6 /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B1B5868BA053074C4A411C /* Pods-TextureSwiftSupportTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureSwiftSupportTests.debug.xcconfig"; path = "Target Support Files/Pods-TextureSwiftSupportTests/Pods-TextureSwiftSupportTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 				4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */,
 				4B58E84F260F0797004A834F /* InteractiveNode.swift */,
 				4B58E854260F07D9004A834F /* HighlightAnimationDescriptor.swift */,
+				4BFE61872663E53900C5C032 /* HapticsDescriptor.swift */,
 				4BDD0789264D008F0077590E /* StyledEdgeNode.swift */,
 			);
 			path = Compositions;
@@ -328,6 +333,7 @@
 				4B873C4323084047006170B1 /* Info.plist */,
 				4BFE5FE02663DE9400C5C032 /* RootContainerViewController.swift */,
 				4BFE5FE22663DEA900C5C032 /* Book.swift */,
+				4BFE61892663E8BF00C5C032 /* Book.InteractiveNode.swift */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -692,6 +698,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B5C3883242F10E3005D9722 /* ShapeLayerNode.swift in Sources */,
+				4BFE61882663E53900C5C032 /* HapticsDescriptor.swift in Sources */,
 				4B5C387D242F0EEF005D9722 /* BackgroundNode.swift in Sources */,
 				4BC22F7E2642723300D1C43B /* AnyLayout.swift in Sources */,
 				4BE6527B246481DE004346D6 /* LayoutCondition.swift in Sources */,
@@ -753,6 +760,7 @@
 				4BFE5FE12663DE9400C5C032 /* RootContainerViewController.swift in Sources */,
 				4B28C83E264FEDF900C1ABA3 /* TransitionLayoutViewController.swift in Sources */,
 				4BB21B3A244E06E6008CA2A4 /* Mocks.swift in Sources */,
+				4BFE618A2663E8BF00C5C032 /* Book.InteractiveNode.swift in Sources */,
 				4B2A018325B6E76E00D7C188 /* RecursiveLayoutViewController.swift in Sources */,
 				4BB21B3E244E0E68008CA2A4 /* InstagramPostCellViewController.swift in Sources */,
 				4BE65277246481D8004346D6 /* AdaptiveLayoutViewController.swift in Sources */,
@@ -972,6 +980,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KU2QEJ9K3Z;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -993,6 +1002,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KU2QEJ9K3Z;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
