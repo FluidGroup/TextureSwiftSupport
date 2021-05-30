@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
 
     let newWindow = UIWindow()
-    newWindow.rootViewController = NavigatedFluidViewController(idiom: .presentation, bodyViewController: MenuViewController())
+    newWindow.rootViewController = RootContainerViewController()
     newWindow.makeKeyAndVisible()
     self.window = newWindow
     return true

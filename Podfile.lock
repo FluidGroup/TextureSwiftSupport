@@ -1,5 +1,4 @@
 PODS:
-  - FluidPresentation (0.1.0)
   - GlossButtonNode (2.1.0):
     - Texture/Core (~> 3)
     - TextureSwiftSupport
@@ -36,7 +35,6 @@ PODS:
     - Verge/ObjcBridge
 
 DEPENDENCIES:
-  - "FluidPresentation (from `git@github.com:muukii/FluidPresentation.git`, branch `main`)"
   - GlossButtonNode
   - Reveal-SDK
   - StorybookKit
@@ -61,19 +59,10 @@ SPEC REPOS:
     - Verge
 
 EXTERNAL SOURCES:
-  FluidPresentation:
-    :branch: main
-    :git: "git@github.com:muukii/FluidPresentation.git"
   TextureSwiftSupport:
     :path: "./"
 
-CHECKOUT OPTIONS:
-  FluidPresentation:
-    :commit: bd1aa24d0b1b198624b60634db36a3275cc5e7ae
-    :git: "git@github.com:muukii/FluidPresentation.git"
-
 SPEC CHECKSUMS:
-  FluidPresentation: 4e1e212a6ed2d68db341c8a167b982c6c93859a5
   GlossButtonNode: 0b1471447cb4cebc8a959bbca574247ff6b0592b
   Reveal-SDK: 1a2a678648fc4d277bad71c86d15530424324288
   StorybookKit: d705979c41e55f93e03dec84660471b4e4e8026e
@@ -85,6 +74,6 @@ SPEC CHECKSUMS:
   TypedTextAttributes: fc3a5a8c4a7a28304446f8c5e8af146d11c2163a
   Verge: cd1548865edbf2ad01a75f8028885cf1035f24e5
 
-PODFILE CHECKSUM: 22c7ec4f312e2200923e8943789e52fb08f997f8
+PODFILE CHECKSUM: c2e7a6474544517f0b7e7be4033491adb1b70023
 
 COCOAPODS: 1.10.1

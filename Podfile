@@ -24,7 +24,6 @@ target "Demo" do
   pod "TypedTextAttributes"
   pod "GlossButtonNode"
   pod "TextureSwiftSupport", path: "./"
-  pod "FluidPresentation", git: "git@github.com:muukii/FluidPresentation.git", branch: "main"
   pod "Reveal-SDK"
   pod "StorybookKit"
   pod "StorybookUI"
