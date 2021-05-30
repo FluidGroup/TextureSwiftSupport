@@ -28,6 +28,7 @@ target "Demo" do
   pod "Reveal-SDK"
   pod "StorybookKit"
   pod "StorybookUI"
+  pod "StorybookKitTextureSupport"
 end
 
 pre_install do |installer|

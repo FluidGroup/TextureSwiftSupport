@@ -5,9 +5,16 @@ PODS:
     - TextureSwiftSupport
   - Reveal-SDK (28)
   - StorybookKit (1.3.0)
-  - StorybookUI (1.3.0):
+  - StorybookKitTextureSupport (1.4.0):
+    - StorybookKit
+    - Texture/Core (>= 3.0.0)
+    - TextureBridging (>= 3.0.1)
+    - TextureSwiftSupport (>= 3.8.0)
+  - StorybookUI (1.4.0):
     - StorybookKit (>= 1.3.0)
   - Texture/Core (3.0.0)
+  - TextureBridging (3.0.1):
+    - Texture/Core (~> 3)
   - TextureSwiftSupport (3.8.0):
     - Texture/Core (>= 3)
     - TextureSwiftSupport/Components (= 3.8.0)
@@ -33,6 +40,7 @@ DEPENDENCIES:
   - GlossButtonNode
   - Reveal-SDK
   - StorybookKit
+  - StorybookKitTextureSupport
   - StorybookUI
   - Texture/Core (~> 3)
   - TextureSwiftSupport (from `./`)
@@ -44,8 +52,10 @@ SPEC REPOS:
     - GlossButtonNode
     - Reveal-SDK
     - StorybookKit
+    - StorybookKitTextureSupport
     - StorybookUI
     - Texture
+    - TextureBridging
     - TypedTextAttributes
     - Verge
 
@@ -66,12 +76,14 @@ SPEC CHECKSUMS:
   GlossButtonNode: 0b1471447cb4cebc8a959bbca574247ff6b0592b
   Reveal-SDK: 1a2a678648fc4d277bad71c86d15530424324288
   StorybookKit: 0955e1a351358dff153849c99f3981a390af50ed
-  StorybookUI: e1e49d5deb63dacb5b4d7aa0def13d7e8d2b5a46
+  StorybookKitTextureSupport: 5f5ab265013473cbfe4a608c350c8df9514faf8c
+  StorybookUI: b9588bd1004039f9d1899ae6ebf7dd4d14b4d719
   Texture: 2f109e937850d94d1d07232041c9c7313ccddb81
+  TextureBridging: b4035a6a9e64d061f3238f3dc08abd36b8eff8f7
   TextureSwiftSupport: a2b7e4a3620ec5ff90fe0a9700f01672f87485ee
   TypedTextAttributes: fc3a5a8c4a7a28304446f8c5e8af146d11c2163a
   Verge: cd1548865edbf2ad01a75f8028885cf1035f24e5
 
-PODFILE CHECKSUM: 5333959b4d7394cc9344f303301d1c8221a5e214
+PODFILE CHECKSUM: 084f660f484accc78719316f05cec5783f85dca5
 
 COCOAPODS: 1.10.1
