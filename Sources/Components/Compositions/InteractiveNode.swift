@@ -91,6 +91,12 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
       forControlEvents: .touchUpInside
     )
 
+    addTarget(
+      self,
+      action: #selector(_touchDownInside),
+      forControlEvents: .touchDown
+    )
+
     if useLongPressGesture {
       let longPressGesture = UILongPressGestureRecognizer(
         target: self,
@@ -117,7 +123,11 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
     }
   }
 
-  @objc private func _touchUpInside(_ gesture: UITapGestureRecognizer) {
+  @objc private func _touchDownInside() {
+
+  }
+
+  @objc private func _touchUpInside() {
     handlers.onTap()
   }
 

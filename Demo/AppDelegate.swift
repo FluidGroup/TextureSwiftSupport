@@ -1,13 +1,5 @@
-//
-//  AppDelegate.swift
-//  SpecBuilder
-//
-//  Created by Muukii on 06/14/2019.
-//  Copyright (c) 2019 Muukii. All rights reserved.
-//
 
 import UIKit
-import FluidPresentation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
