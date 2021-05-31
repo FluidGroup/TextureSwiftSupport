@@ -37,7 +37,7 @@ public struct HapticsDescriptor {
     self._onReceiveEvent = onReceiveEvent
   }
 
-  func send(event: Event) {
+  public func send(event: Event) {
     _onReceiveEvent(event)
   }
 }
