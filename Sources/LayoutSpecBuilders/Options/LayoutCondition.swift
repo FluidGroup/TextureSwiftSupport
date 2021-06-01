@@ -29,7 +29,7 @@ public struct LayoutContext: CustomDebugStringConvertible {
   public let trait: ASTraitCollection
 
   public var debugDescription: String {
-    "constraintSize: \(constraintSize), parentSize: \(parentSize), trait: \(trait), containerSize: \(trait.containerSize)"
+    "constraintSize: \(constraintSize), restrictedSize: \(restrictedSize), parentSize: \(parentSize), trait: \(trait), containerSize: \(trait.containerSize)"
   }
 }
 
