@@ -139,6 +139,8 @@ public struct Switch: _ASLayoutElementType {
   
 }
 
+/// Case descriptor for Switch Control Flow.
+/// - SeeAlso: `Switch`
 public struct Case: _ASLayoutElementType {
 
   private let makeContent: () -> [ASLayoutElement]
@@ -165,6 +167,36 @@ public struct Case: _ASLayoutElementType {
     _CaseLayoutSpec(condition: condition, makeContent: makeContent)
   }
 }
+
+public struct ConditionInspector: _ASLayoutElementType {
+
+  private let displayName: String
+
+  public init(
+    _ name: String? = nil,
+    _ file: StaticString = #file,
+    _ line: UInt = #line
+  ) {
+
+    if let name = name {
+      self.displayName = name
+    } else {
+      self.displayName = "\(file):\(line)"
+    }
+
+  }
+
+  public func tss_make() -> [ASLayoutElement] {
+    [_CaseLayoutSpec(condition: .init { (context: LayoutContext) in
+      print("[ConditionInspector] \(displayName), layoutCondition: \(context)")
+      return true
+    }, makeContent: {
+      [ASLayoutSpec()]
+    })]
+  }
+}
+
+// MARK: - Internal
 
 fileprivate let emptyLayout = ASLayoutSpec()
 
