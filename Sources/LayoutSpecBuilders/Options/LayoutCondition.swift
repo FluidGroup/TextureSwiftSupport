@@ -26,7 +26,7 @@ public struct LayoutContext {
   public let constraintSize: ASSizeRange
   public let parentSize: CGSize
   public let trait: ASTraitCollection
-  
+
 }
 
 /// A condition to lay children out
