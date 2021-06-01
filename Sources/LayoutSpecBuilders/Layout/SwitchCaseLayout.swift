@@ -280,3 +280,52 @@ final class _SwitchLayoutSpec: ASLayoutSpec {
   }
 
 }
+
+/// Experimental
+public struct _ConditionReader<Content: _ASLayoutElementType>: _ASLayoutElementType {
+
+  private let content: (LayoutContext) -> Content
+
+  public init(@ASLayoutSpecBuilder content: @escaping (LayoutContext) -> Content) {
+    self.content = content
+  }
+
+  public func tss_make() -> [ASLayoutElement] {
+    [_ConditionalLayoutSpec(content: content)]
+  }
+
+}
+
+/// Experimental
+final class _ConditionalLayoutSpec<Content: _ASLayoutElementType>: ASLayoutSpec {
+
+  private let content: (LayoutContext) -> Content
+
+  init(@ASLayoutSpecBuilder content: @escaping (LayoutContext) -> Content) {
+    self.content = content
+    super.init()
+  }
+
+  override func calculateLayoutThatFits(
+    _ constrainedSize: ASSizeRange,
+    restrictedTo size: ASLayoutElementSize,
+    relativeToParentSize parentSize: CGSize
+  ) -> ASLayout {
+
+    let context = LayoutContext(
+      constraintSize: constrainedSize,
+      restrictedSize: size,
+      parentSize: parentSize,
+      trait: asyncTraitCollection()
+    )
+
+    let layoutSpec = LayoutSpec {
+      content(context)
+    }
+    child = layoutSpec
+    let layout = layoutSpec.calculateLayoutThatFits(constrainedSize, restrictedTo: size, relativeToParentSize: parentSize)
+
+    return layout
+  }
+
+}
