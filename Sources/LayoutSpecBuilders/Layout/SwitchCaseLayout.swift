@@ -188,7 +188,7 @@ public struct ConditionInspector: _ASLayoutElementType {
 
   public func tss_make() -> [ASLayoutElement] {
     [_CaseLayoutSpec(condition: .init { (context: LayoutContext) in
-      print("[ConditionInspector] \(displayName), layoutCondition: \(context)")
+      print("[ConditionInspector] \(displayName), layoutCondition: \(context.debugDescription)")
       return true
     }, makeContent: {
       [ASLayoutSpec()]

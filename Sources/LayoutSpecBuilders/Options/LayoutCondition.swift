@@ -21,12 +21,15 @@
 
 import AsyncDisplayKit
 
-public struct LayoutContext {
+public struct LayoutContext: CustomDebugStringConvertible {
   
   public let constraintSize: ASSizeRange
   public let parentSize: CGSize
   public let trait: ASTraitCollection
 
+  public var debugDescription: String {
+    "constraintSize: \(constraintSize), parentSize: \(parentSize), trait: \(trait), containerSize: \(trait.containerSize)"
+  }
 }
 
 /// A condition to lay children out
