@@ -24,6 +24,7 @@ import AsyncDisplayKit
 public struct LayoutContext: CustomDebugStringConvertible {
   
   public let constraintSize: ASSizeRange
+  public let restrictedSize: ASLayoutElementSize
   public let parentSize: CGSize
   public let trait: ASTraitCollection
 

@@ -172,10 +172,15 @@ public struct ConditionInspector: _ASLayoutElementType {
 
   private let displayName: String
 
+  private let onReceiveContext: (String, LayoutContext) -> Void
+
   public init(
     _ name: String? = nil,
     _ file: StaticString = #file,
-    _ line: UInt = #line
+    _ line: UInt = #line,
+    onReceiveContext: @escaping (String, LayoutContext) -> Void = { displayName, context in
+      print("[ConditionInspector] \(displayName), layoutCondition: \(context.debugDescription)")
+    }
   ) {
 
     if let name = name {
@@ -184,11 +189,13 @@ public struct ConditionInspector: _ASLayoutElementType {
       self.displayName = "\(file):\(line)"
     }
 
+    self.onReceiveContext = onReceiveContext
+
   }
 
   public func tss_make() -> [ASLayoutElement] {
-    [_CaseLayoutSpec(condition: .init { (context: LayoutContext) in
-      print("[ConditionInspector] \(displayName), layoutCondition: \(context.debugDescription)")
+    [_CaseLayoutSpec(condition: .init { [displayName] (context: LayoutContext) in
+      onReceiveContext(displayName, context)
       return true
     }, makeContent: {
       [ASLayoutSpec()]
@@ -226,6 +233,7 @@ final class _CaseLayoutSpec: ASLayoutSpec {
 
     let context = LayoutContext(
       constraintSize: constrainedSize,
+      restrictedSize: size,
       parentSize: parentSize,
       trait: asyncTraitCollection()
     )
@@ -256,6 +264,7 @@ final class _SwitchLayoutSpec: ASLayoutSpec {
 
     let context = LayoutContext(
       constraintSize: constrainedSize,
+      restrictedSize: size,
       parentSize: parentSize,
       trait: asyncTraitCollection()
     )
