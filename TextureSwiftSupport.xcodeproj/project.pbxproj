@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B086A462464434C0024F5A1 /* TextureSwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */; };
+		4B15BCD82667D717006A0D04 /* Book.StyledEdgeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15BCD72667D717006A0D04 /* Book.StyledEdgeNode.swift */; };
 		4B19E610244DD9F0009FD799 /* AnyDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */; };
 		4B22761B2454A9E500F39A16 /* GradientLayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B22761A2454A9AF00F39A16 /* GradientLayerNode.swift */; };
 		4B2497DD264964520013340B /* LinearGradientDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2497DC264964520013340B /* LinearGradientDrawer.swift */; };
@@ -102,6 +103,7 @@
 		215C59DB7FDA718082B6AE43 /* Pods-TextureSwiftSupportTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureSwiftSupportTests.release.xcconfig"; path = "Target Support Files/Pods-TextureSwiftSupportTests/Pods-TextureSwiftSupportTests.release.xcconfig"; sourceTree = "<group>"; };
 		36BB5D9261CA6C5AFDF8EB59 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureSwiftSupport.swift; sourceTree = "<group>"; };
+		4B15BCD72667D717006A0D04 /* Book.StyledEdgeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.StyledEdgeNode.swift; sourceTree = "<group>"; };
 		4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDisplayNode.swift; sourceTree = "<group>"; };
 		4B22761A2454A9AF00F39A16 /* GradientLayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLayerNode.swift; sourceTree = "<group>"; };
 		4B2497DB264964520013340B /* LinearGradientDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGradientDescriptor.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				4BFE5FE22663DEA900C5C032 /* Book.swift */,
 				4BFE61892663E8BF00C5C032 /* Book.InteractiveNode.swift */,
 				4B7F1876266745FD002F9A82 /* Book.ImageNode.swift */,
+				4B15BCD72667D717006A0D04 /* Book.StyledEdgeNode.swift */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 			files = (
 				4BFE5FE12663DE9400C5C032 /* RootContainerViewController.swift in Sources */,
 				4B7F1877266745FD002F9A82 /* Book.ImageNode.swift in Sources */,
+				4B15BCD82667D717006A0D04 /* Book.StyledEdgeNode.swift in Sources */,
 				4B28C83E264FEDF900C1ABA3 /* TransitionLayoutViewController.swift in Sources */,
 				4BB21B3A244E06E6008CA2A4 /* Mocks.swift in Sources */,
 				4BFE618A2663E8BF00C5C032 /* Book.InteractiveNode.swift in Sources */,
