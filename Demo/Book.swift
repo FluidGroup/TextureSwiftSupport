@@ -10,6 +10,7 @@ let book = Book(title: "TextureSwiftSupport") {
 
   BookNavigationLink(title: "Components") {
     Book.bookInteractiveNode()
+    Book.bookStyledEdgeNode()
   }
 
   BookPush(title: "Transition") {
