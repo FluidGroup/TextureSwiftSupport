@@ -32,6 +32,7 @@
 		4B6262EB264FDE6C00540F0B /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6262EA264FDE6C00540F0B /* Components.swift */; };
 		4B6FA0392468B5EC00C21A53 /* MaskingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0382468B5EC00C21A53 /* MaskingNode.swift */; };
 		4B6FA03B2468B6C900C21A53 /* CompositionCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA03A2468B6C900C21A53 /* CompositionCatalogViewController.swift */; };
+		4B7F1877266745FD002F9A82 /* Book.ImageNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F1876266745FD002F9A82 /* Book.ImageNode.swift */; };
 		4B8666FE26412BDD00A81E53 /* VGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8666FD26412BDD00A81E53 /* VGridLayout.swift */; };
 		4B873C2723083FE5006170B1 /* TextureSwiftSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B873C2E23083FF4006170B1 /* SpecBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B873C2D23083FF4006170B1 /* SpecBuilder.swift */; };
@@ -127,6 +128,7 @@
 		4B6262EA264FDE6C00540F0B /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		4B6FA0382468B5EC00C21A53 /* MaskingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskingNode.swift; sourceTree = "<group>"; };
 		4B6FA03A2468B6C900C21A53 /* CompositionCatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionCatalogViewController.swift; sourceTree = "<group>"; };
+		4B7F1876266745FD002F9A82 /* Book.ImageNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.ImageNode.swift; sourceTree = "<group>"; };
 		4B8666FD26412BDD00A81E53 /* VGridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGridLayout.swift; sourceTree = "<group>"; };
 		4B873C2223083FE5006170B1 /* TextureSwiftSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TextureSwiftSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureSwiftSupport.h; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				4BFE5FE02663DE9400C5C032 /* RootContainerViewController.swift */,
 				4BFE5FE22663DEA900C5C032 /* Book.swift */,
 				4BFE61892663E8BF00C5C032 /* Book.InteractiveNode.swift */,
+				4B7F1876266745FD002F9A82 /* Book.ImageNode.swift */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -762,6 +765,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BFE5FE12663DE9400C5C032 /* RootContainerViewController.swift in Sources */,
+				4B7F1877266745FD002F9A82 /* Book.ImageNode.swift in Sources */,
 				4B28C83E264FEDF900C1ABA3 /* TransitionLayoutViewController.swift in Sources */,
 				4BB21B3A244E06E6008CA2A4 /* Mocks.swift in Sources */,
 				4BFE618A2663E8BF00C5C032 /* Book.InteractiveNode.swift in Sources */,

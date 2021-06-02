@@ -4,6 +4,10 @@ import TextureSwiftSupport
 
 let book = Book(title: "TextureSwiftSupport") {
 
+  BookNavigationLink(title: "Standard Components") {
+    Book.bookImageNode()
+  }
+
   BookNavigationLink(title: "Components") {
     Book.bookInteractiveNode()
   }
