@@ -73,6 +73,7 @@
 		4BC70ECD23F7557E00197B7B /* NamedDisplayCellNodeBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70ECC23F7557E00197B7B /* NamedDisplayCellNodeBase.swift */; };
 		4BC7C9732664C13B0020A34F /* ViewNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7C9722664C13B0020A34F /* ViewNode.swift */; };
 		4BCB3E0D266A2BBC00C08536 /* OnAppearNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB3E0C266A2BBC00C08536 /* OnAppearNode.swift */; };
+		4BCB452F266A6F7900C08536 /* HighlightCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB452E266A6F7900C08536 /* HighlightCellNode.swift */; };
 		4BDD078A264D008F0077590E /* StyledEdgeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD0789264D008F0077590E /* StyledEdgeNode.swift */; };
 		4BDD078D264D01AC0077590E /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD078C264D01AC0077590E /* Temp.swift */; };
 		4BE65277246481D8004346D6 /* AdaptiveLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE65276246481D8004346D6 /* AdaptiveLayoutViewController.swift */; };
@@ -176,6 +177,7 @@
 		4BC70ECC23F7557E00197B7B /* NamedDisplayCellNodeBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedDisplayCellNodeBase.swift; sourceTree = "<group>"; };
 		4BC7C9722664C13B0020A34F /* ViewNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewNode.swift; sourceTree = "<group>"; };
 		4BCB3E0C266A2BBC00C08536 /* OnAppearNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnAppearNode.swift; sourceTree = "<group>"; };
+		4BCB452E266A6F7900C08536 /* HighlightCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightCellNode.swift; sourceTree = "<group>"; };
 		4BDD0789264D008F0077590E /* StyledEdgeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledEdgeNode.swift; sourceTree = "<group>"; };
 		4BDD078C264D01AC0077590E /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		4BE65276246481D8004346D6 /* AdaptiveLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveLayoutViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				4BDD0789264D008F0077590E /* StyledEdgeNode.swift */,
 				4BC7C9722664C13B0020A34F /* ViewNode.swift */,
 				4BCB3E0C266A2BBC00C08536 /* OnAppearNode.swift */,
+				4BCB452E266A6F7900C08536 /* HighlightCellNode.swift */,
 			);
 			path = Compositions;
 			sourceTree = "<group>";
@@ -757,6 +760,7 @@
 				4B8666FE26412BDD00A81E53 /* VGridLayout.swift in Sources */,
 				4BC22FA3264276A500D1C43B /* SpacerLayout.swift in Sources */,
 				4BC70ECD23F7557E00197B7B /* NamedDisplayCellNodeBase.swift in Sources */,
+				4BCB452F266A6F7900C08536 /* HighlightCellNode.swift in Sources */,
 				4B086A462464434C0024F5A1 /* TextureSwiftSupport.swift in Sources */,
 				4BC22F972642763F00D1C43B /* CenterLayout.swift in Sources */,
 				4B22761B2454A9E500F39A16 /* GradientLayerNode.swift in Sources */,
