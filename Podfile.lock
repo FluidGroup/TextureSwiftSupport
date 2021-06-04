@@ -14,20 +14,20 @@ PODS:
   - Texture/Core (3.0.0)
   - TextureBridging (3.0.1):
     - Texture/Core (~> 3)
-  - TextureSwiftSupport (3.9.0):
+  - TextureSwiftSupport (3.10.0):
     - Texture/Core (>= 3)
-    - TextureSwiftSupport/Components (= 3.9.0)
-    - TextureSwiftSupport/Experiments (= 3.9.0)
-    - TextureSwiftSupport/Extensions (= 3.9.0)
-    - TextureSwiftSupport/LayoutSpecBuilders (= 3.9.0)
-  - TextureSwiftSupport/Components (3.9.0):
+    - TextureSwiftSupport/Components (= 3.10.0)
+    - TextureSwiftSupport/Experiments (= 3.10.0)
+    - TextureSwiftSupport/Extensions (= 3.10.0)
+    - TextureSwiftSupport/LayoutSpecBuilders (= 3.10.0)
+  - TextureSwiftSupport/Components (3.10.0):
     - Texture/Core (>= 3)
     - TextureSwiftSupport/LayoutSpecBuilders
-  - TextureSwiftSupport/Experiments (3.9.0):
+  - TextureSwiftSupport/Experiments (3.10.0):
     - Texture/Core (>= 3)
-  - TextureSwiftSupport/Extensions (3.9.0):
+  - TextureSwiftSupport/Extensions (3.10.0):
     - Texture/Core (>= 3)
-  - TextureSwiftSupport/LayoutSpecBuilders (3.9.0):
+  - TextureSwiftSupport/LayoutSpecBuilders (3.10.0):
     - Texture/Core (>= 3)
   - TypedTextAttributes (1.1.0)
   - Verge/ObjcBridge (8.12.0)
@@ -70,7 +70,7 @@ SPEC CHECKSUMS:
   StorybookUI: b9588bd1004039f9d1899ae6ebf7dd4d14b4d719
   Texture: 2f109e937850d94d1d07232041c9c7313ccddb81
   TextureBridging: b4035a6a9e64d061f3238f3dc08abd36b8eff8f7
-  TextureSwiftSupport: debecdae836891ff9f8aa6b5bb0524acc6fb324f
+  TextureSwiftSupport: a31def8c674716ae111be64c19caab2471fee761
   TypedTextAttributes: fc3a5a8c4a7a28304446f8c5e8af146d11c2163a
   Verge: cd1548865edbf2ad01a75f8028885cf1035f24e5
 
