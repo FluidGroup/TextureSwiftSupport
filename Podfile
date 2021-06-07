@@ -28,6 +28,7 @@ target "Demo" do
   pod "StorybookKit"
   pod "StorybookUI"
   pod "StorybookKitTextureSupport"
+  pod "EasyPeasy"
 end
 
 pre_install do |installer|

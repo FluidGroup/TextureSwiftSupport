@@ -13,6 +13,10 @@ let book = Book(title: "TextureSwiftSupport") {
     Book.bookStyledEdgeNode()
   }
 
+  BookNavigationLink(title: "Lab") {
+    Book.tiledLayer()
+  }
+
   BookPush(title: "Transition") {
     TransitionLayoutViewController()
   }

@@ -1,4 +1,5 @@
 PODS:
+  - EasyPeasy (1.10.0)
   - GlossButtonNode (2.1.0):
     - Texture/Core (~> 3)
     - TextureSwiftSupport
@@ -35,6 +36,7 @@ PODS:
     - Verge/ObjcBridge
 
 DEPENDENCIES:
+  - EasyPeasy
   - GlossButtonNode
   - Reveal-SDK
   - StorybookKit
@@ -47,6 +49,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - EasyPeasy
     - StorybookKit
   trunk:
     - GlossButtonNode
@@ -63,6 +66,7 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
+  EasyPeasy: b9b1bae024d21a7dfa9bad26d6826d88348cc6f1
   GlossButtonNode: 0b1471447cb4cebc8a959bbca574247ff6b0592b
   Reveal-SDK: 1a2a678648fc4d277bad71c86d15530424324288
   StorybookKit: d705979c41e55f93e03dec84660471b4e4e8026e
@@ -74,6 +78,6 @@ SPEC CHECKSUMS:
   TypedTextAttributes: fc3a5a8c4a7a28304446f8c5e8af146d11c2163a
   Verge: cd1548865edbf2ad01a75f8028885cf1035f24e5
 
-PODFILE CHECKSUM: c2e7a6474544517f0b7e7be4033491adb1b70023
+PODFILE CHECKSUM: 9d485b8c4d147290055e8228402d2f9db447605d
 
 COCOAPODS: 1.10.1
