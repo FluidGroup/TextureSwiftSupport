@@ -85,7 +85,7 @@ enum _CompileCheck {
 
     do {
       let flag = false
-      let layout: LayoutSpec<ASTextNode?> = LayoutSpec {
+      let layout = LayoutSpec {
         if flag {
           ASTextNode()
         }
@@ -95,7 +95,7 @@ enum _CompileCheck {
 
     do {
       let flag = false
-      let layout: HStackLayout<ASTextNode?> = HStackLayout {
+      let layout = HStackLayout {
         if flag {
           ASTextNode()
         }

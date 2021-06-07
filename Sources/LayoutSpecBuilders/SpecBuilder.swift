@@ -98,8 +98,7 @@ public struct Modifier: ModifierType {
     MultiLayout(Array(contents))
   }
 
-  public static func buildIf<Content>(_ content: Content?) -> Content?
-  where Content: _ASLayoutElementType {
+  public static func buildIf(_ content: _ASLayoutElementType?) -> _ASLayoutElementType? {
     content
   }
 
