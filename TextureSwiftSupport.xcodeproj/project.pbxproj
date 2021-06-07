@@ -144,7 +144,7 @@
 		4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureSwiftSupport.h; sourceTree = "<group>"; };
 		4B873C2623083FE5006170B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B873C2D23083FF4006170B1 /* SpecBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecBuilder.swift; sourceTree = "<group>"; };
-		4B873C3323084045006170B1 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B873C3323084045006170B1 /* Demo-TextureSwiftSuppoprt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo-TextureSwiftSuppoprt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B873C3E23084047006170B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B873C4123084047006170B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B873C4323084047006170B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -321,7 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				4B873C2223083FE5006170B1 /* TextureSwiftSupport.framework */,
-				4B873C3323084045006170B1 /* Demo.app */,
+				4B873C3323084045006170B1 /* Demo-TextureSwiftSuppoprt.app */,
 				4BBF60F724CC2FFA000E0E74 /* TextureSwiftSupportTests.xctest */,
 			);
 			name = Products;
@@ -524,9 +524,9 @@
 			productReference = 4B873C2223083FE5006170B1 /* TextureSwiftSupport.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		4B873C3223084045006170B1 /* Demo */ = {
+		4B873C3223084045006170B1 /* Demo-TextureSwiftSuppoprt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4B873C4423084047006170B1 /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildConfigurationList = 4B873C4423084047006170B1 /* Build configuration list for PBXNativeTarget "Demo-TextureSwiftSuppoprt" */;
 			buildPhases = (
 				E510AB5BE157C36243B1AF09 /* [CP] Check Pods Manifest.lock */,
 				4B873C2F23084045006170B1 /* Sources */,
@@ -538,9 +538,9 @@
 			);
 			dependencies = (
 			);
-			name = Demo;
+			name = "Demo-TextureSwiftSuppoprt";
 			productName = Demo;
-			productReference = 4B873C3323084045006170B1 /* Demo.app */;
+			productReference = 4B873C3323084045006170B1 /* Demo-TextureSwiftSuppoprt.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4BBF60F624CC2FFA000E0E74 /* TextureSwiftSupportTests */ = {
@@ -598,7 +598,7 @@
 			projectRoot = "";
 			targets = (
 				4B873C2123083FE5006170B1 /* TextureSwiftSupport */,
-				4B873C3223084045006170B1 /* Demo */,
+				4B873C3223084045006170B1 /* Demo-TextureSwiftSuppoprt */,
 				4BBF60F624CC2FFA000E0E74 /* TextureSwiftSupportTests */,
 			);
 		};
@@ -1107,7 +1107,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4B873C4423084047006170B1 /* Build configuration list for PBXNativeTarget "Demo" */ = {
+		4B873C4423084047006170B1 /* Build configuration list for PBXNativeTarget "Demo-TextureSwiftSuppoprt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4B873C4523084047006170B1 /* Debug */,

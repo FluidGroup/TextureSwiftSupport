@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4B873C3223084045006170B1"
-               BuildableName = "Demo.app"
-               BlueprintName = "Demo"
+               BuildableName = "Demo-TextureSwiftSuppoprt.app"
+               BlueprintName = "Demo-TextureSwiftSuppoprt"
                ReferencedContainer = "container:TextureSwiftSupport.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B873C3223084045006170B1"
-            BuildableName = "Demo.app"
-            BlueprintName = "Demo"
+            BuildableName = "Demo-TextureSwiftSuppoprt.app"
+            BlueprintName = "Demo-TextureSwiftSuppoprt"
             ReferencedContainer = "container:TextureSwiftSupport.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B873C3223084045006170B1"
-            BuildableName = "Demo.app"
-            BlueprintName = "Demo"
+            BuildableName = "Demo-TextureSwiftSuppoprt.app"
+            BlueprintName = "Demo-TextureSwiftSuppoprt"
             ReferencedContainer = "container:TextureSwiftSupport.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
