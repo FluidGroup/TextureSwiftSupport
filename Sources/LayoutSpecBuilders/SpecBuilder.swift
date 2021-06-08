@@ -145,12 +145,12 @@ extension ASLayoutSpec: _ASLayoutElementType {
   }
 }
 
-//extension Optional: _ASLayoutElementType where Wrapped: _ASLayoutElementType {
-//
-//  public func tss_make() -> [ASLayoutElement] {
-//    map { $0.tss_make() } ?? []
-//  }
-//}
+extension Optional: _ASLayoutElementType where Wrapped: _ASLayoutElementType {
+
+  public func tss_make() -> [ASLayoutElement] {
+    map { $0.tss_make() } ?? []
+  }
+}
 
 /// A layout spec that is entry point to describe layout DSL
 ///
