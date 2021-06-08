@@ -88,18 +88,19 @@ public struct Modifier: ModifierType {
   }
 
   @_disfavoredOverload
+  public static func buildBlock(_ content: _ASLayoutElementType...) -> MultiLayout {
+    MultiLayout(content)
+  }
+
+  @_disfavoredOverload
   public static func buildBlock(_ content: _ASLayoutElementType?...) -> MultiLayout {
     MultiLayout(content.compactMap { $0 })
   }
 
-  @_disfavoredOverload
-  public static func buildBlock<C: Collection>(_ contents: C) -> MultiLayout
-  where C.Element: _ASLayoutElementType {
-    MultiLayout(Array(contents))
-  }
-
-  public static func buildIf(_ content: _ASLayoutElementType?) -> _ASLayoutElementType? {
-    content
+  public static func buildIf<Content: _ASLayoutElementType>(
+    _ content: Content?
+  ) -> OptionalLayout<Content> {
+    return .init(content: { content })
   }
 
   public static func buildEither<TrueContent, FalseContent>(
@@ -112,6 +113,18 @@ public struct Modifier: ModifierType {
     second: FalseContent
   ) -> ConditionalLayout<TrueContent, FalseContent> {
     .init(falseContent: second)
+  }
+
+  public static func buildExpression<Content: _ASLayoutElementType>(
+    _ expression: Content
+  ) -> Content {
+    return expression
+  }
+
+  public static func buildExpression<Content: _ASLayoutElementType>(
+    _ expression: Content?
+  ) -> OptionalLayout<Content> {
+    return .init(content: { expression })
   }
 
 }
@@ -132,12 +145,12 @@ extension ASLayoutSpec: _ASLayoutElementType {
   }
 }
 
-extension Optional: _ASLayoutElementType where Wrapped: _ASLayoutElementType {
-
-  public func tss_make() -> [ASLayoutElement] {
-    map { $0.tss_make() } ?? []
-  }
-}
+//extension Optional: _ASLayoutElementType where Wrapped: _ASLayoutElementType {
+//
+//  public func tss_make() -> [ASLayoutElement] {
+//    map { $0.tss_make() } ?? []
+//  }
+//}
 
 /// A layout spec that is entry point to describe layout DSL
 ///

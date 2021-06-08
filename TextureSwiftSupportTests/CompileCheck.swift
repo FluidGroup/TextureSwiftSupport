@@ -45,21 +45,23 @@ enum _CompileCheck {
         ASTextNode(),
       ]
       
-      let layout: HStackLayout<InsetLayout<HStackLayout<[ASTextNode]>>> = HStackLayout {
+      let layout = HStackLayout {
         InsetLayout(insets: .zero) {
           HStackLayout {
             nodes
           }
         }
       }
+
+      let _: HStackLayout<InsetLayout<HStackLayout<[ASTextNode]>>> = layout
       supressWarn(layout)
     }
     
     do {
       
       let nodes: [AnyLayout] = [
-        .init { ASTextNode() },
-        .init { ASTextNode() },
+        .init(ASTextNode()),
+        .init(ASTextNode()),
       ]
       
       let layout = HStackLayout {
@@ -73,8 +75,9 @@ enum _CompileCheck {
     }
           
     do {
+      let flag = true
       let layout: HStackLayout<ConditionalLayout<ASTextNode, ASButtonNode>> = HStackLayout {
-        if true {
+        if flag {
           ASTextNode()
         } else {
           ASButtonNode()
@@ -197,6 +200,16 @@ enum _CompileCheck {
         if let v = value {
           ASTextNode()
         }
+      }
+
+    }
+
+    do {
+
+      let node: ASTextNode? = nil
+
+      let view = VStackLayout {
+        node
       }
 
     }
