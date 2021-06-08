@@ -27,6 +27,9 @@ import Foundation
  According to that, animations are also supported.
  */
 open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
+
+  public typealias BodyNode = D
+  
   public struct Handlers {
     public var onTap: () -> Void = {}
     public var onLongPress: (CGPoint) -> Void = { _ in }
