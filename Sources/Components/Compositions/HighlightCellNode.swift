@@ -2,6 +2,8 @@ import AsyncDisplayKit
 
 open class HighlightCellNode<D: ASDisplayNode>: NamedDisplayCellNodeBase {
 
+  public typealias BodyNode = D
+
   open override var supportsLayerBacking: Bool {
     return false
   }
