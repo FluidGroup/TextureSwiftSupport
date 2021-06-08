@@ -1,4 +1,3 @@
-import TextureSwiftSupport
 
 /// A container display node that handles itself appears on the device screen.
 /// Underlying, using CATiledLayer to hook the signal of appearing.

@@ -10,14 +10,16 @@ fileprivate func supressWarn<T>(_ variable: T) {}
 enum _CompileCheck {
   
   func foo() {
-    
+
+    // MARK: -
     do {
       let layout: HStackLayout<ASTextNode> = HStackLayout {
         ASTextNode()
       }
       supressWarn(layout)
     }
-    
+
+    // MARK: -
     do {
       let layout: HStackLayout<MultiLayout> = HStackLayout {
         ASTextNode()
@@ -25,7 +27,8 @@ enum _CompileCheck {
       }
       supressWarn(layout)
     }
-    
+
+    // MARK: -
     do {
       let layout: HStackLayout<InsetLayout<HStackLayout<MultiLayout>>> = HStackLayout {
         InsetLayout(insets: .zero) {
@@ -37,7 +40,8 @@ enum _CompileCheck {
       }
       supressWarn(layout)
     }
-    
+
+    // MARK: -
     do {
       
       let nodes = [
@@ -45,21 +49,24 @@ enum _CompileCheck {
         ASTextNode(),
       ]
       
-      let layout: HStackLayout<InsetLayout<HStackLayout<[ASTextNode]>>> = HStackLayout {
+      let layout = HStackLayout {
         InsetLayout(insets: .zero) {
           HStackLayout {
             nodes
           }
         }
       }
+
+      let _: HStackLayout<InsetLayout<HStackLayout<[ASTextNode]>>> = layout
       supressWarn(layout)
     }
-    
+
+    // MARK: -
     do {
       
       let nodes: [AnyLayout] = [
-        .init { ASTextNode() },
-        .init { ASTextNode() },
+        .init(ASTextNode()),
+        .init(ASTextNode()),
       ]
       
       let layout = HStackLayout {
@@ -71,10 +78,12 @@ enum _CompileCheck {
       }
       supressWarn(layout)
     }
-          
+
+    // MARK: -
     do {
+      let flag = true
       let layout: HStackLayout<ConditionalLayout<ASTextNode, ASButtonNode>> = HStackLayout {
-        if true {
+        if flag {
           ASTextNode()
         } else {
           ASButtonNode()
@@ -83,9 +92,10 @@ enum _CompileCheck {
       supressWarn(layout)
     }
 
+    // MARK: -
     do {
       let flag = false
-      let layout: LayoutSpec<ASTextNode?> = LayoutSpec {
+      let layout = LayoutSpec {
         if flag {
           ASTextNode()
         }
@@ -93,17 +103,22 @@ enum _CompileCheck {
       supressWarn(layout)
     }
 
+    // MARK: -
     do {
       let flag = false
-      let layout: HStackLayout<ASTextNode?> = HStackLayout {
+      let layout = HStackLayout {
         if flag {
           ASTextNode()
         }
       }
       supressWarn(layout)
     }
-    
+
+    // MARK: -
     do {
+
+      let flag = true
+
       let layout: HStackLayout<MultiLayout> = HStackLayout {
         ASTextNode()
         ASTextNode()
@@ -111,7 +126,7 @@ enum _CompileCheck {
         VStackLayout {
           ASTextNode()
         }
-        if true {
+        if flag {
           ASTextNode()
         } else {
           ASButtonNode()
@@ -120,7 +135,8 @@ enum _CompileCheck {
 
       supressWarn(layout)
     }
-    
+
+    // MARK: -
     do {
       
       let nodes = [ASDisplayNode(), ASDisplayNode()]
@@ -130,7 +146,8 @@ enum _CompileCheck {
       }
           
     }
-    
+
+    // MARK: -
     do {
       
       let nullNode: ASDisplayNode? = nil
@@ -142,65 +159,84 @@ enum _CompileCheck {
       supressWarn(layout)
     }
 
+    // MARK: -
     do {
 
-      var element1: ASLayoutElement?
-      var element2: ASLayoutElement?
+      let element1: ASLayoutElement? = nil
+      let element2: ASLayoutElement? = nil
 
       do {
         let layout = ZStackLayout {
-          AnyLayout { element1 }
+          AnyLayout(element1)
         }
         supressWarn(layout)
       }
 
       do {
         let layout = ZStackLayout {
-          AnyLayout { element1 }
-          AnyLayout { element2 }
+          AnyLayout(element1)
+          AnyLayout(element2)
         }
         supressWarn(layout)
       }
 
       do {
-        let layout = AnyLayout {
+        let layout = AnyLayout(
           ZStackLayout {
-            AnyLayout { element1 }
-            AnyLayout { element2 }
+            AnyLayout(element1)
+            AnyLayout(element2)
           }
-        }
+        )
         supressWarn(layout)
       }
 
     }
 
+    // MARK: -
     #if swift(>=5.3)
     do {
 
       let value: String? = nil
 
-      let view = VStackLayout {
-        if let v = value {
+      let layout = VStackLayout {
+        if let _ = value {
           ASTextNode()
         } else {
           ASButtonNode()
         }
       }
 
+      let _ = layout
+
     }
 
+    // MARK: -
     do {
 
       let value: String? = nil
 
-      let view = VStackLayout {
-        if let v = value {
+      let layout = VStackLayout {
+        if let _ = value {
           ASTextNode()
         }
       }
 
+      let _ = layout
+
     }
 
+    // MARK: -
+    do {
+
+      let node: ASTextNode? = nil
+
+      let layout = VStackLayout {
+        node
+      }
+      let _ = layout
+    }
+
+    // MARK: -
     do {
 
       let number = 1
@@ -214,10 +250,24 @@ enum _CompileCheck {
           ASTextNode2()
         }
       }
+      let _ = layout
 
     }
     #endif
-    
+
+    // MARK: -
+    do {
+      let optionalNode: ASDisplayNode? = nil
+
+      let layout = LayoutSpec {
+        CenterLayout {
+          optionalNode
+        }
+      }
+      let _ = layout
+    }
+
+    // MARK: -
     do {
                
       /// In Swith, `Case` only can declare.
