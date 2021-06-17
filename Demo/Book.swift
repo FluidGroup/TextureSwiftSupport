@@ -8,6 +8,10 @@ let book = Book(title: "TextureSwiftSupport") {
     Book.bookImageNode()
   }
 
+  BookNavigationLink(title: "Layout") {
+    Book.hStackLayout()
+  }
+
   BookNavigationLink(title: "Components") {
     Book.bookInteractiveNode()
     Book.bookStyledEdgeNode()
