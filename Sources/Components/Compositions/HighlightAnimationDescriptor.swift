@@ -179,11 +179,19 @@ extension HighlightAnimationDescriptor {
 
   ///
   public static func colorOverlay(
-    overlayColor: UIColor = .init(white: 0, alpha: 0.05)
+    overlayColor: UIColor = .init(white: 0, alpha: 0.05),
+    cornerRadius: CGFloat = 0
   ) -> HighlightAnimationDescriptor {
+
     let overlayNode = ASDisplayNode()
     overlayNode.backgroundColor = overlayColor
     overlayNode.alpha = 0
+    overlayNode.onDidLoad { node in
+      node.layer.cornerRadius = cornerRadius
+      if #available(iOS 13.0, *) {
+        node.layer.cornerCurve = .continuous
+      }
+    }
 
     return .init(overlayNode: { overlayNode }) { isHighlighted, _, _ in
 
