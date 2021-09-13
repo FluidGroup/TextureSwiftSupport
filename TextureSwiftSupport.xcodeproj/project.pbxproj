@@ -76,6 +76,7 @@
 		4BC70ECB23F74EAB00197B7B /* SafeAreaDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */; };
 		4BC70ECD23F7557E00197B7B /* NamedDisplayCellNodeBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC70ECC23F7557E00197B7B /* NamedDisplayCellNodeBase.swift */; };
 		4BC7C9732664C13B0020A34F /* ViewNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7C9722664C13B0020A34F /* ViewNode.swift */; };
+		4BC85C1026EFF1B6003BAEAE /* Book.LayerBacking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC85C0F26EFF1B6003BAEAE /* Book.LayerBacking.swift */; };
 		4BCB3E0D266A2BBC00C08536 /* OnAppearNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB3E0C266A2BBC00C08536 /* OnAppearNode.swift */; };
 		4BCB452F266A6F7900C08536 /* HighlightCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB452E266A6F7900C08536 /* HighlightCellNode.swift */; };
 		4BDD078A264D008F0077590E /* StyledEdgeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD0789264D008F0077590E /* StyledEdgeNode.swift */; };
@@ -87,8 +88,8 @@
 		4BFE5FE32663DEA900C5C032 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE5FE22663DEA900C5C032 /* Book.swift */; };
 		4BFE61882663E53900C5C032 /* HapticsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE61872663E53900C5C032 /* HapticsDescriptor.swift */; };
 		4BFE618A2663E8BF00C5C032 /* Book.InteractiveNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE61892663E8BF00C5C032 /* Book.InteractiveNode.swift */; };
-		56A6ADA25627986882E7CCBA /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CBB799BE4A5C4275F536A6 /* Pods_Demo.framework */; };
 		5E1466C33BD464A174155DF9 /* Pods_TextureSwiftSupportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E55AE74C9FB7B22C94CCC1A1 /* Pods_TextureSwiftSupportTests.framework */; };
+		C10F60211BD6F4CB5AD92EC0 /* Pods_Demo_TextureSwiftSuppoprt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C23649818DE28AA59570663A /* Pods_Demo_TextureSwiftSuppoprt.framework */; };
 		F7C9D342E080CFF7361B81C2 /* Pods_TextureSwiftSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E24A3D7641080B18EE97C1D /* Pods_TextureSwiftSupport.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +109,7 @@
 		13FC1F5271FF562E96223AAB /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		215C59DB7FDA718082B6AE43 /* Pods-TextureSwiftSupportTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureSwiftSupportTests.release.xcconfig"; path = "Target Support Files/Pods-TextureSwiftSupportTests/Pods-TextureSwiftSupportTests.release.xcconfig"; sourceTree = "<group>"; };
 		36BB5D9261CA6C5AFDF8EB59 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		3E7680D0CC6B4F2D180803E7 /* Pods-Demo-TextureSwiftSuppoprt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-TextureSwiftSuppoprt.release.xcconfig"; path = "Target Support Files/Pods-Demo-TextureSwiftSuppoprt/Pods-Demo-TextureSwiftSuppoprt.release.xcconfig"; sourceTree = "<group>"; };
 		4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureSwiftSupport.swift; sourceTree = "<group>"; };
 		4B15BCD72667D717006A0D04 /* Book.StyledEdgeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.StyledEdgeNode.swift; sourceTree = "<group>"; };
 		4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDisplayNode.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 		4BC70ECA23F74EAB00197B7B /* SafeAreaDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaDisplayNode.swift; sourceTree = "<group>"; };
 		4BC70ECC23F7557E00197B7B /* NamedDisplayCellNodeBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedDisplayCellNodeBase.swift; sourceTree = "<group>"; };
 		4BC7C9722664C13B0020A34F /* ViewNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewNode.swift; sourceTree = "<group>"; };
+		4BC85C0F26EFF1B6003BAEAE /* Book.LayerBacking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.LayerBacking.swift; sourceTree = "<group>"; };
 		4BCB3E0C266A2BBC00C08536 /* OnAppearNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnAppearNode.swift; sourceTree = "<group>"; };
 		4BCB452E266A6F7900C08536 /* HighlightCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightCellNode.swift; sourceTree = "<group>"; };
 		4BDD0789264D008F0077590E /* StyledEdgeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledEdgeNode.swift; sourceTree = "<group>"; };
@@ -196,7 +199,8 @@
 		4BFE61872663E53900C5C032 /* HapticsDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsDescriptor.swift; sourceTree = "<group>"; };
 		4BFE61892663E8BF00C5C032 /* Book.InteractiveNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.InteractiveNode.swift; sourceTree = "<group>"; };
 		5E24A3D7641080B18EE97C1D /* Pods_TextureSwiftSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextureSwiftSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		71CBB799BE4A5C4275F536A6 /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D61D50576B754CEC99605E6 /* Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig"; path = "Target Support Files/Pods-Demo-TextureSwiftSuppoprt/Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig"; sourceTree = "<group>"; };
+		C23649818DE28AA59570663A /* Pods_Demo_TextureSwiftSuppoprt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo_TextureSwiftSuppoprt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B1B5868BA053074C4A411C /* Pods-TextureSwiftSupportTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureSwiftSupportTests.debug.xcconfig"; path = "Target Support Files/Pods-TextureSwiftSupportTests/Pods-TextureSwiftSupportTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E55AE74C9FB7B22C94CCC1A1 /* Pods_TextureSwiftSupportTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextureSwiftSupportTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -214,7 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56A6ADA25627986882E7CCBA /* Pods_Demo.framework in Frameworks */,
+				C10F60211BD6F4CB5AD92EC0 /* Pods_Demo_TextureSwiftSuppoprt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +362,7 @@
 				4B7F1876266745FD002F9A82 /* Book.ImageNode.swift */,
 				4B15BCD72667D717006A0D04 /* Book.StyledEdgeNode.swift */,
 				4B3C42D5266DCA4F00861ADD /* Book.TiledLayer.swift */,
+				4BC85C0F26EFF1B6003BAEAE /* Book.LayerBacking.swift */,
 				4B4F5C93267B2F0600D12273 /* Book.HStackLayout.swift */,
 				4B3C42D7266DCBD000861ADD /* Util.swift */,
 				4B3C42D9266DCCB600861ADD /* ZStackView.swift */,
@@ -474,9 +479,9 @@
 		8FA7A1AA96A76AF24D34BF5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				71CBB799BE4A5C4275F536A6 /* Pods_Demo.framework */,
 				5E24A3D7641080B18EE97C1D /* Pods_TextureSwiftSupport.framework */,
 				E55AE74C9FB7B22C94CCC1A1 /* Pods_TextureSwiftSupportTests.framework */,
+				C23649818DE28AA59570663A /* Pods_Demo_TextureSwiftSuppoprt.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -490,6 +495,8 @@
 				022BACB67A5AEBB71A311890 /* Pods-TextureSwiftSupport.release.xcconfig */,
 				C3B1B5868BA053074C4A411C /* Pods-TextureSwiftSupportTests.debug.xcconfig */,
 				215C59DB7FDA718082B6AE43 /* Pods-TextureSwiftSupportTests.release.xcconfig */,
+				8D61D50576B754CEC99605E6 /* Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig */,
+				3E7680D0CC6B4F2D180803E7 /* Pods-Demo-TextureSwiftSuppoprt.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -640,15 +647,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Demo-TextureSwiftSuppoprt/Pods-Demo-TextureSwiftSuppoprt-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Demo-TextureSwiftSuppoprt/Pods-Demo-TextureSwiftSuppoprt-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Demo-TextureSwiftSuppoprt/Pods-Demo-TextureSwiftSuppoprt-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3F9D6602A050E6820368F009 /* [CP] Check Pods Manifest.lock */ = {
@@ -710,7 +717,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Demo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Demo-TextureSwiftSuppoprt-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -792,6 +799,7 @@
 				4B7F1877266745FD002F9A82 /* Book.ImageNode.swift in Sources */,
 				4B15BCD82667D717006A0D04 /* Book.StyledEdgeNode.swift in Sources */,
 				4B28C83E264FEDF900C1ABA3 /* TransitionLayoutViewController.swift in Sources */,
+				4BC85C1026EFF1B6003BAEAE /* Book.LayerBacking.swift in Sources */,
 				4BB21B3A244E06E6008CA2A4 /* Mocks.swift in Sources */,
 				4B3C42DA266DCCB600861ADD /* ZStackView.swift in Sources */,
 				4BFE618A2663E8BF00C5C032 /* Book.InteractiveNode.swift in Sources */,
@@ -1011,7 +1019,7 @@
 		};
 		4B873C4523084047006170B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13FC1F5271FF562E96223AAB /* Pods-Demo.debug.xcconfig */;
+			baseConfigurationReference = 8D61D50576B754CEC99605E6 /* Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1033,7 +1041,7 @@
 		};
 		4B873C4623084047006170B1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36BB5D9261CA6C5AFDF8EB59 /* Pods-Demo.release.xcconfig */;
+			baseConfigurationReference = 3E7680D0CC6B4F2D180803E7 /* Pods-Demo-TextureSwiftSuppoprt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

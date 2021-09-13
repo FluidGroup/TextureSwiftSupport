@@ -129,6 +129,12 @@ open class AnyDisplayNode: SafeAreaDisplayNode {
     backgroundColor = color
     return self
   }
+
+  @discardableResult
+  public final func setIsLayerBacked(_ isEnabled: Bool) -> Self {
+    isLayerBacked = isEnabled
+    return self
+  }
      
 }
 

@@ -21,6 +21,8 @@ let book = Book(title: "TextureSwiftSupport") {
     Book.tiledLayer()
   }
 
+  Book.layerBacked()
+
   BookPush(title: "Transition") {
     TransitionLayoutViewController()
   }
@@ -40,4 +42,5 @@ let book = Book(title: "TextureSwiftSupport") {
   BookPush(title: "Test recursive layout") {
     RecursiveLayoutViewController()
   }
+
 }

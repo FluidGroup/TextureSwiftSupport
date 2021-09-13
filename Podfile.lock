@@ -1,38 +1,38 @@
 PODS:
   - EasyPeasy (1.10.0)
-  - GlossButtonNode (3.1.0):
+  - GlossButtonNode (3.1.2):
     - Texture/Core (~> 3)
-    - TextureSwiftSupport (= 3.10.0)
-  - Reveal-SDK (29)
-  - StorybookKit (1.6.0)
-  - StorybookKitTextureSupport (1.6.0):
-    - StorybookKit
+    - TextureSwiftSupport (>= 3.10.0)
+  - Reveal-SDK (31)
+  - StorybookKit (1.7.0)
+  - StorybookKitTextureSupport (1.7.0):
+    - StorybookKit (>= 1.7.0)
     - Texture/Core (>= 3.0.0)
     - TextureBridging (>= 3.0.1)
     - TextureSwiftSupport (>= 3.9.0)
-  - StorybookUI (1.6.0):
+  - StorybookUI (1.7.0):
     - StorybookKit (>= 1.3.0)
   - Texture/Core (3.0.0)
   - TextureBridging (3.0.1):
     - Texture/Core (~> 3)
-  - TextureSwiftSupport (3.10.0):
+  - TextureSwiftSupport (3.11.0):
     - Texture/Core (>= 3)
-    - TextureSwiftSupport/Components (= 3.10.0)
-    - TextureSwiftSupport/Experiments (= 3.10.0)
-    - TextureSwiftSupport/Extensions (= 3.10.0)
-    - TextureSwiftSupport/LayoutSpecBuilders (= 3.10.0)
-  - TextureSwiftSupport/Components (3.10.0):
+    - TextureSwiftSupport/Components (= 3.11.0)
+    - TextureSwiftSupport/Experiments (= 3.11.0)
+    - TextureSwiftSupport/Extensions (= 3.11.0)
+    - TextureSwiftSupport/LayoutSpecBuilders (= 3.11.0)
+  - TextureSwiftSupport/Components (3.11.0):
     - Texture/Core (>= 3)
     - TextureSwiftSupport/LayoutSpecBuilders
-  - TextureSwiftSupport/Experiments (3.10.0):
+  - TextureSwiftSupport/Experiments (3.11.0):
     - Texture/Core (>= 3)
-  - TextureSwiftSupport/Extensions (3.10.0):
+  - TextureSwiftSupport/Extensions (3.11.0):
     - Texture/Core (>= 3)
-  - TextureSwiftSupport/LayoutSpecBuilders (3.10.0):
+  - TextureSwiftSupport/LayoutSpecBuilders (3.11.0):
     - Texture/Core (>= 3)
-  - TypedTextAttributes (1.1.0)
-  - Verge/ObjcBridge (8.12.0)
-  - Verge/Store (8.12.0):
+  - TypedTextAttributes (1.2.0)
+  - Verge/ObjcBridge (8.12.1)
+  - Verge/Store (8.12.1):
     - Verge/ObjcBridge
 
 DEPENDENCIES:
@@ -66,17 +66,17 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   EasyPeasy: b9b1bae024d21a7dfa9bad26d6826d88348cc6f1
-  GlossButtonNode: 9acd5b9703440d3b1b02e4ae074597060e91b2c5
-  Reveal-SDK: 0ecda2395cf587e2f574c19a723b3dd27c90572e
-  StorybookKit: e9da951187f26b97a6d25a8db70d43c702c2395e
-  StorybookKitTextureSupport: 68885d93e264d7fe958e510f0f56971972b7c35f
-  StorybookUI: b9c17e32623e2d6cd9ffba29c665a4ddce3a87d1
+  GlossButtonNode: 4ea1197a744f2fb5fb875fe31caf17ded4762e8f
+  Reveal-SDK: 62ae124d57732c4fe7e88635274ca24054dd2d29
+  StorybookKit: 6821c796c7abd909ea370dbf86eb7bd5087a9e04
+  StorybookKitTextureSupport: 2fe047a155f87dedff413247ce1d53e26e726a1e
+  StorybookUI: aa60ba1ea5a169f39134822cddd2248f3840b79e
   Texture: 2f109e937850d94d1d07232041c9c7313ccddb81
   TextureBridging: b4035a6a9e64d061f3238f3dc08abd36b8eff8f7
-  TextureSwiftSupport: a31def8c674716ae111be64c19caab2471fee761
-  TypedTextAttributes: fc3a5a8c4a7a28304446f8c5e8af146d11c2163a
-  Verge: cd1548865edbf2ad01a75f8028885cf1035f24e5
+  TextureSwiftSupport: b97859d0f3016f1af2f276bf6d987e916b23b150
+  TypedTextAttributes: 624acbbc3bd067453d76f7408c6d6c5f0964d51b
+  Verge: c5852bedda3db736952b3137aae44f711cc7a041
 
-PODFILE CHECKSUM: 9d485b8c4d147290055e8228402d2f9db447605d
+PODFILE CHECKSUM: 54d9ad9b3a5b037310ae28b1f33a1eeea4e8f0f5
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.0
