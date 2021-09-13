@@ -18,7 +18,7 @@ target "TextureSwiftSupport" do
   end
 end
 
-target "Demo" do
+target "Demo-TextureSwiftSuppoprt" do
   platform :ios, '12.1'
   texture
   pod "TypedTextAttributes"
