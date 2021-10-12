@@ -23,8 +23,8 @@ open class StackScrollNode : NamedDisplayNodeBase, ASCollectionDelegate, ASColle
     return collectionNode.view
   }
 
-  open var collectionViewLayout: UICollectionViewLayout {
-    return collectionNode.view.collectionViewLayout
+  open var collectionViewLayout: UICollectionViewFlowLayout {
+    return collectionNode.view.collectionViewLayout as! UICollectionViewFlowLayout
   }
 
   open private(set) var nodes: [ASCellNode] = []
@@ -38,6 +38,20 @@ open class StackScrollNode : NamedDisplayNodeBase, ASCollectionDelegate, ASColle
     collectionNode.backgroundColor = .clear
 
     super.init()
+  }
+
+  public convenience init(
+    scrollDirection: UICollectionView.ScrollDirection,
+    spacing: CGFloat,
+    sectionInset: UIEdgeInsets
+  ) {
+
+    let layout = UICollectionViewFlowLayout()
+    layout.scrollDirection = scrollDirection
+    layout.minimumLineSpacing = spacing
+    layout.sectionInset = sectionInset
+
+    self.init(layout: layout)
   }
 
   public override convenience init() {
@@ -87,7 +101,16 @@ open class StackScrollNode : NamedDisplayNodeBase, ASCollectionDelegate, ASColle
 
     collectionNode.delegate = self
     collectionNode.dataSource = self
-    collectionNode.view.alwaysBounceVertical = true
+
+    switch collectionViewLayout.scrollDirection {
+    case .vertical:
+      collectionNode.view.alwaysBounceVertical = true
+    case .horizontal:
+      collectionNode.view.alwaysBounceHorizontal = true
+    @unknown default:
+      assertionFailure()
+    }
+
   }
 
   open override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -99,10 +122,24 @@ open class StackScrollNode : NamedDisplayNodeBase, ASCollectionDelegate, ASColle
 
   public func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
 
-    return ASSizeRange(
-      min: .init(width: collectionNode.bounds.width, height: 0),
-      max: .init(width: collectionNode.bounds.width, height: .infinity)
-    )
+    switch collectionViewLayout.scrollDirection {
+    case .vertical:
+
+      return ASSizeRange(
+        min: .init(width: collectionNode.bounds.width, height: 0),
+        max: .init(width: collectionNode.bounds.width, height: .infinity)
+      )
+
+    case .horizontal:
+
+      return ASSizeRange(
+        min: .init(width: 0, height: collectionNode.bounds.height),
+        max: .init(width: .infinity, height: collectionNode.bounds.height)
+      )
+
+    @unknown default:
+      fatalError()
+    }
   }
 
   // MARK: - ASCollectionDataSource
