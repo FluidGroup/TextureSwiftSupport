@@ -30,13 +30,17 @@ open class WrapperCellNode<Content : ASDisplayNode> : NamedDisplayCellNodeBase {
   }
   
   public let content: Content
-  
-  public init(child: () -> Content) {
-    let content = child()
+
+  public init(content: Content) {
     self.content = content
     super.init()
     clipsToBounds = false
     addSubnode(content)
+  }
+
+  @available(*, deprecated, message: "Use .init(content:)")
+  public convenience init(child: () -> Content) {
+    self.init(content: child())
   }
   
   public final override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
