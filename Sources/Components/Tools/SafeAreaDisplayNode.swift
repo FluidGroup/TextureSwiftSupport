@@ -45,6 +45,9 @@ open class SafeAreaDisplayNode: NamedDisplayNodeBase {
     super.safeAreaInsetsDidChange()
     capturedSafeAreaInsets = safeAreaInsets
     setNeedsLayout()
+    layoutIfNeeded()
+    /// to propagate safeAreaInsets
+    view.setNeedsLayout()
   }
   
   open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
