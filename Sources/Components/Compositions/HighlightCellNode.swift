@@ -8,12 +8,13 @@ open class HighlightCellNode<D: ASDisplayNode>: NamedDisplayCellNodeBase {
     return false
   }
 
-  public let overlayNode: ASDisplayNode?
+  public private(set) var overlayNode: ASDisplayNode?
   public let bodyNode: D
 
   private let animationTargetNode: ASDisplayNode
   private let highlightAnimation: HighlightAnimationDescriptor
   private let haptics: HapticsDescriptor?
+  private var highlightHandler: HighlightAnimationDescriptor.Context.Handler?
 
   private var onTapClosure: () -> Void = {}
 
@@ -27,7 +28,6 @@ open class HighlightCellNode<D: ASDisplayNode>: NamedDisplayCellNodeBase {
 
     self.haptics = haptics
 
-    self.overlayNode = animation.overlayNode
     let body = bodyNode()
     self.bodyNode = body
     if body.isLayerBacked {
@@ -45,9 +45,22 @@ open class HighlightCellNode<D: ASDisplayNode>: NamedDisplayCellNodeBase {
     clipsToBounds = false
 
     addSubnode(animationTargetNode)
-    self.overlayNode.map {
-      addSubnode($0)
+  }
+
+  open override func didLoad() {
+    super.didLoad()
+    let context = highlightAnimation.prepare()
+
+    if let overlay = context.overlay {
+      let node = ASDisplayNode.init(viewBlock: {
+        overlay
+      })
+      self.overlayNode = node
+      addSubnode(node)
+      setNeedsLayout()
     }
+
+    self.highlightHandler = context.handler
   }
 
   open override func layoutSpecThatFits(
@@ -62,7 +75,7 @@ open class HighlightCellNode<D: ASDisplayNode>: NamedDisplayCellNodeBase {
 
   open override var isHighlighted: Bool {
     didSet {
-      highlightAnimation.animation(isHighlighted, self, animationTargetNode)
+      highlightHandler?(isHighlighted, self.view, animationTargetNode.view)
     }
   }
 
