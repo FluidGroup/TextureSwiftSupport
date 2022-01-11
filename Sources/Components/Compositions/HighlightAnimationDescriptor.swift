@@ -19,29 +19,48 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import AsyncDisplayKit
 import Foundation
 
 public struct HighlightAnimationDescriptor {
-  public typealias Block = (
-    _ isHighlighted: Bool, _ containerNode: ASDisplayNode,
-    _ bodyNode: ASDisplayNode
-  ) -> Void
 
-  public let animation: Block
-  public let overlayNode: ASDisplayNode?
+  public final class Context {
+
+    public typealias Handler = (_ isHighlighted: Bool, _ containerView: UIView, _ bodyView: UIView) -> Void
+
+    public private(set) var overlay: UIView?
+    public private(set) var handler: Handler?
+
+    public init() {
+
+    }
+
+    public func setOverlay(_ overlay: UIView) {
+      self.overlay = overlay
+    }
+
+    public func setHandler(_ handler: @escaping Handler) {
+      self.handler = handler
+    }
+  }
+
+  private let _prepare: (Context) -> Void
 
   public init(
-    overlayNode: () -> ASDisplayNode? = { nil },
-    animation: @escaping Block
+    prepare: @escaping (Context) -> Void
   ) {
-    self.overlayNode = overlayNode()
-    self.animation = animation
+    self._prepare = prepare
+  }
+
+  public func prepare() -> Context {
+    assert(Thread.isMainThread)
+    let context = Context()
+    _prepare(context)
+    return context
   }
 }
 
 extension HighlightAnimationDescriptor {
-  public static let noAnimation: Self = .init { _, _, _ in }
+  public static let noAnimation: Self = .init { _ in }
 
   ///
   public static let bodyShrink: HighlightAnimationDescriptor = customBodyShrink(
@@ -51,61 +70,68 @@ extension HighlightAnimationDescriptor {
   public static func customBodyShrink(
     shrinkingScale: CGFloat
   ) -> HighlightAnimationDescriptor {
-    return .init { isHighlighted, containerNode, body in
+
+    return .init { context in
+
+      context.setHandler { isHighlighted, _, bodyView in
+        if isHighlighted {
+          UIView.animate(
+            withDuration: 0.4,
+            delay: 0,
+            usingSpringWithDamping: 1,
+            initialSpringVelocity: 0,
+            options: [.beginFromCurrentState, .allowUserInteraction],
+            animations: {
+              bodyView.transform = .init(scaleX: shrinkingScale, y: shrinkingScale)
+            },
+            completion: nil
+          )
+        } else {
+          UIView.animate(
+            withDuration: 0.3,
+            delay: 0.1,
+            usingSpringWithDamping: 1,
+            initialSpringVelocity: 0,
+            options: [.beginFromCurrentState, .allowUserInteraction],
+            animations: {
+              bodyView.transform = .identity
+            },
+            completion: nil
+          )
+        }
+      }
+
+    }
+
+  }
+
+  ///
+  public static let translucent: HighlightAnimationDescriptor = .init { context in
+
+    context.setHandler { isHighlighted, containerView, bodyView in
       if isHighlighted {
         UIView.animate(
-          withDuration: 0.4,
+          withDuration: 0.12,
           delay: 0,
-          usingSpringWithDamping: 1,
-          initialSpringVelocity: 0,
-          options: [.beginFromCurrentState, .allowUserInteraction],
+          options: [.beginFromCurrentState, .curveEaseIn, .allowUserInteraction],
           animations: {
-            body.transform = CATransform3DMakeScale(shrinkingScale, shrinkingScale, 1)            
+            containerView.alpha = 0.8
           },
           completion: nil
         )
       } else {
         UIView.animate(
-          withDuration: 0.3,
+          withDuration: 0.08,
           delay: 0.1,
-          usingSpringWithDamping: 1,
-          initialSpringVelocity: 0,
           options: [.beginFromCurrentState, .allowUserInteraction],
           animations: {
-            body.transform = CATransform3DIdentity
+            containerView.alpha = 1
           },
           completion: nil
         )
       }
     }
-  }
 
-  ///
-  public static let translucent: HighlightAnimationDescriptor = .init {
-    isHighlighted,
-      containerNode,
-      body in
-    if isHighlighted {
-      UIView.animate(
-        withDuration: 0.12,
-        delay: 0,
-        options: [.beginFromCurrentState, .curveEaseIn, .allowUserInteraction],
-        animations: {
-          containerNode.alpha = 0.8
-        },
-        completion: nil
-      )
-    } else {
-      UIView.animate(
-        withDuration: 0.08,
-        delay: 0.1,
-        options: [.beginFromCurrentState, .allowUserInteraction],
-        animations: {
-          containerNode.alpha = 1
-        },
-        completion: nil
-      )
-    }
   }
 
   ///
@@ -120,12 +146,41 @@ extension HighlightAnimationDescriptor {
     insets: UIEdgeInsets,
     overlayColor: UIColor = .init(white: 0, alpha: 0.05)
   ) -> HighlightAnimationDescriptor {
-    let containerNode = ASDisplayNode()
-    let overlayNode = ShapeLayerNode.roundedCorner(radius: cornerRadius)
 
-    containerNode.addSubnode(overlayNode)
+    final class ManualPaddingView: UIView {
 
-    containerNode.layoutSpecBlock = { node, size in
+      private let content: UIView
+      private let padding: UIEdgeInsets
+
+      init(content: UIView, padding: UIEdgeInsets) {
+        self.content = content
+        self.padding = padding
+        super.init(frame: .zero)
+
+        addSubview(content)
+      }
+
+      required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+      }
+
+      override func layoutSubviews() {
+        super.layoutSubviews()
+
+        content.frame = bounds.inset(by: padding)
+
+      }
+    }
+
+    return .init { context in
+
+      let overlayView = UIView()
+      if #available(iOS 13.0, *) {
+        overlayView.layer.cornerCurve = .continuous
+      } else {
+        // Fallback on earlier versions
+      }
+      overlayView.layer.cornerRadius = cornerRadius
 
       var insets = insets
       insets.top *= -1
@@ -133,48 +188,52 @@ extension HighlightAnimationDescriptor {
       insets.bottom *= -1
       insets.left *= -1
 
-      return ASInsetLayoutSpec(insets: insets, child: overlayNode)
-    }
+      let overlayContainerView = ManualPaddingView(content: overlayView, padding: insets)
 
-    containerNode.alpha = 0
+      overlayContainerView.alpha = 0
+      
+      context.setOverlay(overlayContainerView)
 
-    return .init(overlayNode: { containerNode }) { isHighlighted, _, body in
+      context.setHandler { isHighlighted, _, bodyView in
 
-      overlayNode.shapeFillColor = overlayColor
+        overlayView.backgroundColor = overlayColor
 
-      if isHighlighted {
-        UIView.animate(
-          withDuration: 0.26,
-          delay: 0,
-          options: [
-            .beginFromCurrentState, .allowAnimatedContent,
-            .allowUserInteraction, .curveEaseOut,
-          ],
-          animations: {
-            containerNode.layer.opacity = 0.98
-            containerNode.transform = CATransform3DMakeScale(0.98, 0.98, 1)
-            body.view.transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
-          },
-          completion: nil
-        )
+        if isHighlighted {
+          UIView.animate(
+            withDuration: 0.26,
+            delay: 0,
+            options: [
+              .beginFromCurrentState, .allowAnimatedContent,
+              .allowUserInteraction, .curveEaseOut,
+            ],
+            animations: {
+              overlayContainerView.layer.opacity = 0.98
+              overlayContainerView.transform = .init(scaleX: 0.98, y: 0.98)
+              bodyView.transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
+            },
+            completion: nil
+          )
 
-      } else {
-        UIView.animate(
-          withDuration: 0.20,
-          delay: 0,
-          options: [
-            .beginFromCurrentState, .allowAnimatedContent,
-            .allowUserInteraction, .curveEaseOut,
-          ],
-          animations: {
-            containerNode.layer.opacity = 0
-            containerNode.transform = CATransform3DIdentity
-            body.view.transform = .identity
-          },
-          completion: nil
-        )
+        } else {
+          UIView.animate(
+            withDuration: 0.20,
+            delay: 0,
+            options: [
+              .beginFromCurrentState, .allowAnimatedContent,
+              .allowUserInteraction, .curveEaseOut,
+            ],
+            animations: {
+              overlayContainerView.layer.opacity = 0
+              overlayContainerView.transform = .identity
+              bodyView.transform = .identity
+            },
+            completion: nil
+          )
+        }
       }
+      
     }
+
   }
 
   ///
@@ -183,42 +242,48 @@ extension HighlightAnimationDescriptor {
     cornerRadius: CGFloat = 0
   ) -> HighlightAnimationDescriptor {
 
-    let overlayNode = ASDisplayNode()
-    overlayNode.backgroundColor = overlayColor
-    overlayNode.alpha = 0
-    overlayNode.onDidLoad { node in
-      node.layer.cornerRadius = cornerRadius
+    return .init { context in
+
+      let overlayView = UIView()
+      overlayView.backgroundColor = overlayColor
+      overlayView.alpha = 0
+
+      overlayView.layer.cornerRadius = cornerRadius
       if #available(iOS 13.0, *) {
-        node.layer.cornerCurve = .continuous
+        overlayView.layer.cornerCurve = .continuous
       }
+
+      context.setOverlay(overlayView)
+
+      context.setHandler { isHighlighted, _, _ in
+
+        if isHighlighted {
+          UIView.animate(
+            withDuration: 0.12,
+            delay: 0,
+            options: [
+              .beginFromCurrentState, .curveEaseIn, .allowUserInteraction,
+            ],
+            animations: {
+              overlayView.alpha = 1
+            },
+            completion: nil
+          )
+
+        } else {
+          UIView.animate(
+            withDuration: 0.08,
+            delay: 0.1,
+            options: [.beginFromCurrentState, .allowUserInteraction],
+            animations: {
+              overlayView.alpha = 0
+            },
+            completion: nil
+          )
+        }
+      }
+
     }
 
-    return .init(overlayNode: { overlayNode }) { isHighlighted, _, _ in
-
-      if isHighlighted {
-        UIView.animate(
-          withDuration: 0.12,
-          delay: 0,
-          options: [
-            .beginFromCurrentState, .curveEaseIn, .allowUserInteraction,
-          ],
-          animations: {
-            overlayNode.alpha = 1
-          },
-          completion: nil
-        )
-
-      } else {
-        UIView.animate(
-          withDuration: 0.08,
-          delay: 0.1,
-          options: [.beginFromCurrentState, .allowUserInteraction],
-          animations: {
-            overlayNode.alpha = 0
-          },
-          completion: nil
-        )
-      }
-    }
   }
 }

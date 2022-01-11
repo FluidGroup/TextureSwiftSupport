@@ -43,14 +43,15 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
 
   public var handlers = Handlers()
 
-  public let overlayNode: ASDisplayNode?
+  public private(set) var overlayNode: ASDisplayNode?
   public let bodyNode: D
 
   private let animationTargetNode: ASDisplayNode
-  private let onChangedIsHighlighted: HighlightAnimationDescriptor
+  private let highlightAnimation: HighlightAnimationDescriptor
 
   private let useLongPressGesture: Bool
   private let haptics: HapticsDescriptor?
+  private var highlightHandler: HighlightAnimationDescriptor.Context.Handler?
 
   // MARK: - Initializers
 
@@ -64,7 +65,6 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
     self.haptics = haptics
     self.useLongPressGesture = useLongPressGesture
 
-    overlayNode = animation.overlayNode
     let body = bodyNode()
     self.bodyNode = body
     if body.isLayerBacked {
@@ -76,21 +76,30 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
     } else {
       animationTargetNode = body
     }
-    onChangedIsHighlighted = animation
+    highlightAnimation = animation
 
     super.init()
 
     clipsToBounds = false
 
     addSubnode(animationTargetNode)
-
-    overlayNode.map {
-      addSubnode($0)
-    }
   }
 
   override open func didLoad() {
     super.didLoad()
+
+    let context = highlightAnimation.prepare()
+
+    if let overlay = context.overlay {
+      let node = ASDisplayNode.init(viewBlock: {
+        overlay
+      })
+      self.overlayNode = node
+      addSubnode(node)
+      setNeedsLayout()
+    }
+
+    self.highlightHandler = context.handler
 
     addTarget(
       self,
@@ -124,9 +133,9 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
     }
   }
 
-  override open var isHighlighted: Bool {
+  open override var isHighlighted: Bool {
     didSet {
-      onChangedIsHighlighted.animation(isHighlighted, self, animationTargetNode)
+      highlightHandler?(isHighlighted, self.view, animationTargetNode.view)
     }
   }
 
