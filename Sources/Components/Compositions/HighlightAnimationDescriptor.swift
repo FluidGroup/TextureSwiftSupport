@@ -20,6 +20,7 @@
 // THE SOFTWARE.
 
 import Foundation
+import Descriptors
 
 public struct HighlightAnimationDescriptor {
 

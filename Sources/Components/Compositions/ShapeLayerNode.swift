@@ -1,14 +1,8 @@
-//
-//  ShapeLayerNode.swift
-//  AppUIKit
-//
-//  Created by muukii on 2019/01/27.
-//  Copyright © 2019 eure. All rights reserved.
-//
 
 import Foundation
 
 import AsyncDisplayKit
+import Descriptors
 
 fileprivate final class BackingShapeLayerNode : ASDisplayNode {
   
