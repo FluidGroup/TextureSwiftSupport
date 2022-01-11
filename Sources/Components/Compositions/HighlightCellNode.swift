@@ -1,4 +1,5 @@
 import AsyncDisplayKit
+import Descriptors
 
 open class HighlightCellNode<D: ASDisplayNode>: NamedDisplayCellNodeBase {
 
