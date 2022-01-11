@@ -20,6 +20,7 @@
 // THE SOFTWARE.
 
 import AsyncDisplayKit
+import Descriptors
 
 public final class AnyStyledEdgeNode: StyledEdgeNode<ASDisplayNode> {
 
@@ -285,7 +286,7 @@ public class StyledEdgeNode<ContentNode: ASDisplayNode>: NamedDisplayNodeBase {
 
 }
 
-extension TextureSwiftSupport.ShapeDisplaying {
+extension ShapeDisplaying {
 
   fileprivate static func roundedCornerInversed(radius: CGFloat) -> Self {
     return self.init { bounds in
