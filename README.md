@@ -21,6 +21,8 @@ Swiift 5.3+
 
 Using [`resultBuilders`](https://github.com/apple/swift-evolution/blob/main/proposals/0289-result-builders.md), `ASLayoutSpec` can be more simply and readable it's like SwiftUI's decralations.
 
+> 🕺🏻 [You want to use this in AutoLayout? ](https://github.com/muukii/MondrianLayout)
+
 **Before**
 
 ```swift
