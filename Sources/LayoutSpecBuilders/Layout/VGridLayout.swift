@@ -112,6 +112,7 @@ public struct VGridLayout<Content> : _ASLayoutElementType where Content : _ASLay
               case .fixed(let length):
 
                 spec.style.width = ASDimension(unit: .points, value: length)
+                spec.style.flexShrink = 0
 
               case .flexible(let minimum, let maximum):
 
@@ -127,12 +128,11 @@ public struct VGridLayout<Content> : _ASLayoutElementType where Content : _ASLay
                   spec.style.maxWidth = ASDimension(unit: .points, value: minimum)
                 }
 
+                spec.style.width = ASDimension(unit: .fraction, value: 1)
+                spec.style.flexShrink = 1
               }
 
             }
-
-            spec.style.width = ASDimension(unit: .fraction, value: 1)
-            spec.style.flexShrink = 1
 
             return spec
           }
