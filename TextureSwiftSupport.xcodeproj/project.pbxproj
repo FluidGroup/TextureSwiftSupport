@@ -88,6 +88,7 @@
 		4BFE61882663E53900C5C032 /* HapticsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE61872663E53900C5C032 /* HapticsDescriptor.swift */; };
 		4BFE618A2663E8BF00C5C032 /* Book.InteractiveNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE61892663E8BF00C5C032 /* Book.InteractiveNode.swift */; };
 		5E1466C33BD464A174155DF9 /* Pods_TextureSwiftSupportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E55AE74C9FB7B22C94CCC1A1 /* Pods_TextureSwiftSupportTests.framework */; };
+		B5C1F96B27B4DC4500A76CA0 /* TextureDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1F96A27B4DC4500A76CA0 /* TextureDebug.swift */; };
 		C10F60211BD6F4CB5AD92EC0 /* Pods_Demo_TextureSwiftSuppoprt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C23649818DE28AA59570663A /* Pods_Demo_TextureSwiftSuppoprt.framework */; };
 		F7C9D342E080CFF7361B81C2 /* Pods_TextureSwiftSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E24A3D7641080B18EE97C1D /* Pods_TextureSwiftSupport.framework */; };
 /* End PBXBuildFile section */
@@ -198,6 +199,7 @@
 		4BFE61892663E8BF00C5C032 /* Book.InteractiveNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.InteractiveNode.swift; sourceTree = "<group>"; };
 		5E24A3D7641080B18EE97C1D /* Pods_TextureSwiftSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextureSwiftSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D61D50576B754CEC99605E6 /* Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig"; path = "Target Support Files/Pods-Demo-TextureSwiftSuppoprt/Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig"; sourceTree = "<group>"; };
+		B5C1F96A27B4DC4500A76CA0 /* TextureDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureDebug.swift; sourceTree = "<group>"; };
 		C23649818DE28AA59570663A /* Pods_Demo_TextureSwiftSuppoprt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo_TextureSwiftSuppoprt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B1B5868BA053074C4A411C /* Pods-TextureSwiftSupportTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureSwiftSupportTests.debug.xcconfig"; path = "Target Support Files/Pods-TextureSwiftSupportTests/Pods-TextureSwiftSupportTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E55AE74C9FB7B22C94CCC1A1 /* Pods_TextureSwiftSupportTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextureSwiftSupportTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -424,6 +426,7 @@
 			children = (
 				4B5CEFC7235264CA00607980 /* _NodeLayout.swift */,
 				4BC02A312631530F006E3AB3 /* NodeFactory.swift */,
+				B5C1F96A27B4DC4500A76CA0 /* TextureDebug.swift */,
 			);
 			path = Experiments;
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 				4BC22F932642762300D1C43B /* WrapperLayout.swift in Sources */,
 				4B8666FE26412BDD00A81E53 /* VGridLayout.swift in Sources */,
 				4BC22FA3264276A500D1C43B /* SpacerLayout.swift in Sources */,
+				B5C1F96B27B4DC4500A76CA0 /* TextureDebug.swift in Sources */,
 				4BC70ECD23F7557E00197B7B /* NamedDisplayCellNodeBase.swift in Sources */,
 				4BCB452F266A6F7900C08536 /* HighlightCellNode.swift in Sources */,
 				4B086A462464434C0024F5A1 /* TextureSwiftSupport.swift in Sources */,
