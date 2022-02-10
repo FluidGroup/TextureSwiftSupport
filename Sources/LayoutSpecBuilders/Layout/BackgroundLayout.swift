@@ -13,7 +13,10 @@ public struct BackgroundLayout<BackgroundContnt, Content> : _ASLayoutElementType
 
   public func tss_make() -> [ASLayoutElement] {
     [
-      ASBackgroundLayoutSpec(child: content.tss_make().first!, background: background.tss_make().first!)
+      ASBackgroundLayoutSpec(
+        child: content.tss_make().first!,
+        background: background.tss_make().first ?? ASLayoutSpec()
+      )
     ]
   }
 
