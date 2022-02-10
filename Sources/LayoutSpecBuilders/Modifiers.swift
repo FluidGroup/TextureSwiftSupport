@@ -138,9 +138,17 @@ extension _ASLayoutElementType {
   public func background<Background: _ASLayoutElementType>(_ backgroundContent: Background) -> BackgroundLayout<Background, Self> {
     BackgroundLayout(content: { self }, background: { backgroundContent })
   }
+
+  public func background<Background: _ASLayoutElementType>(@ASLayoutSpecBuilder _ backgroundContent: () -> Background) -> BackgroundLayout<Background, Self> {
+    BackgroundLayout(content: { self }, background: backgroundContent)
+  }
     
   public func overlay<Overlay: _ASLayoutElementType>(_ overlayContent: Overlay) -> OverlayLayout<Overlay, Self> {
     OverlayLayout(content: { self }, overlay: { overlayContent })
+  }
+
+  public func overlay<Overlay: _ASLayoutElementType>(@ASLayoutSpecBuilder _ overlayContent: () -> Overlay) -> OverlayLayout<Overlay, Self> {
+    OverlayLayout(content: { self }, overlay: overlayContent)
   }
   
   /// Make aspectRatio
