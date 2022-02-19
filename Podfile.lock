@@ -1,4 +1,7 @@
 PODS:
+  - Descriptors (0.1.0):
+    - Descriptors/Core (= 0.1.0)
+  - Descriptors/Core (0.1.0)
   - EasyPeasy (1.10.0)
   - GlossButtonNode (3.1.2):
     - Texture/Core (~> 3)
@@ -15,20 +18,21 @@ PODS:
   - Texture/Core (3.1.0)
   - TextureBridging (3.0.1):
     - Texture/Core (~> 3)
-  - TextureSwiftSupport (3.13.0):
+  - TextureSwiftSupport (3.14.1):
     - Texture/Core (>= 3)
-    - TextureSwiftSupport/Components (= 3.13.0)
-    - TextureSwiftSupport/Experiments (= 3.13.0)
-    - TextureSwiftSupport/Extensions (= 3.13.0)
-    - TextureSwiftSupport/LayoutSpecBuilders (= 3.13.0)
-  - TextureSwiftSupport/Components (3.13.0):
+    - TextureSwiftSupport/Components (= 3.14.1)
+    - TextureSwiftSupport/Experiments (= 3.14.1)
+    - TextureSwiftSupport/Extensions (= 3.14.1)
+    - TextureSwiftSupport/LayoutSpecBuilders (= 3.14.1)
+  - TextureSwiftSupport/Components (3.14.1):
+    - Descriptors (>= 0.1.0)
     - Texture/Core (>= 3)
     - TextureSwiftSupport/LayoutSpecBuilders
-  - TextureSwiftSupport/Experiments (3.13.0):
+  - TextureSwiftSupport/Experiments (3.14.1):
     - Texture/Core (>= 3)
-  - TextureSwiftSupport/Extensions (3.13.0):
+  - TextureSwiftSupport/Extensions (3.14.1):
     - Texture/Core (>= 3)
-  - TextureSwiftSupport/LayoutSpecBuilders (3.13.0):
+  - TextureSwiftSupport/LayoutSpecBuilders (3.14.1):
     - Texture/Core (>= 3)
   - TypedTextAttributes (1.3.0)
   - Verge/ObjcBridge (8.12.2)
@@ -48,7 +52,8 @@ DEPENDENCIES:
   - Verge/Store
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
+    - Descriptors
     - EasyPeasy
     - GlossButtonNode
     - Reveal-SDK
@@ -65,6 +70,7 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
+  Descriptors: 65cac3325f4a35e38ac3a0a341a12da99709a54a
   EasyPeasy: b9b1bae024d21a7dfa9bad26d6826d88348cc6f1
   GlossButtonNode: 4ea1197a744f2fb5fb875fe31caf17ded4762e8f
   Reveal-SDK: effba1c940b8337195563c425a6b5862ec875caa
@@ -73,10 +79,10 @@ SPEC CHECKSUMS:
   StorybookUI: aa60ba1ea5a169f39134822cddd2248f3840b79e
   Texture: 2e8ab2519452515f7f5a520f5a8f7e0a413abfa3
   TextureBridging: b4035a6a9e64d061f3238f3dc08abd36b8eff8f7
-  TextureSwiftSupport: c515c7927fab92d0d9485f49b885b8c5de34fbfb
+  TextureSwiftSupport: d763851eb9b8b2de62074a86700024ad89be9abe
   TypedTextAttributes: f713af4c5a7d97593e0cfdaba57506d912414aee
   Verge: 052910fb8112128687695f238aaba5770a0a8b04
 
-PODFILE CHECKSUM: 54d9ad9b3a5b037310ae28b1f33a1eeea4e8f0f5
+PODFILE CHECKSUM: 22873cf25a5c9bd3bc45f0ad5f3dae21bd8e10d4
 
 COCOAPODS: 1.11.2
