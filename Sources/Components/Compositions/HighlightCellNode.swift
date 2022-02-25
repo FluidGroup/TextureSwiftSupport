@@ -18,6 +18,7 @@ open class HighlightCellNode<D: ASDisplayNode>: NamedDisplayCellNodeBase {
   private var highlightHandler: HighlightAnimationDescriptor.Context.Handler?
 
   private var onTapClosure: () -> Void = {}
+  private var onChangedSelectedClosure: (Bool) -> Void = { _ in }
 
   // MARK: - Initializers
 
@@ -79,6 +80,15 @@ open class HighlightCellNode<D: ASDisplayNode>: NamedDisplayCellNodeBase {
       highlightHandler?(isHighlighted, self.view, animationTargetNode.view)
     }
   }
+  
+  open override var isSelected: Bool {
+    didSet {
+      guard isSelected != oldValue else {
+        return
+      }
+      onChangedSelectedClosure(isSelected)
+    }
+  }
 
   open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesBegan(touches, with: event)
@@ -94,6 +104,12 @@ open class HighlightCellNode<D: ASDisplayNode>: NamedDisplayCellNodeBase {
   @discardableResult
   public func onTap(_ handler: @escaping () -> Void) -> Self {
     onTapClosure = handler
+    return self
+  }
+  
+  @discardableResult
+  public func onChangedIsSelected(_ handler: @escaping (Bool) -> Void) -> Self {
+    onChangedSelectedClosure = handler
     return self
   }
 
