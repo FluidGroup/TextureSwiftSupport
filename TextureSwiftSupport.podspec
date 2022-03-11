@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   spec.subspec "Components" do |ss|
     ss.source_files = "Sources/Components/**/*.swift"
     ss.dependency "TextureSwiftSupport/LayoutSpecBuilders"
-    ss.dependency "Descriptors", ">= 0.2.0"
+    ss.dependency "Descriptors", ">= 0.2.1"
   end
 
   spec.subspec "Extensions" do |ss|
