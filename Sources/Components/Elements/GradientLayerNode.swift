@@ -20,6 +20,7 @@
 // THE SOFTWARE.
 
 import AsyncDisplayKit
+import Descriptors
 
 fileprivate final class GradientLayerView: UIView {
   override class var layerClass: AnyClass {
@@ -50,5 +51,10 @@ open class GradientLayerNode : ASDisplayNode {
     backgroundColor = .clear
   }
   
+  open func setDescriptor(descriptor: LinearGradientDescriptor) {
+    assert(Thread.isMainThread)
+    ASPerformBlockOnMainThread {
+      descriptor.apply(to: (self.view.layer as! CAGradientLayer))
+    }
+  }
 }
-
