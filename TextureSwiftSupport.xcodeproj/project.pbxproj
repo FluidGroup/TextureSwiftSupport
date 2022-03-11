@@ -11,8 +11,6 @@
 		4B15BCD82667D717006A0D04 /* Book.StyledEdgeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15BCD72667D717006A0D04 /* Book.StyledEdgeNode.swift */; };
 		4B19E610244DD9F0009FD799 /* AnyDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */; };
 		4B22761B2454A9E500F39A16 /* GradientLayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B22761A2454A9AF00F39A16 /* GradientLayerNode.swift */; };
-		4B2497DD264964520013340B /* LinearGradientDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2497DC264964520013340B /* LinearGradientDrawer.swift */; };
-		4B2497DE264964520013340B /* LinearGradientDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2497DB264964520013340B /* LinearGradientDescriptor.swift */; };
 		4B2497E02649646A0013340B /* GradientDrawingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2497DF2649646A0013340B /* GradientDrawingNode.swift */; };
 		4B28C83E264FEDF900C1ABA3 /* TransitionLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B28C83D264FEDF900C1ABA3 /* TransitionLayoutViewController.swift */; };
 		4B2A018325B6E76E00D7C188 /* RecursiveLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A018225B6E76E00D7C188 /* RecursiveLayoutViewController.swift */; };
@@ -113,8 +111,6 @@
 		4B15BCD72667D717006A0D04 /* Book.StyledEdgeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.StyledEdgeNode.swift; sourceTree = "<group>"; };
 		4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDisplayNode.swift; sourceTree = "<group>"; };
 		4B22761A2454A9AF00F39A16 /* GradientLayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLayerNode.swift; sourceTree = "<group>"; };
-		4B2497DB264964520013340B /* LinearGradientDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGradientDescriptor.swift; sourceTree = "<group>"; };
-		4B2497DC264964520013340B /* LinearGradientDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGradientDrawer.swift; sourceTree = "<group>"; };
 		4B2497DF2649646A0013340B /* GradientDrawingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientDrawingNode.swift; sourceTree = "<group>"; };
 		4B28C83D264FEDF900C1ABA3 /* TransitionLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionLayoutViewController.swift; sourceTree = "<group>"; };
 		4B2A018225B6E76E00D7C188 /* RecursiveLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecursiveLayoutViewController.swift; sourceTree = "<group>"; };
@@ -246,8 +242,6 @@
 		4B2276192454A99800F39A16 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
-				4B2497DB264964520013340B /* LinearGradientDescriptor.swift */,
-				4B2497DC264964520013340B /* LinearGradientDrawer.swift */,
 				4B2497DF2649646A0013340B /* GradientDrawingNode.swift */,
 				4B22761A2454A9AF00F39A16 /* GradientLayerNode.swift */,
 			);
@@ -740,7 +734,6 @@
 				4BC22F8F2642760200D1C43B /* HStackLayout.swift in Sources */,
 				4BC22FA12642769200D1C43B /* AspectRatioLayout.swift in Sources */,
 				4BC22F912642761200D1C43B /* ZStackLayout.swift in Sources */,
-				4B2497DE264964520013340B /* LinearGradientDescriptor.swift in Sources */,
 				4BC22F9D2642766B00D1C43B /* OverlayLayout.swift in Sources */,
 				4BC70EC923F74E8C00197B7B /* NamedDisplayNodeBase.swift in Sources */,
 				4B6FA0392468B5EC00C21A53 /* MaskingNode.swift in Sources */,
@@ -755,7 +748,6 @@
 				4BE6527A246481DE004346D6 /* SwitchCaseLayout.swift in Sources */,
 				4B5CEFC8235264CA00607980 /* _NodeLayout.swift in Sources */,
 				4B56350524188930000A37AC /* ASSizeRange+.swift in Sources */,
-				4B2497DD264964520013340B /* LinearGradientDrawer.swift in Sources */,
 				4BC70ECB23F74EAB00197B7B /* SafeAreaDisplayNode.swift in Sources */,
 				4B5C387F242F0EEF005D9722 /* WrapperNode.swift in Sources */,
 				4BC22F9F2642767C00D1C43B /* BackgroundLayout.swift in Sources */,

@@ -10,6 +10,7 @@ target "TextureSwiftSupport" do
   # Comment the next line if you don't want to use dynamic frameworks
 
   pod "Verge/Store"
+  pod "Descriptors", ">= 0.2.1"
   texture
 
   target "TextureSwiftSupportTests" do
