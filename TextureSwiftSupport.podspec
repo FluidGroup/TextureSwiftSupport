@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "TextureSwiftSupport"
-  spec.version = "3.15.0"
+  spec.version = "3.16.0"
   spec.summary = "A tool kit for Texture"
   spec.description = <<-DESC
   A library that gains Texture more power in Swift.
@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   spec.subspec "Components" do |ss|
     ss.source_files = "Sources/Components/**/*.swift"
     ss.dependency "TextureSwiftSupport/LayoutSpecBuilders"
-    ss.dependency "Descriptors", ">= 0.1.0"
+    ss.dependency "Descriptors", ">= 0.2.0"
   end
 
   spec.subspec "Extensions" do |ss|
