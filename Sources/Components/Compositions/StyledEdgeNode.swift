@@ -112,32 +112,16 @@ public class StyledEdgeNode<ContentNode: ASDisplayNode>: NamedDisplayNodeBase {
     )
 
   }
-
-  public convenience init(
-    cornerRadius: CGFloat,
-    cornerRoundingStrategy: StyledEdgeCornerRoundingStrategy,
-    border: StyledEdgeBorderDescriptor? = nil,
-    contentNode: @autoclosure () -> ContentNode
-  ) {
-
-    self.init(
-      cornerRadius: cornerRadius,
-      cornerRoundingStrategy: cornerRoundingStrategy,
-      border: border,
-      contentNode: contentNode
-    )
-
-  }
-
+  
   public init(
     cornerRadius: CGFloat,
     cornerRoundingStrategy: StyledEdgeCornerRoundingStrategy,
     border: StyledEdgeBorderDescriptor? = nil,
-    contentNode: () -> ContentNode
+    contentNode: ContentNode
   ) {
-
+    
     self.cornerRoundingStrategy = cornerRoundingStrategy
-    self.contentNode = contentNode()
+    self.contentNode = contentNode
     self._cornerRadius = cornerRadius
     self.clipNode = .roundedCornerInversed(radius: cornerRadius)
     self.maskNode = .roundedCorner(radius: cornerRadius)
@@ -172,6 +156,40 @@ public class StyledEdgeNode<ContentNode: ASDisplayNode>: NamedDisplayNodeBase {
     // to disable animation
     updateBorder()
     updateStrategy()
+  }
+  
+  @available(*, deprecated, message: "Use init that not using closure to get contentNode.")
+  public convenience init(
+    cornerRadius: CGFloat,
+    cornerRoundingStrategy: StyledEdgeCornerRoundingStrategy,
+    border: StyledEdgeBorderDescriptor? = nil,
+    contentNode: @autoclosure () -> ContentNode
+  ) {
+
+    self.init(
+      cornerRadius: cornerRadius,
+      cornerRoundingStrategy: cornerRoundingStrategy,
+      border: border,
+      contentNode: contentNode
+    )
+
+  }
+
+  @available(*, deprecated, message: "Use init that not using closure to get contentNode.")
+  public convenience init(
+    cornerRadius: CGFloat,
+    cornerRoundingStrategy: StyledEdgeCornerRoundingStrategy,
+    border: StyledEdgeBorderDescriptor? = nil,
+    contentNode: () -> ContentNode
+  ) {
+
+    self.init(
+      cornerRadius: cornerRadius,
+      cornerRoundingStrategy: cornerRoundingStrategy,
+      border: border,
+      contentNode: contentNode()
+    )
+
   }
 
   public override func didLoad() {
