@@ -20,7 +20,7 @@ public struct CornerLayout<CornerContent, Content> : _ASLayoutElementType where 
     corner: () -> CornerContent
   ) {
     self.content = child()
-    self.overlay = overlay()
+    self.cornerContent = corner()
     self.location = location
   }
   
