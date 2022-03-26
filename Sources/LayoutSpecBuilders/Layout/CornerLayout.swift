@@ -15,9 +15,9 @@ public struct CornerLayout<CornerContent, Content> : _ASLayoutElementType where 
   public let location: ASCornerLayoutLocation
   
   public init(
-    location: ASCornerLayoutLocation,
     child: Content,
-    corner: CornerContent
+    corner: CornerContent,
+    location: ASCornerLayoutLocation
   ) {
     self.content = child
     self.cornerContent = corner
