@@ -32,6 +32,8 @@ fileprivate let queue = DispatchQueue.global()
 /// - Author: TetureSwiftSupport
 open class NamedDisplayCellNodeBase: ASCellNode {
   
+  private var __actionHandlers: [(NamedDisplayCellNodeBase, DisplayNodeAction) -> Void] = []
+  
   open override func didLoad() {
     super.didLoad()
     #if DEBUG
@@ -44,5 +46,31 @@ open class NamedDisplayCellNodeBase: ASCellNode {
       }
     }
     #endif
+    
+    propagate(action: .didLoad)
+    
   }
+  
+  /**
+   - Warning: Non-atomic
+   */
+  @discardableResult
+  public func addNodeActionHandler(_ handler: @escaping (Self, DisplayNodeAction) -> Void) -> Self {
+    __actionHandlers.append { node, action in
+      guard let node = node as? Self else {
+        assertionFailure()
+        return
+      }
+      handler(node, action)
+    }
+    
+    return self
+  }
+  
+  private func propagate(action: DisplayNodeAction) {
+    for handler in __actionHandlers {
+      handler(self, action)
+    }
+  }
+
 }
