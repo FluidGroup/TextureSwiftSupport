@@ -19,6 +19,10 @@ final class InstagramPostCellViewController: PlainDisplayNodeViewController {
     
     super.init()
     view.backgroundColor = .white
+    
+    postNode.addNodeActionHandler { node, action in
+      print(node, action)
+    }
   }
   
   @objc
@@ -38,7 +42,7 @@ final class InstagramPostCellViewController: PlainDisplayNodeViewController {
   }
 }
 
-private final class InstagramPostCellNode: ASDisplayNode {
+private final class InstagramPostCellNode: NamedDisplayNodeBase {
   
   private let header: ASDisplayNode
   private let body: ASDisplayNode

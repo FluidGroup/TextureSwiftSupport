@@ -23,6 +23,10 @@ import AsyncDisplayKit
 
 fileprivate let queue = DispatchQueue.global()
 
+public enum DisplayNodeAction {
+  case didLoad
+}
+
 /// An object from Abstract base class
 ///
 /// This object sets name of object for accessibilityIdentifier
@@ -31,6 +35,8 @@ fileprivate let queue = DispatchQueue.global()
 ///
 /// - Author: TetureSwiftSupport
 open class NamedDisplayNodeBase: ASDisplayNode {
+  
+  private var __actionHandlers: [(NamedDisplayNodeBase, DisplayNodeAction) -> Void] = []
 
   open override func didLoad() {
     super.didLoad()
@@ -44,7 +50,32 @@ open class NamedDisplayNodeBase: ASDisplayNode {
       }
     }
     #endif
+    
+    propagate(action: .didLoad)
   }
+  
+  /**
+   - Warning: Non-atomic
+   */
+  @discardableResult
+  public func addNodeActionHandler(_ handler: @escaping (Self, DisplayNodeAction) -> Void) -> Self {
+    __actionHandlers.append { node, action in
+      guard let node = node as? Self else {
+        assertionFailure()
+        return
+      }
+      handler(node, action)
+    }
+    
+    return self
+  }
+  
+  private func propagate(action: DisplayNodeAction) {
+    for handler in __actionHandlers {
+      handler(self, action)
+    }
+  }
+
 }
 
 /// An object from Abstract base class
@@ -55,6 +86,8 @@ open class NamedDisplayNodeBase: ASDisplayNode {
 ///
 /// - Author: TetureSwiftSupport
 open class NamedDisplayControlNodeBase: ASControlNode {
+  
+  private var __actionHandlers: [(NamedDisplayControlNodeBase, DisplayNodeAction) -> Void] = []
 
   open override func didLoad() {
     super.didLoad()
@@ -68,5 +101,29 @@ open class NamedDisplayControlNodeBase: ASControlNode {
       }
     }
     #endif
+    
+    propagate(action: .didLoad)
+  }
+    
+  /**
+   - Warning: Non-atomic
+   */
+  @discardableResult
+  public func addNodeActionHandler(_ handler: @escaping (Self, DisplayNodeAction) -> Void) -> Self {
+    __actionHandlers.append { node, action in
+      guard let node = node as? Self else {
+        assertionFailure()
+        return
+      }
+      handler(node, action)
+    }
+    
+    return self
+  }
+    
+  private func propagate(action: DisplayNodeAction) {
+    for handler in __actionHandlers {
+      handler(self, action)
+    }
   }
 }
