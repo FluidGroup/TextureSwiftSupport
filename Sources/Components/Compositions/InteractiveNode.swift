@@ -55,18 +55,17 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
   private var highlightHandler: HighlightAnimationDescriptor.Context.Handler?
 
   // MARK: - Initializers
-
+  
   public init(
     animation: HighlightAnimationDescriptor,
     haptics: HapticsDescriptor? = nil,
     useLongPressGesture: Bool = false,
-    _ bodyNode: () -> D
+    contentNode: D
   ) {
-
     self.haptics = haptics
     self.useLongPressGesture = useLongPressGesture
-
-    let body = bodyNode()
+    
+    let body = contentNode
     self.bodyNode = body
     if body.isLayerBacked {
       /**
@@ -78,12 +77,29 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
       animationTargetNode = body
     }
     highlightAnimation = animation
-
+    
     super.init()
-
+    
     clipsToBounds = false
-
+    
     addSubnode(animationTargetNode)
+  }
+
+  @available(*, deprecated, message: "Use another initializer that receives content without closure")
+  public convenience init(
+    animation: HighlightAnimationDescriptor,
+    haptics: HapticsDescriptor? = nil,
+    useLongPressGesture: Bool = false,
+    _ bodyNode: () -> D
+  ) {
+
+    self.init(
+      animation: animation,
+      haptics: haptics,
+      useLongPressGesture: useLongPressGesture,
+      contentNode: bodyNode()
+    )
+    
   }
 
   override open func didLoad() {
