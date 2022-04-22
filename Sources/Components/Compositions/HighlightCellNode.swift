@@ -1,6 +1,9 @@
 import AsyncDisplayKit
 import Descriptors
 
+/**
+ Provides highlighting function without tap handling for CollectionView.
+ */
 open class HighlightCellNode<D: ASDisplayNode>: NamedDisplayCellNodeBase {
 
   public typealias BodyNode = D
@@ -21,15 +24,43 @@ open class HighlightCellNode<D: ASDisplayNode>: NamedDisplayCellNodeBase {
   private var onChangedSelectedClosure: (Bool) -> Void = { _ in }
 
   // MARK: - Initializers
+  
+  public init(
+    animation: HighlightAnimationDescriptor,
+    haptics: HapticsDescriptor? = nil,
+    contentNode: D
+  ) {
+    
+    self.haptics = haptics
+    
+    let body = contentNode
+    self.bodyNode = body
+    if body.isLayerBacked {
+      /**
+       If body uses layer-backing, it can't take a view to animate by UIView based animation.
+       With wrapping another node, it enables body-node can be animatable.
+       */
+      self.animationTargetNode = AnyWrapperNode { body }
+    } else {
+      self.animationTargetNode = body
+    }
+    self.highlightAnimation = animation
+    super.init()
+    
+    clipsToBounds = false
+    
+    addSubnode(animationTargetNode)
+    
+  }
 
+  @available(*, deprecated, message: "Use contentNode parameter for bodyNode")
   public init(
     animation: HighlightAnimationDescriptor,
     haptics: HapticsDescriptor? = nil,
     _ bodyNode: () -> D
   ) {
-
     self.haptics = haptics
-
+    
     let body = bodyNode()
     self.bodyNode = body
     if body.isLayerBacked {
@@ -43,9 +74,9 @@ open class HighlightCellNode<D: ASDisplayNode>: NamedDisplayCellNodeBase {
     }
     self.highlightAnimation = animation
     super.init()
-
+    
     clipsToBounds = false
-
+    
     addSubnode(animationTargetNode)
   }
 
