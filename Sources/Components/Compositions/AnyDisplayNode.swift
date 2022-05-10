@@ -71,9 +71,7 @@ open class AnyDisplayNode: SafeAreaDisplayNode {
     retainsUntilDeinitItems: [Any] = [],
     layoutSpecBlock: @escaping (AnyDisplayNode, ASSizeRange) -> ASLayoutSpec
   ) {
-    
-    let file = URL(string: file.description)?.deletingPathExtension().lastPathComponent ?? "unknown"
-    
+        
     self.retainItems = retainsUntilDeinitItems
     super.init()
     self.layoutSpecBlock = { node, constrainedSize in
@@ -82,6 +80,9 @@ open class AnyDisplayNode: SafeAreaDisplayNode {
     self.automaticallyRelayoutOnSafeAreaChanges = true
     self.automaticallyRelayoutOnLayoutMarginsChanges = true
     self.automaticallyManagesSubnodes = true
+    
+    #if DEBUG
+    let file = URL(string: file.description)?.deletingPathExtension().lastPathComponent ?? "unknown"
     self.accessibilityIdentifier = [
       name,
       file,
@@ -89,6 +90,7 @@ open class AnyDisplayNode: SafeAreaDisplayNode {
       line.description
       ]
       .joined(separator: ".")
+    #endif
   }
   
   open override func didLoad() {
