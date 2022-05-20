@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B01A3EC2837A8660058F6B8 /* CollectionNodeCompositionalLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B01A3EB2837A8660058F6B8 /* CollectionNodeCompositionalLayoutViewController.swift */; };
 		4B086A462464434C0024F5A1 /* TextureSwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */; };
 		4B15BCD82667D717006A0D04 /* Book.StyledEdgeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15BCD72667D717006A0D04 /* Book.StyledEdgeNode.swift */; };
 		4B19E610244DD9F0009FD799 /* AnyDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */; };
@@ -104,6 +105,7 @@
 		215C59DB7FDA718082B6AE43 /* Pods-TextureSwiftSupportTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureSwiftSupportTests.release.xcconfig"; path = "Target Support Files/Pods-TextureSwiftSupportTests/Pods-TextureSwiftSupportTests.release.xcconfig"; sourceTree = "<group>"; };
 		36BB5D9261CA6C5AFDF8EB59 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		3E7680D0CC6B4F2D180803E7 /* Pods-Demo-TextureSwiftSuppoprt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-TextureSwiftSuppoprt.release.xcconfig"; path = "Target Support Files/Pods-Demo-TextureSwiftSuppoprt/Pods-Demo-TextureSwiftSuppoprt.release.xcconfig"; sourceTree = "<group>"; };
+		4B01A3EB2837A8660058F6B8 /* CollectionNodeCompositionalLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionNodeCompositionalLayoutViewController.swift; sourceTree = "<group>"; };
 		4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureSwiftSupport.swift; sourceTree = "<group>"; };
 		4B15BCD72667D717006A0D04 /* Book.StyledEdgeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.StyledEdgeNode.swift; sourceTree = "<group>"; };
 		4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDisplayNode.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				4B6FA03A2468B6C900C21A53 /* CompositionCatalogViewController.swift */,
 				4B2A018225B6E76E00D7C188 /* RecursiveLayoutViewController.swift */,
 				4B28C83D264FEDF900C1ABA3 /* TransitionLayoutViewController.swift */,
+				4B01A3EB2837A8660058F6B8 /* CollectionNodeCompositionalLayoutViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -765,6 +768,7 @@
 				4B3C42D6266DCA4F00861ADD /* Book.TiledLayer.swift in Sources */,
 				4BFE5FE12663DE9400C5C032 /* RootContainerViewController.swift in Sources */,
 				4B7F1877266745FD002F9A82 /* Book.ImageNode.swift in Sources */,
+				4B01A3EC2837A8660058F6B8 /* CollectionNodeCompositionalLayoutViewController.swift in Sources */,
 				4B15BCD82667D717006A0D04 /* Book.StyledEdgeNode.swift in Sources */,
 				4B28C83E264FEDF900C1ABA3 /* TransitionLayoutViewController.swift in Sources */,
 				4BC85C1026EFF1B6003BAEAE /* Book.LayerBacking.swift in Sources */,
