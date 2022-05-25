@@ -373,22 +373,14 @@ extension _ASLayoutElementType {
     modifier(MinSizeModifier(minWidth: nil, minHeight: .init(unit: .points, value: height)))
   }
   
-  /// will be deprecated in favor of `width(points:)`
+  /// might be deprecated in favor of `width(points:)`
   public func width(_ width: CGFloat) -> ModifiedContent<Self, SizeModifier> {
     modifier(SizeModifier(width: .init(unit: .points, value: width), height: nil))
   }
   
-  /// will be deprecated in favor of `height(points:)`
+  /// might be deprecated in favor of `height(points:)`
   public func height(_ height: CGFloat) -> ModifiedContent<Self, SizeModifier> {
     modifier(SizeModifier(width: nil, height: .init(unit: .points, value: height)))
-  }
-  
-  public func width(points: CGFloat) -> ModifiedContent<Self, SizeModifier> {
-    modifier(SizeModifier(width: .init(unit: .points, value: points), height: nil))
-  }
-  
-  public func height(points: CGFloat) -> ModifiedContent<Self, SizeModifier> {
-    modifier(SizeModifier(width: nil, height: .init(unit: .points, value: points)))
   }
   
   public func width(fraction: CGFloat) -> ModifiedContent<Self, SizeModifier> {
