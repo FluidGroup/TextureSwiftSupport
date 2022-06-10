@@ -1,35 +1,37 @@
 import AsyncDisplayKit
 import SwiftUI
 
-extension UIResponder {
-  func findNearestViewController() -> UIViewController? {
-    sequence(first: self, next: { $0.next })
-      .first {
-        $0 is UIViewController
-      } as? UIViewController
+@available(iOS 13, *)
+final class Proxy<State>: ObservableObject {
+  @Published var state: State
+  @Published var content: (State) -> SwiftUI.AnyView? = { _ in nil }
+  
+  init(state: State) {
+    self.state = state
+  }
+}
+
+@available(iOS 13, *)
+struct RootView<State>: SwiftUI.View {
+  @ObservedObject var proxy: Proxy<State>
+  
+  var body: some View {
+    proxy.content(proxy.state)
   }
 }
 
 @available(iOS 13, *)
 public final class HostingNode: ASDisplayNode {
+  
   public struct State {}
-
-  private final class Proxy: ObservableObject {
-    @Published var state = State()
-    @Published var content: (State) -> SwiftUI.AnyView? = { _ in nil }
+  
+  public override var supportsLayerBacking: Bool {
+    return false
   }
 
-  private struct RootView: SwiftUI.View {
-    @ObservedObject var proxy: Proxy
+  private var hostingController: HostingController<RootView<State>>!
 
-    var body: some View {
-      proxy.content(proxy.state)
-    }
-  }
-
-  private var hostingController: HostingController<RootView>!
-
-  private let proxy: Proxy = .init()
+  private let proxy: Proxy<State> = .init(state: .init())
 
   override public init() {
     super.init()
@@ -94,7 +96,7 @@ public final class HostingNode: ASDisplayNode {
 }
 
 @available(iOS 13, *)
-private final class HostingController<Content: View>: UIHostingController<Content> {
+final class HostingController<Content: View>: UIHostingController<Content> {
   private var _intrinsicContentSize: CGSize?
 
   var onInvalidated: () -> Void = {}
