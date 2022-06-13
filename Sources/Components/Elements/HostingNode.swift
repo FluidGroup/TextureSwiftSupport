@@ -1,3 +1,5 @@
+#if canImport(SwiftUI)
+
 import AsyncDisplayKit
 import SwiftUI
 
@@ -120,3 +122,5 @@ final class HostingController<Content: View>: UIHostingController<Content> {
     super.viewDidLayoutSubviews()
   }
 }
+
+#endif

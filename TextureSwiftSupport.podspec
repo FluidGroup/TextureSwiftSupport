@@ -15,6 +15,7 @@ Pod::Spec.new do |spec|
 
   spec.swift_versions = ["5.1"]
   spec.dependency "Texture/Core", ">= 3"
+  spec.weak_frameworks = ["Combine", "SwiftUI"]
 
   spec.default_subspecs = ["LayoutSpecBuilders", "Components", "Extensions", "Experiments"]
 
