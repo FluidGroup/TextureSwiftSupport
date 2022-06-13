@@ -1,3 +1,4 @@
+#if canImport(SwiftUI)
 import AsyncDisplayKit
 import SwiftUI
 
@@ -111,3 +112,4 @@ extension HostingCellNode {
     }
   }
 }
+#endif
