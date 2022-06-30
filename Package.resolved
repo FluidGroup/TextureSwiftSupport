@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "descriptors",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/FluidGroup/Descriptors",
+      "state" : {
+        "revision" : "6b4ae4b9a62bc7950cca9325515264412f37411a",
+        "version" : "0.2.1"
+      }
+    },
+    {
       "identity" : "iglistkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/3a4oT/IGListKit",
@@ -48,10 +57,10 @@
     {
       "identity" : "texture",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/3a4oT/Texture.git",
+      "location" : "https://github.com/FluidGroup/Texture.git",
       "state" : {
         "branch" : "spm",
-        "revision" : "f06cc18ff0723091bcd25bf87b19f678968dad48"
+        "revision" : "5d03875bcfb0d87f8057ebeb5f2f6e4527e18128"
       }
     }
   ],
