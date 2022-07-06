@@ -90,6 +90,7 @@
 		5E1466C33BD464A174155DF9 /* Pods_TextureSwiftSupportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E55AE74C9FB7B22C94CCC1A1 /* Pods_TextureSwiftSupportTests.framework */; };
 		C10F60211BD6F4CB5AD92EC0 /* Pods_Demo_TextureSwiftSuppoprt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C23649818DE28AA59570663A /* Pods_Demo_TextureSwiftSuppoprt.framework */; };
 		F7C9D342E080CFF7361B81C2 /* Pods_TextureSwiftSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E24A3D7641080B18EE97C1D /* Pods_TextureSwiftSupport.framework */; };
+		FC04AD0128757688007EFBA0 /* ContextDrawingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04AD0028757688007EFBA0 /* ContextDrawingNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +202,7 @@
 		C23649818DE28AA59570663A /* Pods_Demo_TextureSwiftSuppoprt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo_TextureSwiftSuppoprt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B1B5868BA053074C4A411C /* Pods-TextureSwiftSupportTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureSwiftSupportTests.debug.xcconfig"; path = "Target Support Files/Pods-TextureSwiftSupportTests/Pods-TextureSwiftSupportTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E55AE74C9FB7B22C94CCC1A1 /* Pods_TextureSwiftSupportTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextureSwiftSupportTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC04AD0028757688007EFBA0 /* ContextDrawingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextDrawingNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +286,7 @@
 				4B5C387A242F0EEF005D9722 /* WrapperNode.swift */,
 				4B5C3881242F10E3005D9722 /* ShapeLayerNode.swift */,
 				4B5C3882242F10E3005D9722 /* ShapeDrawingNode.swift */,
+				FC04AD0028757688007EFBA0 /* ContextDrawingNode.swift */,
 				4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */,
 				4B58E84F260F0797004A834F /* InteractiveNode.swift */,
 				4BDD0789264D008F0077590E /* StyledEdgeNode.swift */,
@@ -732,6 +735,7 @@
 				4BC22F802642724900D1C43B /* EmptyLayout.swift in Sources */,
 				4B58E850260F0797004A834F /* InteractiveNode.swift in Sources */,
 				4B80CA2728535818008494B8 /* HostingNode.swift in Sources */,
+				FC04AD0128757688007EFBA0 /* ContextDrawingNode.swift in Sources */,
 				4B837DBD2853757E000B3EF7 /* UIResponder+.swift in Sources */,
 				4B6262E9264FDD1600540F0B /* StackScrollNode.swift in Sources */,
 				4BDD078A264D008F0077590E /* StyledEdgeNode.swift in Sources */,
@@ -966,7 +970,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -991,7 +995,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
