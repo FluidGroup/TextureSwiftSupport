@@ -81,6 +81,8 @@ extension HostingCellNode {
 
       super.init()
 
+      backgroundColor = .clear
+      
       setViewBlock { [unowned self] in
 
         self.hostingController = HostingController(
