@@ -27,6 +27,13 @@ let book = Book(title: "TextureSwiftSupport") {
   }
 
   Book.layerBacked()
+  
+  if #available(iOS 13, *) {
+    
+    BookPush(title: "CompositionalLayout") {
+      CollectionNodeCompositionalLayoutViewController()
+    }
+  }
 
   BookPush(title: "Transition") {
     TransitionLayoutViewController()
