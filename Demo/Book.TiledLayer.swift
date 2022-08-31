@@ -1,5 +1,6 @@
 import StorybookKit
 import EasyPeasy
+import UIKit
 
 extension Book {
 
