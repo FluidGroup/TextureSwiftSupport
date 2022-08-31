@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '13.0'
 use_frameworks!
 
 def texture
@@ -19,7 +19,6 @@ target "TextureSwiftSupport" do
 end
 
 target "Demo-TextureSwiftSuppoprt" do
-  platform :ios, '12.1'
   texture
   pod "TypedTextAttributes"
   pod "GlossButtonNode"

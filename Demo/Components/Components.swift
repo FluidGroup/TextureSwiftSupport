@@ -34,9 +34,10 @@ enum Components {
       ]
     )
 
-    return WrapperCellNode {
-      return InteractiveNode(animation: .translucent) {
-        return AnyDisplayNode { _, _ in
+    return WrapperCellNode(
+      content: InteractiveNode(
+        animation: .translucent,
+        contentNode: AnyDisplayNode { _, _ in
 
           LayoutSpec {
             VStackLayout(spacing: 8) {
@@ -53,19 +54,20 @@ enum Components {
             .background(shape)
             .padding(4)
           }
+          
         }
         .onDidLoad { _ in
           shape.shapeFillColor = .init(white: 0.95, alpha: 1)
         }
-      }
+      )
       .onTap {
         onTap()
       }
-    }
+    )
   }
 
   static func makeWrapper(_ node: ASDisplayNode) -> ASCellNode {
-    WrapperCellNode { node }
+    WrapperCellNode.init(content: node)
   }
 }
 
@@ -94,7 +96,7 @@ extension GlossButtonNode {
         ),
         bodyOpacity: 1,
         insets: .init(top: 10, left: 16, bottom: 10, right: 16),
-        indicatorViewStyle: .gray
+        activityIndicatorStyle: .init()
       ),
       for: .normal
     )
