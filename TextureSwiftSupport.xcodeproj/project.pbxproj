@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0009F523080140C3E7B31A30 /* Pods_TextureSwiftSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0B912132A2007A8703411FE /* Pods_TextureSwiftSupport.framework */; };
+		0009F523080140C3E7B31A30 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		20EEF9CEB2D760ACDBA32FDC /* Pods_TextureSwiftSupportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91088F2A9B60A29095FD9FB4 /* Pods_TextureSwiftSupportTests.framework */; };
+		264CCA05435A16E7B8FEAC33 /* Pods_TextureSwiftSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5588E1FA8C15AB6EE5643869 /* Pods_TextureSwiftSupport.framework */; };
 		4B086A462464434C0024F5A1 /* TextureSwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */; };
 		4B15BCD82667D717006A0D04 /* Book.StyledEdgeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15BCD72667D717006A0D04 /* Book.StyledEdgeNode.swift */; };
 		4B19E610244DD9F0009FD799 /* AnyDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */; };
@@ -88,9 +90,7 @@
 		4BFE5FE12663DE9400C5C032 /* RootContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE5FE02663DE9400C5C032 /* RootContainerViewController.swift */; };
 		4BFE5FE32663DEA900C5C032 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE5FE22663DEA900C5C032 /* Book.swift */; };
 		4BFE618A2663E8BF00C5C032 /* Book.InteractiveNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE61892663E8BF00C5C032 /* Book.InteractiveNode.swift */; };
-		5E1466C33BD464A174155DF9 /* Pods_TextureSwiftSupportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E55AE74C9FB7B22C94CCC1A1 /* Pods_TextureSwiftSupportTests.framework */; };
-		C10F60211BD6F4CB5AD92EC0 /* Pods_Demo_TextureSwiftSuppoprt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C23649818DE28AA59570663A /* Pods_Demo_TextureSwiftSuppoprt.framework */; };
-		F7C9D342E080CFF7361B81C2 /* Pods_TextureSwiftSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E24A3D7641080B18EE97C1D /* Pods_TextureSwiftSupport.framework */; };
+		B188C97DC48229A4151F33DA /* Pods_Demo_TextureSwiftSuppoprt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6E8AD0C297FC7FA5F09E48 /* Pods_Demo_TextureSwiftSuppoprt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,9 +104,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		29E142B3F05846F1E624695E /* Pods-Demo-TextureSwiftSuppoprt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-TextureSwiftSuppoprt.release.xcconfig"; path = "Target Support Files/Pods-Demo-TextureSwiftSuppoprt/Pods-Demo-TextureSwiftSuppoprt.release.xcconfig"; sourceTree = "<group>"; };
-		412331891DE3132AC64E0010 /* Pods_Demo_TextureSwiftSuppoprt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo_TextureSwiftSuppoprt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4AF6E16EAFDB1A588239D264 /* Pods-TextureSwiftSupport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureSwiftSupport.debug.xcconfig"; path = "Target Support Files/Pods-TextureSwiftSupport/Pods-TextureSwiftSupport.debug.xcconfig"; sourceTree = "<group>"; };
+		1E08BF4C1207F3C017660189 /* Pods-TextureSwiftSupportTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureSwiftSupportTests.debug.xcconfig"; path = "Target Support Files/Pods-TextureSwiftSupportTests/Pods-TextureSwiftSupportTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3E6E8AD0C297FC7FA5F09E48 /* Pods_Demo_TextureSwiftSuppoprt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo_TextureSwiftSuppoprt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureSwiftSupport.swift; sourceTree = "<group>"; };
 		4B15BCD72667D717006A0D04 /* Book.StyledEdgeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.StyledEdgeNode.swift; sourceTree = "<group>"; };
 		4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDisplayNode.swift; sourceTree = "<group>"; };
@@ -194,11 +193,13 @@
 		4BFE5FE02663DE9400C5C032 /* RootContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContainerViewController.swift; sourceTree = "<group>"; };
 		4BFE5FE22663DEA900C5C032 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		4BFE61892663E8BF00C5C032 /* Book.InteractiveNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.InteractiveNode.swift; sourceTree = "<group>"; };
-		5E24A3D7641080B18EE97C1D /* Pods_TextureSwiftSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextureSwiftSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D61D50576B754CEC99605E6 /* Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig"; path = "Target Support Files/Pods-Demo-TextureSwiftSuppoprt/Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig"; sourceTree = "<group>"; };
-		C23649818DE28AA59570663A /* Pods_Demo_TextureSwiftSuppoprt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo_TextureSwiftSuppoprt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3B1B5868BA053074C4A411C /* Pods-TextureSwiftSupportTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureSwiftSupportTests.debug.xcconfig"; path = "Target Support Files/Pods-TextureSwiftSupportTests/Pods-TextureSwiftSupportTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E55AE74C9FB7B22C94CCC1A1 /* Pods_TextureSwiftSupportTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextureSwiftSupportTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5588E1FA8C15AB6EE5643869 /* Pods_TextureSwiftSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextureSwiftSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91088F2A9B60A29095FD9FB4 /* Pods_TextureSwiftSupportTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextureSwiftSupportTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B02B71231ED230DB8722C9C7 /* Pods-TextureSwiftSupport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureSwiftSupport.release.xcconfig"; path = "Target Support Files/Pods-TextureSwiftSupport/Pods-TextureSwiftSupport.release.xcconfig"; sourceTree = "<group>"; };
+		CD3B576E353AEB6855833CE7 /* Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig"; path = "Target Support Files/Pods-Demo-TextureSwiftSuppoprt/Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig"; sourceTree = "<group>"; };
+		DA836ECE323DE39E97934C59 /* Pods-TextureSwiftSupportTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureSwiftSupportTests.release.xcconfig"; path = "Target Support Files/Pods-TextureSwiftSupportTests/Pods-TextureSwiftSupportTests.release.xcconfig"; sourceTree = "<group>"; };
+		E57A1897A48223C2F66F3564 /* Pods-Demo-TextureSwiftSuppoprt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-TextureSwiftSuppoprt.release.xcconfig"; path = "Target Support Files/Pods-Demo-TextureSwiftSuppoprt/Pods-Demo-TextureSwiftSuppoprt.release.xcconfig"; sourceTree = "<group>"; };
+		EAC3C6B1694E12B75FC90B4D /* Pods-TextureSwiftSupport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureSwiftSupport.debug.xcconfig"; path = "Target Support Files/Pods-TextureSwiftSupport/Pods-TextureSwiftSupport.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +207,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0009F523080140C3E7B31A30 /* Pods_TextureSwiftSupport.framework in Frameworks */,
+				0009F523080140C3E7B31A30 /* BuildFile in Frameworks */,
+				264CCA05435A16E7B8FEAC33 /* Pods_TextureSwiftSupport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,7 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F17E2B7C74AC533DC0002E54 /* Pods_Demo_TextureSwiftSuppoprt.framework in Frameworks */,
+				B188C97DC48229A4151F33DA /* Pods_Demo_TextureSwiftSuppoprt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BBF60FC24CC2FFA000E0E74 /* TextureSwiftSupport.framework in Frameworks */,
-				F03438CA3F8132AD4C8A4301 /* Pods_TextureSwiftSupportTests.framework in Frameworks */,
+				20EEF9CEB2D760ACDBA32FDC /* Pods_TextureSwiftSupportTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +284,6 @@
 				4B5C387A242F0EEF005D9722 /* WrapperNode.swift */,
 				4B5C3881242F10E3005D9722 /* ShapeLayerNode.swift */,
 				4B5C3882242F10E3005D9722 /* ShapeDrawingNode.swift */,
-				FC04AD0028757688007EFBA0 /* ContextDrawingNode.swift */,
 				4B19E60F244DD9F0009FD799 /* AnyDisplayNode.swift */,
 				4B58E84F260F0797004A834F /* InteractiveNode.swift */,
 				4BDD0789264D008F0077590E /* StyledEdgeNode.swift */,
@@ -311,7 +312,7 @@
 				4BBF60F824CC2FFA000E0E74 /* TextureSwiftSupportTests */,
 				4B873C2323083FE5006170B1 /* Products */,
 				C5EEA1EC56FCE6519A68BCC9 /* Pods */,
-				AD7C4F421915ACF41856D58B /* Frameworks */,
+				8A82404125EEF03E855679FE /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -464,12 +465,12 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		AD7C4F421915ACF41856D58B /* Frameworks */ = {
+		8A82404125EEF03E855679FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				412331891DE3132AC64E0010 /* Pods_Demo_TextureSwiftSuppoprt.framework */,
-				A0B912132A2007A8703411FE /* Pods_TextureSwiftSupport.framework */,
-				7486810B33BD4D6138782842 /* Pods_TextureSwiftSupportTests.framework */,
+				3E6E8AD0C297FC7FA5F09E48 /* Pods_Demo_TextureSwiftSuppoprt.framework */,
+				5588E1FA8C15AB6EE5643869 /* Pods_TextureSwiftSupport.framework */,
+				91088F2A9B60A29095FD9FB4 /* Pods_TextureSwiftSupportTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -477,12 +478,12 @@
 		C5EEA1EC56FCE6519A68BCC9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9597DB9A7E78076701D2D0D1 /* Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig */,
-				29E142B3F05846F1E624695E /* Pods-Demo-TextureSwiftSuppoprt.release.xcconfig */,
-				4AF6E16EAFDB1A588239D264 /* Pods-TextureSwiftSupport.debug.xcconfig */,
-				B0582B33A7E7E260323893BF /* Pods-TextureSwiftSupport.release.xcconfig */,
-				C7EE7257C1733F543E85EA5B /* Pods-TextureSwiftSupportTests.debug.xcconfig */,
-				EEA10F848101A9F1482AE9D4 /* Pods-TextureSwiftSupportTests.release.xcconfig */,
+				CD3B576E353AEB6855833CE7 /* Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig */,
+				E57A1897A48223C2F66F3564 /* Pods-Demo-TextureSwiftSuppoprt.release.xcconfig */,
+				EAC3C6B1694E12B75FC90B4D /* Pods-TextureSwiftSupport.debug.xcconfig */,
+				B02B71231ED230DB8722C9C7 /* Pods-TextureSwiftSupport.release.xcconfig */,
+				1E08BF4C1207F3C017660189 /* Pods-TextureSwiftSupportTests.debug.xcconfig */,
+				DA836ECE323DE39E97934C59 /* Pods-TextureSwiftSupportTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -505,7 +506,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4B873C2A23083FE5006170B1 /* Build configuration list for PBXNativeTarget "TextureSwiftSupport" */;
 			buildPhases = (
-				860C03ECAE513DCDEEE04302 /* [CP] Check Pods Manifest.lock */,
+				DB13A362C40B7E052DC61C10 /* [CP] Check Pods Manifest.lock */,
 				4B873C1D23083FE5006170B1 /* Headers */,
 				4B873C1E23083FE5006170B1 /* Sources */,
 				4B873C1F23083FE5006170B1 /* Frameworks */,
@@ -524,11 +525,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4B873C4423084047006170B1 /* Build configuration list for PBXNativeTarget "Demo-TextureSwiftSuppoprt" */;
 			buildPhases = (
-				45C0DB2D47B856110E783325 /* [CP] Check Pods Manifest.lock */,
+				65EB39C001EC48166C208D1C /* [CP] Check Pods Manifest.lock */,
 				4B873C2F23084045006170B1 /* Sources */,
 				4B873C3023084045006170B1 /* Frameworks */,
 				4B873C3123084045006170B1 /* Resources */,
-				F6045CC1768B643B15148929 /* [CP] Embed Pods Frameworks */,
+				E581E5DC52AD1D15033DB59D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -543,7 +544,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BBF610124CC2FFA000E0E74 /* Build configuration list for PBXNativeTarget "TextureSwiftSupportTests" */;
 			buildPhases = (
-				7AE55E0BF2BD1515F8E87463 /* [CP] Check Pods Manifest.lock */,
+				D7DD03C4E37A2A726E065B25 /* [CP] Check Pods Manifest.lock */,
 				4BBF60F324CC2FFA000E0E74 /* Sources */,
 				4BBF60F424CC2FFA000E0E74 /* Frameworks */,
 				4BBF60F524CC2FFA000E0E74 /* Resources */,
@@ -627,7 +628,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		45C0DB2D47B856110E783325 /* [CP] Check Pods Manifest.lock */ = {
+		65EB39C001EC48166C208D1C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -649,7 +650,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7AE55E0BF2BD1515F8E87463 /* [CP] Check Pods Manifest.lock */ = {
+		D7DD03C4E37A2A726E065B25 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -671,7 +672,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		860C03ECAE513DCDEEE04302 /* [CP] Check Pods Manifest.lock */ = {
+		DB13A362C40B7E052DC61C10 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -693,7 +694,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F6045CC1768B643B15148929 /* [CP] Embed Pods Frameworks */ = {
+		E581E5DC52AD1D15033DB59D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -729,7 +730,6 @@
 				4BC22F802642724900D1C43B /* EmptyLayout.swift in Sources */,
 				4B58E850260F0797004A834F /* InteractiveNode.swift in Sources */,
 				4B80CA2728535818008494B8 /* HostingNode.swift in Sources */,
-				FC04AD0128757688007EFBA0 /* ContextDrawingNode.swift in Sources */,
 				4B837DBD2853757E000B3EF7 /* UIResponder+.swift in Sources */,
 				4B6262E9264FDD1600540F0B /* StackScrollNode.swift in Sources */,
 				4BDD078A264D008F0077590E /* StyledEdgeNode.swift in Sources */,
@@ -955,7 +955,7 @@
 		};
 		4B873C2B23083FE5006170B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4AF6E16EAFDB1A588239D264 /* Pods-TextureSwiftSupport.debug.xcconfig */;
+			baseConfigurationReference = EAC3C6B1694E12B75FC90B4D /* Pods-TextureSwiftSupport.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -980,7 +980,7 @@
 		};
 		4B873C2C23083FE5006170B1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0582B33A7E7E260323893BF /* Pods-TextureSwiftSupport.release.xcconfig */;
+			baseConfigurationReference = B02B71231ED230DB8722C9C7 /* Pods-TextureSwiftSupport.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -1005,7 +1005,7 @@
 		};
 		4B873C4523084047006170B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9597DB9A7E78076701D2D0D1 /* Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig */;
+			baseConfigurationReference = CD3B576E353AEB6855833CE7 /* Pods-Demo-TextureSwiftSuppoprt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1026,7 +1026,7 @@
 		};
 		4B873C4623084047006170B1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29E142B3F05846F1E624695E /* Pods-Demo-TextureSwiftSuppoprt.release.xcconfig */;
+			baseConfigurationReference = E57A1897A48223C2F66F3564 /* Pods-Demo-TextureSwiftSuppoprt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1046,7 +1046,7 @@
 		};
 		4BBF60FF24CC2FFA000E0E74 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7EE7257C1733F543E85EA5B /* Pods-TextureSwiftSupportTests.debug.xcconfig */;
+			baseConfigurationReference = 1E08BF4C1207F3C017660189 /* Pods-TextureSwiftSupportTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TextureSwiftSupportTests/Info.plist;
@@ -1065,7 +1065,7 @@
 		};
 		4BBF610024CC2FFA000E0E74 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EEA10F848101A9F1482AE9D4 /* Pods-TextureSwiftSupportTests.release.xcconfig */;
+			baseConfigurationReference = DA836ECE323DE39E97934C59 /* Pods-TextureSwiftSupportTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TextureSwiftSupportTests/Info.plist;
