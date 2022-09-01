@@ -76,7 +76,7 @@ public struct Modifier: ModifierType {
 
 ///
 /// - Author: TetureSwiftSupport
-@_functionBuilder public struct ASLayoutSpecBuilder {
+@resultBuilder public struct ASLayoutSpecBuilder {
 
   public static func buildBlock() -> EmptyLayout {
     EmptyLayout()
