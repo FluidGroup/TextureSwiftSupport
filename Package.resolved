@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/FluidGroup/Descriptors",
       "state" : {
-        "revision" : "6b4ae4b9a62bc7950cca9325515264412f37411a",
-        "version" : "0.2.1"
+        "revision" : "174dbbaff40b455614b62ea3ed16771adde25e65",
+        "version" : "0.2.2"
       }
     },
     {
@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/libwebp-Xcode",
       "state" : {
-        "revision" : "2b3b43faaef54d1b897482428428357b7f7cd08b",
-        "version" : "1.2.1"
+        "revision" : "0f3bdb28a1edc5e8e43876d3835d20c601ef331f",
+        "version" : "1.2.3"
       }
     },
     {
