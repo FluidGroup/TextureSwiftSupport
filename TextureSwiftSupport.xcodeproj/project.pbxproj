@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0009F523080140C3E7B31A30 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		0009F523080140C3E7B31A30 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		20EEF9CEB2D760ACDBA32FDC /* Pods_TextureSwiftSupportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91088F2A9B60A29095FD9FB4 /* Pods_TextureSwiftSupportTests.framework */; };
 		264CCA05435A16E7B8FEAC33 /* Pods_TextureSwiftSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5588E1FA8C15AB6EE5643869 /* Pods_TextureSwiftSupport.framework */; };
 		4B086A462464434C0024F5A1 /* TextureSwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B086A452464434C0024F5A1 /* TextureSwiftSupport.swift */; };
@@ -207,7 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0009F523080140C3E7B31A30 /* BuildFile in Frameworks */,
+				0009F523080140C3E7B31A30 /* (null) in Frameworks */,
 				264CCA05435A16E7B8FEAC33 /* Pods_TextureSwiftSupport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -973,6 +973,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.muukii.TextureSwiftSupport;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_STRICT_CONCURRENCY = targeted;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -998,6 +999,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.muukii.TextureSwiftSupport;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_STRICT_CONCURRENCY = targeted;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

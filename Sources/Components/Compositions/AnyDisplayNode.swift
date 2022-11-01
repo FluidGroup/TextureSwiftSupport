@@ -92,7 +92,7 @@ open class AnyDisplayNode: SafeAreaDisplayNode {
       .joined(separator: ".")
     #endif
   }
-  
+    
   open override func didLoad() {
     super.didLoad()
     hook.onDidload(self)
@@ -109,14 +109,14 @@ open class AnyDisplayNode: SafeAreaDisplayNode {
   }
 
   @discardableResult
-  public final func onDidLoad(_ onDidLoad: @escaping (AnyDisplayNode) -> Void) -> Self {
+  public final func onDidLoad(_ onDidLoad: @escaping @MainActor (AnyDisplayNode) -> Void) -> Self {
     hook.onDidload = onDidLoad
     return self
   }
 
   @discardableResult
-  public final func onLayout(_ onLaoyout: @escaping (AnyDisplayNode) -> Void) -> Self {
-    hook.onLayout = onLaoyout
+  public final func onLayout(_ onLayout: @escaping @MainActor (AnyDisplayNode) -> Void) -> Self {
+    hook.onLayout = onLayout
     return self
   }
 

@@ -36,7 +36,7 @@ public enum DisplayNodeAction {
 /// - Author: TetureSwiftSupport
 open class NamedDisplayNodeBase: ASDisplayNode {
   
-  private var __actionHandlers: [(NamedDisplayNodeBase, DisplayNodeAction) -> Void] = []
+  private var __actionHandlers: [@MainActor (NamedDisplayNodeBase, DisplayNodeAction) -> Void] = []
 
   open override func didLoad() {
     super.didLoad()
@@ -58,7 +58,7 @@ open class NamedDisplayNodeBase: ASDisplayNode {
    - Warning: Non-atomic
    */
   @discardableResult
-  public func addNodeActionHandler(_ handler: @escaping (Self, DisplayNodeAction) -> Void) -> Self {
+  public func addNodeActionHandler(_ handler: @escaping @MainActor (Self, DisplayNodeAction) -> Void) -> Self {
     __actionHandlers.append { node, action in
       guard let node = node as? Self else {
         assertionFailure()
@@ -70,6 +70,8 @@ open class NamedDisplayNodeBase: ASDisplayNode {
     return self
   }
   
+  @preconcurrency
+  @MainActor
   private func propagate(action: DisplayNodeAction) {
     for handler in __actionHandlers {
       handler(self, action)
