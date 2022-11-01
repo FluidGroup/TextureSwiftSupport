@@ -93,11 +93,13 @@ open class AnyDisplayNode: SafeAreaDisplayNode {
     #endif
   }
     
+  @MainActor
   open override func didLoad() {
     super.didLoad()
     hook.onDidload(self)
   }
   
+  @MainActor
   open override func layout() {
     super.layout()
     hook.onLayout(self)
@@ -162,8 +164,8 @@ extension AnyDisplayNode {
   
   public final class Hook {
     
-    var onDidload: (AnyDisplayNode) -> Void = { _ in }
-    var onLayout: (AnyDisplayNode) -> Void = { _ in }
+    var onDidload: @MainActor (AnyDisplayNode) -> Void = { _ in }
+    var onLayout: @MainActor (AnyDisplayNode) -> Void = { _ in }
     
     init() {}
     

@@ -38,6 +38,7 @@ open class NamedDisplayNodeBase: ASDisplayNode {
   
   private var __actionHandlers: [@MainActor (NamedDisplayNodeBase, DisplayNodeAction) -> Void] = []
 
+  @MainActor
   open override func didLoad() {
     super.didLoad()
     #if DEBUG
