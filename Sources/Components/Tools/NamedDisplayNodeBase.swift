@@ -90,8 +90,9 @@ open class NamedDisplayNodeBase: ASDisplayNode {
 /// - Author: TetureSwiftSupport
 open class NamedDisplayControlNodeBase: ASControlNode {
   
-  private var __actionHandlers: [(NamedDisplayControlNodeBase, DisplayNodeAction) -> Void] = []
+  private var __actionHandlers: [@MainActor (NamedDisplayControlNodeBase, DisplayNodeAction) -> Void] = []
 
+  @MainActor
   open override func didLoad() {
     super.didLoad()
     #if DEBUG
@@ -124,6 +125,7 @@ open class NamedDisplayControlNodeBase: ASControlNode {
     return self
   }
     
+  @MainActor
   private func propagate(action: DisplayNodeAction) {
     for handler in __actionHandlers {
       handler(self, action)
