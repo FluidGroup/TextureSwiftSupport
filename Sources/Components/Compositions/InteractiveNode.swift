@@ -32,8 +32,8 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
   public typealias BodyNode = D
   
   public struct Handlers {
-    public var onTap: () -> Void = {}
-    public var onLongPress: (CGPoint) -> Void = { _ in }
+    public var onTap: @MainActor () -> Void = {}
+    public var onLongPress: @MainActor (CGPoint) -> Void = { _ in }
   }
 
   override open var supportsLayerBacking: Bool {
@@ -102,6 +102,7 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
     
   }
 
+  @MainActor
   override open func didLoad() {
     super.didLoad()
 
@@ -156,15 +157,18 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
     }
   }
 
+  @MainActor
   @objc private func _touchDownInside() {
     haptics?.send(event: .onTouchDownInside)
   }
 
+  @MainActor
   @objc private func _touchUpInside() {
     haptics?.send(event: .onTouchUpInside)
     handlers.onTap()
   }
 
+  @MainActor
   @objc private func _onLongPress(_ gesture: UILongPressGestureRecognizer) {
     guard case .began = gesture.state else { return }
     let point = gesture.location(in: gesture.view)
@@ -174,13 +178,13 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
   }
 
   @discardableResult
-  public func onTap(_ handler: @escaping () -> Void) -> Self {
+  public func onTap(_ handler: @escaping @MainActor () -> Void) -> Self {
     handlers.onTap = handler
     return self
   }
 
   @discardableResult
-  public func onLongPress(_ handler: @escaping (CGPoint) -> Void) -> Self {
+  public func onLongPress(_ handler: @escaping @MainActor (CGPoint) -> Void) -> Self {
     handlers.onLongPress = handler
     return self
   }
