@@ -34,6 +34,7 @@ open class NamedDisplayCellNodeBase: ASCellNode {
   
   private var __actionHandlers: [(NamedDisplayCellNodeBase, DisplayNodeAction) -> Void] = []
   
+  @MainActor
   open override func didLoad() {
     super.didLoad()
     #if DEBUG
