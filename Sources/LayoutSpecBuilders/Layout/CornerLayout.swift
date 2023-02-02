@@ -27,7 +27,7 @@ public struct CornerLayout<CornerContent, Content> : _ASLayoutElementType where 
   public func tss_make() -> [ASLayoutElement] {
     [
       ASCornerLayoutSpec(
-        child: content.tss_make().first!,
+        child: content.tss_make().first ?? ASLayoutSpec(),
         corner: cornerContent.tss_make().first ?? ASLayoutSpec(),
         location: self.location
       )

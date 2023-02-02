@@ -13,7 +13,7 @@ public struct OverlayLayout<OverlayContnt, Content> : _ASLayoutElementType where
   public func tss_make() -> [ASLayoutElement] {
     [
       ASOverlayLayoutSpec(
-        child: content.tss_make().first!,
+        child: content.tss_make().first ?? ASLayoutSpec(),
         overlay: overlay.tss_make().first ?? ASLayoutSpec()
       )
     ]

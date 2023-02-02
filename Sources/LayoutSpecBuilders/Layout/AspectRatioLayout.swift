@@ -18,7 +18,7 @@ public struct AspectRatioLayout<Content> : _ASLayoutElementType where Content : 
 
   public func tss_make() -> [ASLayoutElement] {
     [
-      ASRatioLayoutSpec(ratio: ratio, child: content.tss_make().first!)
+      ASRatioLayoutSpec(ratio: ratio, child: content.tss_make().first ?? ASLayoutSpec())
     ]
   }
 
