@@ -25,27 +25,12 @@ public struct AnyLayout : _ASLayoutElementType {
 
   public let contents: [ASLayoutElement]
 
-  @available(*, deprecated, message: "Use init(_: ASLayoutElement?)")
-  @_disfavoredOverload
-  public init(_ element: () -> ASLayoutElement?) {
-    if let element = element() {
-      self.contents = [ASWrapperLayoutSpec(layoutElement: element)]
-    } else {
-      self.contents = [ASLayoutSpec()]
-    }
-  }
-
-  @available(*, deprecated, message: "Use init(_: _ASLayoutElementType)")
-  public init(_ content: () -> _ASLayoutElementType) {
-    self.contents = content().tss_make()
-  }
-
   @_disfavoredOverload
   public init(_ element: ASLayoutElement?) {
     if let element = element {
       self.contents = [ASWrapperLayoutSpec(layoutElement: element)]
     } else {
-      self.contents = [ASLayoutSpec()]
+      self.contents = []
     }
   }
 
