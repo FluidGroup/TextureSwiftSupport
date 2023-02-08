@@ -87,6 +87,7 @@
 		4BE65277246481D8004346D6 /* AdaptiveLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE65276246481D8004346D6 /* AdaptiveLayoutViewController.swift */; };
 		4BE6527A246481DE004346D6 /* SwitchCaseLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE65278246481DE004346D6 /* SwitchCaseLayout.swift */; };
 		4BE6527B246481DE004346D6 /* LayoutCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE65279246481DE004346D6 /* LayoutCondition.swift */; };
+		4BFCB9582992ECE000740508 /* SwiftUIPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFCB9572992ECE000740508 /* SwiftUIPreview.swift */; };
 		4BFE5FE12663DE9400C5C032 /* RootContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE5FE02663DE9400C5C032 /* RootContainerViewController.swift */; };
 		4BFE5FE32663DEA900C5C032 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE5FE22663DEA900C5C032 /* Book.swift */; };
 		4BFE618A2663E8BF00C5C032 /* Book.InteractiveNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE61892663E8BF00C5C032 /* Book.InteractiveNode.swift */; };
@@ -190,6 +191,7 @@
 		4BE65276246481D8004346D6 /* AdaptiveLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveLayoutViewController.swift; sourceTree = "<group>"; };
 		4BE65278246481DE004346D6 /* SwitchCaseLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCaseLayout.swift; sourceTree = "<group>"; };
 		4BE65279246481DE004346D6 /* LayoutCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutCondition.swift; sourceTree = "<group>"; };
+		4BFCB9572992ECE000740508 /* SwiftUIPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPreview.swift; sourceTree = "<group>"; };
 		4BFE5FE02663DE9400C5C032 /* RootContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContainerViewController.swift; sourceTree = "<group>"; };
 		4BFE5FE22663DEA900C5C032 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		4BFE61892663E8BF00C5C032 /* Book.InteractiveNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.InteractiveNode.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				4B4F5C93267B2F0600D12273 /* Book.HStackLayout.swift */,
 				4B837DBA28536F5E000B3EF7 /* Book.HostingNode.swift */,
 				4B837DC028537779000B3EF7 /* Book.HostingCellNode.swift */,
+				4BFCB9572992ECE000740508 /* SwiftUIPreview.swift */,
 				4B3C42D7266DCBD000861ADD /* Util.swift */,
 				4B3C42D9266DCCB600861ADD /* ZStackView.swift */,
 			);
@@ -792,6 +795,7 @@
 				4B2A018325B6E76E00D7C188 /* RecursiveLayoutViewController.swift in Sources */,
 				4BB21B3E244E0E68008CA2A4 /* InstagramPostCellViewController.swift in Sources */,
 				4BE65277246481D8004346D6 /* AdaptiveLayoutViewController.swift in Sources */,
+				4BFCB9582992ECE000740508 /* SwiftUIPreview.swift in Sources */,
 				4B873C4B230845E3006170B1 /* AppDelegate.swift in Sources */,
 				4B837DBB28536F5E000B3EF7 /* Book.HostingNode.swift in Sources */,
 				4B6262EB264FDE6C00540F0B /* Components.swift in Sources */,
