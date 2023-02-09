@@ -51,7 +51,7 @@ public final class OnAppearNode<Content: ASDisplayNode>: NamedDisplayCellNodeBas
   ) {
 
     #if DEBUG
-    self.debug = true //debug
+    self.debug = debug
     #endif
 
     self.content = content()
