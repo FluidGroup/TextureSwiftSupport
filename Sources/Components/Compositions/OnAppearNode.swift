@@ -1,7 +1,14 @@
-
 /// A container display node that handles itself appears on the device screen.
 /// Underlying, using CATiledLayer to hook the signal of appearing.
 public final class OnAppearNode<Content: ASDisplayNode>: NamedDisplayCellNodeBase {
+
+  private struct State: Equatable {
+    var flagTopLeft = false
+    var flagBottomRight = false
+    
+    var hasAppeared = false
+
+  }
 
   public struct Handlers {
     /// Runs only once on appear.
@@ -16,13 +23,23 @@ public final class OnAppearNode<Content: ASDisplayNode>: NamedDisplayCellNodeBas
   public let content: Content
   private var debug: Bool = false
 
-  private var hasAppeared = false
 
   #if DEBUG
   private lazy var debuggingNode = DebuggingNode()
   #endif
 
-  private let tiledLayerNode = ViewNode<TiledLayerView> { .init() }
+  private var topLeftTiledLayerNode: ViewNode<TiledLayerView>?
+  private var bottomRightTiledLayerNode: ViewNode<TiledLayerView>?
+
+  @MainActor
+  private var state = State() {
+    didSet {
+      guard oldValue != state else {
+        return
+      }
+      update(state: state, old: oldValue)
+    }
+  }
 
   /// Creates an instance
   /// - Parameters:
@@ -46,49 +63,76 @@ public final class OnAppearNode<Content: ASDisplayNode>: NamedDisplayCellNodeBas
 
   public override func didLoad() {
     super.didLoad()
+    
+    reset()
 
-    tiledLayerNode.wrappedView.setOnDraw { [weak self] in
-      guard let self = self else { return }
-      guard self.hasAppeared == false else { return }
-      self.hasAppeared = true
-      self.handlers.onAppear()
+  }
 
-      #if DEBUG
-      if self.debug {
-        self.debuggingNode.setText("Appeared")
-      }
-      #endif
+  @MainActor
+  private func reset() {
+    
+    state = .init()
+    
+    bottomRightTiledLayerNode = .init(wrappedView: { .init() })
+    topLeftTiledLayerNode = .init(wrappedView: { .init() })
+    
+    setNeedsLayout()
+        
+    bottomRightTiledLayerNode!.wrappedView.setOnDraw { [weak self] in
+      guard let self else { return }
+      guard self.state.flagBottomRight == false else { return }
+      self.state.flagBottomRight = true
+    }
+    
+    topLeftTiledLayerNode!.wrappedView.setOnDraw { [weak self] in
+      guard let self else { return }
+      guard self.state.flagTopLeft == false else { return }
+      self.state.flagTopLeft = true
+    }
+    
+  }
+  
+  @MainActor
+  private func update(state: State, old: State?) {
+        
+#if DEBUG
+    if self.debug {
+      self.debuggingNode.setText("[\(state.flagTopLeft), \(state.flagBottomRight)]")
+    }
+#endif
+        
+    if state.hasAppeared == false, state.flagBottomRight, state.flagTopLeft {
+      self.state.hasAppeared = true
+      handlers.onAppear()
     }
   }
 
   public final override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
 
     #if DEBUG
-    return LayoutSpec {
-      if debug {
+    if debug {
+      return LayoutSpec {
         ZStackLayout {
           content
             .overlay(debuggingNode)
-          tiledLayerNode.preferredSize(.init(width: 1, height: 1))
+          topLeftTiledLayerNode.preferredSize(.init(width: 1, height: 1))
             .relativePosition(horizontal: .start, vertical: .start)
+          bottomRightTiledLayerNode.preferredSize(.init(width: 1, height: 1))
+            .relativePosition(horizontal: .end, vertical: .end)
         }
-      } else {
-        ZStackLayout {
-          content
-          tiledLayerNode.preferredSize(.init(width: 1, height: 1))
-            .relativePosition(horizontal: .start, vertical: .start)
-        }
-      }
-    }
-    #else
-    return LayoutSpec {
-      ZStackLayout {
-        content
-        tiledLayerNode.preferredSize(.init(width: 1, height: 1))
-          .relativePosition(horizontal: .start, vertical: .start)
       }
     }
     #endif
+
+    return LayoutSpec {
+      ZStackLayout {
+        content
+        topLeftTiledLayerNode.preferredSize(.init(width: 1, height: 1))
+          .relativePosition(horizontal: .start, vertical: .start)
+        bottomRightTiledLayerNode.preferredSize(.init(width: 1, height: 1))
+          .relativePosition(horizontal: .end, vertical: .end)
+      }
+    }
 
   }
 
@@ -145,6 +189,8 @@ private final class TiledLayerView: UIView {
 
     isOpaque = false
     backgroundColor = .clear
+
+    (layer as! TiledLayer).drawsAsynchronously = true
   }
 
   required init?(
@@ -164,7 +210,7 @@ private final class TiledLayerView: UIView {
     return view
   }
 
-  func setOnDraw(_ closure: @escaping () -> Void) {
+  func setOnDraw(_ closure: @escaping @MainActor () -> Void) {
     (layer as! TiledLayer).onDraw = closure
   }
 }
