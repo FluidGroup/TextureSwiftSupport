@@ -51,7 +51,7 @@ public final class OnAppearNode<Content: ASDisplayNode>: NamedDisplayCellNodeBas
   ) {
 
     #if DEBUG
-    self.debug = debug
+    self.debug = true //debug
     #endif
 
     self.content = content()
@@ -112,26 +112,31 @@ public final class OnAppearNode<Content: ASDisplayNode>: NamedDisplayCellNodeBas
     #if DEBUG
     if debug {
       return LayoutSpec {
-        ZStackLayout {
-          content
-            .overlay(debuggingNode)
-          topLeftTiledLayerNode.preferredSize(.init(width: 1, height: 1))
-            .relativePosition(horizontal: .start, vertical: .start)
-          bottomRightTiledLayerNode.preferredSize(.init(width: 1, height: 1))
-            .relativePosition(horizontal: .end, vertical: .end)
-        }
+        content
+          .overlay(
+            ZStackLayout {
+              debuggingNode
+              topLeftTiledLayerNode.preferredSize(.init(width: 1, height: 1))
+                .relativePosition(horizontal: .start, vertical: .start)
+              bottomRightTiledLayerNode.preferredSize(.init(width: 1, height: 1))
+                .relativePosition(horizontal: .end, vertical: .end)
+            }
+          )
       }
     }
     #endif
 
     return LayoutSpec {
-      ZStackLayout {
-        content
-        topLeftTiledLayerNode.preferredSize(.init(width: 1, height: 1))
-          .relativePosition(horizontal: .start, vertical: .start)
-        bottomRightTiledLayerNode.preferredSize(.init(width: 1, height: 1))
-          .relativePosition(horizontal: .end, vertical: .end)
-      }
+      content
+        .overlay(
+          ZStackLayout {
+            debuggingNode
+            topLeftTiledLayerNode.preferredSize(.init(width: 1, height: 1))
+              .relativePosition(horizontal: .start, vertical: .start)
+            bottomRightTiledLayerNode.preferredSize(.init(width: 1, height: 1))
+              .relativePosition(horizontal: .end, vertical: .end)
+          }
+        )
     }
 
   }
