@@ -130,7 +130,6 @@ public final class OnAppearNode<Content: ASDisplayNode>: NamedDisplayCellNodeBas
       content
         .overlay(
           ZStackLayout {
-            debuggingNode
             topLeftTiledLayerNode.preferredSize(.init(width: 1, height: 1))
               .relativePosition(horizontal: .start, vertical: .start)
             bottomRightTiledLayerNode.preferredSize(.init(width: 1, height: 1))
