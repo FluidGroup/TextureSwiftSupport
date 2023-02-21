@@ -37,11 +37,7 @@
 		4B6FA0392468B5EC00C21A53 /* MaskingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0382468B5EC00C21A53 /* MaskingNode.swift */; };
 		4B6FA03B2468B6C900C21A53 /* CompositionCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA03A2468B6C900C21A53 /* CompositionCatalogViewController.swift */; };
 		4B7F1877266745FD002F9A82 /* Book.ImageNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F1876266745FD002F9A82 /* Book.ImageNode.swift */; };
-		4B80CA2728535818008494B8 /* HostingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B80CA2628535818008494B8 /* HostingNode.swift */; };
-		4B837DBB28536F5E000B3EF7 /* Book.HostingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B837DBA28536F5E000B3EF7 /* Book.HostingNode.swift */; };
 		4B837DBD2853757E000B3EF7 /* UIResponder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B837DBC2853757E000B3EF7 /* UIResponder+.swift */; };
-		4B837DBF2853759E000B3EF7 /* HostingCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B837DBE2853759E000B3EF7 /* HostingCellNode.swift */; };
-		4B837DC128537779000B3EF7 /* Book.HostingCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B837DC028537779000B3EF7 /* Book.HostingCellNode.swift */; };
 		4B8666FE26412BDD00A81E53 /* VGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8666FD26412BDD00A81E53 /* VGridLayout.swift */; };
 		4B873C2723083FE5006170B1 /* TextureSwiftSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B873C2E23083FF4006170B1 /* SpecBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B873C2D23083FF4006170B1 /* SpecBuilder.swift */; };
@@ -136,11 +132,7 @@
 		4B6FA0382468B5EC00C21A53 /* MaskingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskingNode.swift; sourceTree = "<group>"; };
 		4B6FA03A2468B6C900C21A53 /* CompositionCatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionCatalogViewController.swift; sourceTree = "<group>"; };
 		4B7F1876266745FD002F9A82 /* Book.ImageNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.ImageNode.swift; sourceTree = "<group>"; };
-		4B80CA2628535818008494B8 /* HostingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingNode.swift; sourceTree = "<group>"; };
-		4B837DBA28536F5E000B3EF7 /* Book.HostingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.HostingNode.swift; sourceTree = "<group>"; };
 		4B837DBC2853757E000B3EF7 /* UIResponder+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+.swift"; sourceTree = "<group>"; };
-		4B837DBE2853759E000B3EF7 /* HostingCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingCellNode.swift; sourceTree = "<group>"; };
-		4B837DC028537779000B3EF7 /* Book.HostingCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.HostingCellNode.swift; sourceTree = "<group>"; };
 		4B8666FD26412BDD00A81E53 /* VGridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGridLayout.swift; sourceTree = "<group>"; };
 		4B873C2223083FE5006170B1 /* TextureSwiftSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TextureSwiftSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B873C2523083FE5006170B1 /* TextureSwiftSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureSwiftSupport.h; sourceTree = "<group>"; };
@@ -250,8 +242,6 @@
 			children = (
 				4B2497DF2649646A0013340B /* GradientDrawingNode.swift */,
 				4B22761A2454A9AF00F39A16 /* GradientLayerNode.swift */,
-				4B80CA2628535818008494B8 /* HostingNode.swift */,
-				4B837DBE2853759E000B3EF7 /* HostingCellNode.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -360,8 +350,6 @@
 				4B3C42D5266DCA4F00861ADD /* Book.TiledLayer.swift */,
 				4BC85C0F26EFF1B6003BAEAE /* Book.LayerBacking.swift */,
 				4B4F5C93267B2F0600D12273 /* Book.HStackLayout.swift */,
-				4B837DBA28536F5E000B3EF7 /* Book.HostingNode.swift */,
-				4B837DC028537779000B3EF7 /* Book.HostingCellNode.swift */,
 				4BFCB9572992ECE000740508 /* SwiftUIPreview.swift */,
 				4B3C42D7266DCBD000861ADD /* Util.swift */,
 				4B3C42D9266DCCB600861ADD /* ZStackView.swift */,
@@ -732,7 +720,6 @@
 				4BC02A322631530F006E3AB3 /* NodeFactory.swift in Sources */,
 				4BC22F802642724900D1C43B /* EmptyLayout.swift in Sources */,
 				4B58E850260F0797004A834F /* InteractiveNode.swift in Sources */,
-				4B80CA2728535818008494B8 /* HostingNode.swift in Sources */,
 				4B837DBD2853757E000B3EF7 /* UIResponder+.swift in Sources */,
 				4B6262E9264FDD1600540F0B /* StackScrollNode.swift in Sources */,
 				4BDD078A264D008F0077590E /* StyledEdgeNode.swift in Sources */,
@@ -740,7 +727,6 @@
 				4BC22F8D264275ED00D1C43B /* VStackLayout.swift in Sources */,
 				4BC22F9B2642765D00D1C43B /* InsetLayout.swift in Sources */,
 				4BC22F8F2642760200D1C43B /* HStackLayout.swift in Sources */,
-				4B837DBF2853759E000B3EF7 /* HostingCellNode.swift in Sources */,
 				4BC22FA12642769200D1C43B /* AspectRatioLayout.swift in Sources */,
 				4BC22F912642761200D1C43B /* ZStackLayout.swift in Sources */,
 				4BC22F9D2642766B00D1C43B /* OverlayLayout.swift in Sources */,
@@ -789,7 +775,6 @@
 				4BC85C1026EFF1B6003BAEAE /* Book.LayerBacking.swift in Sources */,
 				4BB21B3A244E06E6008CA2A4 /* Mocks.swift in Sources */,
 				4B3C42DA266DCCB600861ADD /* ZStackView.swift in Sources */,
-				4B837DC128537779000B3EF7 /* Book.HostingCellNode.swift in Sources */,
 				4BFE618A2663E8BF00C5C032 /* Book.InteractiveNode.swift in Sources */,
 				4B3C42D8266DCBD000861ADD /* Util.swift in Sources */,
 				4B2A018325B6E76E00D7C188 /* RecursiveLayoutViewController.swift in Sources */,
@@ -797,7 +782,6 @@
 				4BE65277246481D8004346D6 /* AdaptiveLayoutViewController.swift in Sources */,
 				4BFCB9582992ECE000740508 /* SwiftUIPreview.swift in Sources */,
 				4B873C4B230845E3006170B1 /* AppDelegate.swift in Sources */,
-				4B837DBB28536F5E000B3EF7 /* Book.HostingNode.swift in Sources */,
 				4B6262EB264FDE6C00540F0B /* Components.swift in Sources */,
 				4B6FA03B2468B6C900C21A53 /* CompositionCatalogViewController.swift in Sources */,
 				4B4F5C94267B2F0700D12273 /* Book.HStackLayout.swift in Sources */,
