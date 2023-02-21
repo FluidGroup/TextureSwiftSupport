@@ -2,32 +2,8 @@
 platform :ios, '13.0'
 use_frameworks!
 
-def texture
-  pod "Texture/Core", "~> 3" #, git: 'git@github.com:TextureGroup/Texture.git', branch: 'master'
-end
-
-target "TextureSwiftSupport" do
-  # Comment the next line if you don't want to use dynamic frameworks
-
-  pod "Verge/Store"
-  pod "Descriptors", ">= 0.2.1"
-  texture
-
-  target "TextureSwiftSupportTests" do
-    inherit! :search_paths
-  end
-end
-
 target "Demo-TextureSwiftSuppoprt" do
-  texture
-  pod "TypedTextAttributes"
-  pod "GlossButtonNode"
-  pod "TextureSwiftSupport", path: "./"
   pod "Reveal-SDK"
-  pod "StorybookKit"
-  pod "StorybookUI"
-  pod "StorybookKitTextureSupport"
-  pod "EasyPeasy"
 end
 
 pre_install do |installer|

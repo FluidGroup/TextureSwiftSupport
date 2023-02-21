@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4B873C2123083FE5006170B1"
-               BuildableName = "TextureSwiftSupport.framework"
+               BlueprintIdentifier = "TextureSwiftSupport"
+               BuildableName = "TextureSwiftSupport"
                BlueprintName = "TextureSwiftSupport"
-               ReferencedContainer = "container:TextureSwiftSupport.xcodeproj">
+               ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -64,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4B873C2123083FE5006170B1"
-            BuildableName = "TextureSwiftSupport.framework"
-            BlueprintName = "TextureSwiftSupport"
+            BlueprintIdentifier = "4BBF60F624CC2FFA000E0E74"
+            BuildableName = "TextureSwiftSupportTests.xctest"
+            BlueprintName = "TextureSwiftSupportTests"
             ReferencedContainer = "container:TextureSwiftSupport.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

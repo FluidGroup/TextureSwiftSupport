@@ -1,0 +1,3 @@
+[submodule "submodules/Texture"]
+	path = submodules/Texture
+	url = https://github.com/FluidGroup/Texture.git

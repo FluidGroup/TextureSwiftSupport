@@ -2,6 +2,7 @@ import StorybookKit
 import StorybookKitTextureSupport
 import TextureSwiftSupport
 
+@MainActor
 let book = Book(title: "TextureSwiftSupport") {
   
   if #available(iOS 13, *) {    

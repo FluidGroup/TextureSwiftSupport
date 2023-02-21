@@ -1,6 +1,8 @@
 import StorybookKit
 import EasyPeasy
+import UIKit
 
+@MainActor
 extension Book {
 
   static func tiledLayer() -> BookView {
