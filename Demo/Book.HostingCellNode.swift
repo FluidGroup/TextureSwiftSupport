@@ -4,6 +4,7 @@ import StorybookKitTextureSupport
 import SwiftUI
 import TextureSwiftSupport
 
+@MainActor
 @available(iOS 13, *)
 extension Book {
   static var hostingCellNode: some BookView {

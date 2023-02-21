@@ -3,6 +3,7 @@ import StorybookKit
 import StorybookKitTextureSupport
 import TextureSwiftSupport
 
+@MainActor
 extension Book {
 
   static func layerBacked() -> BookView {

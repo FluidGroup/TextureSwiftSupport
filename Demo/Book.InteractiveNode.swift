@@ -2,6 +2,7 @@ import StorybookKit
 import StorybookKitTextureSupport
 import TextureSwiftSupport
 
+@MainActor
 extension Book {
 
   private static func makeBody() -> ASDisplayNode {
