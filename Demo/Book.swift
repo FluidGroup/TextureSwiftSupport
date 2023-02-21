@@ -4,11 +4,6 @@ import TextureSwiftSupport
 
 let book = Book(title: "TextureSwiftSupport") {
   
-  if #available(iOS 13, *) {    
-    Book.hostingNode
-    Book.hostingCellNode
-  }
-
   BookNavigationLink(title: "Standard Components") {
     Book.bookImageNode()
   }
