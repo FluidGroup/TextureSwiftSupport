@@ -37,9 +37,7 @@ enum Mocks {
       let node = ShapeLayerNode.capsule(direction: .horizontal, usesSmoothCurve: false)
       node.shapeFillColor = fillColor
       
-      super.init {
-        node
-      }
+      super.init(content: node)
     }
     
   }
@@ -51,9 +49,7 @@ enum Mocks {
       let node = ASDisplayNode()
       node.backgroundColor = fillColor
       
-      super.init {
-        node
-      }
+      super.init(content: node)
     }
     
   }
