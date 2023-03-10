@@ -24,23 +24,73 @@ import Foundation
 import AsyncDisplayKit
 
 open class WrapperNode<Content: ASDisplayNode>: ASDisplayNode {
+
+  public struct Layout {
+
+    public var aspectRatio: CGSize?
+
+    public init(aspectRatio: CGSize? = nil) {
+      self.aspectRatio = aspectRatio
+    }
+  }
   
   open override var supportsLayerBacking: Bool {
     false
   }
   
   public let content: Content
-  
-  public init(child: () -> Content) {
+
+  public private(set) var layout: Layout {
+    didSet {
+      setNeedsLayout()
+    }
+  }
+
+  public init(
+    layout: Layout = .init(),
+    content: Content
+  ) {
+    self.layout = layout
+    let content = content
+    self.content = content
+    super.init()
+    addSubnode(content)
+  }
+
+  @available(*, deprecated, message: "Use init(layout:content:)")
+  public init(
+    child: () -> Content
+  ) {
+    self.layout = .init()
     let content = child()
     self.content = content
     super.init()
     addSubnode(content)
   }
-  
-  public final override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-    return ASWrapperLayoutSpec(layoutElement: content)
+
+  public func aspectRatio(_ ratio: CGSize) -> Self {
+    lock()
+    defer {
+      unlock()
+    }
+
+    layout.aspectRatio = ratio
+
+    return self
   }
+
+  public final override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+
+    var spec: ASLayoutSpec = ASWrapperLayoutSpec(layoutElement: content)
+
+    if let aspectRatio = layout.aspectRatio {
+      spec = ASRatioLayoutSpec(ratio: aspectRatio.height / aspectRatio.width, child: spec)
+    }
+
+    return spec
+
+  }
+
 }
 
 open class AnyWrapperNode: WrapperNode<ASDisplayNode> {
