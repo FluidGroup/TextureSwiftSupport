@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
   name: "TextureSwiftSupport",
   platforms: [
-    .iOS(.v11),
+    .iOS(.v13),
   ],
   products: [
     .library(name: "TextureSwiftSupport", targets: ["TextureSwiftSupport"]),
