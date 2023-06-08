@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
   spec.license = "MIT"
   spec.author = { "Muukii" => "muukii.app@gmail.com" }
   spec.social_media_url = "https://twitter.com/muukii_app"
-  spec.platform = :ios, "11.0"
+  spec.platform = :ios, "12.0"
   spec.source = { :git => "https://github.com/TextureCommunity/TextureSwiftSupport.git", :tag => "#{spec.version}" }
 
   spec.swift_versions = ["5.6"]

@@ -36,7 +36,7 @@ open class GradientLayerNode : ASDisplayNode {
   open override var supportsLayerBacking: Bool {
     return false
   }
-  
+
   public var gradientLayer: CAGradientLayer {
     view.layer as! CAGradientLayer
   }
