@@ -12,7 +12,7 @@ public final class OnAppearNode<Content: ASDisplayNode>: NamedDisplayCellNodeBas
 
   public struct Handlers {
     /// Runs only once on appear.
-    public var onAppear: () -> Void = {}
+    public var onAppear: @MainActor () -> Void = {}
   }
 
   public override var supportsLayerBacking: Bool {
@@ -141,7 +141,7 @@ public final class OnAppearNode<Content: ASDisplayNode>: NamedDisplayCellNodeBas
   }
 
   @discardableResult
-  public func onAppear(_ closure: @escaping () -> Void) -> Self {
+  public func onAppear(_ closure: @escaping @MainActor () -> Void) -> Self {
     handlers.onAppear = closure
     return self
   }
