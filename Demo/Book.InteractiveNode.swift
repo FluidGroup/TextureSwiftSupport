@@ -22,6 +22,7 @@ extension Book {
     }
   }
 
+  @MainActor
   static func bookInteractiveNode() -> BookView {
     BookNavigationLink(title: "InteractiveNode") {
       BookNodePreview {

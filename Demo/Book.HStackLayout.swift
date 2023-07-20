@@ -12,6 +12,7 @@ extension Book {
       .setStrokeColor(.init(white: 0, alpha: 0.2))
   }
 
+  @MainActor
   static func hStackLayout() -> BookView {
 
     BookNavigationLink(title: "HStackLayout") {

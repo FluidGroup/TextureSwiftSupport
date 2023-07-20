@@ -34,7 +34,6 @@ PODS:
     - Texture/Core (>= 3)
   - TextureSwiftSupport/LayoutSpecBuilders (3.19.0):
     - Texture/Core (>= 3)
-  - TypedTextAttributes (1.4.0)
   - Verge/ObjcBridge (8.19.0)
   - Verge/Store (8.19.0):
     - Verge/ObjcBridge
@@ -49,7 +48,6 @@ DEPENDENCIES:
   - StorybookUI
   - Texture/Core (~> 3)
   - TextureSwiftSupport (from `./`)
-  - TypedTextAttributes
   - Verge/Store
 
 SPEC REPOS:
@@ -63,7 +61,6 @@ SPEC REPOS:
     - StorybookUI
     - Texture
     - TextureBridging
-    - TypedTextAttributes
     - Verge
 
 EXTERNAL SOURCES:
@@ -81,9 +78,8 @@ SPEC CHECKSUMS:
   Texture: 2e8ab2519452515f7f5a520f5a8f7e0a413abfa3
   TextureBridging: ddc11a6abed757a57996ab7e0d2b37c78de7e6e0
   TextureSwiftSupport: 2de508abb74363be84f02721c5f0c273439963ee
-  TypedTextAttributes: 8b363a82553099d885c9f06648ae9aed09bec263
   Verge: 5199d7de11162b5568697dabdfab4f83d99d6436
 
-PODFILE CHECKSUM: 4e988e9c85417e182d501d68fba7509ae874fb53
+PODFILE CHECKSUM: 3880188cd2555012ff314e9f9c065ce20b893e8d
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1
