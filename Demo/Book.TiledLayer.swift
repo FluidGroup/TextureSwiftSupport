@@ -1,8 +1,10 @@
 import StorybookKit
-import EasyPeasy
+import MondrianLayout
+import UIKit
 
 extension Book {
 
+  @MainActor
   static func tiledLayer() -> BookView {
 
     BookNavigationLink(title: "Tile") {
@@ -11,9 +13,11 @@ extension Book {
 
         BookForEach(data: 0..<50) { i in
           BookPreview {
-            with(TiledLayerView(identifier: i)) {
-              $0.backgroundColor = .systemYellow
-              $0.easy.layout([Size(60)])
+            with(TiledLayerView(identifier: i)) { view in
+              view.backgroundColor = .systemYellow
+              Mondrian.layout {
+                view.mondrian.layout.size(.init(width: 60, height: 60))
+              }
             }
           }
         }
@@ -29,10 +33,12 @@ extension Book {
               with(UIButton(type: .system)) {
                 $0.setTitle("Hello", for: .normal)
               },
-              with(TiledLayerView(identifier: i)) {
-                $0.alpha = 1
-                $0.isOpaque = false
-                $0.easy.layout([Size(60)])
+              with(TiledLayerView(identifier: i)) { view in
+                view.alpha = 1
+                view.isOpaque = false
+                Mondrian.layout {
+                  view.mondrian.layout.size(.init(width: 60, height: 60))
+                }
               },
             ])
 
@@ -46,13 +52,17 @@ extension Book {
         BookForEach(data: 0..<50) { i in
           BookPreview {
             ZStackView(views: [
-              with(TiledLayerView(identifier: i)) {
-                $0.backgroundColor = .systemYellow
-                $0.easy.layout([Size(60)])
+              with(TiledLayerView(identifier: i)) { view in
+                view.backgroundColor = .systemYellow
+                Mondrian.layout {
+                  view.mondrian.layout.size(.init(width: 60, height: 60))
+                }
               },
-              with(UIView()) {
-                $0.backgroundColor = .systemYellow
-                $0.easy.layout([Size(60)])
+              with(UIView()) { view in
+                view.backgroundColor = .systemYellow
+                Mondrian.layout {
+                  view.mondrian.layout.size(.init(width: 60, height: 60))
+                }
               },
             ])
           }

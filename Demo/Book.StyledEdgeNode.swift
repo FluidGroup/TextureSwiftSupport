@@ -4,6 +4,7 @@ import TextureSwiftSupport
 
 extension Book {
 
+  @MainActor
   static func bookStyledEdgeNode() -> BookView {
     BookNavigationLink(title: "StyledEdgeNode") {
       BookNodePreview {
