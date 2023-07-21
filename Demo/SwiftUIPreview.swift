@@ -2,6 +2,7 @@
 import SwiftUI
 import AsyncDisplayKit
 import TextureBridging
+import TextureSwiftSupport
 
 enum Preview_Node: PreviewProvider {
   
@@ -31,7 +32,9 @@ private final class CustomNode: ASDisplayNode {
   }
   
   override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-    return ASWrapperLayoutSpec(layoutElements: [textNode])
+    LayoutSpec {
+      textNode
+    }
   }
   
 }
