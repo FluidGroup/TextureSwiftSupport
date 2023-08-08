@@ -5,6 +5,7 @@ import TextureSwiftSupport
 
 extension Book {
 
+  @MainActor
   static func layerBacked() -> BookView {
 
     BookNavigationLink(title: "LayerBacking") {

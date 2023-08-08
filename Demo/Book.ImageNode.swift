@@ -10,6 +10,7 @@ extension Book {
     return node
   }
 
+  @MainActor
   static func bookImageNode() -> BookView {
 
     BookNavigationLink(title: "ImageNode") {
