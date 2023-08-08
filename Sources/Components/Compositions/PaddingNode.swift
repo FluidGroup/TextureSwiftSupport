@@ -33,7 +33,8 @@ open class PaddingNode<Content: ASDisplayNode>: ASDisplayNode {
   
   public let content: Content
   public let padding: UIEdgeInsets
-  
+
+  @available(*, deprecated, message: "Use init(padding:content:)")
   public init(padding: UIEdgeInsets, child: () -> Content) {
     let content = child()
     self.content = content
@@ -41,7 +42,14 @@ open class PaddingNode<Content: ASDisplayNode>: ASDisplayNode {
     super.init()
     addSubnode(content)
   }
-  
+
+  public init(padding: UIEdgeInsets, content: Content) {
+    self.content = content
+    self.padding = padding
+    super.init()
+    addSubnode(content)
+  }
+
   public final override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         
     return ASInsetLayoutSpec(insets: padding, child: content)
