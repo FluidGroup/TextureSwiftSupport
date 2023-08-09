@@ -85,6 +85,18 @@ fileprivate func combineInsets(_ lhs: UIEdgeInsets, rhs: UIEdgeInsets) -> UIEdge
   return base
 }
 
+// MARK: - Offset
+extension _ASLayoutElementType {
+
+  public func offset(width: CGFloat = 0, height: CGFloat = 0) -> InsetLayout<Self> {
+    return offset(.init(width: width, height: height))
+  }
+
+  public func offset(_ size: CGSize) -> InsetLayout<Self> {
+    return padding(UIEdgeInsets(top: size.height, left: size.width, bottom: -size.height, right: -size.width))
+  }
+}
+
 // MARK: - Padding
 extension _ASLayoutElementType {
   
