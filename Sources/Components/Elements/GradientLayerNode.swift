@@ -32,7 +32,9 @@ fileprivate final class GradientLayerView: UIView {
 public typealias GradientNode = GradientLayerNode
 
 open class GradientLayerNode : ASDisplayNode {
-    
+
+  private var usingDescriptor: LinearGradientDescriptor?
+
   open override var supportsLayerBacking: Bool {
     return false
   }
@@ -41,7 +43,10 @@ open class GradientLayerNode : ASDisplayNode {
     view.layer as! CAGradientLayer
   }
   
-  public override init() {
+  public init(descriptor: LinearGradientDescriptor? = nil) {
+
+    self.usingDescriptor = descriptor
+
     super.init()
     shouldAnimateSizeChanges = false
     setViewBlock {
@@ -50,11 +55,34 @@ open class GradientLayerNode : ASDisplayNode {
     
     backgroundColor = .clear
   }
-  
+
+  open override func didLoad() {
+    super.didLoad()
+
+    lock()
+    usingDescriptor?.apply(to: (self.view.layer as! CAGradientLayer))
+    unlock()
+
+  }
+
   open func setDescriptor(descriptor: LinearGradientDescriptor) {
-    assert(Thread.isMainThread)
-    ASPerformBlockOnMainThread {
-      descriptor.apply(to: (self.view.layer as! CAGradientLayer))
+
+    lock()
+    defer {
+      unlock()
     }
+
+    assert(Thread.isMainThread)
+
+    usingDescriptor = descriptor
+
+    if self.isNodeLoaded {
+      ASPerformBlockOnMainThread {
+        descriptor.apply(to: (self.view.layer as! CAGradientLayer))
+      }
+    } else {
+      // will be applied on didLoad
+    }
+
   }
 }
