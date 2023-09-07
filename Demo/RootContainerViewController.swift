@@ -1,5 +1,4 @@
 import StorybookKit
-import StorybookUI
 import UIKit
 
 final class RootContainerViewController: UIViewController {
@@ -7,15 +6,12 @@ final class RootContainerViewController: UIViewController {
   init() {
     super.init(nibName: nil, bundle: nil)
 
-    let child = StorybookViewController(
-      book: book,
-      dismissHandler: nil
-    )
+    let container = UIHostingController(rootView: StorybookDisplayRootView(bookStore: .init(book: book)))
 
-    addChild(child)
-    view.addSubview(child.view)
-    child.view.frame = view.bounds
-    child.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    addChild(container)
+    view.addSubview(container.view)
+    container.view.frame = view.bounds
+    container.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
   }
 

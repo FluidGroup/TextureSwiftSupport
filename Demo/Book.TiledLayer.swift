@@ -5,14 +5,14 @@ import UIKit
 extension Book {
 
   @MainActor
-  static func tiledLayer() -> BookView {
+  static func tiledLayer() -> BookPage {
 
-    BookNavigationLink(title: "Tile") {
+    BookPage(title: "Tile") {
 
-      BookNavigationLink(title: "TiledLayerView") {
+      BookPage(title: "TiledLayerView") {
 
-        BookForEach(data: 0..<50) { i in
-          BookPreview {
+        ForEach(0..<50) { i in
+          BookPreview { _ in
             with(TiledLayerView(identifier: i)) { view in
               view.backgroundColor = .systemYellow
               Mondrian.layout {
@@ -24,10 +24,10 @@ extension Book {
 
       }
 
-      BookNavigationLink(title: "TiledLayerView - transparent") {
+      BookPage(title: "TiledLayerView - transparent") {
 
-        BookForEach(data: 0..<50) { i in
-          BookPreview {
+        ForEach(0..<50) { i in
+          BookPreview { _ in
 
             ZStackView(views: [
               with(UIButton(type: .system)) {
@@ -47,11 +47,11 @@ extension Book {
 
       }
 
-      BookNavigationLink(title: "TiledLayerView - hiding") {
+      BookPage(title: "TiledLayerView - hiding") {
 
-        BookForEach(data: 0..<50) { i in
-          BookPreview {
-            ZStackView(views: [
+        ForEach(0..<50) { i in
+          BookPreview { context in
+            let view = ZStackView(views: [
               with(TiledLayerView(identifier: i)) { view in
                 view.backgroundColor = .systemYellow
                 Mondrian.layout {
@@ -65,10 +65,15 @@ extension Book {
                 }
               },
             ])
-          }
-          .addButton("On") { view in
-            view.subviews[1].isHidden = true
-          }
+
+            context.control {
+              Button("On") {
+                view.subviews[1].isHidden = true
+              }
+            }
+
+            return view
+          }         
         }
 
       }

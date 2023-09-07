@@ -23,9 +23,9 @@ extension Book {
   }
 
   @MainActor
-  static func bookInteractiveNode() -> BookView {
-    BookNavigationLink(title: "InteractiveNode") {
-      BookNodePreview {
+  static func bookInteractiveNode() -> BookPage {
+    BookPage(title: "InteractiveNode") {
+      BookNodePreview { _ in
         InteractiveNode(animation: .translucent) {
           makeBody()
         }
@@ -33,9 +33,9 @@ extension Book {
 
       BookSection(title: "With Haptics") {
 
-        BookForEach(data: [.light, .medium, .heavy] as [UIImpactFeedbackGenerator.FeedbackStyle]) {
+        ForEach.inefficient(items: [.light, .medium, .heavy] as [UIImpactFeedbackGenerator.FeedbackStyle]) {
           style in
-          BookNodePreview {
+          BookNodePreview(title: "Impact style:\(style.localizedDescription)") { _ in
             InteractiveNode(
               animation: .translucent,
               haptics: .impactOnTouchUpInside(style: style)
@@ -43,14 +43,13 @@ extension Book {
               makeBody()
             }
           }
-          .title("Impact style:\(style.localizedDescription)")
         }
 
         if #available(iOS 13, *) {
 
-          BookForEach(data: [.soft, .rigid] as [UIImpactFeedbackGenerator.FeedbackStyle]) {
+          ForEach.inefficient(items: [.soft, .rigid] as [UIImpactFeedbackGenerator.FeedbackStyle]) {
             style in
-            BookNodePreview {
+            BookNodePreview(title: "Impact style:\(style.localizedDescription)") { _ in
               InteractiveNode(
                 animation: .translucent,
                 haptics: .impactOnTouchUpInside(style: style)
@@ -58,7 +57,6 @@ extension Book {
                 makeBody()
               }
             }
-            .title("Impact style:\(style.localizedDescription)")
           }
 
         }

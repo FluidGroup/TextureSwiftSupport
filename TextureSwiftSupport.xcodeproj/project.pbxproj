@@ -49,7 +49,6 @@
 		4BBD7E312A68E96700A5C919 /* Descriptors in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBD7E302A68E96700A5C919 /* Descriptors */; };
 		4BBD7E342A68F5B900A5C919 /* StorybookKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBD7E332A68F5B900A5C919 /* StorybookKit */; };
 		4BBD7E362A68F5B900A5C919 /* StorybookKitTextureSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBD7E352A68F5B900A5C919 /* StorybookKitTextureSupport */; };
-		4BBD7E382A68F5B900A5C919 /* StorybookUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBD7E372A68F5B900A5C919 /* StorybookUI */; };
 		4BBD7E3B2A68F5FF00A5C919 /* MondrianLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBD7E3A2A68F5FF00A5C919 /* MondrianLayout */; };
 		4BBD7E3E2A6931A100A5C919 /* GlossButtonNode in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBD7E3D2A6931A100A5C919 /* GlossButtonNode */; };
 		4BBF60FA24CC2FFA000E0E74 /* TextureSwiftSupportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBF60F924CC2FFA000E0E74 /* TextureSwiftSupportTests.swift */; };
@@ -206,7 +205,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BBD7E362A68F5B900A5C919 /* StorybookKitTextureSupport in Frameworks */,
-				4BBD7E382A68F5B900A5C919 /* StorybookUI in Frameworks */,
 				4BBD7E342A68F5B900A5C919 /* StorybookKit in Frameworks */,
 				4BBD7E3B2A68F5FF00A5C919 /* MondrianLayout in Frameworks */,
 				4B1D612B2A68E75F000FD6D9 /* TypedTextAttributes in Frameworks */,
@@ -514,7 +512,6 @@
 				4B1D612A2A68E75F000FD6D9 /* TypedTextAttributes */,
 				4BBD7E332A68F5B900A5C919 /* StorybookKit */,
 				4BBD7E352A68F5B900A5C919 /* StorybookKitTextureSupport */,
-				4BBD7E372A68F5B900A5C919 /* StorybookUI */,
 				4BBD7E3A2A68F5FF00A5C919 /* MondrianLayout */,
 				4BBD7E3D2A6931A100A5C919 /* GlossButtonNode */,
 			);
@@ -911,7 +908,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KU2QEJ9K3Z;
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -932,7 +929,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KU2QEJ9K3Z;
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1097,11 +1094,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4BBD7E322A68E9FA00A5C919 /* XCRemoteSwiftPackageReference "Storybook-ios" */;
 			productName = StorybookKitTextureSupport;
-		};
-		4BBD7E372A68F5B900A5C919 /* StorybookUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4BBD7E322A68E9FA00A5C919 /* XCRemoteSwiftPackageReference "Storybook-ios" */;
-			productName = StorybookUI;
 		};
 		4BBD7E3A2A68F5FF00A5C919 /* MondrianLayout */ = {
 			isa = XCSwiftPackageProductDependency;

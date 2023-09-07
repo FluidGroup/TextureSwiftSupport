@@ -28,12 +28,39 @@
       }
     },
     {
+      "identity" : "resultbuilderkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/FluidGroup/ResultBuilderKit",
+      "state" : {
+        "revision" : "34aa57fcee5ec3ee0f368b05cb53c7919c188ab2",
+        "version" : "1.3.0"
+      }
+    },
+    {
       "identity" : "storybook-ios",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eure/Storybook-ios.git",
       "state" : {
         "branch" : "main",
-        "revision" : "d3a5de05361ed0340f0a954711e4a59bfd09ad7f"
+        "revision" : "8985fa9fa6bca298b4c66dd0f6f0e53b7a7a0f6c"
+      }
+    },
+    {
+      "identity" : "swiftui-gesture-velocity",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/FluidGroup/swiftui-gesture-velocity",
+      "state" : {
+        "revision" : "9c83f8995f9e5efc29db2fca4b9ff058283f1603",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "swiftui-support",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/FluidGroup/swiftui-support",
+      "state" : {
+        "revision" : "8ef53190c33bd345e7a95ef504dafe0f85ad9c4d",
+        "version" : "0.4.1"
       }
     },
     {

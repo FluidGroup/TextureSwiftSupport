@@ -5,9 +5,9 @@ import TextureSwiftSupport
 extension Book {
 
   @MainActor
-  static func bookStyledEdgeNode() -> BookView {
-    BookNavigationLink(title: "StyledEdgeNode") {
-      BookNodePreview {
+  static func bookStyledEdgeNode() -> BookPage {
+    BookPage(title: "StyledEdgeNode") {
+      BookNodePreview { _ in
         let bodyNode = ASDisplayNode()
         bodyNode.backgroundColor = .red
 
@@ -20,9 +20,9 @@ extension Book {
         node.style.preferredSize = .init(width: 60, height: 60)
         return node
       }
-      .backgroundColor(.orange)
+      .background(Color.orange)
 
-      BookNodePreview {
+      BookNodePreview { _ in
         let bodyNode = ASDisplayNode()
         bodyNode.backgroundColor = .red
 
@@ -36,9 +36,9 @@ extension Book {
         node.style.preferredSize = .init(width: 60, height: 60)
         return node
       }
-      .backgroundColor(.orange)
+      .background(Color.orange)
 
-      BookNodePreview {
+      BookNodePreview(title: "Mask") { _ in
         let bodyNode = ASDisplayNode()
         bodyNode.backgroundColor = .red
 
@@ -52,8 +52,8 @@ extension Book {
         node.style.preferredSize = .init(width: 60, height: 60)
         return node
       }
-      .backgroundColor(.orange)
-      .title("Mask")
+      .background(Color.orange)
+
 
     }
 
