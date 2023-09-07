@@ -1,6 +1,7 @@
 import StorybookKit
 import StorybookKitTextureSupport
 import TextureSwiftSupport
+import SwiftUISupport
 
 extension Book {
 
@@ -13,13 +14,13 @@ extension Book {
   }
 
   @MainActor
-  static func hStackLayout() -> BookView {
+  static func hStackLayout() -> BookPage {
 
-    BookNavigationLink(title: "HStackLayout") {
+    BookPage(title: "HStackLayout") {
 
-      BookForEach(data: [.start, .center, .end, .spaceBetween, .spaceAround] as [ASStackLayoutJustifyContent]) { justifyContent in
+      ForEach.inefficient(items: [.start, .center, .end, .spaceBetween, .spaceAround] as [ASStackLayoutJustifyContent]) { justifyContent in
 
-        BookNodePreview(expandsWidth: true) {
+        BookNodePreview(title: "\(justifyContent.rawValue)") { _ in
           AnyDisplayNode { _, _ in
             LayoutSpec {
               HStackLayout(spacing: 20, justifyContent: justifyContent) {
@@ -40,12 +41,13 @@ extension Book {
           }
 
         }
-        .title("\(justifyContent.rawValue)")
+        .frame(maxWidth: .greatestFiniteMagnitude)
+
       }
 
-      BookForEach(data: [.start, .center, .end, .spaceBetween, .spaceAround] as [ASStackLayoutJustifyContent]) { justifyContent in
+      ForEach.inefficient(items: [.start, .center, .end, .spaceBetween, .spaceAround] as [ASStackLayoutJustifyContent]) { justifyContent in
 
-        BookNodePreview(expandsWidth: false) {
+        BookNodePreview(title: "\(justifyContent.rawValue)") { _ in
           AnyDisplayNode { _, _ in
             LayoutSpec {
               HStackLayout(spacing: 20, justifyContent: justifyContent) {
@@ -66,7 +68,8 @@ extension Book {
           }
 
         }
-        .title("\(justifyContent.rawValue)")
+        .frame(maxWidth: .greatestFiniteMagnitude)
+
       }
 
     }

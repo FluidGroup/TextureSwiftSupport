@@ -4,44 +4,45 @@ import TextureSwiftSupport
 
 @MainActor
 let book = Book(title: "TextureSwiftSupport") {
-  
-  BookNavigationLink(title: "Standard Components") {
-    Book.bookImageNode()
-  }
 
-  BookNavigationLink(title: "Layout") {
-    Book.hStackLayout()
-  }
+  Book.bookImageNode()
 
-  BookNavigationLink(title: "Components") {
-    Book.bookInteractiveNode()
-    Book.bookStyledEdgeNode()
-  }
+  Book.hStackLayout()
 
-  BookNavigationLink(title: "Lab") {
-    Book.tiledLayer()
-  }
+  Book.bookInteractiveNode()
+  Book.bookStyledEdgeNode()
+
+  Book.tiledLayer()
 
   Book.layerBacked()
 
-  BookPush(title: "Transition") {
-    TransitionLayoutViewController()
+  BookPage(title: "Transition") {
+    BookPush(title: "push") {
+      TransitionLayoutViewController()
+    }
   }
 
-  BookPush(title: "Instagram post") {
-    InstagramPostCellViewController()
+  BookPage(title: "Instagram post") {
+    BookPush(title: "push") {
+      InstagramPostCellViewController()
+    }
+  }
+  BookPage(title: "Adaptive layoutt") {
+    BookPush(title: "push") {
+      AdaptiveLayoutViewController()
+    }
   }
 
-  BookPush(title: "Adaptive layout") {
-    AdaptiveLayoutViewController()
+  BookPage(title: "Composition") {
+    BookPush(title: "push") {
+      CompositionCatalogViewController()
+    }
   }
 
-  BookPush(title: "Composition") {
-    CompositionCatalogViewController()
-  }
-
-  BookPush(title: "Test recursive layout") {
-    RecursiveLayoutViewController()
+  BookPage(title: "Test recursive layout") {
+    BookPush(title: "Push") {
+      RecursiveLayoutViewController()
+    }
   }
 
 }

@@ -11,51 +11,50 @@ extension Book {
   }
 
   @MainActor
-  static func bookImageNode() -> BookView {
+  static func bookImageNode() -> BookPage {
 
-    BookNavigationLink(title: "ImageNode") {
-
-      BookPage(title: "ASImageNode") {
-        BookSection(title: "ContentMode - .center") {
-          BookNodePreview(expandsWidth: true) {
-            let node = Self.makeImageNode()
-            node.contentMode = .center
-            return node
-          }
-
-          BookNodePreview(expandsWidth: true) {
-            let node = Self.makeImageNode()
-            node.contentMode = .center
-            node.style.maxWidth = .init(unit: .points, value: 60)
-            return node
-          }
-          .title("Width: 60")
-
-          BookNodePreview(expandsWidth: true) {
-            let node = Self.makeImageNode()
-            node.contentMode = .center
-            node.style.maxWidth = .init(unit: .points, value: 200)
-            return node
-          }
-          .title("Width: 200")
+    BookPage(title: "ASImageNode") {
+      BookSection(title: "ContentMode - .center") {
+        BookNodePreview { _ in
+          let node = Self.makeImageNode()
+          node.contentMode = .center
+          return node
         }
+        .frame(maxWidth: .greatestFiniteMagnitude)
 
-        BookSection(title: "ContentMode - .scaleAspectFit") {
-          BookNodePreview(expandsWidth: true) {
-            let node = Self.makeImageNode()
-            node.contentMode = .scaleAspectFit
-            return node
-          }
-
-          BookNodePreview(expandsWidth: true) {
-            let node = Self.makeImageNode()
-            node.contentMode = .scaleAspectFit
-            node.style.maxWidth = .init(unit: .points, value: 60)
-            return node
-          }
+        BookNodePreview(title: "Width: 60") { _ in
+          let node = Self.makeImageNode()
+          node.contentMode = .center
+          node.style.maxWidth = .init(unit: .points, value: 60)
+          return node
         }
+        .frame(maxWidth: .greatestFiniteMagnitude)
+
+        BookNodePreview(title: "Width: 200") { _ in
+          let node = Self.makeImageNode()
+          node.contentMode = .center
+          node.style.maxWidth = .init(unit: .points, value: 200)
+          return node
+        }
+        .frame(maxWidth: .greatestFiniteMagnitude)
       }
 
+      BookSection(title: "ContentMode - .scaleAspectFit") {
+        BookNodePreview { _ in
+          let node = Self.makeImageNode()
+          node.contentMode = .scaleAspectFit
+          return node
+        }
+        .frame(maxWidth: .greatestFiniteMagnitude)
+
+        BookNodePreview { _ in
+          let node = Self.makeImageNode()
+          node.contentMode = .scaleAspectFit
+          node.style.maxWidth = .init(unit: .points, value: 60)
+          return node
+        }
+        .frame(maxWidth: .greatestFiniteMagnitude)
+      }
     }
 
   }

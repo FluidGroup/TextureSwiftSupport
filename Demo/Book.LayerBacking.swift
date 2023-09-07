@@ -6,11 +6,11 @@ import TextureSwiftSupport
 extension Book {
 
   @MainActor
-  static func layerBacked() -> BookView {
+  static func layerBacked() -> BookPage {
 
-    BookNavigationLink(title: "LayerBacking") {
+    BookPage(title: "LayerBacking") {
 
-      BookNodePreview {
+      BookNodePreview { _ in
         AnyDisplayNode { node, _ in
           LayoutSpec {
             VStackLayout {
@@ -24,7 +24,7 @@ extension Book {
         }
       }
 
-      BookNodePreview {
+      BookNodePreview { _ in
         AnyDisplayNode { node, _ in
           LayoutSpec {
             VStackLayout {
