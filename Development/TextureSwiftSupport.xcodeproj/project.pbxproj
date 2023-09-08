@@ -1,0 +1,659 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4B15BCD82667D717006A0D04 /* Book.StyledEdgeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15BCD72667D717006A0D04 /* Book.StyledEdgeNode.swift */; };
+		4B1D612B2A68E75F000FD6D9 /* TypedTextAttributes in Frameworks */ = {isa = PBXBuildFile; productRef = 4B1D612A2A68E75F000FD6D9 /* TypedTextAttributes */; };
+		4B28C83E264FEDF900C1ABA3 /* TransitionLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B28C83D264FEDF900C1ABA3 /* TransitionLayoutViewController.swift */; };
+		4B2A018325B6E76E00D7C188 /* RecursiveLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A018225B6E76E00D7C188 /* RecursiveLayoutViewController.swift */; };
+		4B305D7F2AAB8E450067A836 /* TextureSwiftSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 4B305D7E2AAB8E450067A836 /* TextureSwiftSupport */; };
+		4B3C42D6266DCA4F00861ADD /* Book.TiledLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C42D5266DCA4F00861ADD /* Book.TiledLayer.swift */; };
+		4B3C42D8266DCBD000861ADD /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C42D7266DCBD000861ADD /* Util.swift */; };
+		4B3C42DA266DCCB600861ADD /* ZStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C42D9266DCCB600861ADD /* ZStackView.swift */; };
+		4B4F5C94267B2F0700D12273 /* Book.HStackLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4F5C93267B2F0600D12273 /* Book.HStackLayout.swift */; };
+		4B6262EB264FDE6C00540F0B /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6262EA264FDE6C00540F0B /* Components.swift */; };
+		4B6FA03B2468B6C900C21A53 /* CompositionCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA03A2468B6C900C21A53 /* CompositionCatalogViewController.swift */; };
+		4B7F1877266745FD002F9A82 /* Book.ImageNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F1876266745FD002F9A82 /* Book.ImageNode.swift */; };
+		4B873C3F23084047006170B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B873C3E23084047006170B1 /* Assets.xcassets */; };
+		4B873C4223084047006170B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B873C4023084047006170B1 /* LaunchScreen.storyboard */; };
+		4B873C4B230845E3006170B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B873C48230845E3006170B1 /* AppDelegate.swift */; };
+		4BB21B3A244E06E6008CA2A4 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB21B39244E06E6008CA2A4 /* Mocks.swift */; };
+		4BB21B3E244E0E68008CA2A4 /* InstagramPostCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB21B3D244E0E68008CA2A4 /* InstagramPostCellViewController.swift */; };
+		4BBD7E342A68F5B900A5C919 /* StorybookKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBD7E332A68F5B900A5C919 /* StorybookKit */; };
+		4BBD7E362A68F5B900A5C919 /* StorybookKitTextureSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBD7E352A68F5B900A5C919 /* StorybookKitTextureSupport */; };
+		4BBD7E3B2A68F5FF00A5C919 /* MondrianLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBD7E3A2A68F5FF00A5C919 /* MondrianLayout */; };
+		4BBD7E3E2A6931A100A5C919 /* GlossButtonNode in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBD7E3D2A6931A100A5C919 /* GlossButtonNode */; };
+		4BBF60FA24CC2FFA000E0E74 /* TextureSwiftSupportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBF60F924CC2FFA000E0E74 /* TextureSwiftSupportTests.swift */; };
+		4BBF610224CC3016000E0E74 /* CompileCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B873C47230845E3006170B1 /* CompileCheck.swift */; };
+		4BBF610424CC3472000E0E74 /* SwiftUISample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBF610324CC3472000E0E74 /* SwiftUISample.swift */; };
+		4BC85C1026EFF1B6003BAEAE /* Book.LayerBacking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC85C0F26EFF1B6003BAEAE /* Book.LayerBacking.swift */; };
+		4BE65277246481D8004346D6 /* AdaptiveLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE65276246481D8004346D6 /* AdaptiveLayoutViewController.swift */; };
+		4BFCB9582992ECE000740508 /* SwiftUIPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFCB9572992ECE000740508 /* SwiftUIPreview.swift */; };
+		4BFE5FE12663DE9400C5C032 /* RootContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE5FE02663DE9400C5C032 /* RootContainerViewController.swift */; };
+		4BFE5FE32663DEA900C5C032 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE5FE22663DEA900C5C032 /* Book.swift */; };
+		4BFE618A2663E8BF00C5C032 /* Book.InteractiveNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFE61892663E8BF00C5C032 /* Book.InteractiveNode.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4B15BCD72667D717006A0D04 /* Book.StyledEdgeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.StyledEdgeNode.swift; sourceTree = "<group>"; };
+		4B28C83D264FEDF900C1ABA3 /* TransitionLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionLayoutViewController.swift; sourceTree = "<group>"; };
+		4B2A018225B6E76E00D7C188 /* RecursiveLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecursiveLayoutViewController.swift; sourceTree = "<group>"; };
+		4B305D7D2AAB8E290067A836 /* TextureSwiftSupport */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TextureSwiftSupport; path = ..; sourceTree = "<group>"; };
+		4B3C42D5266DCA4F00861ADD /* Book.TiledLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.TiledLayer.swift; sourceTree = "<group>"; };
+		4B3C42D7266DCBD000861ADD /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		4B3C42D9266DCCB600861ADD /* ZStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZStackView.swift; sourceTree = "<group>"; };
+		4B4F5C93267B2F0600D12273 /* Book.HStackLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.HStackLayout.swift; sourceTree = "<group>"; };
+		4B62614E264FD90A00540F0B /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4B6262EA264FDE6C00540F0B /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		4B6FA03A2468B6C900C21A53 /* CompositionCatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionCatalogViewController.swift; sourceTree = "<group>"; };
+		4B7F1876266745FD002F9A82 /* Book.ImageNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.ImageNode.swift; sourceTree = "<group>"; };
+		4B873C3323084045006170B1 /* Demo-TextureSwiftSuppoprt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo-TextureSwiftSuppoprt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B873C3E23084047006170B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4B873C4123084047006170B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4B873C4323084047006170B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B873C47230845E3006170B1 /* CompileCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompileCheck.swift; sourceTree = "<group>"; };
+		4B873C48230845E3006170B1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4BB21B39244E06E6008CA2A4 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
+		4BB21B3D244E0E68008CA2A4 /* InstagramPostCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramPostCellViewController.swift; sourceTree = "<group>"; };
+		4BBF60F724CC2FFA000E0E74 /* TextureSwiftSupportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TextureSwiftSupportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BBF60F924CC2FFA000E0E74 /* TextureSwiftSupportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureSwiftSupportTests.swift; sourceTree = "<group>"; };
+		4BBF60FB24CC2FFA000E0E74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BBF610324CC3472000E0E74 /* SwiftUISample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUISample.swift; sourceTree = "<group>"; };
+		4BC85C0F26EFF1B6003BAEAE /* Book.LayerBacking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.LayerBacking.swift; sourceTree = "<group>"; };
+		4BE65276246481D8004346D6 /* AdaptiveLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveLayoutViewController.swift; sourceTree = "<group>"; };
+		4BFCB9572992ECE000740508 /* SwiftUIPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPreview.swift; sourceTree = "<group>"; };
+		4BFE5FE02663DE9400C5C032 /* RootContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContainerViewController.swift; sourceTree = "<group>"; };
+		4BFE5FE22663DEA900C5C032 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		4BFE61892663E8BF00C5C032 /* Book.InteractiveNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.InteractiveNode.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4B873C3023084045006170B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BBD7E362A68F5B900A5C919 /* StorybookKitTextureSupport in Frameworks */,
+				4BBD7E342A68F5B900A5C919 /* StorybookKit in Frameworks */,
+				4B305D7F2AAB8E450067A836 /* TextureSwiftSupport in Frameworks */,
+				4BBD7E3B2A68F5FF00A5C919 /* MondrianLayout in Frameworks */,
+				4B1D612B2A68E75F000FD6D9 /* TypedTextAttributes in Frameworks */,
+				4BBD7E3E2A6931A100A5C919 /* GlossButtonNode in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BBF60F424CC2FFA000E0E74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B873C1823083FE5006170B1 = {
+			isa = PBXGroup;
+			children = (
+				4B305D7D2AAB8E290067A836 /* TextureSwiftSupport */,
+				4B62614E264FD90A00540F0B /* Playground.playground */,
+				4B873C3423084045006170B1 /* Demo */,
+				4BBF60F824CC2FFA000E0E74 /* TextureSwiftSupportTests */,
+				4B873C2323083FE5006170B1 /* Products */,
+				4BBD7E2C2A68E93300A5C919 /* Frameworks */,
+			);
+			indentWidth = 2;
+			sourceTree = "<group>";
+			tabWidth = 2;
+		};
+		4B873C2323083FE5006170B1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B873C3323084045006170B1 /* Demo-TextureSwiftSuppoprt.app */,
+				4BBF60F724CC2FFA000E0E74 /* TextureSwiftSupportTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4B873C3423084045006170B1 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				4BFE5FE42663DFE900C5C032 /* ViewControllers */,
+				4BB21B38244E06CB008CA2A4 /* Components */,
+				4B873C48230845E3006170B1 /* AppDelegate.swift */,
+				4B873C3E23084047006170B1 /* Assets.xcassets */,
+				4B873C4023084047006170B1 /* LaunchScreen.storyboard */,
+				4B873C4323084047006170B1 /* Info.plist */,
+				4BFE5FE02663DE9400C5C032 /* RootContainerViewController.swift */,
+				4BFE5FE22663DEA900C5C032 /* Book.swift */,
+				4BFE61892663E8BF00C5C032 /* Book.InteractiveNode.swift */,
+				4B7F1876266745FD002F9A82 /* Book.ImageNode.swift */,
+				4B15BCD72667D717006A0D04 /* Book.StyledEdgeNode.swift */,
+				4B3C42D5266DCA4F00861ADD /* Book.TiledLayer.swift */,
+				4BC85C0F26EFF1B6003BAEAE /* Book.LayerBacking.swift */,
+				4B4F5C93267B2F0600D12273 /* Book.HStackLayout.swift */,
+				4BFCB9572992ECE000740508 /* SwiftUIPreview.swift */,
+				4B3C42D7266DCBD000861ADD /* Util.swift */,
+				4B3C42D9266DCCB600861ADD /* ZStackView.swift */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		4BB21B38244E06CB008CA2A4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4BB21B39244E06E6008CA2A4 /* Mocks.swift */,
+				4B6262EA264FDE6C00540F0B /* Components.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4BBD7E2C2A68E93300A5C919 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4BBF60F824CC2FFA000E0E74 /* TextureSwiftSupportTests */ = {
+			isa = PBXGroup;
+			children = (
+				4B873C47230845E3006170B1 /* CompileCheck.swift */,
+				4BBF610324CC3472000E0E74 /* SwiftUISample.swift */,
+				4BBF60F924CC2FFA000E0E74 /* TextureSwiftSupportTests.swift */,
+				4BBF60FB24CC2FFA000E0E74 /* Info.plist */,
+			);
+			path = TextureSwiftSupportTests;
+			sourceTree = "<group>";
+		};
+		4BFE5FE42663DFE900C5C032 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BB21B3D244E0E68008CA2A4 /* InstagramPostCellViewController.swift */,
+				4BE65276246481D8004346D6 /* AdaptiveLayoutViewController.swift */,
+				4B6FA03A2468B6C900C21A53 /* CompositionCatalogViewController.swift */,
+				4B2A018225B6E76E00D7C188 /* RecursiveLayoutViewController.swift */,
+				4B28C83D264FEDF900C1ABA3 /* TransitionLayoutViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4B873C3223084045006170B1 /* Demo-TextureSwiftSuppoprt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B873C4423084047006170B1 /* Build configuration list for PBXNativeTarget "Demo-TextureSwiftSuppoprt" */;
+			buildPhases = (
+				4B873C2F23084045006170B1 /* Sources */,
+				4B873C3023084045006170B1 /* Frameworks */,
+				4B873C3123084045006170B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Demo-TextureSwiftSuppoprt";
+			packageProductDependencies = (
+				4B1D612A2A68E75F000FD6D9 /* TypedTextAttributes */,
+				4BBD7E332A68F5B900A5C919 /* StorybookKit */,
+				4BBD7E352A68F5B900A5C919 /* StorybookKitTextureSupport */,
+				4BBD7E3A2A68F5FF00A5C919 /* MondrianLayout */,
+				4BBD7E3D2A6931A100A5C919 /* GlossButtonNode */,
+				4B305D7E2AAB8E450067A836 /* TextureSwiftSupport */,
+			);
+			productName = Demo;
+			productReference = 4B873C3323084045006170B1 /* Demo-TextureSwiftSuppoprt.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4BBF60F624CC2FFA000E0E74 /* TextureSwiftSupportTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BBF610124CC2FFA000E0E74 /* Build configuration list for PBXNativeTarget "TextureSwiftSupportTests" */;
+			buildPhases = (
+				4BBF60F324CC2FFA000E0E74 /* Sources */,
+				4BBF60F424CC2FFA000E0E74 /* Frameworks */,
+				4BBF60F524CC2FFA000E0E74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TextureSwiftSupportTests;
+			productName = TextureSwiftSupportTests;
+			productReference = 4BBF60F724CC2FFA000E0E74 /* TextureSwiftSupportTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4B873C1923083FE5006170B1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = muukii;
+				TargetAttributes = {
+					4B873C3223084045006170B1 = {
+						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
+					};
+					4BBF60F624CC2FFA000E0E74 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = 4B873C1C23083FE5006170B1 /* Build configuration list for PBXProject "TextureSwiftSupport" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4B873C1823083FE5006170B1;
+			packageReferences = (
+				4B1D61292A68E75F000FD6D9 /* XCRemoteSwiftPackageReference "TypedTextAttributes" */,
+				4BBD7E2B2A68E84F00A5C919 /* XCRemoteSwiftPackageReference "Texture" */,
+				4BBD7E2F2A68E96700A5C919 /* XCRemoteSwiftPackageReference "Descriptors" */,
+				4BBD7E322A68E9FA00A5C919 /* XCRemoteSwiftPackageReference "Storybook-ios" */,
+				4BBD7E392A68F5FF00A5C919 /* XCRemoteSwiftPackageReference "MondrianLayout" */,
+				4BBD7E3C2A6931A100A5C919 /* XCRemoteSwiftPackageReference "GlossButtonNode" */,
+			);
+			productRefGroup = 4B873C2323083FE5006170B1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4B873C3223084045006170B1 /* Demo-TextureSwiftSuppoprt */,
+				4BBF60F624CC2FFA000E0E74 /* TextureSwiftSupportTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4B873C3123084045006170B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B873C4223084047006170B1 /* LaunchScreen.storyboard in Resources */,
+				4B873C3F23084047006170B1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BBF60F524CC2FFA000E0E74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4B873C2F23084045006170B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B3C42D6266DCA4F00861ADD /* Book.TiledLayer.swift in Sources */,
+				4BFE5FE12663DE9400C5C032 /* RootContainerViewController.swift in Sources */,
+				4B7F1877266745FD002F9A82 /* Book.ImageNode.swift in Sources */,
+				4B15BCD82667D717006A0D04 /* Book.StyledEdgeNode.swift in Sources */,
+				4B28C83E264FEDF900C1ABA3 /* TransitionLayoutViewController.swift in Sources */,
+				4BC85C1026EFF1B6003BAEAE /* Book.LayerBacking.swift in Sources */,
+				4BB21B3A244E06E6008CA2A4 /* Mocks.swift in Sources */,
+				4B3C42DA266DCCB600861ADD /* ZStackView.swift in Sources */,
+				4BFE618A2663E8BF00C5C032 /* Book.InteractiveNode.swift in Sources */,
+				4B3C42D8266DCBD000861ADD /* Util.swift in Sources */,
+				4B2A018325B6E76E00D7C188 /* RecursiveLayoutViewController.swift in Sources */,
+				4BB21B3E244E0E68008CA2A4 /* InstagramPostCellViewController.swift in Sources */,
+				4BE65277246481D8004346D6 /* AdaptiveLayoutViewController.swift in Sources */,
+				4BFCB9582992ECE000740508 /* SwiftUIPreview.swift in Sources */,
+				4B873C4B230845E3006170B1 /* AppDelegate.swift in Sources */,
+				4B6262EB264FDE6C00540F0B /* Components.swift in Sources */,
+				4B6FA03B2468B6C900C21A53 /* CompositionCatalogViewController.swift in Sources */,
+				4B4F5C94267B2F0700D12273 /* Book.HStackLayout.swift in Sources */,
+				4BFE5FE32663DEA900C5C032 /* Book.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BBF60F324CC2FFA000E0E74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BBF610224CC3016000E0E74 /* CompileCheck.swift in Sources */,
+				4BBF60FA24CC2FFA000E0E74 /* TextureSwiftSupportTests.swift in Sources */,
+				4BBF610424CC3472000E0E74 /* SwiftUISample.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4B873C4023084047006170B1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B873C4123084047006170B1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4B873C2823083FE5006170B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4B873C2923083FE5006170B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4B873C4523084047006170B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KU2QEJ9K3Z;
+				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.muukii.Demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4B873C4623084047006170B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KU2QEJ9K3Z;
+				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.muukii.Demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4BBF60FF24CC2FFA000E0E74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TextureSwiftSupportTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.muukii.TextureSwiftSupportTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4BBF610024CC2FFA000E0E74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TextureSwiftSupportTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.muukii.TextureSwiftSupportTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4B873C1C23083FE5006170B1 /* Build configuration list for PBXProject "TextureSwiftSupport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B873C2823083FE5006170B1 /* Debug */,
+				4B873C2923083FE5006170B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B873C4423084047006170B1 /* Build configuration list for PBXNativeTarget "Demo-TextureSwiftSuppoprt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B873C4523084047006170B1 /* Debug */,
+				4B873C4623084047006170B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BBF610124CC2FFA000E0E74 /* Build configuration list for PBXNativeTarget "TextureSwiftSupportTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BBF60FF24CC2FFA000E0E74 /* Debug */,
+				4BBF610024CC2FFA000E0E74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4B1D61292A68E75F000FD6D9 /* XCRemoteSwiftPackageReference "TypedTextAttributes" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/FluidGroup/TypedTextAttributes.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+		4BBD7E2B2A68E84F00A5C919 /* XCRemoteSwiftPackageReference "Texture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/FluidGroup/Texture.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.0.2;
+			};
+		};
+		4BBD7E2F2A68E96700A5C919 /* XCRemoteSwiftPackageReference "Descriptors" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/FluidGroup/Descriptors.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.3;
+			};
+		};
+		4BBD7E322A68E9FA00A5C919 /* XCRemoteSwiftPackageReference "Storybook-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/eure/Storybook-ios.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		4BBD7E392A68F5FF00A5C919 /* XCRemoteSwiftPackageReference "MondrianLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/FluidGroup/MondrianLayout.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.0;
+			};
+		};
+		4BBD7E3C2A6931A100A5C919 /* XCRemoteSwiftPackageReference "GlossButtonNode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/FluidGroup/GlossButtonNode";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4B1D612A2A68E75F000FD6D9 /* TypedTextAttributes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B1D61292A68E75F000FD6D9 /* XCRemoteSwiftPackageReference "TypedTextAttributes" */;
+			productName = TypedTextAttributes;
+		};
+		4B305D7E2AAB8E450067A836 /* TextureSwiftSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TextureSwiftSupport;
+		};
+		4BBD7E332A68F5B900A5C919 /* StorybookKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BBD7E322A68E9FA00A5C919 /* XCRemoteSwiftPackageReference "Storybook-ios" */;
+			productName = StorybookKit;
+		};
+		4BBD7E352A68F5B900A5C919 /* StorybookKitTextureSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BBD7E322A68E9FA00A5C919 /* XCRemoteSwiftPackageReference "Storybook-ios" */;
+			productName = StorybookKitTextureSupport;
+		};
+		4BBD7E3A2A68F5FF00A5C919 /* MondrianLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BBD7E392A68F5FF00A5C919 /* XCRemoteSwiftPackageReference "MondrianLayout" */;
+			productName = MondrianLayout;
+		};
+		4BBD7E3D2A6931A100A5C919 /* GlossButtonNode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BBD7E3C2A6931A100A5C919 /* XCRemoteSwiftPackageReference "GlossButtonNode" */;
+			productName = GlossButtonNode;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 4B873C1923083FE5006170B1 /* Project object */;
+}
