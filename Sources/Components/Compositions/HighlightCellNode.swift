@@ -20,7 +20,7 @@ open class HighlightCellNode<D: ASDisplayNode>: NamedDisplayCellNodeBase {
   private let haptics: HapticsDescriptor?
   private var highlightHandler: HighlightAnimationDescriptor.Context.Handler?
 
-  private var onTapClosure: () -> Void = {}
+  private var onTapClosure: @MainActor () -> Void = {}
   private var onChangedSelectedClosure: (Bool) -> Void = { _ in }
 
   // MARK: - Initializers
@@ -121,11 +121,13 @@ open class HighlightCellNode<D: ASDisplayNode>: NamedDisplayCellNodeBase {
     }
   }
 
+  @MainActor
   open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesBegan(touches, with: event)
     haptics?.send(event: .onTouchDownInside)
   }
 
+  @MainActor
   open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesEnded(touches, with: event)
     haptics?.send(event: .onTouchUpInside)
@@ -133,7 +135,7 @@ open class HighlightCellNode<D: ASDisplayNode>: NamedDisplayCellNodeBase {
   }
 
   @discardableResult
-  public func onTap(_ handler: @escaping () -> Void) -> Self {
+  public func onTap(_ handler: @escaping @MainActor () -> Void) -> Self {
     onTapClosure = handler
     return self
   }
