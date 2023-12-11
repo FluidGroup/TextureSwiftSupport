@@ -10,57 +10,12 @@
       }
     },
     {
-      "identity" : "iglistkit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/3a4oT/IGListKit",
-      "state" : {
-        "branch" : "spmNumber10",
-        "revision" : "979eca9b2da15e35af36f4613452dd6e07641969"
-      }
-    },
-    {
-      "identity" : "libwebp-xcode",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SDWebImage/libwebp-Xcode",
-      "state" : {
-        "revision" : "0f3bdb28a1edc5e8e43876d3835d20c601ef331f",
-        "version" : "1.2.3"
-      }
-    },
-    {
-      "identity" : "pincache",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/pinterest/PINCache.git",
-      "state" : {
-        "revision" : "875c654984fb52b47ca65ae70d24852b0003ccd9",
-        "version" : "3.0.3"
-      }
-    },
-    {
-      "identity" : "pinoperation",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/pinterest/PINOperation.git",
-      "state" : {
-        "revision" : "44d8ca154a4e75a028a5548c31ff3a53b90cef15",
-        "version" : "1.2.1"
-      }
-    },
-    {
-      "identity" : "pinremoteimage",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/pinterest/PINRemoteImage.git",
-      "state" : {
-        "branch" : "master",
-        "revision" : "18637e4414d77fbc95cd7d499179a9880e9a78d8"
-      }
-    },
-    {
       "identity" : "texture",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/FluidGroup/Texture.git",
       "state" : {
-        "branch" : "spm",
-        "revision" : "5d03875bcfb0d87f8057ebeb5f2f6e4527e18128"
+        "revision" : "68df47f0d26522da76b06f22e9a97e4d4ab58dad",
+        "version" : "3.0.2"
       }
     }
   ],
