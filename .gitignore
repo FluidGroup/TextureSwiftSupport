@@ -82,4 +82,9 @@ iOSInjectionProject/
 .DS_Store
 
 .swiftpm
+
+# Tuist
+/Derived
+/*.xcodeproj
+
 # End of https://www.gitignore.io/api/swift
