@@ -65,8 +65,7 @@ enum Mocks {
         AnyDisplayNode { _, _ in
           LayoutSpec {
             shape
-              .height(16)
-              .width(120)
+              .frame(width: 120, height: 16)
               .padding(2)
           }
         }
@@ -85,8 +84,7 @@ enum Mocks {
         AnyDisplayNode { _, _ in
           LayoutSpec {
             shape
-              .height(6)
-              .width(20)
+              .frame(width: 20, height: 6)
               .padding(2)
           }
         }
@@ -107,8 +105,7 @@ enum Mocks {
         AnyDisplayNode { _, _ in
           LayoutSpec {
             shape
-              .width(28)
-              .height(28)
+              .frame(width: 28, height: 28)
               .padding(2)
           }
         }
@@ -132,8 +129,7 @@ enum Mocks {
           LayoutSpec {
             VStackLayout(spacing: 2) {
               shapes
-                .width(120)
-                .height(16)
+                .frame(width: 120, height: 16)
             }
           }
         }

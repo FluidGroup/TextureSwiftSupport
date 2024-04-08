@@ -426,6 +426,33 @@ extension _ASLayoutElementType {
   public func spacingBefore(_ spacing: CGFloat) -> ModifiedContent<Self, SpacingModifier> {
     modifier(SpacingModifier(after: nil, before: spacing))
   }
+  
+  public func frame(width: CGFloat? = nil, height: CGFloat? = nil) -> ModifiedContent<Self, SizeModifier> {
+    let width: ASDimension? = if let width { .init(unit: .points, value: width) } else { nil }
+    let height: ASDimension? = if let height { .init(unit: .points, value: height) } else { nil }
+    return modifier(SizeModifier(
+      width: width,
+      height: height
+    ))
+  }
+  
+  public func frame(minWidth: CGFloat? = nil, minHeight: CGFloat? = nil) -> ModifiedContent<Self, MinSizeModifier> {
+    let minWidth: ASDimension? = if let minWidth { .init(unit: .points, value: minWidth) } else { nil }
+    let minHeight: ASDimension? = if let minHeight { .init(unit: .points, value: minHeight) } else { nil }
+    return modifier(MinSizeModifier(
+      minWidth: minWidth,
+      minHeight: minHeight
+    ))
+  }
+  
+  public func frame(maxWidth: CGFloat? = nil, maxHeight: CGFloat? = nil) -> ModifiedContent<Self, MaxSizeModifier> {
+    let maxWidth: ASDimension? = if let maxWidth { .init(unit: .points, value: maxWidth) } else { nil }
+    let maxHeight: ASDimension? = if let maxHeight { .init(unit: .points, value: maxHeight) } else { nil }
+    return modifier(MaxSizeModifier(
+      maxWidth: maxWidth,
+      maxHeight: maxHeight
+    ))
+  }
 
 }
 
