@@ -1,16 +1,16 @@
-// swift-tools-version:5.6
+// swift-tools-version:6.0
 import PackageDescription
 
 let package = Package(
   name: "TextureSwiftSupport",
   platforms: [
-    .iOS(.v13),
+    .iOS(.v15),
   ],
   products: [
     .library(name: "TextureSwiftSupport", targets: ["TextureSwiftSupport"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/FluidGroup/Texture.git", from: "3.0.2"),
+    .package(url: "https://github.com/ntnmrndn/Texture.git", branch: "antoine/swift6"),
     .package(url: "https://github.com/FluidGroup/Descriptors", from: "0.2.0"),
   ],
   targets: [
@@ -23,5 +23,5 @@ let package = Package(
       path: "Sources"
     ),
   ],
-  swiftLanguageVersions: [.v5]
+  swiftLanguageModes: [.v6]
 )

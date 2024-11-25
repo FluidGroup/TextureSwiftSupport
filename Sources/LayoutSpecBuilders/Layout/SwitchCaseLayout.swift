@@ -207,7 +207,7 @@ public struct ConditionInspector: _ASLayoutElementType {
 
 fileprivate let emptyLayout = ASLayoutSpec()
 
-final class _CaseLayoutSpec: ASLayoutSpec {
+final class _CaseLayoutSpec: ASLayoutSpec, @unchecked Sendable {
 
   let condition: LayoutCondition
 

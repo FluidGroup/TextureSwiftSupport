@@ -26,8 +26,8 @@ fileprivate final class BackingShapeLayerNode : ASDisplayNode {
 }
 
 /// A node that displays shape with CAShapeLayer
-public final class ShapeLayerNode : ASDisplayNode, ShapeDisplaying {
-  
+public final class ShapeLayerNode : ASDisplayNode, @preconcurrency  ShapeDisplaying, @unchecked Sendable {
+
   private let backingNode = BackingShapeLayerNode()
 
   private let updateClosure: Update
@@ -41,47 +41,61 @@ public final class ShapeLayerNode : ASDisplayNode, ShapeDisplaying {
   public override var supportsLayerBacking: Bool {
     return true
   }
-  
+
+  @MainActor
   public var shapeLayer: CAShapeLayer {
     backingNode.layer
   }
   
   // To be thread-safe, using stored property
+  /// Should be set on mainThread, TODO: Discuss how to enforce the rule
   public var shapeLineWidth: CGFloat = 0 {
     didSet {
-      backingNode.layer.lineWidth = shapeLineWidth
-      setNeedsLayout()
+      MainActor.assumeIsolated {
+        backingNode.layer.lineWidth = shapeLineWidth
+        setNeedsLayout()
+      }
     }
   }
-  
+
+  @MainActor
   public var shapeStrokeColor: UIColor? {
     get {
       return backingNode.layer.strokeColor.map { UIColor(cgColor: $0) }
     }
     set {
+      // Keep it for now since we might have non confirming implementation
       ASPerformBlockOnMainThread {
-        CATransaction.begin()
-        CATransaction.setDisableActions(true)
-        defer {
-          CATransaction.commit()
+        MainActor.assumeIsolated {
+
+          CATransaction.begin()
+          CATransaction.setDisableActions(true)
+          defer {
+            CATransaction.commit()
+          }
+          self.backingNode.layer.strokeColor = newValue?.cgColor
         }
-        self.backingNode.layer.strokeColor = newValue?.cgColor
       }
     }
   }
-  
+
+  @MainActor
   public var shapeFillColor: UIColor? {
     get {
       return backingNode.layer.fillColor.map { UIColor(cgColor: $0) }
     }
     set {
+      // Keep it for now since we might have non confirming implementation
       ASPerformBlockOnMainThread {
-        CATransaction.begin()
-        CATransaction.setDisableActions(true)
-        defer {
-          CATransaction.commit()
+        MainActor.assumeIsolated {
+
+          CATransaction.begin()
+          CATransaction.setDisableActions(true)
+          defer {
+            CATransaction.commit()
+          }
+          self.backingNode.layer.fillColor = newValue?.cgColor
         }
-        self.backingNode.layer.fillColor = newValue?.cgColor
       }
     }
   }
@@ -95,16 +109,18 @@ public final class ShapeLayerNode : ASDisplayNode, ShapeDisplaying {
     }
     backingNode.layer.path = updateClosure(backingNode.bounds).cgPath
   }
-  
+
   public override var frame: CGRect {
     didSet {
       ASPerformBlockOnMainThread {
-        CATransaction.begin()
-        CATransaction.setDisableActions(true)
-        defer {
-          CATransaction.commit()
+        MainActor.assumeIsolated {
+          CATransaction.begin()
+          CATransaction.setDisableActions(true)
+          defer {
+            CATransaction.commit()
+          }
+          self.backingNode.layer.path = self.updateClosure(self.backingNode.bounds).cgPath
         }
-        self.backingNode.layer.path = self.updateClosure(self.backingNode.bounds).cgPath
       }
     }
   }

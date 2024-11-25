@@ -28,8 +28,8 @@ import AsyncDisplayKit
  
  - Author: TetureSwiftSupport
  */
-open class SafeAreaDisplayNode: NamedDisplayNodeBase {
-  
+open class SafeAreaDisplayNode: NamedDisplayNodeBase, @unchecked Sendable {
+
   public var throughsTouches: Bool = false
   
   // Thread safe
@@ -40,7 +40,8 @@ open class SafeAreaDisplayNode: NamedDisplayNodeBase {
     automaticallyRelayoutOnSafeAreaChanges = true
     automaticallyRelayoutOnLayoutMarginsChanges = true
   }
-  
+
+
   open override func safeAreaInsetsDidChange() {
     super.safeAreaInsetsDidChange()
     capturedSafeAreaInsets = safeAreaInsets

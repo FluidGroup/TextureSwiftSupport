@@ -4,7 +4,7 @@ import Foundation
 import AsyncDisplayKit
 
 /// Backing Component is ASCollectionNode
-open class StackScrollNode : NamedDisplayNodeBase, ASCollectionDelegate, ASCollectionDataSource {
+open class StackScrollNode : NamedDisplayNodeBase, ASCollectionDelegate, ASCollectionDataSource, @unchecked Sendable {
 
   public final var onScrollViewDidScroll: (UIScrollView) -> Void = { _ in }
 
@@ -54,14 +54,13 @@ open class StackScrollNode : NamedDisplayNodeBase, ASCollectionDelegate, ASColle
     self.init(layout: layout)
   }
 
-  public override convenience init() {
-
+  @MainActor
+  static func makeCollectionViewFlowLayoutNode() -> StackScrollNode {
     let layout = UICollectionViewFlowLayout()
     layout.minimumInteritemSpacing = 0
     layout.minimumLineSpacing = 0
     layout.sectionInset = .zero
-
-    self.init(layout: layout)
+    return .init(layout: layout)
   }
 
   open func append(nodes: [ASCellNode]) {
@@ -147,13 +146,18 @@ open class StackScrollNode : NamedDisplayNodeBase, ASCollectionDelegate, ASColle
     return 1
   }
 
-  public func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
-
-    return nodes.count
+  nonisolated public func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
+    // I'm not sure why self is considered @mainactor here, ...
+    MainActor.assumeIsolated {
+      nodes.count
+    }
   }
 
-  public func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
-    return nodes[indexPath.item]
+  nonisolated public func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
+    /// See abobe
+    MainActor.assumeIsolated {
+      nodes[indexPath.item]
+    }
   }
 
   // MARK: - UIScrollViewDelegate

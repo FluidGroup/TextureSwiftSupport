@@ -26,17 +26,21 @@ import Foundation
  */
 open class ViewNode<V: UIView>: NamedDisplayNodeBase {
 
+  @MainActor
   open var wrappedView: V {
     assert(Thread.isMainThread)
     return view as! V
   }
 
   public init(
-    wrappedView: @escaping () -> V
+    wrappedView: @Sendable @MainActor @escaping () -> V
   ) {
     super.init()
     setViewBlock {
-      wrappedView()
+      // https://github.com/swiftlang/swift/issues/76099
+      MainActor.assumeIsolated {
+        wrappedView()
+      }
     }
   }
 }

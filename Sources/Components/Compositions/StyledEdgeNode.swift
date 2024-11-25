@@ -205,51 +205,54 @@ public class StyledEdgeNode<ContentNode: ASDisplayNode>: NamedDisplayNodeBase {
   private func updateBorder() {
 
     ASPerformBlockOnMainThread {
-      CATransaction.begin()
-      CATransaction.setDisableActions(true)
-      defer {
-        CATransaction.commit()
-      }
+      MainActor.assumeIsolated {
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        defer {
+          CATransaction.commit()
+        }
 
-      if let border = self.border {
-        self.borderNode.shapeFillColor = .clear
-        self.borderNode.shapeStrokeColor = border.color
-        self.borderNode.shapeLineWidth = border.width * 2 // to get inner border
-        self.borderNode.isHidden = false
-      } else {
-        self.borderNode.isHidden = true
-      }
+        if let border = self.border {
+          self.borderNode.shapeFillColor = .clear
+          self.borderNode.shapeStrokeColor = border.color
+          self.borderNode.shapeLineWidth = border.width * 2 // to get inner border
+          self.borderNode.isHidden = false
+        } else {
+          self.borderNode.isHidden = true
+        }
 
-      self.setNeedsLayout()
+        self.setNeedsLayout()
+      }
     }
   }
 
   private func updateStrategy() {
 
     ASPerformBlockOnMainThread {
+      MainActor.assumeIsolated {
 
-      CATransaction.begin()
-      CATransaction.setDisableActions(true)
-      defer {
-        CATransaction.commit()
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        defer {
+          CATransaction.commit()
+        }
+
+        switch self.cornerRoundingStrategy {
+        case .clip(let assimilationColor):
+
+          self.clipNode.shapeFillColor = assimilationColor
+
+          self.isOpaque = true
+
+        case .mask:
+
+          self.isOpaque = false
+
+        }
+
+        self.setNeedsLayout()
       }
-
-      switch self.cornerRoundingStrategy {
-      case .clip(let assimilationColor):
-
-        self.clipNode.shapeFillColor = assimilationColor
-
-        self.isOpaque = true
-
-      case .mask:
-
-        self.isOpaque = false
-
-      }
-
-      self.setNeedsLayout()
     }
-
   }
 
   public override func layoutDidFinish() {

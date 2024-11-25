@@ -31,14 +31,15 @@ fileprivate final class GradientLayerView: UIView {
 @available(*, deprecated, renamed: "GradientLayerNode")
 public typealias GradientNode = GradientLayerNode
 
-open class GradientLayerNode : ASDisplayNode {
+open class GradientLayerNode : ASDisplayNode, @unchecked Sendable {
 
   private var usingDescriptor: LinearGradientDescriptor?
 
   open override var supportsLayerBacking: Bool {
     return false
   }
-  
+
+  @MainActor
   public var gradientLayer: CAGradientLayer {
     view.layer as! CAGradientLayer
   }
@@ -65,6 +66,7 @@ open class GradientLayerNode : ASDisplayNode {
 
   }
 
+  /// why are we using both assert main thread and lock and dispatch ?
   open func setDescriptor(descriptor: LinearGradientDescriptor) {
 
     lock()
@@ -78,7 +80,9 @@ open class GradientLayerNode : ASDisplayNode {
 
     if self.isNodeLoaded {
       ASPerformBlockOnMainThread {
-        descriptor.apply(to: (self.view.layer as! CAGradientLayer))
+        MainActor.assumeIsolated {
+          descriptor.apply(to: (self.view.layer as! CAGradientLayer))
+        }
       }
     } else {
       // will be applied on didLoad

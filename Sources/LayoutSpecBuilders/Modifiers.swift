@@ -10,15 +10,15 @@ import Foundation
 import UIKit
 import AsyncDisplayKit
 
-public enum Edge: Int8, CaseIterable {
-  
+public enum Edge: Int8, CaseIterable, Sendable {
+
   case top = 0
   case left = 1
   case bottom = 2
   case right = 3
   
-  public struct Set: OptionSet {
-    
+  public struct Set: OptionSet, Sendable {
+
     public var rawValue: Int8
     public var isEmpty: Bool {
       rawValue == 0

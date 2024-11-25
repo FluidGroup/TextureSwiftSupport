@@ -151,6 +151,7 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
     }
   }
 
+  @MainActor
   open override var isHighlighted: Bool {
     didSet {
       highlightHandler?(isHighlighted, self.view, animationTargetNode.view)

@@ -2,7 +2,7 @@
 import Foundation
 import AsyncDisplayKit
 
-fileprivate var _storageKey: Void?
+nonisolated(unsafe) fileprivate var _storageKey: Void?
 
 extension ASDisplayNode {
 
