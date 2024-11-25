@@ -80,7 +80,7 @@ public final class OnAppearNode<Content: ASDisplayNode>: NamedDisplayCellNodeBas
     })
     topLeftTiledLayerNode = .init(wrappedView: {
       MainActor.assumeIsolated {
-        // NB,
+        // :/ https://github.com/swiftlang/swift/issues/76099
         .init()
       }
     })
