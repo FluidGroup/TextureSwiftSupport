@@ -57,6 +57,7 @@ open class GradientLayerNode : ASDisplayNode, @unchecked Sendable {
     backgroundColor = .clear
   }
 
+  @MainActor
   open override func didLoad() {
     super.didLoad()
 
@@ -66,7 +67,7 @@ open class GradientLayerNode : ASDisplayNode, @unchecked Sendable {
 
   }
 
-  /// why are we using both assert main thread and lock and dispatch ?
+  @MainActor
   open func setDescriptor(descriptor: LinearGradientDescriptor) {
 
     lock()

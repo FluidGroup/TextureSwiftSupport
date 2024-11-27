@@ -7,7 +7,7 @@
       "location" : "https://github.com/ntnmrndn/Descriptors",
       "state" : {
         "branch" : "antoine/swift6",
-        "revision" : "f67005499aac61b4458ea536e62351d70b4647d6"
+        "revision" : "b1eb25aa85dbcac3149438c7ac8d13949317ba45"
       }
     },
     {
@@ -16,9 +16,10 @@
       "location" : "https://github.com/ntnmrndn/Texture.git",
       "state" : {
         "branch" : "antoine/swift6",
-        "revision" : "2a8c4b9ca4591229e0017c06083165cd1d3242ab"
+        "revision" : "5bd706009aeee6711656cc993fdb60131c4d04f0"
       }
     }
   ],
   "version" : 3
 }
+

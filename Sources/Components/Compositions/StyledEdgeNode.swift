@@ -192,6 +192,7 @@ public class StyledEdgeNode<ContentNode: ASDisplayNode>: NamedDisplayNodeBase {
 
   }
 
+  @MainActor
   public override func didLoad() {
     super.didLoad()
 
@@ -199,7 +200,7 @@ public class StyledEdgeNode<ContentNode: ASDisplayNode>: NamedDisplayNodeBase {
     updateBorder()
     updateStrategy()
 
-    self.borderNode.shapeLayer.fillRule = .evenOdd
+    self.borderNode.unsafeShapeLayer.fillRule = .evenOdd
   }
 
   private func updateBorder() {

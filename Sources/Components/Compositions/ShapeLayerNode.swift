@@ -26,7 +26,7 @@ fileprivate final class BackingShapeLayerNode : ASDisplayNode {
 }
 
 /// A node that displays shape with CAShapeLayer
-public final class ShapeLayerNode : ASDisplayNode, @preconcurrency  ShapeDisplaying, @unchecked Sendable {
+public final class ShapeLayerNode : ASDisplayNode, MainActorShapeDisplaying, @unchecked Sendable {
 
   private let backingNode = BackingShapeLayerNode()
 
@@ -38,23 +38,54 @@ public final class ShapeLayerNode : ASDisplayNode, @preconcurrency  ShapeDisplay
     }
   }
 
+  public init(update: @escaping Update) {
+    self.updateClosure = update
+    super.init()
+    backgroundColor = .clear
+    backingNode.backgroundColor = .clear
+    backingNode.isLayerBacked = true
+    automaticallyManagesSubnodes = true
+  }
+
+  /// Warning: shape\* values will actually be set at didLoad
+  public convenience init (
+  update: @escaping Update,
+  shapeFillColor: UIColor = .clear,
+  shapeStrokeColor: UIColor = .clear,
+  shapeLineWidth: CGFloat = 0.0
+  ) {
+    self.init(update: update)
+    backgroundColor = .clear
+    backingNode.backgroundColor = .clear
+    backingNode.isLayerBacked = true
+    automaticallyManagesSubnodes = true
+    self.onDidLoad({
+      let shapeLayerNode = ($0 as! ShapeLayerNode)
+      shapeLayerNode.shapeFillColor = shapeFillColor
+      shapeLayerNode.shapeStrokeColor = shapeStrokeColor
+      shapeLayerNode.shapeLineWidth = shapeLineWidth
+    })
+  }
+
   public override var supportsLayerBacking: Bool {
     return true
   }
 
   @MainActor
-  public var shapeLayer: CAShapeLayer {
+  /// Beware, direct access to lineWidth is not supported here when using usesInnerBorder, otherwise acess should be safe
+  public var unsafeShapeLayer: CAShapeLayer {
     backingNode.layer
   }
-  
-  // To be thread-safe, using stored property
-  /// Should be set on mainThread, TODO: Discuss how to enforce the rule
+
+  /// cache value for bg thread access
+  private var _shapeLineWidth: CGFloat = .zero
+
+  @MainActor
   public var shapeLineWidth: CGFloat = 0 {
     didSet {
-      MainActor.assumeIsolated {
-        backingNode.layer.lineWidth = shapeLineWidth
-        setNeedsLayout()
-      }
+      _shapeLineWidth = shapeLineWidth
+      backingNode.layer.lineWidth = shapeLineWidth
+      setNeedsLayout()
     }
   }
 
@@ -64,18 +95,12 @@ public final class ShapeLayerNode : ASDisplayNode, @preconcurrency  ShapeDisplay
       return backingNode.layer.strokeColor.map { UIColor(cgColor: $0) }
     }
     set {
-      // Keep it for now since we might have non confirming implementation
-      ASPerformBlockOnMainThread {
-        MainActor.assumeIsolated {
-
-          CATransaction.begin()
-          CATransaction.setDisableActions(true)
-          defer {
-            CATransaction.commit()
-          }
-          self.backingNode.layer.strokeColor = newValue?.cgColor
-        }
+      CATransaction.begin()
+      CATransaction.setDisableActions(true)
+      defer {
+        CATransaction.commit()
       }
+      self.backingNode.layer.strokeColor = newValue?.cgColor
     }
   }
 
@@ -85,21 +110,15 @@ public final class ShapeLayerNode : ASDisplayNode, @preconcurrency  ShapeDisplay
       return backingNode.layer.fillColor.map { UIColor(cgColor: $0) }
     }
     set {
-      // Keep it for now since we might have non confirming implementation
-      ASPerformBlockOnMainThread {
-        MainActor.assumeIsolated {
-
-          CATransaction.begin()
-          CATransaction.setDisableActions(true)
-          defer {
-            CATransaction.commit()
-          }
-          self.backingNode.layer.fillColor = newValue?.cgColor
-        }
+      CATransaction.begin()
+      CATransaction.setDisableActions(true)
+      defer {
+        CATransaction.commit()
       }
+      self.backingNode.layer.fillColor = newValue?.cgColor
     }
   }
-  
+
   public override func layout() {
     super.layout()
     CATransaction.begin()
@@ -125,27 +144,16 @@ public final class ShapeLayerNode : ASDisplayNode, @preconcurrency  ShapeDisplay
     }
   }
 
-  public init(
-    update: @escaping Update
-  ) {
-    self.updateClosure = update
-    super.init()
-    backgroundColor = .clear
-    backingNode.backgroundColor = .clear
-    backingNode.isLayerBacked = true
-    automaticallyManagesSubnodes = true
-  }
-
   public override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
 
     if usesInnerBorder {
       return ASWrapperLayoutSpec(
         layoutElement: ASInsetLayoutSpec(
           insets: .init(
-            top: shapeLineWidth / 2,
-            left: shapeLineWidth / 2,
-            bottom: shapeLineWidth / 2,
-            right: shapeLineWidth / 2
+            top: _shapeLineWidth / 2,
+            left: _shapeLineWidth / 2,
+            bottom: _shapeLineWidth / 2,
+            right: _shapeLineWidth / 2
           ),
           child: backingNode
         )

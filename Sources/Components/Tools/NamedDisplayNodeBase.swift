@@ -71,7 +71,6 @@ open class NamedDisplayNodeBase: ASDisplayNode, @unchecked Sendable {
     return self
   }
   
-  @preconcurrency
   @MainActor
   private func propagate(action: DisplayNodeAction) {
     for handler in __actionHandlers {
