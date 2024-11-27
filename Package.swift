@@ -11,11 +11,11 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/ntnmrndn/Texture.git", branch: "antoine/swift6"),
-    .package(url: "https://github.com/FluidGroup/Descriptors", from: "0.2.0"),
+    .package(url: "https://github.com/ntnmrndn/Descriptors", branch: "antoine/swift6"),
   ],
   targets: [
     .target(
-      name: "TextureSwiftSupport", 
+      name: "TextureSwiftSupport",
       dependencies: [
         .product(name: "AsyncDisplayKit", package: "Texture"),
         .product(name: "Descriptors", package: "Descriptors")

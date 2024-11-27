@@ -1,13 +1,13 @@
 {
-  "originHash" : "f84a1666194bcf450224fdc7fff73c480bbd9e6e0e9fcba6fe117a25c305682d",
+  "originHash" : "1ec615bb9859848353ee388118e25fe6e7cc4baa377b5045fc273ea94edff5fc",
   "pins" : [
     {
       "identity" : "descriptors",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/FluidGroup/Descriptors",
+      "location" : "https://github.com/ntnmrndn/Descriptors",
       "state" : {
-        "revision" : "1ec4fcd01b7e3a6df9dfafcca8155e297a7a1d9f",
-        "version" : "0.3.0"
+        "branch" : "antoine/swift6",
+        "revision" : "f67005499aac61b4458ea536e62351d70b4647d6"
       }
     },
     {
