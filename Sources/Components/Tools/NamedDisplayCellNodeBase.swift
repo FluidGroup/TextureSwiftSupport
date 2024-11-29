@@ -30,10 +30,17 @@ fileprivate let queue = DispatchQueue.global()
 /// It helps to find source code from Reveal.
 ///
 /// - Author: TetureSwiftSupport
+<<<<<<< Updated upstream
 open class NamedDisplayCellNodeBase: ASCellNode {
   
   private var __actionHandlers: [(NamedDisplayCellNodeBase, DisplayNodeAction) -> Void] = []
   
+=======
+open class NamedDisplayCellNodeBase: ASCellNode, @unchecked Sendable {
+
+  private var __actionHandlers: [@MainActor (NamedDisplayCellNodeBase, DisplayNodeAction) -> Void] = []
+
+>>>>>>> Stashed changes
   @MainActor
   open override func didLoad() {
     super.didLoad()
@@ -67,11 +74,11 @@ open class NamedDisplayCellNodeBase: ASCellNode {
     
     return self
   }
-  
+
+  @MainActor
   private func propagate(action: DisplayNodeAction) {
     for handler in __actionHandlers {
       handler(self, action)
     }
   }
-
 }

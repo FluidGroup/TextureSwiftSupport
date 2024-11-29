@@ -57,8 +57,8 @@ public typealias FunctionalDisplayNode = AnyDisplayNode
  }
  ```
  */
-open class AnyDisplayNode: SafeAreaDisplayNode {
-  
+open class AnyDisplayNode: SafeAreaDisplayNode, @unchecked Sendable {
+
   private var retainItems: [Any]
   
   private let hook: Hook = .init()
@@ -106,7 +106,12 @@ open class AnyDisplayNode: SafeAreaDisplayNode {
   }
 
   @available(*, unavailable)
+<<<<<<< Updated upstream
   open override func onDidLoad(_ body: @escaping ASDisplayNodeDidLoadBlock) {
+=======
+  @MainActor
+  open override func onDidLoad(_ body: @escaping  ASDisplayNodeDidLoadBlock) {
+>>>>>>> Stashed changes
     super.onDidLoad(body)
   }
 
@@ -145,7 +150,7 @@ open class AnyDisplayNode: SafeAreaDisplayNode {
 public typealias PropsFunctionalDisplayNode = AnyPropsDisplayNode
 
 /// It's not so effective in reducing binary-size.
-public final class AnyPropsDisplayNode<Props>: AnyDisplayNode {
+public final class AnyPropsDisplayNode<Props>: AnyDisplayNode, @unchecked Sendable {
   
   private var _onUpdatedProps: (ASDisplayNode, Props) -> Void = { _, _ in }
   
