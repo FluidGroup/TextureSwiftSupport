@@ -1,23 +1,24 @@
 {
+  "originHash" : "d9e897732f60af4412110707787651b74e68d6f3e1b560c546e4b10fc8f816e7",
   "pins" : [
     {
       "identity" : "descriptors",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/FluidGroup/Descriptors",
+      "location" : "https://github.com/ntnmrndn/Descriptors",
       "state" : {
-        "revision" : "174dbbaff40b455614b62ea3ed16771adde25e65",
-        "version" : "0.2.2"
+        "branch" : "antoine/swift6",
+        "revision" : "8f0c6b119cb15e09155460576773f1151c96ce62"
       }
     },
     {
       "identity" : "texture",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/FluidGroup/Texture.git",
+      "location" : "https://github.com/ntnmrndn/Texture.git",
       "state" : {
-        "revision" : "68df47f0d26522da76b06f22e9a97e4d4ab58dad",
-        "version" : "3.0.2"
+        "branch" : "antoine/swift6",
+        "revision" : "2c945a0641d39628f06d21ef7b7f4fb64119812f"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

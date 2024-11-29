@@ -1,4 +1,4 @@
-// swift-tools-version:5.6
+// swift-tools-version:6.0
 import PackageDescription
 
 let package = Package(
@@ -10,12 +10,12 @@ let package = Package(
     .library(name: "TextureSwiftSupport", targets: ["TextureSwiftSupport"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/FluidGroup/Texture.git", from: "3.0.2"),
-    .package(url: "https://github.com/FluidGroup/Descriptors", from: "0.2.0"),
+    .package(url: "https://github.com/ntnmrndn/Texture.git", branch: "antoine/swift6"),
+    .package(url: "https://github.com/ntnmrndn/Descriptors", branch: "antoine/swift6"),
   ],
   targets: [
     .target(
-      name: "TextureSwiftSupport", 
+      name: "TextureSwiftSupport",
       dependencies: [
         .product(name: "AsyncDisplayKit", package: "Texture"),
         .product(name: "Descriptors", package: "Descriptors")
@@ -23,5 +23,5 @@ let package = Package(
       path: "Sources"
     ),
   ],
-  swiftLanguageVersions: [.v5]
+  swiftLanguageModes: [.v6]
 )

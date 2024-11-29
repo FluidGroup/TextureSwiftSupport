@@ -30,8 +30,8 @@ fileprivate let queue = DispatchQueue.global()
 /// It helps to find source code from Reveal.
 ///
 /// - Author: TetureSwiftSupport
-open class NamedDisplayCellNodeBase: ASCellNode {
-  
+open class NamedDisplayCellNodeBase: ASCellNode, @unchecked Sendable {
+
   private var __actionHandlers: [(NamedDisplayCellNodeBase, DisplayNodeAction) -> Void] = []
   
   @MainActor

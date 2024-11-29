@@ -73,9 +73,13 @@ public final class OnAppearNode<Content: ASDisplayNode>: NamedDisplayCellNodeBas
     
     state = .init()
     
-    bottomRightTiledLayerNode = .init(wrappedView: { .init() })
-    topLeftTiledLayerNode = .init(wrappedView: { .init() })
-    
+    bottomRightTiledLayerNode = .init(wrappedView: {
+      .init()
+    })
+    topLeftTiledLayerNode = .init(wrappedView: {
+      .init()
+    })
+
     setNeedsLayout()
         
     bottomRightTiledLayerNode!.wrappedView.setOnDraw { [weak self] in
@@ -214,24 +218,31 @@ private final class TiledLayerView: UIView {
     return view
   }
 
-  func setOnDraw(_ closure: @escaping @MainActor () -> Void) {
+  func setOnDraw(_ closure: @Sendable @escaping @MainActor () -> Void) {
     (layer as! TiledLayer).onDraw = closure
   }
 }
 
 private final class TiledLayer: CATiledLayer {
 
-  var onDraw: () -> Void = {}
+  var onDraw: @MainActor @Sendable () -> Void = {}
 
   override class func fadeDuration() -> CFTimeInterval {
     0
   }
 
   override func draw(in ctx: CGContext) {
+    let onDraw = self.onDraw
     if Thread.isMainThread {
-      onDraw()
+      MainActor.assumeIsolated {
+        onDraw()
+      }
     } else {
-      DispatchQueue.main.async(execute: onDraw)
+      DispatchQueue.main.async(execute: {
+        MainActor.assumeIsolated {
+          onDraw()
+        }
+      })
     }
   }
 }

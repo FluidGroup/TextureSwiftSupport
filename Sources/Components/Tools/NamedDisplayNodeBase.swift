@@ -34,8 +34,8 @@ public enum DisplayNodeAction {
 /// It helps to find source code from Reveal.
 ///
 /// - Author: TetureSwiftSupport
-open class NamedDisplayNodeBase: ASDisplayNode {
-  
+open class NamedDisplayNodeBase: ASDisplayNode, @unchecked Sendable {
+
   private var __actionHandlers: [@MainActor (NamedDisplayNodeBase, DisplayNodeAction) -> Void] = []
 
   @MainActor
@@ -71,7 +71,6 @@ open class NamedDisplayNodeBase: ASDisplayNode {
     return self
   }
   
-  @preconcurrency
   @MainActor
   private func propagate(action: DisplayNodeAction) {
     for handler in __actionHandlers {
@@ -88,8 +87,8 @@ open class NamedDisplayNodeBase: ASDisplayNode {
 /// It helps to find source code from Reveal.
 ///
 /// - Author: TetureSwiftSupport
-open class NamedDisplayControlNodeBase: ASControlNode {
-  
+open class NamedDisplayControlNodeBase: ASControlNode, @unchecked Sendable {
+
   private var __actionHandlers: [@MainActor (NamedDisplayControlNodeBase, DisplayNodeAction) -> Void] = []
 
   @MainActor
@@ -113,7 +112,7 @@ open class NamedDisplayControlNodeBase: ASControlNode {
    - Warning: Non-atomic
    */
   @discardableResult
-  public func addNodeActionHandler(_ handler: @escaping (Self, DisplayNodeAction) -> Void) -> Self {
+  public func addNodeActionHandler(_ handler: @escaping @MainActor (Self, DisplayNodeAction) -> Void) -> Self {
     __actionHandlers.append { node, action in
       guard let node = node as? Self else {
         assertionFailure()

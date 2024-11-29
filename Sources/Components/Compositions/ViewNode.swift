@@ -24,15 +24,16 @@ import Foundation
 /**
  A display node that backed by a custom view.
  */
-open class ViewNode<V: UIView>: NamedDisplayNodeBase {
+open class ViewNode<V: UIView>: NamedDisplayNodeBase, @unchecked Sendable {
 
+  @MainActor
   open var wrappedView: V {
     assert(Thread.isMainThread)
     return view as! V
   }
 
   public init(
-    wrappedView: @escaping () -> V
+    wrappedView: @Sendable @MainActor @escaping () -> V
   ) {
     super.init()
     setViewBlock {

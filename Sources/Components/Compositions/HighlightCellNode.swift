@@ -106,6 +106,7 @@ open class HighlightCellNode<D: ASDisplayNode>: NamedDisplayCellNodeBase {
     }
   }
 
+  @MainActor
   open override var isHighlighted: Bool {
     didSet {
       highlightHandler?(isHighlighted, self.view, animationTargetNode.view)
