@@ -72,7 +72,7 @@ public final class ShapeLayerNode : ASDisplayNode, MainActorShapeDisplaying, @un
   }
 
   @MainActor
-  /// Beware, direct access to lineWidth is not supported here when using usesInnerBorder, otherwise acess should be safe
+  /// Beware, direct access to lineWidth is not supported here when using usesInnerBorder, otherwise access should be safe
   public var unsafeShapeLayer: CAShapeLayer {
     backingNode.layer
   }
