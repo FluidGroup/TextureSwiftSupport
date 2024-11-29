@@ -1,5 +1,5 @@
 {
-  "originHash" : "1ec615bb9859848353ee388118e25fe6e7cc4baa377b5045fc273ea94edff5fc",
+  "originHash" : "d9e897732f60af4412110707787651b74e68d6f3e1b560c546e4b10fc8f816e7",
   "pins" : [
     {
       "identity" : "descriptors",
@@ -7,7 +7,7 @@
       "location" : "https://github.com/ntnmrndn/Descriptors",
       "state" : {
         "branch" : "antoine/swift6",
-        "revision" : "b1eb25aa85dbcac3149438c7ac8d13949317ba45"
+        "revision" : "8f0c6b119cb15e09155460576773f1151c96ce62"
       }
     },
     {
@@ -16,10 +16,9 @@
       "location" : "https://github.com/ntnmrndn/Texture.git",
       "state" : {
         "branch" : "antoine/swift6",
-        "revision" : "5bd706009aeee6711656cc993fdb60131c4d04f0"
+        "revision" : "2c945a0641d39628f06d21ef7b7f4fb64119812f"
       }
     }
   ],
   "version" : 3
 }
-

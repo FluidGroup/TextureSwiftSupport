@@ -4,25 +4,30 @@ import Foundation
 import AsyncDisplayKit
 
 /// Backing Component is ASCollectionNode
-open class StackScrollNode : NamedDisplayNodeBase, ASCollectionDelegate, ASCollectionDataSource, @unchecked Sendable {
+open class StackScrollNode:
+  NamedDisplayNodeBase,
+  @unchecked Sendable {
 
   public final var onScrollViewDidScroll: (UIScrollView) -> Void = { _ in }
 
   open var shouldWaitUntilAllUpdatesAreCommitted: Bool = false
 
+  @MainActor
   open var isScrollEnabled: Bool {
     get {
-      return collectionNode.view.isScrollEnabled
+      scrollView.isScrollEnabled
     }
     set {
-      collectionNode.view.isScrollEnabled = newValue
+      scrollView.isScrollEnabled = newValue
     }
   }
 
+  @MainActor
   open var scrollView: UIScrollView {
     return collectionNode.view
   }
 
+  @MainActor
   open var collectionViewLayout: UICollectionViewFlowLayout {
     return collectionNode.view.collectionViewLayout as! UICollectionViewFlowLayout
   }
@@ -32,14 +37,17 @@ open class StackScrollNode : NamedDisplayNodeBase, ASCollectionDelegate, ASColle
   /// It should not be accessed unless there is special.
   internal let collectionNode: ASCollectionNode
 
+  @MainActor
   public init(layout: UICollectionViewFlowLayout) {
 
     collectionNode = ASCollectionNode(collectionViewLayout: layout)
     collectionNode.backgroundColor = .clear
+    self.collectionViewLayoutScrollDirection = layout.scrollDirection
 
     super.init()
   }
 
+  @MainActor
   public convenience init(
     scrollDirection: UICollectionView.ScrollDirection,
     spacing: CGFloat,
@@ -63,6 +71,7 @@ open class StackScrollNode : NamedDisplayNodeBase, ASCollectionDelegate, ASColle
     return .init(layout: layout)
   }
 
+  @MainActor
   open func append(nodes: [ASCellNode]) {
 
     self.nodes += nodes
@@ -73,6 +82,7 @@ open class StackScrollNode : NamedDisplayNodeBase, ASCollectionDelegate, ASColle
     }
   }
 
+  @MainActor
   open func removeAll() {
     self.nodes = []
 
@@ -82,6 +92,7 @@ open class StackScrollNode : NamedDisplayNodeBase, ASCollectionDelegate, ASColle
     }
   }
 
+  @MainActor
   open func replaceAll(nodes: [ASCellNode]) {
 
     self.nodes = nodes
@@ -117,11 +128,14 @@ open class StackScrollNode : NamedDisplayNodeBase, ASCollectionDelegate, ASColle
     return ASWrapperLayoutSpec(layoutElement: collectionNode)
   }
 
+
+  // Cache the value for BG thread access
+  private var collectionViewLayoutScrollDirection:  UICollectionView.ScrollDirection
   // MARK: - ASCollectionDelegate
 
   public func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
 
-    switch collectionViewLayout.scrollDirection {
+    switch collectionViewLayoutScrollDirection {
     case .vertical:
 
       return ASSizeRange(
@@ -140,29 +154,27 @@ open class StackScrollNode : NamedDisplayNodeBase, ASCollectionDelegate, ASColle
       fatalError()
     }
   }
+}
 
-  // MARK: - ASCollectionDataSource
-  open var numberOfSections: Int {
-    return 1
-  }
-
-  nonisolated public func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
-    // I'm not sure why self is considered @mainactor here, ...
-    MainActor.assumeIsolated {
-      nodes.count
-    }
-  }
-
-  nonisolated public func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
-    /// See abobe
-    MainActor.assumeIsolated {
-      nodes[indexPath.item]
-    }
-  }
-
+extension StackScrollNode: ASCollectionDelegate {
   // MARK: - UIScrollViewDelegate
   public func scrollViewDidScroll(_ scrollView: UIScrollView) {
     onScrollViewDidScroll(scrollView)
   }
 }
 
+extension StackScrollNode: ASCollectionDataSource {
+  // MARK: - ASCollectionDataSource
+  @objc open var numberOfSections: Int {
+    return 1
+  }
+
+
+  @objc public func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
+    nodes.count
+  }
+
+  @objc public func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
+    nodes[indexPath.item]
+  }
+}
