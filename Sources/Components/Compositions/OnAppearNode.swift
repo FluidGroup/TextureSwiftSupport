@@ -74,15 +74,10 @@ public final class OnAppearNode<Content: ASDisplayNode>: NamedDisplayCellNodeBas
     state = .init()
     
     bottomRightTiledLayerNode = .init(wrappedView: {
-      MainActor.assumeIsolated {
-        .init()
-      }
+      .init()
     })
     topLeftTiledLayerNode = .init(wrappedView: {
-      MainActor.assumeIsolated {
-        // :/ https://github.com/swiftlang/swift/issues/76099
-        .init()
-      }
+      .init()
     })
 
     setNeedsLayout()
