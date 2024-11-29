@@ -24,7 +24,7 @@ import Foundation
 /**
  A display node that backed by a custom view.
  */
-open class ViewNode<V: UIView>: NamedDisplayNodeBase {
+open class ViewNode<V: UIView>: NamedDisplayNodeBase, @unchecked Sendable {
 
   @MainActor
   open var wrappedView: V {
@@ -37,10 +37,7 @@ open class ViewNode<V: UIView>: NamedDisplayNodeBase {
   ) {
     super.init()
     setViewBlock {
-      // https://github.com/swiftlang/swift/issues/76099
-      MainActor.assumeIsolated {
-        wrappedView()
-      }
+      wrappedView()
     }
   }
 }
