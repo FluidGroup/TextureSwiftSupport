@@ -21,8 +21,6 @@
 
 import AsyncDisplayKit
 
-fileprivate let queue = DispatchQueue.global()
-
 /// An object from Abstract base class
 ///
 /// This object sets name of object for accessibilityIdentifier
@@ -32,16 +30,17 @@ fileprivate let queue = DispatchQueue.global()
 /// - Author: TetureSwiftSupport
 open class NamedDisplayCellNodeBase: ASCellNode {
   
-  private var __actionHandlers: [(NamedDisplayCellNodeBase, DisplayNodeAction) -> Void] = []
+  private var __actionHandlers: [@MainActor (NamedDisplayCellNodeBase, DisplayNodeAction) -> Void] = []
   
   @MainActor
   open override func didLoad() {
     super.didLoad()
     #if DEBUG
-    queue.async { [weak self] in
+    Task.detached { [weak self] in
       guard let self = self else { return }
       let typeName = _typeName(type(of: self))
-      DispatchQueue.main.async {
+
+      Task { @MainActor in
         guard self.accessibilityIdentifier == nil else { return }
         self.accessibilityIdentifier = typeName
       }
@@ -56,7 +55,7 @@ open class NamedDisplayCellNodeBase: ASCellNode {
    - Warning: Non-atomic
    */
   @discardableResult
-  public func addNodeActionHandler(_ handler: @escaping (Self, DisplayNodeAction) -> Void) -> Self {
+  public func addNodeActionHandler(_ handler: @escaping @MainActor (Self, DisplayNodeAction) -> Void) -> Self {
     __actionHandlers.append { node, action in
       guard let node = node as? Self else {
         assertionFailure()
@@ -68,6 +67,7 @@ open class NamedDisplayCellNodeBase: ASCellNode {
     return self
   }
   
+  @MainActor
   private func propagate(action: DisplayNodeAction) {
     for handler in __actionHandlers {
       handler(self, action)
