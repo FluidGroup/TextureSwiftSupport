@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/FluidGroup/Descriptors",
       "state" : {
-        "revision" : "174dbbaff40b455614b62ea3ed16771adde25e65",
-        "version" : "0.2.2"
+        "revision" : "1ec4fcd01b7e3a6df9dfafcca8155e297a7a1d9f",
+        "version" : "0.3.0"
       }
     },
     {
