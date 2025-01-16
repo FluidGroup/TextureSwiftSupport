@@ -23,6 +23,57 @@ fileprivate final class BackingShapeLayerNode : ASDisplayNode {
       return shape
     }
   }
+
+  fileprivate var shapeStrokeColor: UIColor? {
+    didSet {
+      ASPerformBlockOnMainThread {
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        defer {
+          CATransaction.commit()
+        }
+        self.layer.strokeColor = self.shapeStrokeColor?
+          .resolvedColor(with: .init(userInterfaceStyle: self.asyncTraitCollection().userInterfaceStyle))
+          .cgColor
+      }
+    }
+  }
+
+  public var shapeFillColor: UIColor? {
+    didSet {
+      ASPerformBlockOnMainThread {
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        defer {
+          CATransaction.commit()
+        }
+        self.layer.fillColor = self.shapeFillColor?
+          .resolvedColor(with: .init(userInterfaceStyle: self.asyncTraitCollection().userInterfaceStyle))
+          .cgColor
+      }
+    }
+  }
+
+  override func asyncTraitCollectionDidChange(
+    withPreviousTraitCollection previousTraitCollection: ASPrimitiveTraitCollection
+  ) {
+    super.asyncTraitCollectionDidChange(withPreviousTraitCollection: previousTraitCollection)
+    lazy var userInterfaceStyle = asyncTraitCollection().userInterfaceStyle
+    guard
+      isNodeLoaded,
+      previousTraitCollection.userInterfaceStyle != userInterfaceStyle
+    else {
+      return
+    }
+    ASPerformBlockOnMainThread {
+      self.layer.strokeColor = self.shapeStrokeColor?
+        .resolvedColor(with: .init(userInterfaceStyle: userInterfaceStyle))
+        .cgColor
+      self.layer.fillColor = self.shapeFillColor?
+        .resolvedColor(with: .init(userInterfaceStyle: userInterfaceStyle))
+        .cgColor
+    }
+  }
 }
 
 /// A node that displays shape with CAShapeLayer
@@ -53,36 +104,22 @@ public final class ShapeLayerNode : ASDisplayNode, ShapeDisplaying {
       setNeedsLayout()
     }
   }
-  
+
   public var shapeStrokeColor: UIColor? {
     get {
-      return backingNode.layer.strokeColor.map { UIColor(cgColor: $0) }
+      return backingNode.shapeStrokeColor
     }
     set {
-      ASPerformBlockOnMainThread {
-        CATransaction.begin()
-        CATransaction.setDisableActions(true)
-        defer {
-          CATransaction.commit()
-        }
-        self.backingNode.layer.strokeColor = newValue?.cgColor
-      }
+      backingNode.shapeStrokeColor = newValue
     }
   }
   
   public var shapeFillColor: UIColor? {
     get {
-      return backingNode.layer.fillColor.map { UIColor(cgColor: $0) }
+      return backingNode.shapeFillColor
     }
     set {
-      ASPerformBlockOnMainThread {
-        CATransaction.begin()
-        CATransaction.setDisableActions(true)
-        defer {
-          CATransaction.commit()
-        }
-        self.backingNode.layer.fillColor = newValue?.cgColor
-      }
+      backingNode.shapeFillColor = newValue
     }
   }
   
