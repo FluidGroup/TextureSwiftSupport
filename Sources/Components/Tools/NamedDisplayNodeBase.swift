@@ -76,6 +76,21 @@ open class NamedDisplayNodeBase: ASDisplayNode {
     }
   }
 
+  open var overrideUserinterfaceStyle: UIUserInterfaceStyle = .unspecified
+
+  open override func setPrimitiveTraitCollection(_ traitCollection: ASPrimitiveTraitCollection) {
+
+    // 🤷🏻‍♂️
+    // texture does not support for UIView.overrideUserinterfaceStyle
+    var _traitCollection = traitCollection
+    if case .unspecified = overrideUserinterfaceStyle {
+
+    } else {
+      _traitCollection.userInterfaceStyle = overrideUserinterfaceStyle
+    }
+    super.setPrimitiveTraitCollection(_traitCollection)
+  }
+
 }
 
 /// An object from Abstract base class
@@ -128,4 +143,20 @@ open class NamedDisplayControlNodeBase: ASControlNode {
       handler(self, action)
     }
   }
+
+  open var overrideUserinterfaceStyle: UIUserInterfaceStyle = .unspecified
+
+  open override func setPrimitiveTraitCollection(_ traitCollection: ASPrimitiveTraitCollection) {
+
+    // 🤷🏻‍♂️
+    // texture does not support for UIView.overrideUserinterfaceStyle
+    var _traitCollection = traitCollection
+    if case .unspecified = overrideUserinterfaceStyle {
+
+    } else {
+      _traitCollection.userInterfaceStyle = overrideUserinterfaceStyle
+    }
+    super.setPrimitiveTraitCollection(_traitCollection)
+  }
+
 }
