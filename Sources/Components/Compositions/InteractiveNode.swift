@@ -27,7 +27,7 @@ import Descriptors
  A display node that supports interactions tap and long-press.
  According to that, animations are also supported.
  */
-open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
+open class InteractiveNode<D: ASDisplayNode>: NamedDisplayNodeBase {
 
   public typealias BodyNode = D
   
@@ -119,18 +119,6 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
 
     self.highlightHandler = context.handler
 
-    addTarget(
-      self,
-      action: #selector(_touchUpInside),
-      forControlEvents: .touchUpInside
-    )
-
-    addTarget(
-      self,
-      action: #selector(_touchDownInside),
-      forControlEvents: .touchDown
-    )
-
     if useLongPressGesture {
       let longPressGesture = UILongPressGestureRecognizer(
         target: self,
@@ -151,21 +139,46 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
     }
   }
 
-  open override var isHighlighted: Bool {
-    didSet {
-      highlightHandler?(isHighlighted, self.view, animationTargetNode.view)
-    }
-  }
-
   @MainActor
-  @objc private func _touchDownInside() {
+  public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    
+    super.touchesBegan(touches, with: event)
+    
+    highlightHandler?(true, self.view, animationTargetNode.view)
     haptics?.send(event: .onTouchDownInside)
   }
-
+  
   @MainActor
-  @objc private func _touchUpInside() {
+  public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    
+    super.touchesEnded(touches, with: event)
+    
+    highlightHandler?(false, self.view, animationTargetNode.view)
+    
+    guard !shouldCancelTouches(touches) else {
+      return
+    }
+    
     haptics?.send(event: .onTouchUpInside)
     handlers.onTap()
+  }
+  
+  @MainActor
+  public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    
+    super.touchesMoved(touches, with: event)
+    
+    if shouldCancelTouches(touches) {
+      highlightHandler?(false, self.view, animationTargetNode.view)
+    } else {
+      highlightHandler?(true, self.view, animationTargetNode.view)
+    }
+  }
+  
+  @MainActor
+  public override func touchesCancelled(_ touches: Set<UITouch>?, with event: UIEvent?) {
+    super.touchesCancelled(touches, with: event)
+    highlightHandler?(false, self.view, animationTargetNode.view)
   }
 
   @MainActor
@@ -187,5 +200,14 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
   public func onLongPress(_ handler: @escaping @MainActor (CGPoint) -> Void) -> Self {
     handlers.onLongPress = handler
     return self
+  }
+  
+  private func shouldCancelTouches(_ touches: Set<UITouch>) -> Bool {
+    guard
+      let touch = touches.first,
+      bounds.insetBy(dx: -50, dy: -50).contains(touch.location(in: self.view)) else {
+      return true
+    }
+    return false
   }
 }
