@@ -34,7 +34,7 @@ public final class ShapeDrawingNode: ASDisplayNode, ShapeDisplaying {
     var shapePath: UIBezierPath?
     var shapeLineWidth: CGFloat = 0
     var shapeStrokeColor: UIColor?
-    var userInterfaceStyle: UIUserInterfaceStyle = .light
+    var userInterfaceStyle: UIUserInterfaceStyle = .unspecified
   }
   
   private final class ParameterBox: NSObject {
