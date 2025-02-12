@@ -34,6 +34,7 @@ public final class ShapeDrawingNode: ASDisplayNode, ShapeDisplaying {
     var shapePath: UIBezierPath?
     var shapeLineWidth: CGFloat = 0
     var shapeStrokeColor: UIColor?
+    var userInterfaceStyle: UIUserInterfaceStyle = .light
   }
   
   private final class ParameterBox: NSObject {
@@ -104,17 +105,38 @@ public final class ShapeDrawingNode: ASDisplayNode, ShapeDisplaying {
     let backing = parameter.backing
     
     guard let path = backing.shapePath else { return }
-    
+
+    let userInterfaceStyle = backing.userInterfaceStyle
+
     path.lineWidth = backing.shapeLineWidth
         
-    backing.shapeFillColor?.setFill()
+    backing.shapeFillColor?
+      .resolvedColor(with: .init(userInterfaceStyle: userInterfaceStyle))
+      .setFill()
+
     path.fill()
     
-    backing.shapeStrokeColor?.setStroke()
+    backing.shapeStrokeColor?
+      .resolvedColor(with: .init(userInterfaceStyle: userInterfaceStyle))
+      .setStroke()
 
     path.stroke()
     
   }
-  
+
+  public override func asyncTraitCollectionDidChange(
+    withPreviousTraitCollection previousTraitCollection: ASPrimitiveTraitCollection
+  ) {
+    super.asyncTraitCollectionDidChange(withPreviousTraitCollection: previousTraitCollection)
+    let userInterfaceStyle = asyncTraitCollection().userInterfaceStyle
+    guard
+      self.backing.userInterfaceStyle != userInterfaceStyle
+    else {
+      return
+    }
+    self.backing.userInterfaceStyle = userInterfaceStyle
+  }
+
+
 }
 
