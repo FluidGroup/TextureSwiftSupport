@@ -86,7 +86,12 @@ public final class ShapeDrawingNode: ASDisplayNode, ShapeDisplaying {
     backgroundColor = .clear
     clipsToBounds = false
   }
-  
+
+  public override func didLoad() {
+    super.didLoad()
+    self.backing.userInterfaceStyle = asyncTraitCollection().userInterfaceStyle
+  }
+
   public override func layout() {
     super.layout()
     if let closure = updateClosure {
