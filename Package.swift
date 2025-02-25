@@ -10,7 +10,7 @@ let package = Package(
     .library(name: "TextureSwiftSupport", targets: ["TextureSwiftSupport"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/FluidGroup/Texture.git", branch: "john/mainActor"),
+    .package(url: "https://github.com/FluidGroup/Texture.git", from: "3.0.3"),
     .package(url: "https://github.com/FluidGroup/Descriptors", from: "0.2.0"),
   ],
   targets: [
