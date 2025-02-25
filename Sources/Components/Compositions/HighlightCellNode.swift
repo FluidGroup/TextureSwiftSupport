@@ -40,7 +40,7 @@ open class HighlightCellNode<D: ASDisplayNode>: NamedDisplayCellNodeBase {
        If body uses layer-backing, it can't take a view to animate by UIView based animation.
        With wrapping another node, it enables body-node can be animatable.
        */
-      self.animationTargetNode = AnyWrapperNode { body }
+      self.animationTargetNode = AnyWrapperNode(content: body)
     } else {
       self.animationTargetNode = body
     }

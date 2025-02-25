@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/FluidGroup/Texture.git",
       "state" : {
-        "revision" : "68df47f0d26522da76b06f22e9a97e4d4ab58dad",
-        "version" : "3.0.2"
+        "branch" : "john/mainActor",
+        "revision" : "593b584aaaecc9b26818eed73be10fad902006db"
       }
     }
   ],

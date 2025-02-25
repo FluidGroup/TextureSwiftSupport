@@ -106,7 +106,7 @@ open class AnyDisplayNode: SafeAreaDisplayNode {
   }
 
   @available(*, unavailable)
-  open override func onDidLoad(_ body: @escaping ASDisplayNodeDidLoadBlock) {
+  open override func onDidLoad(_ body: @escaping @MainActor (ASDisplayNode) -> Void) {
     super.onDidLoad(body)
   }
 

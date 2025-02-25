@@ -72,7 +72,7 @@ open class InteractiveNode<D: ASDisplayNode>: NamedDisplayControlNodeBase {
        If body uses layer-backing, it can't take a view to animate by UIView based animation.
        With wrapping another node, it enables body-node can be animatable.
        */
-      animationTargetNode = AnyWrapperNode { body }
+      animationTargetNode = AnyWrapperNode(content: body)
     } else {
       animationTargetNode = body
     }
