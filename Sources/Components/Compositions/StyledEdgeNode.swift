@@ -233,7 +233,7 @@ public class StyledEdgeNode<ContentNode: ASDisplayNode>: NamedDisplayNodeBase {
       defer {
         CATransaction.commit()
       }
-s
+
       switch self.cornerRoundingStrategy {
       case .clip(let assimilationColor):
 
