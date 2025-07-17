@@ -302,6 +302,19 @@ public class StyledEdgeNode<ContentNode: ASDisplayNode>: NamedDisplayNodeBase {
 
   }
 
+  public override func asyncTraitCollectionDidChange(
+    withPreviousTraitCollection previousTraitCollection: ASPrimitiveTraitCollection
+  ) {
+    super.asyncTraitCollectionDidChange(withPreviousTraitCollection: previousTraitCollection)
+    let userInterfaceStyle = asyncTraitCollection().userInterfaceStyle
+    guard
+      previousTraitCollection.userInterfaceStyle != userInterfaceStyle
+    else {
+      return
+    }
+    self.updateStrategy()
+  }
+
 }
 
 extension ShapeDisplaying {
